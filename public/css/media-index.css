@@ -1,0 +1,24 @@
+@media (max-width: 480px) {
+	.main-statistic-wrap .statistic-registraion-wrap div:last-child {
+		display: none;
+	}
+}
+@media (max-width: 590px) {
+	.main-statistic-wrap .statistic-registraion-wrap .sr-text-wrap {
+		display: none;
+	}
+	.main-statistic-wrap .statistic {
+		width: 40vw;
+		min-width: 170px;
+		height: 40vw !important;
+		min-height: 170px;
+	}
+}
+@media (max-width: 768px) {
+	.main-describe-block {
+		height: initial;
+	}
+	.describe-video-wrap {
+		padding: 5% 0;
+	}
+}

@@ -1,337 +1,293 @@
-/*
-** =====================================
-**      _-= Модальное окно =-_
-** =====================================
-*/
+.scrollbar::-webkit-scrollbar-track
+{
+	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+	/*background-color: #F5F5F5;*/
+}
 
-.modal_ant_open
+.scrollbar::-webkit-scrollbar
 {
-    transform: translateY(0px) !important;
+	width: 1%;;
+	/*background-color: #F5F5F5;*/
 }
-.modal_ant_wrap
+
+.scrollbar::-webkit-scrollbar-thumb
 {
-    display: none;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    transition: 0.5s;
-    z-index: 3;
-    background-color: rgba(128, 128, 128, 0.5);
+	background-color: lightgrey;
+	/*border: 2px solid lightgrey;*/
 }
-.modal_ant_wrap .modal_ant
-{
-    margin: 0 auto;
-    margin-top: 50px;
-    min-width: 25%;
-    width: 45%;
-    height: 45%;
-    min-width: 172px;
-	max-width: 30%;
-    /*padding: 1%;*/
-    color: #616161;
-    font-size: 2vw;
-    font-family: sans-serif;
-    text-align: center;
-    transform: translateY(-500px);
-    transition: 0.5s;
-    background: white;
-    border-radius: 2px;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),
-                0 2px 10px 0 rgba(0,0,0,0.12);
-}
-.modal_ant_wrap .modal_ant .modal_ant_text
-{
-	height: 10%;
-	font-size: 2vh;
-	line-height: 4vh;
+html, body, .content-main {
 	overflow: hidden;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
 }
-.upload_field
-{
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 80%;
-    border: 0.2vh solid #b8b8b8;
-    text-align: left;
-    transition: 0.5;
-}
-.upload_field form
-{
-    position: relative;
-    height: 99%;
-    opacity: 0.4;
-    background: url(../../images/icons/upload_icon.png);
-    background-size: 13%;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-}
-.upload_field form input
-{
-    position: absolute;
-    left: 0;
-    top: -24px;
-    width: 100%;
-    height: 110%;
-    outline: none;
-}
-.upload_field form input:hover
-{
-    cursor: pointer;
-}
-.upload_field .file_name
-{
-    font-size: 18px;
-    font-family: sans-serif;
-    text-align: center;
-}
-.upload_field .file_name > div
-{
-    position: absolute;
-    top: 0;
-    left: 0;
+html, body, .content-main, .container, .row {
     height: 100%;
+	 font-family: 'Roboto Black Italic', arial;
+}
+.container {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+h1 {font-size: 12vh;}
+h2 {font-size: 10vh;}
+h3 {font-size: 8vh;}
+h4 {font-size: 6vh;}
+h5 {font-size: 4vh;}
+h6 {font-size: 3vh;font-weight: normal;}
+/*
+** main slider
+*/
+.content-main .container {
+    padding: 0;
     width: 100%;
-    color: white;
-    font-family: sans-serif;
-    background: black;
-    opacity: 0.8;
+    /*max-width: 1200px;*/
 }
-.modal_ant .modal_ant_btn
-{
-	height: 10%;
-	padding: 0.5vh;
+.content-main .container .main-slider-top {
+    margin: 0;
+    /*height: 500px;*/
 }
-.modal_ant .modal_ant_btn .btn_save_file,
-.modal_ant .modal_ant_btn .btn_close_modal
-{
-	float: right;
+.content-main .container .main-slider-top .col {
+    padding: 0;
+}
+.content-main .container .main-slider-top .col .carousel,
+.content-main .container .main-slider-top .col .carousel-inner,
+.content-main .container .main-slider-top .col .carousel-inner .carousel-item,
+.content-main .container .main-slider-top .col .carousel-inner .carousel-item .img-fluid {
     height: 100%;
-	padding: 0.5vh 16px;
-    color: #00bcd4;
-    font-family: sans-serif;
-    font-size: 2.5vh;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: 0.5s;
+}
+.content-main .container .main-slider-top .col .carousel-inner .carousel-item {
+    justify-content: center;
+}
+.content-main .container .main-slider-top .col .carousel-inner .carousel-item .img-fluid {
+    max-width: none;
+}
+.carousel-inner .carousel-item .carousel-caption {
+    bottom: 30%;
+    opacity: 0;
+}
+.carousel-inner .carousel-item .carousel-caption h2 {
+	font-size: 6vh;
+	/*font-size: 2.3rem;*/
+}
+.carousel-inner .carousel-item .carousel-caption h1 {
+	font-size: 12vh;
+	/*font-size: 5rem;*/
+}
+.carousel-control-next,
+.carousel-control-prev {
+    width: 10%;
 }
 
-.modal_ant .modal_ant_btn .btn_save_file:hover,
-.modal_ant .modal_ant_btn .btn_close_modal:hover
-{
-    cursor: pointer;
-    background: #00bcd4;
-    color: white;
+/*
+** main describe block
+*/
+.main-describe-block {
+	padding: 0 3% 0 5%;
+	overflow: hidden;
+	border-bottom: 1px solid lightgray;
 }
-.modal_ant .modal_ant_btn .btn_save_file:active,
-.modal_ant .modal_ant_btn .btn_close_modal:active
-{
-    transition: 0.2s;
-    background: #4dd0e1;
+.describe-text-header {
+	text-align: center;
+	margin-top: 2vh;
+	margin-bottom: 3vh;
 }
-.modal_photo_wrap .modal_photo_content
-{
-	position: initial;
+.describe-text-header h4 {
+	margin: 0;
+}
+.describe-text {
+	height: 60vh;
+	overflow: auto;
+	text-align: justify;
+}
+.describe-text h6 {
+	font-family: sans-serif;
+}
+
+.describe-video-wrap {
+	display: flex;
+	justify-content: center;
+	/*align-items: center;*/
+	height: 100%;
+}
+.describe-video-wrap iframe {
+	width: 100%;
+	height: 60vh;
+}
+.btn-describe-more {
+	position: relative;
+	box-sizing: content-box;
+	display: inline-block;
+    padding: 2% 5%;
+	margin-top: 2vh;
+    border: 1px solid lightgray;
+	cursor: pointer;
+	color: #ED939D;
+	text-decoration: none;
+}
+.btn-describe-more:active,
+.btn-describe-more:hover {
+	text-decoration: none;
+	color: #ED939D;
+}
+.btn-describe-more:after {
+    position: absolute;
+	top: -2px;
+    height: 102%;
+    width: 6vh;
+    right: -6vh;
+	background: #557780;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid lightgrey;
+	border-left: none;
+	content: '>';
+	font-size: 4vh;
+	text-align: center;
+	color: #fff;
+	transition: 0.3s;
+}
+.btn-describe-more:hover:after {
+	background: #ED939D;
+}
+.btn-describe-more h5 {
+	margin: 0;
+}
+
+/*
+** main statistic wrap
+*/
+.main-statistic-wrap {
+    padding: 0 3% 0 5%;
+	background: url('../../images/pages/index/statistic-background.png') no-repeat;
+	background-position: 100% 30%;
+	overflow: auto;
+	overflow-x: hidden;
+}
+.main-statistic-wrap > div:last-child,
+.main-statistic-wrap > div:first-child {
+	height: 15%;
+	padding: 0;
+}
+.main-statistic-wrap > div:nth-child(2) {
+	height: 70%;
+	margin-left: -2vh;
+}
+.main-statistic-wrap .statistic-registraion-wrap {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	height: 100%;
+	padding-right: 6vh;
+	color: #ED939D;
+}
+.btn-registration-join {
+	position: relative;
+	padding: 2vh 3vh;
+	border: 0.2vh solid lightgrey;
+	text-decoration: none;
+	color: #ED939D;
+	cursor: pointer;
+}
+.btn-registration-join:active,
+.btn-registration-join:hover {
+	text-decoration: none;
+	color: #ED939D;
+}
+.btn-registration-join:after {
+	position: absolute;
+	top: -2px;
+    height: 109%;
+	width: 6vh;
+    right: -6vh;
+	background: #557780;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid lightgrey;
+	border-left: none;
+	content: '>';
+	font-size: 4vh;
+	text-align: center;
+	color: #fff;
+	transition: 0.3s;
+}
+.btn-registration-join:hover:after {
+	background: #ED939D;
+}
+
+.btn-registration-join h6 {
+	margin: 0;
+}
+.main-statistic-wrap .statistic {
+	display: inline-block;
+	width: 35vh;
+	height: 35vh !important;
+	padding: 2vh;
+	font-size: 6vh;
+}
+.main-statistic-wrap .statistic h6 {
+	text-align: center;
+}
+.main-statistic-wrap .statistic div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	height: 100%;
+	width: 100%;
+	padding: 30% 0;
+	background: #ED939D;
+	border-radius: 5px;
+	color: #fff;
 }
 /*
-** =====================================
-**      _-= Центральный блок =-_
-** =====================================
+** main new user
 */
-
-.central_part_wrap
-{
-    position: relative;
-    height: 80%;
-    margin: 3% 5% 0% 5%;
+.main-new-users {
+	background: rgba(237, 147, 157, 0.5);
 }
-.central_part_wrap .your_photos
-{
-    position: absolute;
-    display: inline-block;
-    right: 0;
-    height: 100%;
-    width: 30%;
-    background: white;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),
-                0 2px 10px 0 rgba(0,0,0,0.12);
+.main-new-users > div:first-child {
+	height: 20%;
+	background-color: #c94c67;
 }
-.your_photos .photos_list
-{
-    padding: 0;
-    margin: 0;
-    list-style:none;
+.main-new-users .main-article-wrap {
+	padding: 0 2vh;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	list-style: none;
 }
-
-/* Елемент с фотографиями */
-.your_photos
-{
-    overflow-y: auto;
-    overflow-x: hidden;
+.main-new-users .main-article-wrap li {
+	float: left;
+	width: 25%;
+	height: 100%;
+	transition: 0.3s;
+	font-size: 2vh;
 }
-.your_photos .photos_list .photo
-{
-    position: relative;
-    padding: 2%;
+.main-new-users .main-article-wrap li:hover {
+	background: #fff;
+	cursor: pointer;
 }
-.your_photos .photos_list .photo img
-{
-    max-width: 100%;
-    display: block;
-    margin: 0 auto;
+.main-new-users .main-article-wrap li .item-text,
+.main-new-users .main-article-wrap li .item-icon {
+	height: 60%;
+	padding-left: 6vh;
 }
-.your_photos .photos_list .photo img:hover{cursor: pointer;}
-/* Елемент с камерой и картинками */
-.central_part_wrap .view_camera
-{
-    position: relative;
-    display: inline-block;
-    height: 100%;
-    width: 69%;
-}
-.view_camera .camera
-{
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    height: 79%;
-    background: black;
-    margin: 0 auto;
-    margin-bottom: 1%;
-    background: white;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),
-                0 2px 10px 0 rgba(0,0,0,0.12);
-}
-.upload_file,
-.view_camera input[type="file"]
-{
-	display: none;
-}
-.view_camera .camera .canvas_area_wrap {
-    display: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    overflow: hidden;
-}
-.view_camera .camera .canvas_area_wrap .canvas_area {
-    position: relative;
-    height: 100%;
-    width: 100%;
-}
-.view_camera .camera .canvas_area img {
-    position: absolute;
-    height: 35%;
-    width: auto;
-    /*-webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;*/
-}
-
-.view_camera .camera .btn {
-    height: auto;
-}
-.view_camera .camera .video {
-    display: none;
-    margin: 0 auto;
-    max-width: 100%;
-    max-height: 100%;
-    width: initial;
-}
-.view_camera .camera .create_photo_btn {
-    display: none;
-    position: absolute;
-    bottom: 5%;
-    right: 0;
-    padding: 0 3%;
-    color: #ddd;
-    font-size: 3.5vh;
-    z-index: 4;
-}
-.view_camera .camera .delete_canvas,
-.view_camera .camera .rotate_canvas_left,
-.view_camera .camera .rotate_canvas_right,
-.view_camera .camera .zoom_canvas_minus,
-.view_camera .camera .zoom_canvas_plus {
-    display: none;
-    position: absolute;
-    bottom: 15%;
-    left: 0;
-    font-size: 4.5vh;
+.main-new-users .main-article-wrap li .item-text {
+	height: 40%;
+	font-size: 2vh;
     color: #fff;
-    z-index: 4;
 }
-.view_camera .camera .rotate_canvas_right {bottom: 35%;}
-.view_camera .camera .rotate_canvas_left {bottom: 45%;}
-.view_camera .camera .zoom_canvas_minus {bottom: 25%;}
-.view_camera .camera .delete_canvas{bottom: 5%;}
-/*.view_camera .canvas_on_photo {
-    position: absolute;
-}*/
-.view_camera canvas {
-    display: none;
-    /*position: absolute;*/
-    /*right: 0;*/
+.main-new-users .main-article-wrap li .item-icon {
+	padding-left: 6vh;
+	font-size: 6vh;
+	line-height: 16vh;
+	color: #fff;
+}
+.main-new-users .main-article-wrap li:hover .item-icon,
+.main-new-users .main-article-wrap li:hover .item-text {
+	color: #c94c67;
 }
 
-.view_camera .adding_elements_wrap
-{
-    position: relative;
-    display: inline-block;
-    height: 20%;
-    width: 100%;
-    background: white;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),
-                0 2px 10px 0 rgba(0,0,0,0.12);
-    overflow: scroll;
-    overflow-y: hidden;
+
+.main-new-users > div:last-child {
+	height: 80%;
 }
-.view_camera .adding_elements_wrap .adding_elements_list
-{
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    white-space: nowrap;
-    list-style: none;
-}
-.adding_elements_wrap .adding_elements_list .add_elem
-{
-    margin: 0.5vh;
-    display: inline;
-    height: 100%;
-}
-.adding_elements_wrap .adding_elements_list .add_elem:hover img
-{
-    opacity: 0.8;
-    cursor: pointer;
-}
-.adding_elements_list .add_elem img{height: 100%;}
-.view_camera .add_new_elem
-{
-    position: absolute;
-    bottom: 10%;
-    right: 1%;
-    height: 7vh;
-    width: 7vh;
-    border-radius: 199%;
-    background: limegreen;
-    text-align: center;
-    font-size: 5.5vh;
-    color: white;
-    font-family: sans-serif;
-    font-weight: 800;
-    z-index: 2;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-    overflow: hidden;
-}
-.view_camera .add_new_elem:hover
-{
-    cursor: pointer;
-    transition: 0.2s;
-}
-.view_camera .add_new_elem > div{transform: translateY(-5%);}
