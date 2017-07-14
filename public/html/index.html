@@ -18,7 +18,7 @@
 
 		<!--External stylesheets-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-		<link href="http://allfont.ru/allfont.css?fonts=roboto-black-italic" rel="stylesheet" type="text/css" />
+		<!-- <link href="http://allfont.ru/allfont.css?fonts=roboto-black-italic" rel="stylesheet" type="text/css" /> -->
 
 		<!--Internal stylesheets-->
 		<link rel="stylesheet" href="../../public/css/index.css">
@@ -26,12 +26,14 @@
 
 		<!--Internal scripts-->
 		<script type="text/javascript" src="../../public/js/index.js"></script>
+		<script type="text/javascript" src="../../public/js/classes/Class.Anchor.js"></script>
+		<script type="text/javascript" src="../../public/js/classes/Class.MainSlider.js"></script>
 
 	</head>
 	<body>
 		<div class="content-main">
 			<div class="container scrollbar">
-				<div class="row main-slider-top">
+				<div class="row main-slider-top" id="main-slider">
 					<div class="col">
 						<div id="mainCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
 							<ol class="carousel-indicators">
@@ -73,7 +75,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row main-describe-block">
+				<div class="row main-describe-block" id="main-describe-block">
 					<div class="col-12">
 						<div class="describe-text-header">
 							<h4>Project Matcha of <br> school 42</h4>
@@ -112,14 +114,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="row main-statistic-wrap">
+				<div class="row main-statistic-wrap" id="main-statistic-wrap">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<div class="statistic-registraion-wrap">
 							<div class="sr-text-wrap">
 								<h4>JOIN, IT`S FREE!</h2>
 								<h5>AND START DATING TODAY...</h3>
 							</div>
-							<a class="btn-registration-join" href="#">
+							<a class="btn-registration-join" href="#" target="_blank">
 								<h6>JOIN US NOW!</h6>
 							</a>
 						</div>
@@ -155,7 +157,7 @@
 
 					</div>
 				</div>
-				<div class="row main-new-users">
+				<div class="row main-new-users" id="main-new-users">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<ul class="main-article-wrap">
 							<li class="item">
@@ -193,7 +195,87 @@
 						</ul>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="last-added-profiles">
+							<h3>LAST ADDED PROFILES :</h3>
+						</div>
+						<div class="lap-list-wrap">
+							<ul class="lap-list clearfix">
+								<li class="lap-item">
+									<div class="lap-img-wrap">
+										<img src="../../images/doctor.jpg" alt="">
+									</div>
+									<div class="lap-bottom-text">
+										<a href="#" class="lap-btn-more">></a>
+										<div class="name">
+											Doctor WHO
+										</div>
+										<div class="age">
+											9999+ years old
+										</div>
+									</div>
+								</li>
+								<li class="lap-item">
+									<div class="lap-img-wrap">
+										<img src="../../images/doctor.jpg" alt="">
+									</div>
+									<div class="lap-bottom-text">
+										<a href="#" class="lap-btn-more">></a>
+										<div class="name">
+											Doctor WHO
+										</div>
+										<div class="age">
+											9999+ years old
+										</div>
+									</div>
+								</li>
+								<li class="lap-item">
+									<div class="lap-img-wrap">
+										<img src="../../images/doctor.jpg" alt="">
+									</div>
+									<div class="lap-bottom-text">
+										<a href="#" class="lap-btn-more">></a>
+										<div class="name">
+											Doctor WHO
+										</div>
+										<div class="age">
+											9999+ years old
+										</div>
+									</div>
+								</li>
+								<li class="lap-item">
+									<div class="lap-img-wrap">
+										<img src="../../images/doctor.jpg" alt="">
+									</div>
+									<div class="lap-bottom-text">
+										<a href="#" class="lap-btn-more">></a>
+										<div class="lap-name">
+											Doctor WHO
+										</div>
+										<div class="la-age">
+											9999+ years old
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="main-footer">
+							<h6>created by gsominsk</h6>
+						</div>
 					</div>
+				</div>
+				<div class="main-anchor" id="main-anchor">
+					<a href="#main-slider" class="active">
+						<i class="fa fa-circle" aria-hidden="true"></i>
+					</a>
+					<a href="#main-describe-block">
+						<i class="fa fa-circle" aria-hidden="true"></i>
+					</a>
+					<a href="#main-statistic-wrap">
+						<i class="fa fa-circle" aria-hidden="true"></i>
+					</a>
+					<a href="#main-new-users">
+						<i class="fa fa-circle" aria-hidden="true"></i>
+					</a>
 				</div>
 			</div>
 		</div>

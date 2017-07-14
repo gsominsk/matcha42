@@ -13,6 +13,24 @@
 		height: 40vw !important;
 		min-height: 170px;
 	}
+	.main-new-users .main-article-wrap li .item-text {
+		font-size: 2vw;
+		text-align: center;
+		padding-left: 2vh;
+	}
+	.main-new-users .main-article-wrap li .item-icon {
+		text-align: center;
+		padding-left: 2vh;
+	}
+	.main-new-users .last-added-profiles {
+		padding: 0 2vh;
+	}
+	.main-new-users .last-added-profiles h3 {
+		font-size: 8vw;
+	}
+}
+@media (max-width: 620px) {
+
 }
 @media (max-width: 768px) {
 	.main-describe-block {
@@ -21,4 +39,10 @@
 	.describe-video-wrap {
 		padding: 5% 0;
 	}
+	.lap-bottom-text {
+	    font-size: 2vw;
+	}
+}
+@media (max-width: 940px) {
+
 }
