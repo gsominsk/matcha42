@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>
+			Matcha
+		</title>
+		<link rel="shortcut icon" href="../../images/1.png" type="image/png">
+
+		<!--External scripts-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+
+		<!--Bootstrap-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+		<!--External stylesheets-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+		<!-- <link href="http://allfont.ru/allfont.css?fonts=roboto-black-italic" rel="stylesheet" type="text/css" /> -->
+
+		<!--Internal stylesheets-->
+		<link rel="stylesheet" href="../../public/css/fonts.css">
+		<link rel="stylesheet" href="../../public/css/folders.css">
+		<link rel="stylesheet" href="../../public/css/profile.css">
+		<link rel="stylesheet" href="../../public/css/media-profile.css">
+
+		<!--Internal scripts-->
+		<script type="text/javascript" src="../../public/js/profile.js"></script>
+
+		<!-- Folders -->
+		<link rel="import" href="public/html/folder/header.html">
+
+	</head>
+	<body>
+		<div class="content-main">
+			<div class="container scrollbar">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 profile-menu-wrap">
+						<div class="profile-menu">
+							<div class="profile-avatar-wrap">
+								<img src="../../images/userPhotos/test-user/1.jpg" alt="">
+							</div>
+							<ul class="profile-menu-list">
+								<li class="pml-item" data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+									Мой профиль
+								</li>
+								<li class="pml-item" data-target="#carouselExampleIndicators" data-slide-to="1">
+									Мои сообщения
+								</li>
+								<li class="pml-item" data-target="#carouselExampleIndicators" data-slide-to="2">
+									Мои друзья
+								</li>
+								<li class="pml-item" data-target="#carouselExampleIndicators" data-slide-to="3">
+									Настройки
+								</li>
+							</ul>
+							<ul class="profile-menu-list">
+								<li class="pml-item" data-target="#carouselExampleIndicators" data-slide-to="4">
+									Поиск
+								</li>
+								<li class="pml-item" data-target="#carouselExampleIndicators" data-slide-to="5">
+									Черный список
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 all-content-wrap">
+						<div class="all-content">
+							<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+								<div class="carousel-inner" role="listbox">
+									<div class="carousel-item active">
+										Profile
+									</div>
+									<div class="carousel-item">
+										Messages
+									</div>
+									<div class="carousel-item">
+										Friends
+									</div>
+									<div class="carousel-item">
+										Options
+									</div>
+									<div class="carousel-item">
+										Search
+									</div>
+									<div class="carousel-item">
+										Black List
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		var link = document.querySelectorAll('link[rel=import]')[0];
+		var content = link.import.body.childNodes[0];
+		document.getElementsByClassName('container')[0].insertBefore(content, document.getElementsByClassName('container')[0].firstChild);
+	</script>
+
+</html>

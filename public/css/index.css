@@ -23,7 +23,7 @@ html, body, .content-main {
 }
 html, body, .content-main, .container, .row {
     height: 100%;
-	 font-family: 'Roboto Black Italic', arial;
+	font-family: 'Roboto Black Italic', arial;
 }
 .container {
 	overflow-y: auto;

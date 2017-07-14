@@ -1,4 +1,4 @@
-DirectoryIndex public/html/index.html
+DirectoryIndex public/html/profile.html
 ErrorDocument 404 /public/html/404.html
 ErrorDocument 403 /public/html/404.html
 AddDefaultCharset UTF-8

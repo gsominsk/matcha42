@@ -1,0 +1,64 @@
+.content-main {
+    background: #EBE1E2;
+}
+.content-main .container {
+    padding: 0;
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+/*
+** ==========================
+**       profile menu
+** ==========================
+*/
+.content-main .container .row:last-child {
+    justify-content: center;
+    height: calc(100% - 60px);
+    margin: 0;
+    padding-top: 20px;
+    /*padding: 0 100px;*/
+    overflow: hidden;
+    overflow-y: auto;
+}
+.all-content-wrap,
+.profile-menu-wrap {
+    padding: 0 10px;
+}
+.all-content {
+    background: #fff;
+    height: 100%;
+}
+.profile-menu {
+    height: 100%;
+}
+.profile-menu .profile-avatar-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+    background: #000;
+    overflow: hidden;
+}
+.profile-menu .profile-avatar-wrap img {
+    max-height: 100%;
+}
+.profile-menu .profile-menu-list {
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #fff;
+    list-style: none;
+}
+.profile-menu-list .pml-item {
+    font-family: 'Roboto Black', arial;
+    cursor: pointer;
+    transition: 0.2s;
+    /*font-size: 1.2em;*/
+}
+.profile-menu-list .pml-item:hover {
+    color: grey;
+}
