@@ -27,6 +27,7 @@
 		<link rel="stylesheet" href="../../public/css/media-profile.css">
 
 		<!--Internal scripts-->
+		<script type="text/javascript" src="../../public/js/classes/Class.TextareaAutoresize.js"></script>
 		<script type="text/javascript" src="../../public/js/profile.js"></script>
 
 		<!-- Folders -->
@@ -37,56 +38,354 @@
 		<div class="content-main">
 			<div class="container scrollbar">
 				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 profile-menu-wrap">
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 profile-menu-wrap">
 						<div class="profile-menu">
 							<div class="profile-avatar-wrap">
 								<img src="../../images/userPhotos/test-user/1.jpg" alt="">
 							</div>
 							<ul class="profile-menu-list">
-								<li class="pml-item" data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+								<li class="pml-item" data-target="#profileMainContentCarousel" data-slide-to="0" class="active">
 									Мой профиль
 								</li>
-								<li class="pml-item" data-target="#carouselExampleIndicators" data-slide-to="1">
+								<li class="pml-item" data-target="#profileMainContentCarousel" data-slide-to="1">
 									Мои сообщения
 								</li>
-								<li class="pml-item" data-target="#carouselExampleIndicators" data-slide-to="2">
+								<li class="pml-item" data-target="#profileMainContentCarousel" data-slide-to="2">
 									Мои друзья
 								</li>
-								<li class="pml-item" data-target="#carouselExampleIndicators" data-slide-to="3">
+								<li class="pml-item" data-target="#profileMainContentCarousel" data-slide-to="3">
 									Настройки
 								</li>
 							</ul>
 							<ul class="profile-menu-list">
-								<li class="pml-item" data-target="#carouselExampleIndicators" data-slide-to="4">
+								<li class="pml-item" data-target="#profileMainContentCarousel" data-slide-to="4">
 									Поиск
 								</li>
-								<li class="pml-item" data-target="#carouselExampleIndicators" data-slide-to="5">
+								<li class="pml-item" data-target="#profileMainContentCarousel" data-slide-to="5">
 									Черный список
 								</li>
 							</ul>
 						</div>
 					</div>
-					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 all-content-wrap">
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 all-content-wrap">
 						<div class="all-content">
-							<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+							<div id="profileMainContentCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
 								<div class="carousel-inner" role="listbox">
+									<div class="carousel-item">
+										<div class="gallery-photos-wrap">
+											<ul class="gallery-photos-list">
+												<li class="gpl-item">
+													<div class="gpl-img-wrap">
+														<img src="../../images/userPhotos/test-user/1.jpg" alt="">
+													</div>
+												</li>
+												<li class="gpl-item">
+													<div class="gpl-img-wrap">
+														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
+													</div>
+												</li>
+												<li class="gpl-item">
+													<div class="gpl-img-wrap">
+														<img src="../../images/userPhotos/test-user/3.jpg" alt="">
+													</div>
+												</li>
+												<li class="gpl-item">
+													<div class="gpl-img-wrap">
+														<img src="../../images/userPhotos/test-user/1.jpg" alt="">
+													</div>
+												</li>
+											</ul>
+										</div>
+										<div class="profile-info-wrap">
+											<div class="profile-name clearfix">
+												<span>Heorhii Sominskii</span>
+												<span>online</span>
+											</div>
+											<div class="hobbies-wrap">
+												<ul class="hobbies-list">
+													<li class="hl-item">#add_some_hashteg</li>
+												</ul>
+											</div>
+											<div class="profile-data-wrap">
+												<div class="profile-data-header">
+													PERSONAL INFORMATION
+												</div>
+												<ul class="profile-data-list">
+													<li class="pdl-item clearfix">
+														<span class="country-d">COUNTRY</span>
+														<span class="country">UKRAINE</span>
+													</li>
+													<li class="pdl-item clearfix">
+														<span class="city-d">CITY</span>
+														<span class="city">KIEV</span>
+													</li>
+													<li class="pdl-item clearfix">
+														<span class="age-d">AGE</span>
+														<span class="age">19</span>
+													</li>
+													<li class="pdl-item clearfix">
+														<span class="sex-d">SEX</span>
+														<span class="sex">MALE</span>
+													</li>
+													<li class="pdl-item clearfix">
+														<span class="sex-orienation-d">SEX ORIENTATION</span>
+														<span class="sex-orientation">GETERO</span>
+													</li>
+													<li class="pdl-item clearfix">
+														<span class="email-d">EMAIL</span>
+														<span class="email">zoedberg@i.ua</span>
+													</li>
+												</ul>
+											</div>
+											<div class="about-yourself-wrap">
+												<div class="about-yourself-header">
+													ABOUT YOURSELF
+												</div>
+												<textarea class="textareaAutoresize" name="about-yourself" disabled>Describe you and your hobbies</textarea>
+											</div>
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="profile-chat-wrap">
+											<ul class="profile-chat-list">
+												<div class="no-messages">NO MESSAGES YET</div>
+												<li class="pcl-item">
+													<div class="interlocutor-img-wrap">
+														<img src="../../images/userPhotos/test-user/1.jpg" alt="">
+													</div>
+													<div class="time-of-last-message">
+														11:08.07.2017
+													</div>
+													<div class="interlocutor-name">Some Name</div>
+													<input class="last-message-of-chat" value="some text sj jasf saj jav skav akj vkja vkjas vkjav" disabled>
+												</li>
+												<li class="pcl-item">
+													<div class="interlocutor-img-wrap">
+														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
+													</div>
+													<div class="time-of-last-message">
+														11:08.07.2017
+													</div>
+													<div class="interlocutor-name">Some Name</div>
+													<input class="last-message-of-chat" value="some text sj jasf saj jav skav akj vkja vkjas vkjav" disabled>
+												</li>
+												<li class="pcl-item">
+													<div class="interlocutor-img-wrap">
+														<img src="../../images/userPhotos/test-user/3.jpg" alt="">
+													</div>
+													<div class="time-of-last-message">
+														11:08.07.2017
+													</div>
+													<div class="interlocutor-name">Some Name</div>
+													<input class="last-message-of-chat" value="some text sj jasf saj jav skav akj vkja vkjas vkjav" disabled>
+												</li>
+											</il>
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="friends-list-wrap">
+											<ul class="friends-list">
+												<div class="no-friends-yet">
+													NO FRIENDS YET
+												</div>
+												<li class="fl-item clearfix">
+													<div class="friend-img-wrap">
+														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
+													</div>
+													<div class="friends-full-name">
+														Some Nmae
+													</div>
+													<div class="friend-dropdown dropdown">
+														<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+															<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+														</button>
+														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+															<a class="dropdown-item" href="#">Send message</a>
+															<a class="dropdown-item" href="#">Delete friend</a>
+															<a class="dropdown-item" href="#">Add to blacklist</a>
+															<a class="dropdown-item" href="#">Complain user</a>
+															<a class="dropdown-item" href="#">Fake account</a>
+														</div>
+													</div>
+												</li>
+												<li class="fl-item clearfix">
+													<div class="friend-img-wrap">
+														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
+													</div>
+													<div class="friends-full-name">
+														Some Nmae
+													</div>
+													<div class="friend-dropdown dropdown">
+														<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+															<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+														</button>
+														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+															<a class="dropdown-item" href="#">Send message</a>
+															<a class="dropdown-item" href="#">Delete friend</a>
+															<a class="dropdown-item" href="#">Add to blacklist</a>
+															<a class="dropdown-item" href="#">Complain user</a>
+															<a class="dropdown-item" href="#">Fake account</a>
+														</div>
+													</div>
+												</li>
+												<li class="fl-item clearfix">
+													<div class="friend-img-wrap">
+														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
+													</div>
+													<div class="friends-full-name">
+														Some Nmae
+													</div>
+													<div class="friend-dropdown dropdown">
+														<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+															<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+														</button>
+														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+															<a class="dropdown-item" href="#">Send message</a>
+															<a class="dropdown-item" href="#">Delete friend</a>
+															<a class="dropdown-item" href="#">Add to blacklist</a>
+															<a class="dropdown-item" href="#">Complain user</a>
+															<a class="dropdown-item" href="#">Fake account</a>
+														</div>
+													</div>
+												</li>
+												<li class="fl-item clearfix">
+													<div class="friend-img-wrap">
+														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
+													</div>
+													<div class="friends-full-name">
+														Some Nmae
+													</div>
+													<div class="friend-dropdown dropdown">
+														<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+															<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+														</button>
+														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+															<a class="dropdown-item" href="#">Send message</a>
+															<a class="dropdown-item" href="#">Delete friend</a>
+															<a class="dropdown-item" href="#">Add to blacklist</a>
+															<a class="dropdown-item" href="#">Complain user</a>
+															<a class="dropdown-item" href="#">Fake account</a>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="options-list-wrap">
+											<ul class="options-list">
+												<li class="ol-first-item">
+													CHANGE LANGUAGE
+												</li>
+												<li class="ol-item">
+													<span class="change-lan">language</span>
+													<div class="dropdown change-lan-dropdown">
+														<button class="btn btn-secondary dropdown-toggle" type="button" id="chooseLanDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+														</button>
+														<div class="dropdown-menu" aria-labelledby="chooseLanDropdown">
+															<a class="dropdown-item" href="#">EN</a>
+															<a class="dropdown-item" href="#">RU</a>
+														</div>
+													</div>
+												</li>
+											</ul>
+											<ul class="options-list">
+												<li class="ol-first-item">
+													ADD HASHTAGS
+												</li>
+												<li class="ol-item">
+													<input type="text" name="input-hashtag" placeholder="#some_hashtag">
+												</li>
+											</ul>
+											<!-- <ul class="options-list">
+												<li class="ol-first-item ol-item">
+													PRIVATE INFORMATION
+												</li>
+												<li class="ol-item">
+													<span class="show-email">show email</span>
+
+												</li>
+											</ul> -->
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="search-users-wrap">
+											<div class="search-input-wrap">
+												<input type="text" name="user-search-input">
+												<div class="dropdown search-filter-dropdown">
+													<button class="btn btn-secondary dropdown-toggle" type="button" id="applyUserFilters" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+														<i class="fa fa-cogs" aria-hidden="true"></i>
+													</button>
+													<div class="dropdown-menu" aria-labelledby="applyUserFilters">
+														<a class="dropdown-item" href="#">EN</a>
+														<a class="dropdown-item" href="#">RU</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="founded-users-list-wrap">
+											<ul class="founded-users-list">
+												<li class="ful-item clearfix">
+													<div class="founded-user-img-wrap">
+														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
+													</div>
+													<div class="founded-user-name">
+														Some Name
+													</div>
+												</li>
+												<li class="ful-item clearfix">
+													<div class="founded-user-img-wrap">
+														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
+													</div>
+													<div class="founded-user-name">
+														Some Name
+													</div>
+												</li>
+												<li class="ful-item clearfix">
+													<div class="founded-user-img-wrap">
+														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
+													</div>
+													<div class="founded-user-name">
+														Some Name
+													</div>
+												</li>
+												<li class="ful-item clearfix">
+													<div class="founded-user-img-wrap">
+														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
+													</div>
+													<div class="founded-user-name">
+														Some Name
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
 									<div class="carousel-item active">
-										Profile
-									</div>
-									<div class="carousel-item">
-										Messages
-									</div>
-									<div class="carousel-item">
-										Friends
-									</div>
-									<div class="carousel-item">
-										Options
-									</div>
-									<div class="carousel-item">
-										Search
-									</div>
-									<div class="carousel-item">
-										Black List
+										<div class="blacklist-wrap">
+											<ul class="blacklist">
+												<div class="blacklist-is-empty">
+													BLACK LIST IS EMPTY
+												</div>
+												<li class="bl-item clearfix">
+													<div class="bl-user-img-wrap">
+														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
+													</div>
+													<div class="bl-user-full-name">
+														Some Name
+													</div>
+													<div class="bl-dropdown dropdown">
+														<button class="btn btn-secondary dropdown-toggle" type="button" id="blacklistUserDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+															<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+														</button>
+														<div class="dropdown-menu" aria-labelledby="blacklistUserDropdown">
+															<a class="dropdown-item" href="#">Remove from blacklist</a>
+															<a class="dropdown-item" href="#">Complain user</a>
+															<a class="dropdown-item" href="#">Fake account</a>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
