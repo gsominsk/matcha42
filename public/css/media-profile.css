@@ -1,0 +1,15 @@
+@media (max-width: 576px) {
+    .modal-dialog-gallery {
+        margin: 0;
+        height: 100%;
+    }
+    .modal-photo-wrap {
+        height: 250px;
+    }
+    .modal-comments-wrap {
+        height: calc(100% - 250px);
+    }
+}
+@media (min-width: 576px) {
+    .all-content-wrap
+}

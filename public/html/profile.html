@@ -71,7 +71,7 @@
 						<div class="all-content">
 							<div id="profileMainContentCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
 								<div class="carousel-inner" role="listbox">
-									<div class="carousel-item">
+									<div class="carousel-item active">
 										<div class="gallery-photos-wrap">
 											<ul class="gallery-photos-list">
 												<li class="gpl-item">
@@ -141,7 +141,7 @@
 												<div class="about-yourself-header">
 													ABOUT YOURSELF
 												</div>
-												<textarea class="textareaAutoresize" name="about-yourself" disabled>Describe you and your hobbies</textarea>
+												<textarea class="textareaAutoresize" name="about-yourself" disabled>Describe yourself and your hobbies</textarea>
 											</div>
 										</div>
 									</div>
@@ -179,7 +179,52 @@
 													<div class="interlocutor-name">Some Name</div>
 													<input class="last-message-of-chat" value="some text sj jasf saj jav skav akj vkja vkjas vkjav" disabled>
 												</li>
-											</il>
+											</ul>
+											<div class="chat-wrap">
+												<div class="chat-header">
+													<div class="close-chat-btn">
+														<i class="fa fa-arrow-left" aria-hidden="true"></i>
+													</div>
+													<div class="chat-interlocutor-name">
+														Some Name
+													</div>
+													<div class="chat-interlocutor-avatar">
+														<img src="../../images/userPhotos/test-user/1.jpg" alt="">
+													</div>
+												</div>
+												<div class="chat-body scrollbar">
+													<ul class="chat-messages-wrap">
+														<li class="cmw-item left-message">
+															<div>
+																hello
+															</div>
+														</li>
+														<li class="cmw-item right-message">
+															<div>
+																hello
+															</div>
+														</li>
+														<li class="cmw-item left-message">
+															<div>
+																Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+															</div>
+														</li>
+														<li class="cmw-item right-message">
+															<div>
+																Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+															</div>
+														</li>
+													</ul>
+												</div>
+												<div class="chat-footer">
+													<div class="textarea-wrap scrollbar" contenteditable="true">
+
+													</div>
+													<div class="send-msg-btn">
+														<i class="fa fa-paper-plane" aria-hidden="true"></i>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 									<div class="carousel-item">
@@ -188,7 +233,7 @@
 												<div class="no-friends-yet">
 													NO FRIENDS YET
 												</div>
-												<li class="fl-item clearfix">
+												<li class="fl-item clearfix" data-target="#profileMainContentCarousel" data-slide-to="6">
 													<div class="friend-img-wrap">
 														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
 													</div>
@@ -360,7 +405,7 @@
 											</ul>
 										</div>
 									</div>
-									<div class="carousel-item active">
+									<div class="carousel-item">
 										<div class="blacklist-wrap">
 											<ul class="blacklist">
 												<div class="blacklist-is-empty">
@@ -387,9 +432,142 @@
 											</ul>
 										</div>
 									</div>
+									<div class="carousel-item scrollbar">
+										<div class="au-avatar-wrap">
+											<div class="au-avatar-img">
+												<img src="../../images/userPhotos/test-user/2.jpg" alt="">
+											</div>
+
+											<div class="au-profile-name clearfix">
+												<span>Heorhii Sominskii</span>
+												<span>online</span>
+											</div>
+										</div>
+										<div class="au-gallery-photos-wrap">
+											<ul class="au-gallery-photos-list">
+												<li class="au-gpl-item">
+													<div class="au-gpl-img-wrap">
+														<img src="../../images/userPhotos/test-user/1.jpg" alt="">
+													</div>
+												</li>
+												<li class="au-gpl-item">
+													<div class="au-gpl-img-wrap">
+														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
+													</div>
+												</li>
+												<li class="au-gpl-item">
+													<div class="au-gpl-img-wrap">
+														<img src="../../images/userPhotos/test-user/3.jpg" alt="">
+													</div>
+												</li>
+												<li class="au-gpl-item">
+													<div class="au-gpl-img-wrap">
+														<img src="../../images/userPhotos/test-user/1.jpg" alt="">
+													</div>
+												</li>
+											</ul>
+										</div>
+										<div class="au-profile-info-wrap">
+											<div class="au-hobbies-wrap">
+												<ul class="au-hobbies-list">
+													<li class="au-hl-item">#some_hashtegs</li>
+												</ul>
+											</div>
+											<div class="au-profile-data-wrap">
+												<div class="au-profile-data-header">
+													PERSONAL INFORMATION
+												</div>
+												<ul class="au-profile-data-list">
+													<li class="au-pdl-item clearfix">
+														<span class="au-country-d">COUNTRY</span>
+														<span class="au-country">UKRAINE</span>
+													</li>
+													<li class="au-pdl-item clearfix">
+														<span class="au-city-d">CITY</span>
+														<span class="au-city">KIEV</span>
+													</li>
+													<li class="au-pdl-item clearfix">
+														<span class="au-age-d">AGE</span>
+														<span class="au-age">19</span>
+													</li>
+													<li class="au-pdl-item clearfix">
+														<span class="au-sex-d">SEX</span>
+														<span class="au-sex">MALE</span>
+													</li>
+													<li class="au-pdl-item clearfix">
+														<span class="au-sex-orienation-d">SEX ORIENTATION</span>
+														<span class="au-sex-orientation">GETERO</span>
+													</li>
+													<li class="au-pdl-item clearfix">
+														<span class="au-email-d">EMAIL</span>
+														<span class="au-email">zoedberg@i.ua</span>
+													</li>
+												</ul>
+											</div>
+											<div class="au-about-yourself-wrap">
+												<div class="au-about-yourself-header">
+													ABOUT YOURSELF
+												</div>
+												<textarea class="textareaAutoresize" name="au-about-yourself" disabled>Describe you and your hobbies</textarea>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#galleryPhotosModal">
+				Launch demo modal
+			</button>
+			<div class="modal fade" id="galleryPhotosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-gallery" role="document">
+					<div class="modal-content modal-content-gallery">
+						<dov class="row">
+							<div class="col-xs-12 col-sm-8 col-md-8 modal-photo-wrap">
+								<img src="../../images/userPhotos/test-user/1.jpg" alt="">
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-4 modal-comments-wrap">
+								<div class="modal-comments-head">
+									<div class="photo-owner-wrap">
+										<img src="../../images/userPhotos/test-user/1.jpg" alt="">
+									</div>
+									<div class="photo-owner-name">
+										Heorhi Sominskii
+									</div>
+									<div class="photo-likes">
+										10
+										<i class="fa fa-heart" aria-hidden="true"></i>
+									</div>
+								</div>
+								<div class="modal-comments-body scrollbar">
+									<ul class="comments-list">
+										<li class="cl-item">
+											<div class="comment-head">
+												<div class="comment-owner-wrap">
+													<img src="../../images/userPhotos/test-user/1.jpg" alt="">
+												</div>
+												<div class="comment-owner-name">
+													Heorhi Sominskii
+													<div class="comment-text">
+														some text
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="modal-comments-footer">
+									<div class="textarea-wrap scrollbar" contenteditable="true">
+									</div>
+									<div class="send-msg-btn">
+										<i class="fa fa-paper-plane" aria-hidden="true"></i>
+									</div>
+								</div>
+							</div>
+						</dov>
 					</div>
 				</div>
 			</div>

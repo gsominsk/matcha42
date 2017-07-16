@@ -2,13 +2,16 @@ html, body, .content-main {
     height: 100%;
 }
 .shadow {
-    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 3px rgba(0,0,0,.2);
+    box-shadow: 0 0 0 2px rgba(0,0,0,.1), 0 2px 3px rgba(0,0,0,.2);
 }
-.ru {
-    display: inline-block;
+.scrollbar::-webkit-scrollbar
+{
+	width: 10px;;
 }
-.en {
-    display: none;
+
+.scrollbar::-webkit-scrollbar-thumb
+{
+	background-color: lightgrey;
 }
 /*
 ** ==========================
