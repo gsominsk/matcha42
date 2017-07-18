@@ -9,6 +9,84 @@
     margin: 0 auto;
     overflow: hidden;
 }
+
+/*
+** =====================================
+**    _-= Выплывающее меню слева=-_
+** =====================================
+*/
+
+.float_menu_wrap {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    height: 100%;
+    width: 250px;
+    padding: 0px 15px;
+    transition: 0.5s;
+    transform: translateX(-250px);
+    background: #557780;
+    border-right: 1px solid #fff;
+}
+.float_menu_wrap .float_menu_header {
+    position: relative;
+    height: 60px;
+    width: 100%;
+}
+.float_menu_header .menu_icon_in {
+	display: none;
+	position: absolute;
+    right: -57px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+	background: url('../../images/icons/close_menu.png') no-repeat;
+    background-size: 100%;
+}
+.float_menu_header .menu_icon_out {
+    display: none;
+    position: absolute;
+    right: -57px;
+    top: 20px;
+    width: 28px;
+    height: 40px;
+	background: url('../../images/icons/menu_i.png') no-repeat;
+    background-size: 100%;
+}
+.float_menu_header .menu_icon_in:hover,
+.float_menu_header .menu_icon_out:hover {
+    cursor: pointer;
+}
+.float_menu_wrap .float_menu_header .logo {
+    float: right;
+    height: 100%;
+    line-height: 60px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto Black', arial;
+}
+.float_menu_wrap .float_menu_header .logo span {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+.float_menu_wrap .float_menu_header .logo span:hover{cursor: context-menu;}
+
+.float_menu_wrap .profile-menu .profile-avatar-wrap {
+    width: 50%;
+    height: 109px;
+    margin-bottom: 0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.float_menu_wrap .profile-menu-list {
+    background: transparent !important;
+    color: #fff;
+    font-size: 1.5em;
+}
+.float_menu_wrap .profile-menu-list .pml-item:hover {
+    color: #fff;
+}
 /*
 ** ==========================
 **       profile menu
@@ -26,6 +104,9 @@
 .all-content-wrap,
 .profile-menu-wrap {
     padding: 0 10px;
+}
+.profile-menu-wrap {
+    overflow: auto;
 }
 .all-content {
     background: #fff;
@@ -340,7 +421,6 @@
 ** =============================
 */
 .profile-chat-wrap {
-    position: relative;
     width: 100%;
 }
 .profile-chat-wrap .profile-chat-list {
@@ -427,7 +507,7 @@
 .chat-wrap .chat-header {
     position: relative;
     height: 50px;
-    padding: 5px 10px 5px 10px;
+    padding: 5px 10px 5px 15px;
     background: #557780;
     font-family: 'Roboto Black', arial;
     font-size: 1em;
@@ -686,6 +766,7 @@
 }
 .search-users-wrap .search-input-wrap input[name=user-search-input] {
     width: 100%;
+    padding: 0;
     padding-right: 30px;
     font-family: 'Roboto Black', arial;
     font-size: 0.9em;
@@ -700,15 +781,16 @@
 .search-input-wrap .dropdown {
     position: absolute;
     top: 0;
-    right: 1px;
+    right: 2px;
 }
 .search-input-wrap .dropdown .btn {
-    padding: 2px 5px;
+    padding: 1px 5px;
     background: #fff;
     border: none;
     box-shadow: none;
     color: darkgrey;
     cursor: pointer;
+    transition: 0.3s;
 }
 .search-input-wrap .dropdown .btn:after {
     display: none;
@@ -717,13 +799,68 @@
     color: grey;
 }
 .search-input-wrap .dropdown .dropdown-menu {
+    width: 250px;
+    max-height: 250px;
     right: 0;
     left: inherit;
+    padding: 10px;
+    border-radius: 0;
+    overflow: auto;
+}
+.dropdown-menu .search-filters-list {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Black', arial;
+    list-style: none;
+}
+.search-filters-list .sfl-item {
+    margin-bottom: 5px;
+}
+.search-filters-list .sfl-item:last-child {
+    margin-bottom: 0;
+}
+.search-filters-list .sfl-item input[name=sfl-country],
+.search-filters-list .sfl-item input[name=sfl-city] {
+    width: 100%;
+    font-family: 'Roboto Black', arial;
+    font-size: 0.9em;
+    outline: none;
+}
+.sfl-item .sfl-item-head {
+    margin-bottom: 5px;
+    border-bottom: 1px solid lightgrey;
+}
+.sfl-item .sfl-item-body {
+    font-size: 0.9em;
+}
+.sfl-item .sfl-item-body .checkbox,
+.sfl-item .sfl-item-body .radio {
+    position: relative;
+}
+.sfl-item .sfl-item-body .checkbox label,
+.sfl-item .sfl-item-body .radio label {
+    font-size: 0.9em;
+    margin: 0;
+}
+.sfl-item .sfl-item-body .checkbox input,
+.sfl-item .sfl-item-body .radio input {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    cursor: pointer;
+}
+.sfl-item-body .btn {
+    padding: 5px;
+    transition: 0.3s;
+}
+.sfl-item-body .btn:hover {
+    border-radius: 10%;
+    background: #efefef;
 }
 
 .founded-users-list-wrap {
     width: 100%;
-    height: calc(100% - 48px);
+    height: calc(100% - 50px);
 }
 .founded-users-list-wrap .founded-users-list {
     width: 100%;

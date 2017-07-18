@@ -37,7 +37,46 @@
 	<body>
 		<div class="content-main">
 			<div class="container scrollbar">
-				<div class="row">
+
+				<!-- FLOAT MENU -->
+				<div class="float_menu_wrap">
+					<div class="float_menu_header">
+						<div class="logo">
+							<span class="mobile-logo">MATCHA</span>
+						</div>
+						<div class="menu_icon_out"></div>
+						<div class="menu_icon_in"></div>
+					</div>
+					<div class="profile-menu">
+						<div class="profile-avatar-wrap">
+							<img class="mobile-avatar-img" src="../../images/userPhotos/test-user/1.jpg" alt="">
+						</div>
+						<ul class="profile-menu-list">
+							<li class="pml-item" data-target="#profileMainContentCarousel" data-slide-to="0" class="active">
+								Мой профиль
+							</li>
+							<li class="pml-item" data-target="#profileMainContentCarousel" data-slide-to="1">
+								Мои сообщения
+							</li>
+							<li class="pml-item" data-target="#profileMainContentCarousel" data-slide-to="2">
+								Мои друзья
+							</li>
+							<li class="pml-item" data-target="#profileMainContentCarousel" data-slide-to="3">
+								Настройки
+							</li>
+						</ul>
+						<ul class="profile-menu-list">
+							<li class="pml-item" data-target="#profileMainContentCarousel" data-slide-to="4">
+								Поиск
+							</li>
+							<li class="pml-item" data-target="#profileMainContentCarousel" data-slide-to="5">
+								Черный список
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row body-row">
+					<!-- LEFT MENU -->
 					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 profile-menu-wrap">
 						<div class="profile-menu">
 							<div class="profile-avatar-wrap">
@@ -67,11 +106,12 @@
 							</ul>
 						</div>
 					</div>
+					<!-- MAIN CONTENT -->
 					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 all-content-wrap">
 						<div class="all-content">
 							<div id="profileMainContentCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
 								<div class="carousel-inner" role="listbox">
-									<div class="carousel-item active">
+									<div class="carousel-item scrollbar active">
 										<div class="gallery-photos-wrap">
 											<ul class="gallery-photos-list">
 												<li class="gpl-item">
@@ -145,7 +185,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="carousel-item">
+									<div class="carousel-item scrollbar">
 										<div class="profile-chat-wrap">
 											<ul class="profile-chat-list">
 												<div class="no-messages">NO MESSAGES YET</div>
@@ -227,7 +267,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="carousel-item">
+									<div class="carousel-item scrollbar">
 										<div class="friends-list-wrap">
 											<ul class="friends-list">
 												<div class="no-friends-yet">
@@ -253,70 +293,10 @@
 														</div>
 													</div>
 												</li>
-												<li class="fl-item clearfix">
-													<div class="friend-img-wrap">
-														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
-													</div>
-													<div class="friends-full-name">
-														Some Nmae
-													</div>
-													<div class="friend-dropdown dropdown">
-														<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-															<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-														</button>
-														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-															<a class="dropdown-item" href="#">Send message</a>
-															<a class="dropdown-item" href="#">Delete friend</a>
-															<a class="dropdown-item" href="#">Add to blacklist</a>
-															<a class="dropdown-item" href="#">Complain user</a>
-															<a class="dropdown-item" href="#">Fake account</a>
-														</div>
-													</div>
-												</li>
-												<li class="fl-item clearfix">
-													<div class="friend-img-wrap">
-														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
-													</div>
-													<div class="friends-full-name">
-														Some Nmae
-													</div>
-													<div class="friend-dropdown dropdown">
-														<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-															<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-														</button>
-														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-															<a class="dropdown-item" href="#">Send message</a>
-															<a class="dropdown-item" href="#">Delete friend</a>
-															<a class="dropdown-item" href="#">Add to blacklist</a>
-															<a class="dropdown-item" href="#">Complain user</a>
-															<a class="dropdown-item" href="#">Fake account</a>
-														</div>
-													</div>
-												</li>
-												<li class="fl-item clearfix">
-													<div class="friend-img-wrap">
-														<img src="../../images/userPhotos/test-user/2.jpg" alt="">
-													</div>
-													<div class="friends-full-name">
-														Some Nmae
-													</div>
-													<div class="friend-dropdown dropdown">
-														<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-															<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-														</button>
-														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-															<a class="dropdown-item" href="#">Send message</a>
-															<a class="dropdown-item" href="#">Delete friend</a>
-															<a class="dropdown-item" href="#">Add to blacklist</a>
-															<a class="dropdown-item" href="#">Complain user</a>
-															<a class="dropdown-item" href="#">Fake account</a>
-														</div>
-													</div>
-												</li>
 											</ul>
 										</div>
 									</div>
-									<div class="carousel-item">
+									<div class="carousel-item scrollbar">
 										<div class="options-list-wrap">
 											<ul class="options-list">
 												<li class="ol-first-item">
@@ -353,7 +333,7 @@
 											</ul> -->
 										</div>
 									</div>
-									<div class="carousel-item">
+									<div class="carousel-item scrollbar">
 										<div class="search-users-wrap">
 											<div class="search-input-wrap">
 												<input type="text" name="user-search-input">
@@ -361,9 +341,103 @@
 													<button class="btn btn-secondary dropdown-toggle" type="button" id="applyUserFilters" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 														<i class="fa fa-cogs" aria-hidden="true"></i>
 													</button>
-													<div class="dropdown-menu" aria-labelledby="applyUserFilters">
-														<a class="dropdown-item" href="#">EN</a>
-														<a class="dropdown-item" href="#">RU</a>
+													<div class="dropdown-menu scrollbar" aria-labelledby="applyUserFilters">
+														<ul class="search-filters-list scrollbar">
+															<li class="sfl-item">
+																<div class="sfl-item-head">
+																	FAMOUS
+																</div>
+																<div class="sfl-item-body">
+																	famous range slider
+																</div>
+															</li>
+															<li class="sfl-item">
+																<div class="sfl-item-head">
+																	AGE
+																</div>
+																<div class="sfl-item-body">
+																	age range slider
+																</div>
+															</li>
+															<li class="sfl-item">
+																<div class="sfl-item-head">
+																	RADIUS
+																</div>
+																<div class="sfl-item-body">
+																	radius range slider
+																</div>
+															</li>
+															<li class="sfl-item">
+																<div class="sfl-item-head">
+																	COUNTRY
+																</div>
+																<div class="sfl-item-body">
+																	<input type="text" name="sfl-country" value="Ukraine">
+																</div>
+															</li>
+															<li class="sfl-item">
+																<div class="sfl-item-head">
+																	CITY
+																</div>
+																<div class="sfl-item-body">
+																	<input type="text" name="sfl-city" value="Kiev">
+																</div>
+															</li>
+															<li class="sfl-item">
+																<div class="sfl-item-head">
+																	SEX
+																</div>
+																<div class="sfl-item-body">
+																	<div class="radio sex-check male-radio">
+																		<!-- MALE -->
+																		<label for="male">MALE</label>
+																		<input type="radio" value="male" id="male" name="gender"/>
+																	</div>
+																	<div class="radio sex-check female-checkbox">
+																		<!-- FEMALE -->
+																		<label for="female">FEMALE</label>
+																		<input type="radio" value="female" id="female" name="gender"/>
+																	</div>
+																	<div class="radio sex-check any-checkbox">
+																		<!-- ANY -->
+																		<label for="any">ANY</label>
+																		<input type="radio" value="any" id="any" name="gender" checked />
+																	</div>
+																</div>
+															</li>
+															<li class="sfl-item">
+																<div class="sfl-item-head">
+																	SEX ORIENTATION
+																</div>
+																<div class="sfl-item-body">
+																	<div class="checkbox sex-check">
+																		<label for="male">GETERO</label>
+																		<input type="checkbox" value="getero" id="getero" name="sex-orientation"/>
+																	</div>
+																	<div class="checkbox sex-check">
+																		<label for="female">BISEXUAL</label>
+																		<input type="checkbox" value="bisexual" id="bisexual" name="sex-orientation"/>
+																	</div>
+																	<div class="checkbox sex-check">
+																		<label for="any">LESBIAN</label>
+																		<input type="checkbox" value="lesbian" id="lesbian" name="sex-orientation" checked />
+																	</div>
+																	<div class="checkbox sex-check">
+																		<label for="any">GAY</label>
+																		<input type="checkbox" value="gay" id="gay" name="sex-orientation" checked />
+																	</div>
+																</div>
+															</li>
+															<li class="sfl-item">
+																<div class="sfl-item-head">
+																</div>
+																<div class="sfl-item-body">
+																		<button type="button" class="btn btn-primary">APPLY</button>
+																		<button type="button" class="btn btn-danger">CLOSE</button>
+																</div>
+															</li>
+														</ul>
+
 													</div>
 												</div>
 											</div>
@@ -405,7 +479,7 @@
 											</ul>
 										</div>
 									</div>
-									<div class="carousel-item">
+									<div class="carousel-item scrollbar">
 										<div class="blacklist-wrap">
 											<ul class="blacklist">
 												<div class="blacklist-is-empty">
