@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>
+			Matcha
+		</title>
+		<link rel="shortcut icon" href="../../images/1.png" type="image/png">
+
+		<!--External scripts-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+
+		<!--Bootstrap-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+		<!--External stylesheets-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+		<!--Internal stylesheets-->
+		<link rel="stylesheet" href="../../public/css/fonts.css">
+		<link rel="stylesheet" href="../../public/css/folders.css">
+		<link rel="stylesheet" href="../../public/css/logform.css">
+		<link rel="stylesheet" href="../../public/css/media/media-logform.css">
+
+		<!--Internal scripts-->
+		<script type="text/javascript" src="../../public/js/logform.js"></script>
+
+	</head>
+	<body class="scrollbar">
+		<div class="wrap">
+			<div class="container">
+				<div class="label">
+					<a href="#">MATCHA</a>
+				</div>
+				<div class="reg-forms-wrap">
+					<div class="input_form_wrap">
+						<form class="input_form input_form_log" method="post" onsubmit="return false;">
+							<div class="error_name_wrap">
+								<div class="error">Invalid name or password</div>
+								<a href="../../public/html/reset_form.php" class="forgot_pass">forgot your password?</a>
+							</div>
+							<input type="text" name="email_log" placeholder="email" required>
+							<input type="password" name="pass_log" placeholder="password" required>
+							<div class="register">didn`t register yet?</div>
+							<input class="if_submit if_submit_log btn" type="submit" name="submit" value="submit">
+						</form>
+					</div>
+					<div class="input_form_wrap">
+					<form class="input_form input_form_reg" method="post" onsubmit="return false;">
+						<div class="email_created">Регистрация прошла успешно, подтвердите аккаунт перейдя по ссылке отправлнеой вам на почту.</div>
+						<input type="text" name="name_reg" placeholder="name" required>
+						<input type="text" name="surname_reg" placeholder="surname" required>
+						<input type="text" name="country" placeholder="country" required>
+						<input type="text" name="city" placeholder="city" required>
+						<input type="text" name="email" placeholder="email" required>
+						<input type="password" min="5" max="20" name="pass_new" placeholder="password" required>
+						<input type="password" min="5" max="20" name="pass_new_re" placeholder="repeat password" required>
+						<div class="reg-item-head">
+							SEX ORIENTATION
+						</div>
+						<div class="reg-checkbox-wrap">
+							<label for="male">GETERO</label>
+							<input type="radio" value="getero" id="getero" name="sex-orientation"/>
+						</div>
+						<div class="reg-checkbox-wrap">
+							<label for="female">BISEXUAL</label>
+							<input type="radio" value="bisexual" id="bisexual" name="sex-orientation"/>
+						</div>
+						<div class="reg-checkbox-wrap">
+							<label for="any">LESBIAN</label>
+							<input type="radio" value="lesbian" id="lesbian" name="sex-orientation" checked />
+						</div>
+						<div class="reg-checkbox-wrap">
+							<label for="any">GAY</label>
+							<input type="radio" value="gay" id="gay" name="sex-orientation" checked />
+						</div>
+
+						<div class="reg-item-head">
+							SEX
+						</div>
+						<div class="reg-checkbox-wrap">
+							<label for="male">MALE</label>
+							<input type="radio" value="male" id="male" name="gender"/>
+						</div>
+						<div class="reg-checkbox-wrap">
+							<label for="female">FEMALE</label>
+							<input type="radio" value="female" id="female" name="gender"/>
+						</div>
+
+						<div class="if_back">back</div>
+						<input class=" if_submit if_submit_reg btn" type="submit" name="submit" value="submit">
+					</form>
+				</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+
+</html>

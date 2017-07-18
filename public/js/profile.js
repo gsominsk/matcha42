@@ -1,11 +1,13 @@
 class Chat {
-
+	constructor () {
+		//add to chat class
+		var block = document.getElementsByClassName("chat-body")[0];
+		block.scrollTop = block.scrollHeight;
+	}
 }
 
-class MainProfile {
+class FloatMenu {
 	constructor () {
-		this.textareaAutoresize = new TextareaAutoresize;
-
 		var floatMenu = {};
 		floatMenu.btnMenuOut = document.getElementsByClassName('menu_icon_out')[0];
 		floatMenu.btnMenuIn = document.getElementsByClassName('menu_icon_in')[0];
@@ -21,7 +23,7 @@ class MainProfile {
 		}
 		document.onclick = function () {
 			var className = event.target.className ? event.target.className : 'false';
-			if (document.querySelectorAll('.float_menu_wrap .' + className).length === 0) {
+			if (document.querySelectorAll('.float_menu_wrap .' + className).length === 0 || className === 'pml-item') {
 		        floatMenu.closeMenu();
 		    }
 		}
@@ -40,10 +42,14 @@ class MainProfile {
 	};
 }
 
+class MainProfile {
+	constructor () {
+		this.textareaAutoresize = new TextareaAutoresize;
+		this.floatMenu = new FloatMenu;
+	}
+
+}
+
 window.onload = function () {
 	var mainProfile = new MainProfile;
-
-	//add to chat class
-	var block = document.getElementsByClassName("chat-body")[0];
-	block.scrollTop = block.scrollHeight;
 }

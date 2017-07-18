@@ -22,7 +22,7 @@ html, body, .content-main {
     height: 60px;
     padding: 0 20px;
     background: #557780;
-    font-family: 'Roboto Black Italic', sans-serif;
+    font-family: 'Roboto Black', sans-serif;
     color: #fff;
 }
 .header-row .col {
@@ -33,4 +33,10 @@ html, body, .content-main {
 }
 .header-logout {
     cursor: pointer;
+}
+.header-logout a,
+.header-logout a:hover,
+.header-logout a:active {
+    color: #fff;
+    text-decoration: none;
 }
