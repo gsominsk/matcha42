@@ -27,7 +27,9 @@
 		<link rel="stylesheet" href="../../public/css/media/media-profile.css">
 
 		<!--Internal scripts-->
+		<script type="text/javascript" src="../../public/js/classes/Class.Ajax.js"></script>
 		<script type="text/javascript" src="../../public/js/classes/Class.TextareaAutoresize.js"></script>
+		<script type="text/javascript" src="../../public/js/classes/Class.FloatMenu.js"></script>
 		<script type="text/javascript" src="../../public/js/profile.js"></script>
 
 		<!-- Folders -->
@@ -111,7 +113,12 @@
 						<div class="all-content">
 							<div id="profileMainContentCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
 								<div class="carousel-inner" role="listbox">
-									<div class="carousel-item scrollbar active">
+									<div class="loading-window">
+										<div class="loading-animation">
+
+										</div>
+									</div>
+									<div class="carousel-item scrollbar active" data-page="profile">
 										<div class="gallery-photos-wrap">
 											<ul class="gallery-photos-list">
 												<li class="gpl-item">
@@ -185,7 +192,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="carousel-item scrollbar">
+									<div class="carousel-item scrollbar" data-page="messages">
 										<div class="profile-chat-wrap">
 											<ul class="profile-chat-list">
 												<div class="no-messages">NO MESSAGES YET</div>
@@ -267,7 +274,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="carousel-item scrollbar">
+									<div class="carousel-item scrollbar" data-page="friends">
 										<div class="friends-list-wrap">
 											<ul class="friends-list">
 												<div class="no-friends-yet">
@@ -296,7 +303,7 @@
 											</ul>
 										</div>
 									</div>
-									<div class="carousel-item scrollbar">
+									<div class="carousel-item scrollbar" data-page="options">
 										<div class="options-list-wrap">
 											<ul class="options-list">
 												<li class="ol-first-item">
@@ -333,7 +340,7 @@
 											</ul> -->
 										</div>
 									</div>
-									<div class="carousel-item scrollbar">
+									<div class="carousel-item scrollbar" data-page="search">
 										<div class="search-users-wrap">
 											<div class="search-input-wrap">
 												<input type="text" name="user-search-input">
@@ -479,7 +486,7 @@
 											</ul>
 										</div>
 									</div>
-									<div class="carousel-item scrollbar">
+									<div class="carousel-item scrollbar" data-page="blacklist">
 										<div class="blacklist-wrap">
 											<ul class="blacklist">
 												<div class="blacklist-is-empty">
@@ -506,7 +513,7 @@
 											</ul>
 										</div>
 									</div>
-									<div class="carousel-item scrollbar">
+									<div class="carousel-item scrollbar" data-page="anotherUser">
 										<div class="au-avatar-wrap">
 											<div class="au-avatar-img">
 												<img src="../../images/userPhotos/test-user/2.jpg" alt="">

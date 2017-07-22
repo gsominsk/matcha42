@@ -1,0 +1,26 @@
+{
+  "name": "matcha",
+  "version": "1.0.0",
+  "description": "matcha project",
+  "main": "server.js",
+  "scripts": {
+    "test": "console.log('matcha server has started')",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/gsoinsk/matcha42"
+  },
+  "keywords": [
+    "matcha",
+    "42"
+  ],
+  "author": "gsominsk",
+  "license": "ISC",
+  "dependencies": {
+    "events": "^1.1.1",
+    "express": "^4.15.3",
+    "optimist": "^0.6.1",
+    "util": "^0.10.3"
+  }
+}

@@ -1,55 +1,153 @@
 class Chat {
 	constructor () {
-		//add to chat class
 		var block = document.getElementsByClassName("chat-body")[0];
 		block.scrollTop = block.scrollHeight;
 	}
 }
 
-class FloatMenu {
-	constructor () {
-		var floatMenu = {};
-		floatMenu.btnMenuOut = document.getElementsByClassName('menu_icon_out')[0];
-		floatMenu.btnMenuIn = document.getElementsByClassName('menu_icon_in')[0];
-		floatMenu.menu = document.getElementsByClassName('float_menu_wrap')[0];
-		floatMenu.openMenu = this.openMenu;
-		floatMenu.closeMenu = this.closeMenu;
+class ProfilePage {
+	constructor (global) {
+		if (global.loadedObjects.profile == false) {
+			var ajax = new Ajax;
 
-		floatMenu.btnMenuOut.onclick = function () {
-			floatMenu.openMenu();
-		}
-		floatMenu.btnMenuIn.onclick = function () {
-			floatMenu.closeMenu();
-		}
-		document.onclick = function () {
-			var className = event.target.className ? event.target.className : 'false';
-			if (document.querySelectorAll('.float_menu_wrap .' + className).length === 0 || className === 'pml-item') {
-		        floatMenu.closeMenu();
-		    }
+			// ajax.sendRequest('')
+			console.log(global);
 		}
 	}
+}
 
-	openMenu () {
-		this.btnMenuOut.style.display = 'none';
-	    this.btnMenuIn.style.display = 'block';
-        this.menu.style.transform = "translateX(0px)";
-	};
+class MessagesPage {
+	constructor (global) {
+		this.chat = document.getElementsByClassName('chat-wrap')[0];
+		this.closeChatBtn = document.getElementsByClassName('close-chat-btn')[0];
 
-	closeMenu () {
-	    this.btnMenuOut.style.display = '';
-	    this.btnMenuIn.style.display = '';
-	    this.menu.style.transform = "translateX(-250px)";
-	};
+		var __this = this;
+
+		this.closeChatBtn.onclick = function () {
+			__this.closeChat();
+		}
+
+		global.addHandler(document, 'click', function () {
+			var className = event.target.className ? event.target.className : 'false';
+
+			if ((document.querySelectorAll('.pcl-item .' + className).length != 0 || className === 'pcl-item')
+				&& className != 'interlocutor-name') {
+				__this.openChat();
+			}
+		});
+	}
+
+	closeChat() {
+		this.chat.removeAttribute('style');
+	}
+
+	openChat () {
+		this.chat.setAttribute('style', 'left:0;');
+	}
+}
+class FriendsPage {
+	constructor () {
+		console.log('class FriendsPage created!');
+	}
+}
+class OptionsPage {
+	constructor () {
+		console.log('class OptionsPage created!');
+	}
+}
+class SearchPage {
+	constructor () {
+		console.log('class SearchPage created!');
+	}
+}
+class BlacklistPage {
+	constructor () {
+		console.log('class BlacklistPage created!');
+	}
+}
+class AnotherUserPage {
+	constructor () {
+		console.log('class AnotherUserPage created!');
+	}
 }
 
 class MainProfile {
-	constructor () {
+	constructor (loadedObjects) {
+		this.loadedObjects = loadedObjects;
 		this.textareaAutoresize = new TextareaAutoresize;
-		this.floatMenu = new FloatMenu;
+		this.floatMenu = new FloatMenu(this);
+
+		var __this = this;
+		// __this.animationLoadingStart();
+		var eventClass = new ProfilePage(this);
+
+		$('#profileMainContentCarousel').on('slid.bs.carousel', function () {
+			var targetPage = this.getElementsByClassName('active')[0].getAttribute('data-page');
+
+			switch (targetPage) {
+				case 'profile':
+					eventClass = new ProfilePage(__this);
+					break ;
+				case 'messages':
+					eventClass = new MessagesPage(__this);
+					break ;
+				case 'friends':
+					eventClass = new FriendsPage(__this);
+					break ;
+				case 'options':
+					eventClass = new OptionsPage(__this);
+					break ;
+				case 'search':
+					eventClass = new SearchPage(__this);
+					break ;
+				case 'blacklist':
+					eventClass = new BlacklistPage(__this);
+					break ;
+				case 'anotherUser':
+					eventClass = new AnotherUserPage(__this);
+					break ;
+				default:
+					break ;
+			}
+		});
 	}
 
+	animationLoadingStart () {
+		var load = document.getElementsByClassName('loading-window')[0];
+
+		load.setAttribute('style', 'display:flex;');
+		setTimeout(function () {
+			load.setAttribute('style', 'opacity:1; display:flex;');
+		}, 100);
+	}
+
+	animationLoadingEnd () {
+		var load = document.getElementsByClassName('loading-window')[0];
+
+		load.setAttribute('style', 'opacity:0; display:flex;');
+		setTimeout(function () {
+			load.setAttribute('style', '');
+		}, 200);
+	}
+
+	addHandler(object, event, handler, useCapture) {
+		if (object.addEventListener) {
+			object.addEventListener(event, handler, useCapture ? useCapture : false);
+		} else if (object.attachEvent) {
+			object.attachEvent('on' + event, handler);
+		} else alert("Add handler is not supported");
+	}
 }
 
 window.onload = function () {
-	var mainProfile = new MainProfile;
+	var loadedObjects = {
+		profile		:false,
+		messages	:false,
+		friends		:false,
+		options		:false,
+		search		:false,
+		blacklist	:false,
+		anotherUser	:false
+	}
+	var mainProfile = new MainProfile(loadedObjects);
 }

@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ee576d98-8ea9-49c7-a95a-02350c8b003f" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JavaScript-modules-diagram/C:/wamp64/www" pinned="false" current-in-tab="true">
+        <entry file="uml://JavaScript-modules-diagram/C:/wamp64/www">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>JavaScript-modules-diagram</ID>
+              <OriginalElement>$PROJECT_DIR$</OriginalElement>
+              <nodes>
+                <node x="-83.35672138295013" y="217.67827370159762">$PROJECT_DIR$/images/userPhotos/test-user/1.jpg</node>
+                <node x="604.3743883692762" y="138.62423205699525">$PROJECT_DIR$/images/1.png</node>
+                <node x="-87.30310208000105" y="172.21044528336694">$PROJECT_DIR$/images/userPhotos/test-user/2.jpg</node>
+                <node x="-87.86476427839261" y="130.25065976057874">$PROJECT_DIR$/images/userPhotos/test-user/3.jpg</node>
+                <node x="92.94321218037189" y="323.426096442627">$PROJECT_DIR$/public/html/404.html</node>
+                <node x="-43.95867406541811" y="322.24344628292016">$PROJECT_DIR$/images/404.jpg</node>
+                <node x="345.0187703468041" y="-123.9446673972767">$PROJECT_DIR$/public/js/classes/Class.Anchor.js</node>
+                <node x="347.2368158029992" y="-82.83647964629932">$PROJECT_DIR$/public/js/classes/Class.MainSlider.js</node>
+                <node x="339.5656784057586" y="255.40254723131142">$PROJECT_DIR$/public/js/classes/Class.TextareaAutoresize.js</node>
+                <node x="-136.28306726706148" y="-200.94962216070215">$PROJECT_DIR$/images/doctor.jpg</node>
+                <node x="597.6511663292049" y="86.67659742966697">$PROJECT_DIR$/public/css/folders.css</node>
+                <node x="597.0973739642313" y="40.183988589962524">$PROJECT_DIR$/public/css/fonts.css</node>
+                <node x="231.94171674147685" y="-172.31944054265915">$PROJECT_DIR$/public/css/index.css</node>
+                <node x="85.86468811290206" y="-172.553856132707">$PROJECT_DIR$/public/html/index.html</node>
+                <node x="236.80602103119998" y="-125.35882461276364">$PROJECT_DIR$/public/js/index.js</node>
+                <node x="230.11233537427694" y="41.27602726661037">$PROJECT_DIR$/public/css/logform.css</node>
+                <node x="68.93579646387707" y="45.52976572046367">$PROJECT_DIR$/public/html/logform.html</node>
+                <node x="235.20907440673966" y="90.1620862478436">$PROJECT_DIR$/public/js/logform.js</node>
+                <node x="-170.02183911868804" y="-99.95521640545667">$PROJECT_DIR$/images/pages/index/main-slider-slide-1.jpg</node>
+                <node x="-174.4840840836432" y="-241.46819861748747">$PROJECT_DIR$/images/pages/index/main-slider-slide-2.jpg</node>
+                <node x="-170.84857371993587" y="-146.59803827333414">$PROJECT_DIR$/images/pages/index/main-slider-slide-3.jpg</node>
+                <node x="231.47073177174173" y="-214.68760855773928">$PROJECT_DIR$/public/css/media/media-index.css</node>
+                <node x="230.4928574678068" y="-10.849422500517221">$PROJECT_DIR$/public/css/media/media-logform.css</node>
+                <node x="223.79356044329222" y="173.0821718961908">$PROJECT_DIR$/public/css/media/media-profile.css</node>
+                <node x="225.745303070638" y="213.8609922715258">$PROJECT_DIR$/public/css/profile.css</node>
+                <node x="71.86137739527408" y="216.32084018500626">$PROJECT_DIR$/public/html/profile.html</node>
+                <node x="229.15683122077212" y="257.2644775262176">$PROJECT_DIR$/public/js/profile.js</node>
+                <node x="125.47633094224261" y="407.2850937156985">$PROJECT_DIR$/js/server.js#http#4;</node>
+                <node x="53.61814533223219" y="416.13285179703325">http</node>
+                <node x="-372.65782250507175" y="18.01907083480893">https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css</node>
+                <node x="-368.00088819850237" y="115.90958178371403">https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js</node>
+                <node x="-367.2375930994409" y="160.36735029257744">https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css</node>
+                <node x="-371.7902521192532" y="70.88351296202472">https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js</node>
+                <node x="-357.7329007115369" y="209.26724601729063">https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js</node>
+                <node x="74.49314456879233" y="261.30830051124906">public/html/folder/header.html</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="$PROJECT_DIR$/public/html/logform.html" target="$PROJECT_DIR$/public/css/fonts.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/public/css/media/media-profile.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="public/html/folder/header.html">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/logform.html" target="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/js/server.js#http#4;" target="http">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/logform.html" target="$PROJECT_DIR$/public/css/logform.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/404.html" target="$PROJECT_DIR$/images/1.png">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/logform.html" target="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/logform.html" target="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/public/js/classes/Class.MainSlider.js">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/logform.html" target="$PROJECT_DIR$/public/css/media/media-logform.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/images/doctor.jpg">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/public/css/media/media-index.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/images/1.png">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/public/css/profile.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/public/css/fonts.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/images/pages/index/main-slider-slide-1.jpg">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/images/userPhotos/test-user/3.jpg">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/public/js/profile.js">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/logform.html" target="$PROJECT_DIR$/public/js/logform.js">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/images/pages/index/main-slider-slide-2.jpg">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/public/js/index.js">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/public/css/folders.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/logform.html" target="$PROJECT_DIR$/images/1.png">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/images/userPhotos/test-user/2.jpg">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/404.html" target="$PROJECT_DIR$/images/404.jpg">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/logform.html" target="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/public/js/classes/Class.Anchor.js">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/public/css/fonts.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/images/1.png">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/images/pages/index/main-slider-slide-3.jpg">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/logform.html" target="$PROJECT_DIR$/public/css/folders.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/logform.html" target="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/public/js/classes/Class.TextareaAutoresize.js">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/images/userPhotos/test-user/1.jpg">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/public/css/index.css">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="0.8" x="213.2431174722351" y="129.29475598310637" />
+              <SelectedNodes />
+              <Categories>
+                <Category>All</Category>
+              </Categories>
+              <VISIBILITY>Details</VISIBILITY>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/js/server.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/js/node_modules" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="D:/work" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee576d98-8ea9-49c7-a95a-02350c8b003f" name="Default" comment="" />
+      <created>1500544414746</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1500544414746</updated>
+      <workItem from="1500544416668" duration="3932000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3932000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/js/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram/C:/wamp64/www">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$</OriginalElement>
+          <nodes>
+            <node x="-83.35672138295013" y="217.67827370159762">$PROJECT_DIR$/images/userPhotos/test-user/1.jpg</node>
+            <node x="604.3743883692762" y="138.62423205699525">$PROJECT_DIR$/images/1.png</node>
+            <node x="-87.30310208000105" y="172.21044528336694">$PROJECT_DIR$/images/userPhotos/test-user/2.jpg</node>
+            <node x="-87.86476427839261" y="130.25065976057874">$PROJECT_DIR$/images/userPhotos/test-user/3.jpg</node>
+            <node x="92.94321218037189" y="323.426096442627">$PROJECT_DIR$/public/html/404.html</node>
+            <node x="-43.95867406541811" y="322.24344628292016">$PROJECT_DIR$/images/404.jpg</node>
+            <node x="345.0187703468041" y="-123.9446673972767">$PROJECT_DIR$/public/js/classes/Class.Anchor.js</node>
+            <node x="347.2368158029992" y="-82.83647964629932">$PROJECT_DIR$/public/js/classes/Class.MainSlider.js</node>
+            <node x="339.5656784057586" y="255.40254723131142">$PROJECT_DIR$/public/js/classes/Class.TextareaAutoresize.js</node>
+            <node x="-136.28306726706148" y="-200.94962216070215">$PROJECT_DIR$/images/doctor.jpg</node>
+            <node x="597.6511663292049" y="86.67659742966697">$PROJECT_DIR$/public/css/folders.css</node>
+            <node x="597.0973739642313" y="40.183988589962524">$PROJECT_DIR$/public/css/fonts.css</node>
+            <node x="231.94171674147685" y="-172.31944054265915">$PROJECT_DIR$/public/css/index.css</node>
+            <node x="85.86468811290206" y="-172.553856132707">$PROJECT_DIR$/public/html/index.html</node>
+            <node x="236.80602103119998" y="-125.35882461276364">$PROJECT_DIR$/public/js/index.js</node>
+            <node x="230.11233537427694" y="41.27602726661037">$PROJECT_DIR$/public/css/logform.css</node>
+            <node x="68.93579646387707" y="45.52976572046367">$PROJECT_DIR$/public/html/logform.html</node>
+            <node x="235.20907440673966" y="90.1620862478436">$PROJECT_DIR$/public/js/logform.js</node>
+            <node x="-170.02183911868804" y="-99.95521640545667">$PROJECT_DIR$/images/pages/index/main-slider-slide-1.jpg</node>
+            <node x="-174.4840840836432" y="-241.46819861748747">$PROJECT_DIR$/images/pages/index/main-slider-slide-2.jpg</node>
+            <node x="-170.84857371993587" y="-146.59803827333414">$PROJECT_DIR$/images/pages/index/main-slider-slide-3.jpg</node>
+            <node x="231.47073177174173" y="-214.68760855773928">$PROJECT_DIR$/public/css/media/media-index.css</node>
+            <node x="230.4928574678068" y="-10.849422500517221">$PROJECT_DIR$/public/css/media/media-logform.css</node>
+            <node x="223.79356044329222" y="173.0821718961908">$PROJECT_DIR$/public/css/media/media-profile.css</node>
+            <node x="225.745303070638" y="213.8609922715258">$PROJECT_DIR$/public/css/profile.css</node>
+            <node x="71.86137739527408" y="216.32084018500626">$PROJECT_DIR$/public/html/profile.html</node>
+            <node x="229.15683122077212" y="257.2644775262176">$PROJECT_DIR$/public/js/profile.js</node>
+            <node x="125.47633094224261" y="407.2850937156985">$PROJECT_DIR$/js/server.js#http#4;</node>
+            <node x="53.61814533223219" y="416.13285179703325">http</node>
+            <node x="-372.65782250507175" y="18.01907083480893">https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css</node>
+            <node x="-368.00088819850237" y="115.90958178371403">https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js</node>
+            <node x="-367.2375930994409" y="160.36735029257744">https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css</node>
+            <node x="-371.7902521192532" y="70.88351296202472">https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js</node>
+            <node x="-357.7329007115369" y="209.26724601729063">https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js</node>
+            <node x="74.49314456879233" y="261.30830051124906">public/html/folder/header.html</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="$PROJECT_DIR$/public/html/logform.html" target="$PROJECT_DIR$/public/css/fonts.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/public/css/media/media-profile.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="public/html/folder/header.html">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/logform.html" target="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/js/server.js#http#4;" target="http">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/logform.html" target="$PROJECT_DIR$/public/css/logform.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/404.html" target="$PROJECT_DIR$/images/1.png">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/logform.html" target="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/logform.html" target="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/public/js/classes/Class.MainSlider.js">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/logform.html" target="$PROJECT_DIR$/public/css/media/media-logform.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/images/doctor.jpg">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/public/css/media/media-index.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/images/1.png">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/public/css/profile.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/public/css/fonts.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/images/pages/index/main-slider-slide-1.jpg">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/images/userPhotos/test-user/3.jpg">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/public/js/profile.js">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/logform.html" target="$PROJECT_DIR$/public/js/logform.js">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/images/pages/index/main-slider-slide-2.jpg">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/public/js/index.js">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/public/css/folders.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/logform.html" target="$PROJECT_DIR$/images/1.png">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/images/userPhotos/test-user/2.jpg">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/404.html" target="$PROJECT_DIR$/images/404.jpg">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/logform.html" target="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/public/js/classes/Class.Anchor.js">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/public/css/fonts.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/images/1.png">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/images/pages/index/main-slider-slide-3.jpg">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/logform.html" target="$PROJECT_DIR$/public/css/folders.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/logform.html" target="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/public/js/classes/Class.TextareaAutoresize.js">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/profile.html" target="$PROJECT_DIR$/images/userPhotos/test-user/1.jpg">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/public/html/index.html" target="$PROJECT_DIR$/public/css/index.css">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.8" x="213.2431174722351" y="129.29475598310637" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -153,6 +153,36 @@
 .carousel, .carousel-inner, .carousel-item {
 	height: 100%;
 }
+.carousel-inner .loading-window {
+    display: none;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    z-index: 3;
+    transition: 0.3s;
+}
+.loading-window .loading-animation {
+    /*position: absolute;*/
+    height: 50px;
+    width: 50px;
+    /*border-left: 5px solid lightgrey;*/
+    -webkit-box-shadow: 0px 0px 3px 15px rgba(176,73,98,1);
+    -moz-box-shadow: 0px 0px 3px 15px rgba(176,73,98,1);
+    box-shadow: 0px 0px 3px 15px rgba(176,73,98,1);
+    animation: loading 5s infinite;
+}
+@keyframes loading {
+    0%   {transform: rotate(0deg);}
+    25%  {transform: rotate(68deg);}
+    50%  {transform: rotate(136deg);}
+    75%  {transform: rotate(204deg);}
+    100% {transform: rotate(270deg);}
+}
+
 .carousel-item {
     flex-wrap: wrap;
     padding: 10px;
@@ -460,8 +490,9 @@
     height: 100%;
 }
 .pcl-item .interlocutor-name {
+    display: inline-block;
     font-size: 0.9em;
-    padding-left: 55px;
+    padding-left: 5px;
 }
 .pcl-item .time-of-last-message {
     position: absolute;
@@ -470,6 +501,7 @@
     font-size: 0.8em;
 }
 .pcl-item .last-message-of-chat {
+    display: block;
     width: 65%;
     padding: 0 0 0 5px;
     background: #fff;
@@ -495,8 +527,8 @@
 .chat-wrap {
     position: absolute;
     top: 0;
-    /*left: 110%;*/
-    left: 0;
+    left: 110%;
+    /*left: 0;*/
     height: 100%;
     width: 100%;
     background: #fff;
