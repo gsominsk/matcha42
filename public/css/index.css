@@ -1,11 +1,10 @@
-
 html, body, .content-main {
 	overflow: hidden;
 	user-select: none;
 	-moz-user-select: none;
 	-webkit-user-select: none;
 }
-html, body, .content-main, .container, .row {
+html, body, .content-main, .container, .index-row {
     height: 100%;
 	font-family: 'Roboto Black Italic', arial;
 }

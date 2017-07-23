@@ -1,0 +1,395 @@
+.content-main
+	.container.scrollbar
+		// FLOAT MENU
+		.float_menu_wrap
+			.float_menu_header
+				.logo
+					span.mobile-logo MATCHA
+				.menu_icon_out
+				.menu_icon_in
+			.profile-menu
+				.profile-avatar-wrap
+					img.mobile-avatar-img(src='../../images/userPhotos/test-user/1.jpg', alt='')
+				ul.profile-menu-list
+					li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='0')
+						| Мой профиль
+					li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='1')
+						| Мои сообщения
+					li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='2')
+						| Мои друзья
+					li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='3')
+						| Настройки
+				ul.profile-menu-list
+					li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='4')
+						| Поиск
+					li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='5')
+						| Черный список
+		.row.header-row
+			.col
+				span.header-logout
+					a(href='/login')
+						| logout
+		.row.body-row
+			// LEFT MENU
+			.col-xs-12.col-sm-4.col-md-4.col-lg-3.profile-menu-wrap
+				.profile-menu
+					.profile-avatar-wrap
+						img(src='../../images/userPhotos/test-user/1.jpg', alt='')
+					ul.profile-menu-list
+						li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='0')
+							| Мой профиль
+						li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='1')
+							| Мои сообщения
+						li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='2')
+							| Мои друзья
+						li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='3')
+							| Настройки
+					ul.profile-menu-list
+						li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='4')
+							| Поиск
+						li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='5')
+							| Черный список
+			// MAIN CONTENT
+			.col-xs-12.col-sm-6.col-md-6.col-lg-5.all-content-wrap
+				.all-content
+					#profileMainContentCarousel.carousel.slide(data-ride='carousel', data-interval='false')
+						.carousel-inner(role='listbox')
+							.loading-window
+								.loading-animation
+							.carousel-item.scrollbar.active(data-page='profile')
+								.gallery-photos-wrap
+									ul.gallery-photos-list
+										li.gpl-item
+											.gpl-img-wrap
+												img(src='../../images/userPhotos/test-user/1.jpg', alt='')
+										li.gpl-item
+											.gpl-img-wrap
+												img(src='../../images/userPhotos/test-user/2.jpg', alt='')
+										li.gpl-item
+											.gpl-img-wrap
+												img(src='../../images/userPhotos/test-user/3.jpg', alt='')
+										li.gpl-item
+											.gpl-img-wrap
+												img(src='../../images/userPhotos/test-user/1.jpg', alt='')
+								.profile-info-wrap
+									.profile-name.clearfix
+										span Heorhii Sominskii
+										span online
+									.hobbies-wrap
+										ul.hobbies-list
+											li.hl-item #add_some_hashteg
+									.profile-data-wrap
+										.profile-data-header
+											| PERSONAL INFORMATION
+										ul.profile-data-list
+											li.pdl-item.clearfix
+												span.country-d COUNTRY
+												span.country UKRAINE
+											li.pdl-item.clearfix
+												span.city-d CITY
+												span.city KIEV
+											li.pdl-item.clearfix
+												span.age-d AGE
+												span.age 19
+											li.pdl-item.clearfix
+												span.sex-d SEX
+												span.sex MALE
+											li.pdl-item.clearfix
+												span.sex-orienation-d SEX ORIENTATION
+												span.sex-orientation GETERO
+											li.pdl-item.clearfix
+												span.email-d EMAIL
+												span.email zoedberg@i.ua
+									.about-yourself-wrap
+										.about-yourself-header
+											| ABOUT YOURSELF
+										textarea.textareaAutoresize(name='about-yourself', disabled='') Describe yourself and your hobbies
+							.carousel-item.scrollbar(data-page='messages')
+								.profile-chat-wrap
+									ul.profile-chat-list
+										.no-messages NO MESSAGES YET
+										li.pcl-item
+											.interlocutor-img-wrap
+												img(src='../../images/userPhotos/test-user/1.jpg', alt='')
+											.time-of-last-message
+												| 11:08.07.2017
+											.interlocutor-name Some Name
+											input.last-message-of-chat(value='some text sj jasf saj jav skav akj vkja vkjas vkjav', disabled='')
+										li.pcl-item
+											.interlocutor-img-wrap
+												img(src='../../images/userPhotos/test-user/2.jpg', alt='')
+											.time-of-last-message
+												| 11:08.07.2017
+											.interlocutor-name Some Name
+											input.last-message-of-chat(value='some text sj jasf saj jav skav akj vkja vkjas vkjav', disabled='')
+										li.pcl-item
+											.interlocutor-img-wrap
+												img(src='../../images/userPhotos/test-user/3.jpg', alt='')
+											.time-of-last-message
+												| 11:08.07.2017
+											.interlocutor-name Some Name
+											input.last-message-of-chat(value='some text sj jasf saj jav skav akj vkja vkjas vkjav', disabled='')
+									.chat-wrap
+										.chat-header
+											.close-chat-btn
+												i.fa.fa-arrow-left(aria-hidden='true')
+											.chat-interlocutor-name
+												| Some Name
+											.chat-interlocutor-avatar
+												img(src='../../images/userPhotos/test-user/1.jpg', alt='')
+										.chat-body.scrollbar
+											ul.chat-messages-wrap
+												li.cmw-item.left-message
+													div
+														| hello
+												li.cmw-item.right-message
+													div
+														| hello
+												li.cmw-item.left-message
+													div
+														| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+												li.cmw-item.right-message
+													div
+														| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+										.chat-footer
+											.textarea-wrap.scrollbar(contenteditable='true')
+											.send-msg-btn
+												i.fa.fa-paper-plane(aria-hidden='true')
+							.carousel-item.scrollbar(data-page='friends')
+								.friends-list-wrap
+									ul.friends-list
+										.no-friends-yet
+											| NO FRIENDS YET
+										li.fl-item.clearfix(data-target='#profileMainContentCarousel', data-slide-to='6')
+											.friend-img-wrap
+												img(src='../../images/userPhotos/test-user/2.jpg', alt='')
+											.friends-full-name
+												| Some Nmae
+											.friend-dropdown.dropdown
+												button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+													i.fa.fa-ellipsis-h(aria-hidden='true')
+												.dropdown-menu(aria-labelledby='dropdownMenuButton')
+													a.dropdown-item(href='#') Send message
+													a.dropdown-item(href='#') Delete friend
+													a.dropdown-item(href='#') Add to blacklist
+													a.dropdown-item(href='#') Complain user
+													a.dropdown-item(href='#') Fake account
+							.carousel-item.scrollbar(data-page='options')
+								.options-list-wrap
+									ul.options-list
+										li.ol-first-item
+											| CHANGE LANGUAGE
+										li.ol-item
+											span.change-lan language
+											.dropdown.change-lan-dropdown
+												button#chooseLanDropdown.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+												.dropdown-menu(aria-labelledby='chooseLanDropdown')
+													a.dropdown-item(href='#') EN
+													a.dropdown-item(href='#') RU
+									ul.options-list
+										li.ol-first-item
+											| ADD HASHTAGS
+										li.ol-item
+											input(type='text', name='input-hashtag', placeholder='#some_hashtag')
+									//
+										<ul class="options-list">
+										<li class="ol-first-item ol-item">
+										PRIVATE INFORMATION
+										</li>
+										<li class="ol-item">
+										<span class="show-email">show email</span>
+										</li>
+										</ul>
+							.carousel-item.scrollbar(data-page='search')
+								.search-users-wrap
+									.search-input-wrap
+										input(type='text', name='user-search-input')
+										.dropdown.search-filter-dropdown
+											button#applyUserFilters.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+												i.fa.fa-cogs(aria-hidden='true')
+											.dropdown-menu.scrollbar(aria-labelledby='applyUserFilters')
+												ul.search-filters-list.scrollbar
+													li.sfl-item
+														.sfl-item-head
+															| FAMOUS
+														.sfl-item-body
+															| famous range slider
+													li.sfl-item
+														.sfl-item-head
+															| AGE
+														.sfl-item-body
+															| age range slider
+													li.sfl-item
+														.sfl-item-head
+															| RADIUS
+														.sfl-item-body
+															| radius range slider
+													li.sfl-item
+														.sfl-item-head
+															| COUNTRY
+														.sfl-item-body
+															input(type='text', name='sfl-country', value='Ukraine')
+													li.sfl-item
+														.sfl-item-head
+															| CITY
+														.sfl-item-body
+															input(type='text', name='sfl-city', value='Kiev')
+													li.sfl-item
+														.sfl-item-head
+															| SEX
+														.sfl-item-body
+															.radio.sex-check.male-radio
+																// MALE
+																label(for='male') MALE
+																input#male(type='radio', value='male', name='gender')
+															.radio.sex-check.female-checkbox
+																// FEMALE
+																label(for='female') FEMALE
+																input#female(type='radio', value='female', name='gender')
+															.radio.sex-check.any-checkbox
+																// ANY
+																label(for='any') ANY
+																input#any(type='radio', value='any', name='gender', checked='')
+													li.sfl-item
+														.sfl-item-head
+															| SEX ORIENTATION
+														.sfl-item-body
+															.checkbox.sex-check
+																label(for='male') GETERO
+																input#getero(type='checkbox', value='getero', name='sex-orientation')
+															.checkbox.sex-check
+																label(for='female') BISEXUAL
+																input#bisexual(type='checkbox', value='bisexual', name='sex-orientation')
+															.checkbox.sex-check
+																label(for='any') LESBIAN
+																input#lesbian(type='checkbox', value='lesbian', name='sex-orientation', checked='')
+															.checkbox.sex-check
+																label(for='any') GAY
+																input#gay(type='checkbox', value='gay', name='sex-orientation', checked='')
+													li.sfl-item
+														.sfl-item-head
+														.sfl-item-body
+															button.btn.btn-primary(type='button') APPLY
+															button.btn.btn-danger(type='button') CLOSE
+								.founded-users-list-wrap
+									ul.founded-users-list
+										li.ful-item.clearfix
+											.founded-user-img-wrap
+												img(src='../../images/userPhotos/test-user/2.jpg', alt='')
+											.founded-user-name
+												| Some Name
+										li.ful-item.clearfix
+											.founded-user-img-wrap
+												img(src='../../images/userPhotos/test-user/2.jpg', alt='')
+											.founded-user-name
+												| Some Name
+										li.ful-item.clearfix
+											.founded-user-img-wrap
+												img(src='../../images/userPhotos/test-user/2.jpg', alt='')
+											.founded-user-name
+												| Some Name
+										li.ful-item.clearfix
+											.founded-user-img-wrap
+												img(src='../../images/userPhotos/test-user/2.jpg', alt='')
+											.founded-user-name
+												| Some Name
+							.carousel-item.scrollbar(data-page='blacklist')
+								.blacklist-wrap
+									ul.blacklist
+										.blacklist-is-empty
+											| BLACK LIST IS EMPTY
+										li.bl-item.clearfix
+											.bl-user-img-wrap
+												img(src='../../images/userPhotos/test-user/2.jpg', alt='')
+											.bl-user-full-name
+												| Some Name
+											.bl-dropdown.dropdown
+												button#blacklistUserDropdown.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+													i.fa.fa-ellipsis-h(aria-hidden='true')
+												.dropdown-menu(aria-labelledby='blacklistUserDropdown')
+													a.dropdown-item(href='#') Remove from blacklist
+													a.dropdown-item(href='#') Complain user
+													a.dropdown-item(href='#') Fake account
+							.carousel-item.scrollbar(data-page='anotherUser')
+								.au-avatar-wrap
+									.au-avatar-img
+										img(src='../../images/userPhotos/test-user/2.jpg', alt='')
+									.au-profile-name.clearfix
+										span Heorhii Sominskii
+										span online
+								.au-gallery-photos-wrap
+									ul.au-gallery-photos-list
+										li.au-gpl-item
+											.au-gpl-img-wrap
+												img(src='../../images/userPhotos/test-user/1.jpg', alt='')
+										li.au-gpl-item
+											.au-gpl-img-wrap
+												img(src='../../images/userPhotos/test-user/2.jpg', alt='')
+										li.au-gpl-item
+											.au-gpl-img-wrap
+												img(src='../../images/userPhotos/test-user/3.jpg', alt='')
+										li.au-gpl-item
+											.au-gpl-img-wrap
+												img(src='../../images/userPhotos/test-user/1.jpg', alt='')
+								.au-profile-info-wrap
+									.au-hobbies-wrap
+										ul.au-hobbies-list
+											li.au-hl-item #some_hashtegs
+									.au-profile-data-wrap
+										.au-profile-data-header
+											| PERSONAL INFORMATION
+										ul.au-profile-data-list
+											li.au-pdl-item.clearfix
+												span.au-country-d COUNTRY
+												span.au-country UKRAINE
+											li.au-pdl-item.clearfix
+												span.au-city-d CITY
+												span.au-city KIEV
+											li.au-pdl-item.clearfix
+												span.au-age-d AGE
+												span.au-age 19
+											li.au-pdl-item.clearfix
+												span.au-sex-d SEX
+												span.au-sex MALE
+											li.au-pdl-item.clearfix
+												span.au-sex-orienation-d SEX ORIENTATION
+												span.au-sex-orientation GETERO
+											li.au-pdl-item.clearfix
+												span.au-email-d EMAIL
+												span.au-email zoedberg@i.ua
+									.au-about-yourself-wrap
+										.au-about-yourself-header
+											| ABOUT YOURSELF
+										textarea.textareaAutoresize(name='au-about-yourself', disabled='') Describe you and your hobbies
+	// test
+	button.btn.btn-primary(type='button', data-toggle='modal', data-target='#galleryPhotosModal')
+		| Launch demo modal
+	#galleryPhotosModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+		.modal-dialog.modal-dialog-gallery(role='document')
+			.modal-content.modal-content-gallery
+				dov.row
+					.col-xs-12.col-sm-8.col-md-8.modal-photo-wrap
+						img(src='../../images/userPhotos/test-user/1.jpg', alt='')
+					.col-xs-12.col-sm-4.col-md-4.modal-comments-wrap
+						.modal-comments-head
+							.photo-owner-wrap
+								img(src='../../images/userPhotos/test-user/1.jpg', alt='')
+							.photo-owner-name
+								| Heorhi Sominskii
+							.photo-likes
+								| 10
+								i.fa.fa-heart(aria-hidden='true')
+						.modal-comments-body.scrollbar
+							ul.comments-list
+								li.cl-item
+									.comment-head
+										.comment-owner-wrap
+											img(src='../../images/userPhotos/test-user/1.jpg', alt='')
+										.comment-owner-name
+											| Heorhi Sominskii
+											.comment-text
+												| some text
+						.modal-comments-footer
+							.textarea-wrap.scrollbar(contenteditable='true')
+							.send-msg-btn
+								i.fa.fa-paper-plane(aria-hidden='true')

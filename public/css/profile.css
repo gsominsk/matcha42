@@ -1,3 +1,6 @@
+html, body, .content-main {
+    height: 100%;
+}
 .content-main {
     background: #EBE1E2;
 }
@@ -8,6 +11,45 @@
     height: 100%;
     margin: 0 auto;
     overflow: hidden;
+}
+.shadow {
+    box-shadow: 0 0 0 2px rgba(0,0,0,.1), 0 2px 3px rgba(0,0,0,.2);
+}
+.scrollbar::-webkit-scrollbar
+{
+    width: 10px;;
+}
+
+.scrollbar::-webkit-scrollbar-thumb
+{
+    background-color: lightgrey;
+}
+/*
+** ==========================
+**            HEADER
+** ==========================
+*/
+.header-row {
+    height: 60px;
+    padding: 0 20px;
+    background: #557780;
+    font-family: 'Roboto Black', sans-serif;
+    color: #fff;
+}
+.header-row .col {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.header-logout {
+    cursor: pointer;
+}
+.header-logout a,
+.header-logout a:hover,
+.header-logout a:active {
+    color: #fff;
+    text-decoration: none;
 }
 
 /*
