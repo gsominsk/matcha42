@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Roboto Black Italic'; /* Имя шрифта */
+    src: url(fonts/robotoBlackItalic.ttf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+    font-family: 'Roboto Black'; /* Имя шрифта */
+    src: url(fonts/robotoBlack.ttf); /* Путь к файлу со шрифтом */
+}

@@ -1,0 +1,57 @@
+.wrap
+	.container
+		.label
+			a(href='#') MATCHA
+		.reg-forms-wrap
+			.input_form_wrap
+				form.input_form.input_form_log(method='post', onsubmit='return false;')
+					.error_name_wrap
+						.error Invalid name or password
+						a.forgot_pass(href='/reset') forgot your password?
+					input(type='email', name='email_log', placeholder='email', required='')
+					input(type='password', name='pass_log', placeholder='password', required='')
+					.register didn`t register yet?
+					input.if_submit.if_submit_log.btn(type='submit', name='submit', value='submit')
+			.input_form_wrap
+				form.input_form.input_form_reg(method='post', onsubmit='return false;')
+					.email_created
+						| Регистрация прошла успешно, подтвердите аккаунт перейдя по ссылке отправлнеой вам на почту.
+					input(type='text', name='name_reg', placeholder='name', required='')
+					input(type='text', name='surname_reg', placeholder='surname', required='')
+					input(type='text', name='country', placeholder='country', required='')
+					input(type='text', name='city', placeholder='city', required='')
+					input(type='email', name='email', placeholder='email', required='')
+					input(type='password', min='5', max='20', name='pass_new', placeholder='password', required='')
+					input(type='password', min='5', max='20', name='pass_new_re', placeholder='repeat password', required='')
+					.reg-item-head
+						| YOUR AGE
+					.dropdown.age-dropdown
+						button#dropdownYearBtn.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true' aria-expanded='false')
+							| age
+						.dropdown-menu(aria-labelledby='dropdownYearBtn')
+							ul.dropdown-age-list
+								li.list-item(v-for='obj in ageList', v-on:click='getAge', :data='obj') {{obj}}
+					.reg-item-head
+						| SEX ORIENTATION
+					.reg-checkbox-wrap
+						label(for='male') GETERO
+						input#getero(type='radio', value='getero', name='sex-orientation')
+					.reg-checkbox-wrap
+						label(for='female') BISEXUAL
+						input#bisexual(type='radio', value='bisexual', name='sex-orientation', checked='')
+					.reg-checkbox-wrap
+						label(for='any') LESBIAN
+						input#lesbian(type='radio', value='lesbian', name='sex-orientation')
+					.reg-checkbox-wrap
+						label(for='any') GAY
+						input#gay(type='radio', value='gay', name='sex-orientation')
+					.reg-item-head
+						| SEX
+					.reg-checkbox-wrap
+						label(for='male') MALE
+						input#male(type='radio', value='male', name='gender', checked='')
+					.reg-checkbox-wrap
+						label(for='female') FEMALE
+						input#female(type='radio', value='female', name='gender')
+					.if_back back
+					input.if_submit.if_submit_reg.btn(type='submit', name='submit', value='submit')

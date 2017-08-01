@@ -1,0 +1,65 @@
+@media (max-width: 576px) {
+	/*float menu*/
+	.float_menu_header .menu_icon_out {
+		display: block;
+	}
+	/*hide profile on mobile*/
+	.profile-menu-wrap {
+		display: none;
+	}
+	/*hide paddings on mobile*/
+	.body-row {
+		padding-top: 0 !important;
+	}
+	.body-row .all-content-wrap {
+		padding: 0;
+	}
+	/*change filters dropdown size*/
+	.search-users-wrap .search-input-wrap input[name=user-search-input] {
+		font-size: 1.3em;
+	}
+	.search-input-wrap .dropdown .btn {
+		font-size: 1.5em;
+	}
+	.search-input-wrap .dropdown {
+		top: 1px;
+	}
+	.search-input-wrap .dropdown .dropdown-menu {
+		width: 300px;
+		max-height: 500px;
+	}
+	.sfl-item .sfl-item-head {
+		font-size: 1.5em;
+	}
+	.search-filters-list .sfl-item input[name=sfl-country],
+	.search-filters-list .sfl-item input[name=sfl-city] {
+		font-size: 1.3em;
+	}
+	.sfl-item .sfl-item-body .checkbox label,
+	.sfl-item .sfl-item-body .radio label {
+		font-size: 1.3em;
+	}
+	.sfl-item .sfl-item-body .checkbox input,
+	.sfl-item .sfl-item-body .radio input {
+		height: 20px;
+		width: 20px;
+	}
+	.sfl-item-body .btn {
+		padding: 10px;
+		font-size: 1.3em;
+	}
+	/*modal*/
+    .modal-dialog-gallery {
+        margin: 0;
+        height: 100%;
+    }
+    .modal-photo-wrap {
+        height: 250px;
+    }
+    .modal-comments-wrap {
+        height: calc(100% - 250px);
+    }
+}
+@media (min-width: 576px) {
+    .all-content-wrap
+}

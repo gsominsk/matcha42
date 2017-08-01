@@ -1,0 +1,1335 @@
+html, body, .content-main {
+    height: 100%;
+}
+.content-main {
+    background: #EBE1E2;
+}
+.content-main .container {
+    padding: 0;
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.shadow {
+    box-shadow: 0 0 0 2px rgba(0,0,0,.1), 0 2px 3px rgba(0,0,0,.2);
+}
+.scrollbar::-webkit-scrollbar
+{
+    width: 10px;;
+}
+
+.scrollbar::-webkit-scrollbar-thumb
+{
+    background-color: lightgrey;
+}
+/*
+** ==========================
+**            HEADER
+** ==========================
+*/
+.header-row {
+    height: 60px;
+    padding: 0 20px;
+    background: #557780;
+    font-family: 'Roboto Black', sans-serif;
+    color: #fff;
+}
+.header-row .col {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.header-logout {
+    cursor: pointer;
+}
+.header-logout a,
+.header-logout a:hover,
+.header-logout a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*
+** =====================================
+**    _-= Выплывающее меню слева=-_
+** =====================================
+*/
+
+.float_menu_wrap {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    height: 100%;
+    width: 250px;
+    padding: 0px 15px;
+    transition: 0.5s;
+    transform: translateX(-250px);
+    background: #557780;
+    border-right: 1px solid #fff;
+}
+.float_menu_wrap .float_menu_header {
+    position: relative;
+    height: 60px;
+    width: 100%;
+}
+.float_menu_header .menu_icon_in {
+	display: none;
+	position: absolute;
+    right: -57px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+	background: url('../../images/icons/close_menu.png') no-repeat;
+    background-size: 100%;
+}
+.float_menu_header .menu_icon_out {
+    display: none;
+    position: absolute;
+    right: -57px;
+    top: 20px;
+    width: 28px;
+    height: 40px;
+	background: url('../../images/icons/menu_i.png') no-repeat;
+    background-size: 100%;
+}
+.float_menu_header .menu_icon_in:hover,
+.float_menu_header .menu_icon_out:hover {
+    cursor: pointer;
+}
+.float_menu_wrap .float_menu_header .logo {
+    float: right;
+    height: 100%;
+    line-height: 60px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto Black Italic', arial;
+}
+.float_menu_wrap .float_menu_header .logo span {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+.float_menu_wrap .float_menu_header .logo span:hover{cursor: context-menu;}
+
+.float_menu_wrap .profile-menu .profile-avatar-wrap {
+    width: 50%;
+    height: 109px;
+    margin-bottom: 0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.float_menu_wrap .profile-menu-list {
+    background: transparent !important;
+    color: #fff;
+    font-size: 1.5em;
+}
+.float_menu_wrap .profile-menu-list .pml-item:hover {
+    color: #fff;
+}
+/*
+** ==========================
+**       profile menu
+** ==========================
+*/
+.content-main .container .row:last-child {
+    justify-content: center;
+    height: calc(100% - 60px);
+    margin: 0;
+    padding-top: 20px;
+    /*padding: 0 100px;*/
+    overflow: hidden;
+    overflow-y: auto;
+}
+.all-content-wrap,
+.profile-menu-wrap {
+    padding: 0 10px;
+}
+.profile-menu-wrap {
+    overflow: auto;
+}
+.all-content {
+    background: #fff;
+    height: 100%;
+}
+.profile-menu {
+    height: 100%;
+}
+.profile-menu .profile-avatar-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+    background: #000;
+    overflow: hidden;
+}
+.profile-menu .profile-avatar-wrap img {
+    max-height: 100%;
+}
+.profile-menu .profile-menu-list {
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #fff;
+    list-style: none;
+}
+.profile-menu-list .pml-item {
+    font-family: 'Roboto Black', arial;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 0.9em;
+}
+.profile-menu-list .pml-item:hover {
+    color: grey;
+}
+
+/*
+** =============================
+**       Main profile content
+** =============================
+*/
+
+.carousel, .carousel-inner, .carousel-item {
+	height: 100%;
+}
+.carousel-inner .loading-window {
+    display: none;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    z-index: 3;
+    transition: 0.3s;
+}
+.loading-window .loading-animation {
+    /*position: absolute;*/
+    height: 50px;
+    width: 50px;
+    /*border-left: 5px solid lightgrey;*/
+    -webkit-box-shadow: 0px 0px 3px 15px rgba(176,73,98,1);
+    -moz-box-shadow: 0px 0px 3px 15px rgba(176,73,98,1);
+    box-shadow: 0px 0px 3px 15px rgba(176,73,98,1);
+    animation: loading 5s infinite;
+}
+@keyframes loading {
+    0%   {transform: rotate(0deg);}
+    25%  {transform: rotate(68deg);}
+    50%  {transform: rotate(136deg);}
+    75%  {transform: rotate(204deg);}
+    100% {transform: rotate(270deg);}
+}
+
+.carousel-item {
+    flex-wrap: wrap;
+    padding: 10px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+/*
+** =============================
+** >>>>>>>    Profile
+** =============================
+*/
+.gallery-photos-wrap {
+	height: 120px;
+	width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+}
+.gallery-photos-wrap .gallery-photos-list {
+	display: flex;
+    height: 100%;
+	padding: 0;
+	margin: 0 0 0 -10px;
+	list-style: none;
+}
+.no-photos-msg {
+    height: 100%;
+    width:100%;
+    padding-left: 10px;
+    font-size: 1.3em;
+    font-family: 'Roboto Black', arial;
+    color: darkgrey;
+    text-align: center;
+    line-height: 100px;
+}
+
+.gallery-photos-list .gpl-item {
+    height: 100%;
+	width: 25%;
+	float: right;
+	padding-left: 10px;
+	overflow: hidden;
+    cursor: pointer;
+}
+.gallery-photos-list .gpl-item .gpl-img-wrap {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    overflow: hidden;
+}
+.gallery-photos-list .gpl-item img {
+    height: 100%;
+}
+/*MODAL*/
+.modal {
+    padding: 0 !important;
+}
+.modal-dialog-gallery {
+    height: 400px;
+    margin: 0 auto;
+    max-width: 750px;
+    margin-top: 50px;
+}
+.modal-dialog-gallery .modal-content-gallery {
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+.modal-dialog-gallery .modal-content-gallery .row {
+    height: 100%;
+    margin: 0;
+}
+.modal-photo-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background: #000;
+}
+.modal-photo-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.modal-comments-wrap {
+    padding: 0;
+    font-family: 'Roboto Black';
+    font-size: 0.9em;
+}
+.modal-comments-wrap .modal-comments-head {
+    display: flex;
+    height: 60px;
+    padding: 5px 45px 5px 5px;
+    border-bottom: 1px solid lightgrey;
+}
+.modal-comments-head .photo-owner-wrap {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.modal-comments-head .photo-owner-wrap img {
+    height: 100%;
+}
+.modal-comments-head .photo-owner-name {
+    padding-left: 10px;
+}
+
+.modal-comments-head .photo-likes {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    cursor: pointer;
+}
+.modal-comments-head .photo-likes:hover {
+    color: darkgrey;
+}
+.modal-comments-head .photo-likes i {
+    margin-left: 2px;
+    color: #D95058;
+}
+.modal-comments-head .photo-likes:hover i {
+    color: #ED939D;
+}
+
+.modal-comments-wrap .modal-comments-body {
+    height: calc(100% - 160px);
+    overflow: hidden;
+}
+.modal-comments-body .comments-list {
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+.comments-list .cl-item {
+    height: 50px;
+    padding: 5px;
+    width: 100%;
+}
+.cl-item .comment-head {
+    height: 100%;
+    display: flex;
+}
+.cl-item .comment-head  .comment-owner-wrap {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.cl-item .comment-head .comment-owner-wrap img {
+    height: 100%;
+}
+.cl-item .comment-head .comment-owner-name {
+    padding-left: 10px;
+}
+
+.modal-comments-wrap .modal-comments-footer {
+    position: relative;
+    height: 100px;
+    padding: 5px 45px 5px 5px;
+    border-top: 1px solid lightgrey;
+}
+.modal-comments-footer .textarea-wrap {
+    height: 100%;
+    font-size: 0.9em;
+    border: 1px solid lightgrey;
+    outline: none;
+    overflow: auto;
+}
+.modal-comments-footer .send-msg-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.modal-comments-footer .send-msg-btn:hover {
+    background: #efefef;
+    border-radius: 50%;
+}
+.modal-comments-footer .send-msg-btn i {
+
+}
+
+.profile-info-wrap {
+    width: 100%;
+    height: calc(100% - 120px);
+    padding-top: 10px;
+}
+.profile-info-wrap .profile-name {
+    width: 100%;
+    padding: 10px 0 10px 0;
+    line-height: 1.3em;
+}
+.profile-info-wrap .profile-name span:first-child {
+    float: left;
+    font-size: 1.3em;
+    font-family: 'Roboto Black', arial;
+}
+.profile-info-wrap .profile-name span:last-child {
+    float: right;
+    font-size: 0.9em;
+    font-family: 'Roboto Black', arial;
+}
+
+.hobbies-wrap {
+    margin-bottom: 20px;
+}
+.hobbies-wrap .hobbies-list {
+    padding: 0;
+    padding-bottom: 20px;
+    list-style: none;
+    border-bottom: 1px solid lightgrey;
+    cursor: default;
+}
+.hobbies-wrap .hobbies-list .hl-item {
+    display: inline-block;
+    padding-left: 3px;
+    font-size: 0.8em;
+    font-family: 'Roboto Black', arial;
+    cursor: pointer;
+}
+.hobbies-wrap .hobbies-list .hl-item:hover {
+    text-decoration: underline;
+}
+
+.profile-data-wrap {
+    margin-bottom: 20px;
+}
+.profile-data-wrap .profile-data-header {
+    font-family: 'Roboto Black', arial;
+}
+
+.profile-data-wrap .profile-data-list {
+    padding: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgrey;
+    list-style: none;
+}
+.profile-data-wrap .profile-data-list .pdl-item {
+    font-family: 'Roboto Black', arial;
+    font-size: 0.9em;
+}
+.profile-data-wrap .profile-data-list .pdl-item span:first-child {
+    float: left;
+}
+.profile-data-wrap .profile-data-list .pdl-item span:last-child {
+    float: right;
+}
+
+.about-yourself-wrap  .about-yourself-header {
+    font-family: 'Roboto Black', arial;
+}
+.about-yourself-wrap  textarea {
+    display: block;
+    width: 100%;
+    /*height: 70px;*/
+    padding: 0;
+    background: #fff;
+    border: none;
+    color: darkgrey;
+    font-family: 'Roboto Black', arial;
+    font-size: 0.9em;
+    resize: none;
+    outline: none;
+    overflow: hidden;
+    cursor: default;
+}
+
+/*
+** =============================
+** >>>>>>>    MESSAGES
+** =============================
+*/
+.profile-chat-wrap {
+    width: 100%;
+}
+.profile-chat-wrap .profile-chat-list {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Black', arial;
+}
+.profile-chat-list .no-messages {
+    display: none;
+    color: darkgrey;
+    text-align: center;
+}
+.profile-chat-list .pcl-item {
+    position: relative;
+    height: 60px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+    cursor: pointer;
+    list-style: none;
+    transition: 0.2s;
+}
+.profile-chat-list .pcl-item:hover {
+    background: #e5e5e5;
+}
+
+.pcl-item .interlocutor-img-wrap {
+    display: flex;
+    justify-content: center;
+    float: left;
+    height: 100%;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.pcl-item .interlocutor-img-wrap img {
+    height: 100%;
+}
+.pcl-item .interlocutor-name {
+    display: inline-block;
+    font-size: 0.9em;
+    padding-left: 5px;
+}
+.pcl-item .time-of-last-message {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 0.8em;
+}
+.pcl-item .last-message-of-chat {
+    display: block;
+    width: 65%;
+    padding: 0 0 0 5px;
+    background: #fff;
+    border: none;
+    font-family: 'Roboto Black', arial;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.profile-chat-list .pcl-item:hover .last-message-of-chat {
+    background: #e5e5e5;
+}
+
+/*
+** =============================
+** >>>>>>> MESSAGES >>>>> CHAT
+** =============================
+*/
+
+.chat-wrap {
+    position: absolute;
+    top: 0;
+    left: 110%;
+    /*left: 0;*/
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    transition: 0.3s;
+    z-index: 2;
+}
+
+.chat-wrap .chat-header {
+    position: relative;
+    height: 50px;
+    padding: 5px 10px 5px 15px;
+    background: #557780;
+    font-family: 'Roboto Black', arial;
+    font-size: 1em;
+}
+.chat-header .close-chat-btn {
+    display: inline-block;
+    height: 100%;
+    line-height: 40px;
+    cursor: pointer;
+}
+.chat-header .close-chat-btn i {
+    font-size: 1.3em;
+    color: #fff;
+}
+.chat-header .chat-interlocutor-name {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    color: #fff;
+}
+.chat-header .chat-interlocutor-avatar {
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    float: right;
+    height: 100%;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.chat-header .chat-interlocutor-avatar img {
+    height: 100%;
+}
+
+.chat-wrap .chat-body {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 150px);
+    background: #efefef;
+    overflow: auto;
+}
+.chat-body .chat-messages-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /*height: 100%;*/
+    min-height: min-content;
+    width: 100%;
+    padding: 10px 10px 0;
+    margin: 0;
+    overflow: auto;
+    list-style: none;
+}
+.chat-body .chat-messages-wrap .cmw-item {
+    display: block;
+    width: 100%;
+    padding-bottom: 10px;
+    font-family: 'Roboto Black', arial;
+    font-size: 0.9em;
+    text-align: justify;
+}
+.chat-body .chat-messages-wrap .left-message {
+    padding-right: 50px;
+    text-align-last: left;
+}
+.chat-body .chat-messages-wrap .right-message {
+    padding-left: 50px;
+    text-align-last: right;
+}
+.chat-body .chat-messages-wrap .cmw-item div {
+    display: inline-block;
+    height: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+.chat-body .chat-messages-wrap .right-message div {
+    background: rgba(155, 89, 182, 0.7);
+}
+.chat-body .chat-messages-wrap .left-message div {
+    background: rgba(46, 270, 113, 0.7);
+}
+
+.chat-footer {
+    position: relative;
+    height: 100px;
+    padding: 10px 40px 10px 10px;
+}
+.chat-footer .textarea-wrap {
+    width: 100%;
+    height: 100%;
+    border: 1px solid lightgrey;
+    font-family: 'Roboto Black', arial;
+    font-size: 0.9em;
+    overflow: auto;
+    outline: none;
+}
+.chat-footer .send-msg-btn {
+    display: inline-block;
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.chat-footer .send-msg-btn:hover {
+    background: #efefef;
+    border-radius: 50%;
+}
+
+/*
+** =============================
+** >>>>>>>  FRIENDS LIST
+** =============================
+*/
+
+.friends-list-wrap {
+    width: 100%;
+}
+.friends-list-wrap .friends-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.friends-list .no-friends-yet {
+    /*display: none;*/
+    color: darkgrey;
+    font-family: 'Roboto Black', arial;
+    text-align: center;
+    font-size: 1.3em;
+}
+.friends-list .fl-item {
+    position: relative;
+    height: 60px;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    /*border-bottom: 1px solid lightgrey;*/
+    font-family: 'Roboto Black', arial;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.friends-list .fl-item:hover {
+    background: #e5e5e5;
+}
+.fl-item .friend-img-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 50px;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.fl-item .friend-img-wrap img {
+    height: 100%;
+}
+.fl-item .friends-full-name {
+    padding-left: 5px;
+    padding-right: 35px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.fl-item .friend-dropdown {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.fl-item .friend-dropdown .btn {
+    background: #fff;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.fl-item:hover .friend-dropdown .btn {
+    background: #e5e5e5;
+}
+.fl-item .friend-dropdown .dropdown-toggle:after {
+    display: none;
+}
+.fl-item .friend-dropdown .btn i {
+    font-size: 1.3em;
+    color: darkgrey;
+}
+.fl-item .friend-dropdown .btn i:hover {
+    color: grey;
+}
+.fl-item .friend-dropdown .dropdown-menu {
+    right: 0;
+    left: inherit;
+}
+.fl-item .friend-dropdown .dropdown-menu .dropdown-item {
+    font-size: 0.9em;
+}
+
+/*
+** =============================
+** >>>>>>>  OPTIONS
+** =============================
+*/
+
+.options-list-wrap {
+    width: 100%;
+}
+.options-list {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 10px;
+    font-family: 'Roboto Black', arial;
+    list-style: none;
+}
+.options-list .ol-first-item {
+    font-size: 1.2em;
+    border-bottom: 1px solid lightgrey;
+}
+.options-list .ol-item {
+    padding-top: 5px;
+}
+.options-list .change-lan-dropdown {
+    float: right;
+}
+.options-list .change-lan-dropdown .btn {
+    padding: 0 10px;
+    background: #fff;
+    border: none;
+    box-shadow: none;
+    color: darkgrey;
+    cursor: pointer;
+}
+.options-list .change-lan-dropdown .btn:hover {
+    color: grey;
+}
+.options-list .change-lan-dropdown .dropdown-menu {
+    right: 0;
+    left: inherit;
+    min-width: inherit;
+}
+.options-list .change-lan-dropdown .dropdown-menu .dropdown-item {
+    font-size: 0.8em;
+    padding: 3px 1em;
+}
+.options-list .ol-item input[name=input-hashtag] {
+    width: calc(100% - 38px);
+    outline: none;
+    font-family: 'Roboto Black', arial;
+    font-size: 0.9em;
+}
+.options-list .send-new-hashtag-btn {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    padding: 2px 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.options-list .send-new-hashtag-btn:hover {
+    background: #efefef;
+    border-radius: 50%;
+}
+
+/*avatar downloading*/
+.add-avatar .click-to-upload-avatar {
+    padding: 5px;
+    text-align: center;
+    background: lightgrey;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.add-avatar .click-to-upload-avatar:hover {
+    background: darkgrey;
+}
+.add-avatar .click-to-upload-avatar i {
+    padding-left: 5px;
+}
+.add-avatar input[name="upload-user-avatar"] {
+    display: none;
+}
+.add-avatar .upload-avatar-img-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 0;
+    transition: 0.3s;
+    cursor: pointer;
+    overflow: hidden;
+}
+.add-avatar .upload-avatar-img-wrap img {
+    width: 100%;
+}
+.add-avatar .upload-new-avatar-err {
+    padding: 5px;
+    text-align: center;
+    font-size: 0;
+    color: red;
+    transition: 0.3s;
+}
+.add-avatar-btn {
+    display: none;
+    justify-content: flex-end;
+    width: 100%;
+}
+.add-avatar-btn span {
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.add-avatar-btn span:hover {
+    background: lightgrey;
+    border-radius: 10px;
+}
+
+/*photos downloading*/
+.add-photos .ol-first-item span {
+    font-size: 0.7em;
+    padding-left: 10px;
+}
+.add-photos .click-to-upload-photo {
+    padding: 5px;
+    text-align: center;
+    background: lightgrey;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.add-photos .click-to-upload-photo:hover {
+    background: darkgrey;
+}
+.add-photos .click-to-upload-photo i {
+    padding-left: 5px;
+}
+.add-photos .upload-new-photo-err {
+    padding: 5px;
+    text-align: center;
+    font-size: 0;
+    color: red;
+    transition: 0.3s;
+}
+.add-photos input[name=upload-user-photos] {
+    display: none;
+}
+.add-photos .new-uploaded-img-wrap {
+    width: 25%;
+    height: 90px;
+    float: left;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding:0 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.add-photos img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.add-photos-btn {
+    display: none;
+    justify-content: flex-end;
+    width: 100%;
+}
+.add-photos-btn span {
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.add-photos-btn span:hover {
+    background: lightgrey;
+    border-radius: 10px;
+}
+
+/*
+** =============================
+** >>>>>>>  SEARCH
+** =============================
+*/
+
+.search-users-wrap {
+    width: 100%;
+}
+.search-users-wrap .search-input-wrap input[name=user-search-input] {
+    width: 100%;
+    padding: 0;
+    padding-right: 30px;
+    font-family: 'Roboto Black', arial;
+    font-size: 0.9em;
+    outline: none;
+}
+.search-input-wrap {
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom:10px;
+    border-bottom: 1px solid lightgrey;
+}
+.search-input-wrap .dropdown {
+    position: absolute;
+    top: 0;
+    right: 2px;
+}
+.search-input-wrap .dropdown .btn {
+    padding: 1px 5px;
+    background: #fff;
+    border: none;
+    box-shadow: none;
+    color: darkgrey;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.search-input-wrap .dropdown .btn:after {
+    display: none;
+}
+.search-input-wrap .dropdown .btn:hover {
+    color: grey;
+}
+.search-input-wrap .dropdown .dropdown-menu {
+    width: 250px;
+    max-height: 250px;
+    right: 0;
+    left: inherit;
+    padding: 10px;
+    border-radius: 0;
+    overflow: auto;
+}
+.dropdown-menu .search-filters-list {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Black', arial;
+    list-style: none;
+}
+.search-filters-list .sfl-item {
+    margin-bottom: 5px;
+}
+.search-filters-list .sfl-item:last-child {
+    margin-bottom: 0;
+}
+.search-filters-list .sfl-item input[name=sfl-country],
+.search-filters-list .sfl-item input[name=sfl-city] {
+    width: 100%;
+    font-family: 'Roboto Black', arial;
+    font-size: 0.9em;
+    outline: none;
+}
+.sfl-item .sfl-item-head {
+    margin-bottom: 5px;
+    border-bottom: 1px solid lightgrey;
+}
+.sfl-item .sfl-item-body {
+    font-size: 0.9em;
+}
+.sfl-item .sfl-item-body .checkbox,
+.sfl-item .sfl-item-body .radio {
+    position: relative;
+}
+.sfl-item .sfl-item-body .checkbox label,
+.sfl-item .sfl-item-body .radio label {
+    font-size: 0.9em;
+    margin: 0;
+}
+.sfl-item .sfl-item-body .checkbox input,
+.sfl-item .sfl-item-body .radio input {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    cursor: pointer;
+}
+.sfl-item-body .btn {
+    padding: 5px;
+    transition: 0.3s;
+}
+.sfl-item-body .btn:hover {
+    border-radius: 10%;
+    background: #efefef;
+}
+
+.founded-users-list-wrap {
+    width: 100%;
+    height: calc(100% - 50px);
+}
+.founded-users-list-wrap .founded-users-list {
+    width: 100%;
+    padding: 0;
+    list-style: none;
+}
+.founded-users-list .ful-item {
+    height: 60px;
+    padding: 5px;
+    cursor: pointer;
+}
+.founded-users-list .ful-item:hover {
+    background: #e5e5e5;
+}
+.founded-users-list .ful-item .founded-user-img-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    height: 100%;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.founded-users-list .ful-item .founded-user-img-wrap img {
+    height: 100%;
+}
+.founded-users-list .ful-item .founded-user-name {
+    padding-left: 55px;
+    font-family: 'Roboto Black', arial;
+    /*font-size: 0.9em;*/
+}
+
+/*
+** =============================
+** >>>>>>>  BLACKLIST
+** =============================
+*/
+
+.blacklist-wrap {
+    width: 100%;
+}
+.blacklist-wrap .blacklist {
+    padding: 0;
+    font-family: 'Roboto Black', arial;
+    list-style: none;
+}
+.blacklist-wrap .blacklist .blacklist-is-empty {
+    display: none;
+    color: darkgrey;
+    text-align: center;
+}
+.blacklist-wrap .blacklist .bl-item {
+    position: relative;
+    height: 60px;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.blacklist-wrap .blacklist .bl-item:hover {
+    background: #e5e5e5;
+}
+.blacklist-wrap .blacklist .bl-user-img-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    height: 100%;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.blacklist-wrap .blacklist .bl-user-img-wrap img {
+    height: 100%;
+}
+.blacklist-wrap .blacklist .bl-user-full-name {
+    padding-left: 55px;
+}
+.bl-item .bl-dropdown {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.bl-item .bl-dropdown .btn {
+    background: #fff;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.bl-item:hover .bl-dropdown .btn {
+    background: #e5e5e5;
+}
+
+.bl-item .bl-dropdown .dropdown-toggle:after {
+    display: none;
+}
+.bl-item .bl-dropdown .btn i {
+    font-size: 1.3em;
+    color: darkgrey;
+}
+.bl-item .bl-dropdown .btn i:hover {
+    color: grey;
+}
+.bl-item .bl-dropdown .dropdown-menu {
+    right: 0;
+    left: inherit;
+}
+.bl-item .bl-dropdown .dropdown-menu .dropdown-item {
+    font-size: 0.9em;
+}
+
+/*
+** =============================
+** >>>>>>>  ANOTHER USER
+** =============================
+*/
+
+.au-avatar-wrap {
+    height: 110px;
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px solid lightgrey;
+    overflow: hidden;
+}
+.au-avatar-wrap .au-avatar-img {
+    display: inline-flex;
+    justify-content: center;
+    float: left;
+    height: 100%;
+    width: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.au-avatar-wrap .au-avatar-img img {
+    height: 100%;
+}
+.au-avatar-wrap .au-profile-name {
+    width: 100%;
+    padding: 10px 0 10px 0;
+    line-height: 1.3em;
+}
+.au-avatar-wrap .au-profile-name span {
+    display: block;
+    text-align: right;
+    font-family: 'Roboto Black', arial;
+
+}
+.au-avatar-wrap .au-profile-name span:first-child {
+    font-size: 1.3em;
+}
+.au-avatar-wrap .au-profile-name span:last-child {
+    font-size: 0.9em;
+}
+
+.au-gallery-photos-wrap {
+	height: 120px;
+	width: 100%;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    border-bottom: 1px solid lightgrey;
+}
+.au-gallery-photos-wrap .au-gallery-photos-list {
+    display: flex;
+	height: 100%;
+	padding: 0;
+	margin: 0 0 0 -10px    ;
+	list-style: none;
+}
+.au-gallery-photos-list .au-gpl-item {
+    height: 100%;
+	width: 25%;
+	float: right;
+	padding-left: 10px;
+	overflow: hidden;
+}
+.au-gallery-photos-list .au-gpl-item .au-gpl-img-wrap {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    overflow: hidden;
+    cursor: pointer;
+}
+.au-gallery-photos-list .au-gpl-item img {
+    height: 100%;
+}
+
+.au-profile-info-wrap {
+    width: 100%;
+    height: calc(100% - 120px);
+    padding-top: 10px;
+}
+.au-hobbies-wrap {
+    margin-bottom: 20px;
+}
+.au-hobbies-wrap .au-hobbies-list {
+    padding: 0;
+    padding-bottom: 20px;
+    list-style: none;
+    border-bottom: 1px solid lightgrey;
+    cursor: default;
+}
+.au-hobbies-wrap .au-hobbies-list .au-hl-item {
+    display: inline-block;
+    padding-left: 3px;
+    font-size: 0.8em;
+    font-family: 'Roboto Black', arial;
+    cursor: pointer;
+}
+.au-hobbies-wrap .au-hobbies-list .au-hl-item:hover {
+    text-decoration: underline;
+}
+
+.au-profile-data-wrap {
+    margin-bottom: 20px;
+}
+.au-profile-data-wrap .au-profile-data-header {
+    font-family: 'Roboto Black', arial;
+}
+
+.au-profile-data-wrap .au-profile-data-list {
+    padding: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgrey;
+    list-style: none;
+}
+.au-profile-data-wrap .au-profile-data-list .au-pdl-item {
+    font-family: 'Roboto Black', arial;
+    font-size: 0.9em;
+}
+.au-profile-data-wrap .au-profile-data-list .au-pdl-item span:first-child {
+    float: left;
+}
+.au-profile-data-wrap .au-profile-data-list .au-pdl-item span:last-child {
+    float: right;
+}
+
+.au-about-yourself-wrap  .au-about-yourself-header {
+    font-family: 'Roboto Black', arial;
+}
+.au-about-yourself-wrap  textarea {
+    display: block;
+    width: 100%;
+    padding: 0;
+    background: #fff;
+    border: none;
+    font-family: 'Roboto Black', arial;
+    font-size: 0.9em;
+    resize: none;
+    outline: none;
+    overflow: hidden;
+    cursor: default;
+}

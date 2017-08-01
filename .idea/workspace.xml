@@ -1,0 +1,1599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ee576d98-8ea9-49c7-a95a-02350c8b003f" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="www" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="55" column="44" lean-forward="false" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mysqlLogRequests.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libs/mysqlLogRequests.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="171" column="16" lean-forward="false" selection-start-line="171" selection-start-column="16" selection-end-line="171" selection-end-column="16" />
+              <folding>
+                <element signature="e#2265#5300#0" expanded="false" />
+                <element signature="e#8427#14039#0" expanded="false" />
+                <element signature="e#8649#12776#0" expanded="false" />
+                <element signature="e#12821#14037#0" expanded="false" />
+                <marker date="1501603780021" expanded="true" signature="2676:2746" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="2803:2880" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="3179:3194" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="3349:3378" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="3391:3397" ph=" " />
+                <marker date="1501603780021" expanded="true" signature="3656:3671" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="3826:3855" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="3868:3874" ph=" " />
+                <marker date="1501603780021" expanded="true" signature="3974:3997" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="4202:4293" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="4346:4400" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="4457:4483" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="4632:4701" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="4754:4781" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="4885:4910" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="4923:4940" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="9716:9786" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="9851:9928" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="10295:10310" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="10517:10546" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="10559:10565" ph=" " />
+                <marker date="1501603780021" expanded="true" signature="10884:10899" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="11106:11135" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="11148:11154" ph=" " />
+                <marker date="1501603780021" expanded="true" signature="11290:11313" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="11562:11653" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="11718:11772" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="11845:11871" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="12036:12105" ph="..." />
+                <marker date="1501603780021" expanded="true" signature="12174:12188" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mysqlProfileRequests.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/libs/mysqlProfileRequests.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
+              <folding>
+                <element signature="e#522#946#0" expanded="false" />
+                <element signature="e#3321#4679#0" expanded="false" />
+                <element signature="e#4993#5692#0" expanded="false" />
+                <element signature="e#8939#9081#0" expanded="false" />
+                <element signature="e#11132#11274#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/profile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3800">
+              <caret line="171" column="5" lean-forward="false" selection-start-line="171" selection-start-column="5" selection-end-line="171" selection-end-column="5" />
+              <folding>
+                <element signature="e#155#355#0" expanded="false" />
+                <element signature="e#382#534#0" expanded="false" />
+                <element signature="n#!!block;n#animationLoadingStart#0;n#MainProfile#0" expanded="false" />
+                <element signature="n#!!block;n#animationLoadingEnd#0;n#MainProfile#0" expanded="false" />
+                <element signature="n#!!block;n#addHandler#0;n#MainProfile#0" expanded="false" />
+                <element signature="n#Chat#0" expanded="false" />
+                <element signature="e#3107#4491#0" expanded="false" />
+                <element signature="n#MessagesPage#0" expanded="false" />
+                <element signature="n#SearchPage#0" expanded="false" />
+                <element signature="n#BlacklistPage#0" expanded="false" />
+                <element signature="n#AnotherUserPage#0" expanded="false" />
+                <element signature="e#9064#10482#0" expanded="false" />
+                <element signature="e#10761#10983#0" expanded="false" />
+                <element signature="e#11031#11248#0" expanded="false" />
+                <element signature="e#11296#11822#0" expanded="false" />
+                <element signature="e#11874#12261#0" expanded="false" />
+                <element signature="e#12310#12739#0" expanded="false" />
+                <element signature="e#12787#13215#0" expanded="false" />
+                <element signature="e#13260#13397#0" expanded="false" />
+                <element signature="e#13442#14064#0" expanded="false" />
+                <element signature="e#14232#15914#0" expanded="false" />
+                <element signature="e#15961#16539#0" expanded="false" />
+                <element signature="e#16712#16934#0" expanded="false" />
+                <element signature="e#16985#17208#0" expanded="false" />
+                <element signature="e#17257#17914#0" expanded="false" />
+                <element signature="e#17961#18462#0" expanded="false" />
+                <element signature="e#18513#19204#0" expanded="false" />
+                <element signature="e#19252#19686#0" expanded="false" />
+                <element signature="e#19736#20265#0" expanded="false" />
+                <element signature="e#20315#20746#0" expanded="false" />
+                <element signature="e#20915#21149#0" expanded="false" />
+                <element signature="e#21195#22273#0" expanded="false" />
+                <element signature="e#26107#27991#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/profile.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="169" column="95" lean-forward="false" selection-start-line="169" selection-start-column="95" selection-end-line="169" selection-end-column="95" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#ul#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#li#0;n#ul#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#li#1;n#ul#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#li#2;n#ul#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#ul#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#6;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#7;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/profile.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="868" column="23" lean-forward="false" selection-start-line="868" selection-start-column="23" selection-end-line="868" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>btnOpenReg</find>
+      <find>no-photo</find>
+      <find>normalize</find>
+      <find>has</find>
+      <find>options</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/js/server.js" />
+        <option value="$PROJECT_DIR$/views/profile-layout.jade" />
+        <option value="$PROJECT_DIR$/views/index-layout.jade" />
+        <option value="$PROJECT_DIR$/public/js/classes/Class.Ajax.js" />
+        <option value="$PROJECT_DIR$/views/login-layout.jade" />
+        <option value="$PROJECT_DIR$/libs/mysqlRegistration.js" />
+        <option value="$PROJECT_DIR$/views/access-layout.jade" />
+        <option value="$PROJECT_DIR$/views/access.jade" />
+        <option value="$PROJECT_DIR$/public/js/access.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/views/login.jade" />
+        <option value="$PROJECT_DIR$/views/reset-layout.jade" />
+        <option value="$PROJECT_DIR$/public/css/media/media-reset.css" />
+        <option value="$PROJECT_DIR$/views/reset.jade" />
+        <option value="$PROJECT_DIR$/public/css/reset.css" />
+        <option value="$PROJECT_DIR$/public/js/classes/Class.Mail.js" />
+        <option value="$PROJECT_DIR$/libs/mailer.js" />
+        <option value="$PROJECT_DIR$/views/index.jade" />
+        <option value="$PROJECT_DIR$/public/js/reset.js" />
+        <option value="$PROJECT_DIR$/public/css/logform.css" />
+        <option value="$PROJECT_DIR$/public/js/logform.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/libs/database.js" />
+        <option value="$PROJECT_DIR$/views/profile.jade" />
+        <option value="$PROJECT_DIR$/public/css/profile.css" />
+        <option value="$PROJECT_DIR$/public/js/profile.js" />
+        <option value="$PROJECT_DIR$/libs/mysqlLogRequests.js" />
+        <option value="$PROJECT_DIR$/libs/mysqlProfileRequests.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="media" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="D:/work" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Other File Types" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\public\js" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee576d98-8ea9-49c7-a95a-02350c8b003f" name="Default" comment="" />
+      <created>1500544414746</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1500544414746</updated>
+      <workItem from="1500544416668" duration="3932000" />
+      <workItem from="1500819729219" duration="6075000" />
+      <workItem from="1500882658270" duration="32013000" />
+      <workItem from="1500967264358" duration="26654000" />
+      <workItem from="1501068173331" duration="15063000" />
+      <workItem from="1501139269694" duration="25455000" />
+      <workItem from="1501226268518" duration="30968000" />
+      <workItem from="1501315984739" duration="25397000" />
+      <workItem from="1501402038968" duration="33310000" />
+      <workItem from="1501489090258" duration="5589000" />
+      <workItem from="1501506796235" duration="13320000" />
+      <workItem from="1501522279972" duration="7829000" />
+      <workItem from="1501571561402" duration="33528000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="259133000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19242424" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19242424" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="43" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/public/js/logform.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="68" column="21" lean-forward="true" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+          <folding>
+            <element signature="n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#openReg#0;n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#closeReg#0;n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#normalize#0;n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#addHandler#0;n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#logIn#0;n#LogForm#0" expanded="false" />
+            <element signature="n#!!block;n#checkLogForm#0;n#LogForm#0" expanded="false" />
+            <element signature="n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#vueInit#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#getGeopositionFromForm#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#getGeoposition#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#sendUserData#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#checkRegForm#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#checkPasswords#0;n#RegForm#0" expanded="false" />
+            <element signature="e#10226#13876#0" expanded="false" />
+            <element signature="e#10346#10409#0" expanded="false" />
+            <element signature="e#10453#10516#0" expanded="false" />
+            <element signature="e#10522#10616#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/database.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1649">
+          <caret line="97" column="36" lean-forward="false" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/logform.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3043">
+          <caret line="179" column="35" lean-forward="false" selection-start-line="179" selection-start-column="35" selection-end-line="179" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/mysqlLogRequests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#2265#5300#0" expanded="false" />
+            <element signature="e#8427#14039#0" expanded="false" />
+            <element signature="e#8649#12776#0" expanded="false" />
+            <element signature="e#12821#14037#0" expanded="false" />
+            <marker date="1501603780021" expanded="true" signature="2676:2746" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="2803:2880" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="3179:3194" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="3349:3378" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="3391:3397" ph=" " />
+            <marker date="1501603780021" expanded="true" signature="3656:3671" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="3826:3855" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="3868:3874" ph=" " />
+            <marker date="1501603780021" expanded="true" signature="3974:3997" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="4202:4293" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="4346:4400" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="4457:4483" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="4632:4701" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="4754:4781" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="4885:4910" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="4923:4940" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="9716:9786" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="9851:9928" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="10295:10310" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="10517:10546" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="10559:10565" ph=" " />
+            <marker date="1501603780021" expanded="true" signature="10884:10899" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="11106:11135" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="11148:11154" ph=" " />
+            <marker date="1501603780021" expanded="true" signature="11290:11313" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="11562:11653" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="11718:11772" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="11845:11871" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="12036:12105" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="12174:12188" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2516">
+          <caret line="148" column="25" lean-forward="true" selection-start-line="148" selection-start-column="25" selection-end-line="148" selection-end-column="25" />
+          <folding>
+            <element signature="e#155#355#0" expanded="false" />
+            <element signature="e#382#534#0" expanded="false" />
+            <element signature="n#!!block;n#animationLoadingStart#0;n#MainProfile#0" expanded="false" />
+            <element signature="n#!!block;n#animationLoadingEnd#0;n#MainProfile#0" expanded="false" />
+            <element signature="n#!!block;n#addHandler#0;n#MainProfile#0" expanded="false" />
+            <element signature="n#Chat#0" expanded="false" />
+            <element signature="e#3107#4491#0" expanded="false" />
+            <element signature="n#MessagesPage#0" expanded="false" />
+            <element signature="n#SearchPage#0" expanded="false" />
+            <element signature="n#BlacklistPage#0" expanded="false" />
+            <element signature="n#AnotherUserPage#0" expanded="false" />
+            <element signature="e#9064#10482#0" expanded="false" />
+            <element signature="e#10761#10983#0" expanded="false" />
+            <element signature="e#11031#11248#0" expanded="false" />
+            <element signature="e#11296#11822#0" expanded="false" />
+            <element signature="e#11874#12261#0" expanded="false" />
+            <element signature="e#12310#12739#0" expanded="false" />
+            <element signature="e#12787#13215#0" expanded="false" />
+            <element signature="e#13260#13397#0" expanded="false" />
+            <element signature="e#13442#14064#0" expanded="false" />
+            <element signature="e#14232#15914#0" expanded="false" />
+            <element signature="e#15961#16539#0" expanded="false" />
+            <element signature="e#16712#16934#0" expanded="false" />
+            <element signature="e#16985#17208#0" expanded="false" />
+            <element signature="e#17257#17914#0" expanded="false" />
+            <element signature="e#17961#18462#0" expanded="false" />
+            <element signature="e#18513#19204#0" expanded="false" />
+            <element signature="e#19252#19686#0" expanded="false" />
+            <element signature="e#19736#20265#0" expanded="false" />
+            <element signature="e#20315#20746#0" expanded="false" />
+            <element signature="e#20915#21149#0" expanded="false" />
+            <element signature="e#21195#22273#0" expanded="false" />
+            <element signature="e#26107#27991#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/logform.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="44" lean-forward="false" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
+          <folding>
+            <element signature="n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#openReg#0;n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#closeReg#0;n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#normalize#0;n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#addHandler#0;n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#logIn#0;n#LogForm#0" expanded="false" />
+            <element signature="n#!!block;n#checkLogForm#0;n#LogForm#0" expanded="false" />
+            <element signature="n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#vueInit#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#getGeopositionFromForm#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#getGeoposition#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#sendUserData#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#checkRegForm#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#checkPasswords#0;n#RegForm#0" expanded="false" />
+            <element signature="e#10226#13876#0" expanded="false" />
+            <element signature="e#10346#10409#0" expanded="false" />
+            <element signature="e#10453#10516#0" expanded="false" />
+            <element signature="e#10522#10616#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/profile.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="48" column="35" lean-forward="true" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#ul#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#li#0;n#ul#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#li#1;n#ul#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#li#2;n#ul#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#ul#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#7;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/server.js" />
+    <entry file="file://$PROJECT_DIR$/js/test.js" />
+    <entry file="file://$PROJECT_DIR$/config/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/classes/Class.FloatMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/classes/Class.MainSlider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/classes/Class.TextareaAutoresize.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/classes/Class.Anchor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="28" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/classes/Class.Ajax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geo-location-javascript_0_4_08/geo-location-javascript/sample.html" />
+    <entry file="file://$PROJECT_DIR$/geo-location-javascript_0_4_08/geo-location-javascript/sampe_with_open_map.html" />
+    <entry file="file://$PROJECT_DIR$/geo-location-javascript_0_4_08/geo-location-javascript/sample_with_map.html" />
+    <entry file="file://$PROJECT_DIR$/views/access.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/geo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5616">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/access.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="45" lean-forward="false" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/media/media-reset.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/reset.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1274">
+          <caret line="132" column="21" lean-forward="false" selection-start-line="132" selection-start-column="21" selection-end-line="132" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/classes/Class.Mail.js" />
+    <entry file="file://$PROJECT_DIR$/public/css/fonts.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/mailer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/reset.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="38" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/reset.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="67" column="24" lean-forward="true" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
+          <folding>
+            <element signature="n#!!block;n#openReg#0;n#ResetForm#0" expanded="false" />
+            <element signature="n#!!block;n#closeReg#0;n#ResetForm#0" expanded="false" />
+            <element signature="n#!!block;n#normalize#0;n#ResetForm#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="62" column="56" lean-forward="false" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/logform.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="235" column="24" lean-forward="false" selection-start-line="235" selection-start-column="24" selection-end-line="235" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/logform.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="60" column="54" lean-forward="false" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="54" />
+          <folding>
+            <element signature="n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#openReg#0;n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#closeReg#0;n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#normalize#0;n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#addHandler#0;n#Form#0" expanded="false" />
+            <element signature="n#!!block;n#logIn#0;n#LogForm#0" expanded="false" />
+            <element signature="n#!!block;n#checkLogForm#0;n#LogForm#0" expanded="false" />
+            <element signature="n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#vueInit#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#getGeopositionFromForm#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#getGeoposition#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#sendUserData#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#checkRegForm#0;n#RegForm#0" expanded="false" />
+            <element signature="n#!!block;n#checkPasswords#0;n#RegForm#0" expanded="false" />
+            <element signature="e#10226#13876#0" expanded="false" />
+            <element signature="e#10346#10409#0" expanded="false" />
+            <element signature="e#10453#10516#0" expanded="false" />
+            <element signature="e#10522#10616#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram/C:/wamp64/www">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$</OriginalElement>
+          <nodes>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/Auth.js#Buffer#13;C:/wamp64/www/node_modules/mysql/lib/protocol/Auth.js#Crypto#43;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/BufferList.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/sequences/ChangeUser.js#Auth#112;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/ChangeUser.js#Packets#74;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/ChangeUser.js#Sequence#4;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/ChangeUser.js#Util#42;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/ClientAuthenticationPacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/ComChangeUserPacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/ComPingPacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/ComQueryPacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/ComQuitPacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/ComStatisticsPacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/Connection.js#ConnectionConfig#166;C:/wamp64/www/node_modules/mysql/lib/Connection.js#Crypto#4;C:/wamp64/www/node_modules/mysql/lib/Connection.js#Events#46;C:/wamp64/www/node_modules/mysql/lib/Connection.js#Net#88;C:/wamp64/www/node_modules/mysql/lib/Connection.js#Protocol#220;C:/wamp64/www/node_modules/mysql/lib/Connection.js#Query#331;C:/wamp64/www/node_modules/mysql/lib/Connection.js#SqlString#275;C:/wamp64/www/node_modules/mysql/lib/Connection.js#Util#393;C:/wamp64/www/node_modules/mysql/lib/Connection.js#tls#127;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/ConnectionConfig.js#Charsets#110;C:/wamp64/www/node_modules/mysql/lib/ConnectionConfig.js#ClientConstants#48;C:/wamp64/www/node_modules/mysql/lib/ConnectionConfig.js#ssl_profiles.js#4823;C:/wamp64/www/node_modules/mysql/lib/ConnectionConfig.js#urlParse#22;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/DoublyLinkedList.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/EmptyPacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/EofPacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/ErrorPacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/Field.js#Types#4;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/FieldPacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/sequences/Handshake.js#Auth#133;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Handshake.js#ClientConstants#175;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Handshake.js#Packets#88;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Handshake.js#Sequence#4;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Handshake.js#Util#49;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/HandshakeInitializationPacket.js#Client#4;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/LocalDataFilePacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/OkPacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/OldPasswordPacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/PacketHeader.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/PacketWriter.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/Parser.js#BigNumber#141;C:/wamp64/www/node_modules/mysql/lib/protocol/Parser.js#BufferList#190;C:/wamp64/www/node_modules/mysql/lib/protocol/Parser.js#PacketHeader#90;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/sequences/Ping.js#Packets#74;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Ping.js#Sequence#4;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Ping.js#Util#42;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/Pool.js#Connection#41;C:/wamp64/www/node_modules/mysql/lib/Pool.js#EventEmitter#104;C:/wamp64/www/node_modules/mysql/lib/Pool.js#PoolConnection#178;C:/wamp64/www/node_modules/mysql/lib/Pool.js#Util#140;C:/wamp64/www/node_modules/mysql/lib/Pool.js#mysql#4;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/PoolCluster.js#EventEmitter#236;C:/wamp64/www/node_modules/mysql/lib/PoolCluster.js#Pool#4;C:/wamp64/www/node_modules/mysql/lib/PoolCluster.js#PoolConfig#43;C:/wamp64/www/node_modules/mysql/lib/PoolCluster.js#PoolNamespace#88;C:/wamp64/www/node_modules/mysql/lib/PoolCluster.js#PoolSelector#136;C:/wamp64/www/node_modules/mysql/lib/PoolCluster.js#Util#183;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/PoolConfig.js#ConnectionConfig#5;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/PoolConnection.js#Connection#47;C:/wamp64/www/node_modules/mysql/lib/PoolConnection.js#Events#89;C:/wamp64/www/node_modules/mysql/lib/PoolConnection.js#inherits#17;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/PoolNamespace.js#Connection#4;C:/wamp64/www/node_modules/mysql/lib/PoolNamespace.js#PoolSelector#48;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/PoolSelector.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/Protocol.js#PacketWriter#247;C:/wamp64/www/node_modules/mysql/lib/protocol/Protocol.js#Packets#87;C:/wamp64/www/node_modules/mysql/lib/protocol/Protocol.js#Parser#4;C:/wamp64/www/node_modules/mysql/lib/protocol/Protocol.js#Sequences#44;C:/wamp64/www/node_modules/mysql/lib/protocol/Protocol.js#Stream#181;C:/wamp64/www/node_modules/mysql/lib/protocol/Protocol.js#Timers#128;C:/wamp64/www/node_modules/mysql/lib/protocol/Protocol.js#Util#211;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/sequences/Query.js#Packets#82;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Query.js#Readable#260;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Query.js#ResultSet#124;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Query.js#Sequence#4;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Query.js#ServerStatus#168;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Query.js#Util#46;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Query.js#fs#226;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/sequences/Quit.js#Packets#74;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Quit.js#Sequence#4;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Quit.js#Util#42;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/ResultSet.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/ResultSetHeaderPacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/RowDataPacket.js#Charsets#70;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/RowDataPacket.js#Field#139;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/RowDataPacket.js#Types#4;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/SSLRequestPacket.js#ClientConstants#154;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/sequences/Sequence.js#ErrorConstants#139;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Sequence.js#EventEmitter#59;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Sequence.js#Packets#95;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Sequence.js#Util#4;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/SqlString.js#sqlstring#17;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/sequences/Statistics.js#Packets#74;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Statistics.js#Sequence#4;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/Statistics.js#Util#42;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/StatisticsPacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/UseOldPasswordPacket.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/lodash/_arrayEach.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/lodash/_arrayMap.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/lodash/_baseForOwn.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/lodash/_baseIndexOf.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/lodash/_baseProperty.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/lodash/_baseRange.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/acorn/dist/acorn.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/testing/foo/app.js#express#38;C:/wamp64/www/node_modules/express/testing/foo/app.js#routes#71;</node>
+            <node x="" y="">$PROJECT_DIR$/app.js#config#105;C:/wamp64/www/app.js#express#38;C:/wamp64/www/app.js#log#139;C:/wamp64/www/app.js#logRrequest#1043;C:/wamp64/www/app.js#profileRequest#1101;C:/wamp64/www/app.js#routes#71;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/apply.js#_slice#344;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/applyEach.js#_applyEach#85;C:/wamp64/www/node_modules/async/applyEach.js#_map#191;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/applyEach.js#_initialParams#197;C:/wamp64/www/node_modules/async/internal/applyEach.js#_slice#116;C:/wamp64/www/node_modules/async/internal/applyEach.js#_wrapAsync#310;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/applyEachSeries.js#_applyEach#85;C:/wamp64/www/node_modules/async/applyEachSeries.js#_mapSeries#191;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nconf/lib/nconf/stores/argv.js#Memory#172;C:/wamp64/www/node_modules/nconf/lib/nconf/stores/argv.js#index.js#1121;C:/wamp64/www/node_modules/nconf/lib/nconf/stores/argv.js#util#135;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/asyncify.js#_initialParams#213;C:/wamp64/www/node_modules/async/asyncify.js#_isObject#115;C:/wamp64/www/node_modules/async/asyncify.js#_setImmediate#335;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/attrs.js#Node#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/auto.js#_arrayEach#5027;C:/wamp64/www/node_modules/async/auto.js#_baseForOwn#5130;C:/wamp64/www/node_modules/async/auto.js#_baseIndexOf#5237;C:/wamp64/www/node_modules/async/auto.js#_isArray#5348;C:/wamp64/www/node_modules/async/auto.js#_keys#5442;C:/wamp64/www/node_modules/async/auto.js#_noop#5524;C:/wamp64/www/node_modules/async/auto.js#_once#5696;C:/wamp64/www/node_modules/async/auto.js#_onlyOnce#5782;C:/wamp64/www/node_modules/async/auto.js#_slice#5606;C:/wamp64/www/node_modules/async/auto.js#_wrapAsync#5884;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/autoInject.js#_arrayMap#301;C:/wamp64/www/node_modules/async/autoInject.js#_auto#117;C:/wamp64/www/node_modules/async/autoInject.js#_baseForOwn#194;C:/wamp64/www/node_modules/async/autoInject.js#_isArray#400;C:/wamp64/www/node_modules/async/autoInject.js#_trim#494;C:/wamp64/www/node_modules/async/autoInject.js#_wrapAsync#576;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/bignumber.js/bignumber.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/block-comment.js#Node#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/block.js#Node#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/breakLoop.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/cargo.js#_queue#110;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/case.js#Node#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/constants/charsets.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/lib/winston/config/cli-config.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/constants/client.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/code.js#Node#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/router/collection.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/comment.js#Node#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/lib/winston/common.js#Stream#309;C:/wamp64/www/node_modules/winston/lib/winston/common.js#StringDecoder#255;C:/wamp64/www/node_modules/winston/lib/winston/common.js#config#339;C:/wamp64/www/node_modules/winston/lib/winston/common.js#crypto#153;C:/wamp64/www/node_modules/winston/lib/winston/common.js#cycle#185;C:/wamp64/www/node_modules/winston/lib/winston/common.js#fs#215;C:/wamp64/www/node_modules/winston/lib/winston/common.js#util#125;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nconf/lib/nconf/common.js#Memory#221;C:/wamp64/www/node_modules/nconf/lib/nconf/common.js#async#146;C:/wamp64/www/node_modules/nconf/lib/nconf/common.js#formats#176;C:/wamp64/www/node_modules/nconf/lib/nconf/common.js#fs#122;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/compiler.js#constantinople#299;C:/wamp64/www/node_modules/jade/lib/compiler.js#doctypes#87;C:/wamp64/www/node_modules/jade/lib/compiler.js#filters#51;C:/wamp64/www/node_modules/jade/lib/compiler.js#nodes#19;C:/wamp64/www/node_modules/jade/lib/compiler.js#parseJSExpression#257;C:/wamp64/www/node_modules/jade/lib/compiler.js#runtime#125;C:/wamp64/www/node_modules/jade/lib/compiler.js#selfClosing#193;C:/wamp64/www/node_modules/jade/lib/compiler.js#utils#161;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/compose.js#_seq#211;C:/wamp64/www/node_modules/async/compose.js#_slice#284;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/concat.js#_concatLimit#183;C:/wamp64/www/node_modules/async/concat.js#_doLimit#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/concatLimit.js#_mapLimit#1061;C:/wamp64/www/node_modules/async/concatLimit.js#_noop#783;C:/wamp64/www/node_modules/async/concatLimit.js#_slice#971;C:/wamp64/www/node_modules/async/concatLimit.js#_wrapAsync#865;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/concatSeries.js#_concatLimit#183;C:/wamp64/www/node_modules/async/concatSeries.js#_doLimit#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/lib/winston/config.js#cli-config.js#1048;C:/wamp64/www/node_modules/winston/lib/winston/config.js#colors#132;C:/wamp64/www/node_modules/winston/lib/winston/config.js#npm-config.js#1096;C:/wamp64/www/node_modules/winston/lib/winston/config.js#syslog-config.js#1144;</node>
+            <node x="" y="">$PROJECT_DIR$/config/config.json</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/lib/winston/transports/console.js#Console#524;C:/wamp64/www/node_modules/winston/lib/winston/transports/console.js#Transport#247;C:/wamp64/www/node_modules/winston/lib/winston/transports/console.js#common#200;C:/wamp64/www/node_modules/winston/lib/winston/transports/console.js#events#116;C:/wamp64/www/node_modules/winston/lib/winston/transports/console.js#os#148;C:/wamp64/www/node_modules/winston/lib/winston/transports/console.js#util#172;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/consoleFunc.js#_arrayEach#118;C:/wamp64/www/node_modules/async/internal/consoleFunc.js#_slice#221;C:/wamp64/www/node_modules/async/internal/consoleFunc.js#_wrapAsync#302;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/constant.js#_slice#383;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/lodash/constant.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/lib/winston/container.js#Container#500;C:/wamp64/www/node_modules/winston/lib/winston/container.js#common#138;C:/wamp64/www/node_modules/winston/lib/winston/container.js#extend#218;C:/wamp64/www/node_modules/winston/lib/winston/container.js#winston#172;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/fetch/cookies.js#urllib#50;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/createTester.js#_breakLoop#202;C:/wamp64/www/node_modules/async/internal/createTester.js#_noop#120;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/cycle/cycle.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/smtp-connection/data-stream.js#stream#21;</node>
+            <node x="" y="">$PROJECT_DIR$/libs/database.js#argv#44;C:/wamp64/www/libs/database.js#index.js#87;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/detect.js#_createTester#183;C:/wamp64/www/node_modules/async/detect.js#_doParallel#301;C:/wamp64/www/node_modules/async/detect.js#_findGetResult#411;C:/wamp64/www/node_modules/async/detect.js#_identity#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/detectLimit.js#_createTester#183;C:/wamp64/www/node_modules/async/detectLimit.js#_doParallelLimit#301;C:/wamp64/www/node_modules/async/detectLimit.js#_findGetResult#431;C:/wamp64/www/node_modules/async/detectLimit.js#_identity#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/detectSeries.js#_detectLimit#85;C:/wamp64/www/node_modules/async/detectSeries.js#_doLimit#190;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/dir.js#_consoleFunc#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/doDuring.js#_noop#115;C:/wamp64/www/node_modules/async/doDuring.js#_onlyOnce#287;C:/wamp64/www/node_modules/async/doDuring.js#_slice#197;C:/wamp64/www/node_modules/async/doDuring.js#_wrapAsync#389;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/doLimit.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/doParallel.js#_eachOf#117;C:/wamp64/www/node_modules/async/internal/doParallel.js#_wrapAsync#203;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/doParallelLimit.js#_eachOfLimit#122;C:/wamp64/www/node_modules/async/internal/doParallelLimit.js#_wrapAsync#227;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/doUntil.js#_doWhilst#114;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/doWhilst.js#_noop#115;C:/wamp64/www/node_modules/async/doWhilst.js#_onlyOnce#287;C:/wamp64/www/node_modules/async/doWhilst.js#_slice#197;C:/wamp64/www/node_modules/async/doWhilst.js#_wrapAsync#389;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/doctype.js#Node#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/doctypes.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/during.js#_noop#113;C:/wamp64/www/node_modules/async/during.js#_onlyOnce#195;C:/wamp64/www/node_modules/async/during.js#_wrapAsync#297;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/each.js#Node#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/each.js#_eachOf#114;C:/wamp64/www/node_modules/async/each.js#_withoutIndex#199;C:/wamp64/www/node_modules/async/each.js#_wrapAsync#317;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/eachLimit.js#_eachOfLimit#114;C:/wamp64/www/node_modules/async/eachLimit.js#_withoutIndex#228;C:/wamp64/www/node_modules/async/eachLimit.js#_wrapAsync#346;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/eachOf.js#_breakLoop#434;C:/wamp64/www/node_modules/async/eachOf.js#_doLimit#645;C:/wamp64/www/node_modules/async/eachOf.js#_eachOfLimit#540;C:/wamp64/www/node_modules/async/eachOf.js#_isArrayLike#324;C:/wamp64/www/node_modules/async/eachOf.js#_noop#743;C:/wamp64/www/node_modules/async/eachOf.js#_once#825;C:/wamp64/www/node_modules/async/eachOf.js#_onlyOnce#911;C:/wamp64/www/node_modules/async/eachOf.js#_wrapAsync#1013;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/eachOfLimit.js#_eachOfLimit2#116;C:/wamp64/www/node_modules/async/eachOfLimit.js#_wrapAsync#232;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/eachOfLimit.js#_breakLoop#464;C:/wamp64/www/node_modules/async/internal/eachOfLimit.js#_iterator#278;C:/wamp64/www/node_modules/async/internal/eachOfLimit.js#_noop#119;C:/wamp64/www/node_modules/async/internal/eachOfLimit.js#_once#201;C:/wamp64/www/node_modules/async/internal/eachOfLimit.js#_onlyOnce#371;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/eachOfSeries.js#_doLimit#190;C:/wamp64/www/node_modules/async/eachOfSeries.js#_eachOfLimit#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/eachSeries.js#_doLimit#182;C:/wamp64/www/node_modules/async/eachSeries.js#_eachLimit#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/ensureAsync.js#_initialParams#236;C:/wamp64/www/node_modules/async/ensureAsync.js#_setImmediate#118;C:/wamp64/www/node_modules/async/ensureAsync.js#_wrapAsync#358;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nconf/lib/nconf/stores/env.js#Memory#204;C:/wamp64/www/node_modules/nconf/lib/nconf/stores/env.js#common#160;C:/wamp64/www/node_modules/nconf/lib/nconf/stores/env.js#util#132;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/constants/errors.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/every.js#_createTester#85;C:/wamp64/www/node_modules/async/every.js#_doParallel#203;C:/wamp64/www/node_modules/async/every.js#_notId#313;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/everyLimit.js#_createTester#85;C:/wamp64/www/node_modules/async/everyLimit.js#_doParallelLimit#203;C:/wamp64/www/node_modules/async/everyLimit.js#_notId#333;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/everySeries.js#_doLimit#186;C:/wamp64/www/node_modules/async/everySeries.js#_everyLimit#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/lib/winston/exception.js#os#144;C:/wamp64/www/node_modules/winston/lib/winston/exception.js#stackTrace#168;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/bin/express#exec#111;C:/wamp64/www/node_modules/express/bin/express#fs#58;C:/wamp64/www/node_modules/express/bin/express#mkdirp#145;C:/wamp64/www/node_modules/express/bin/express#os#81;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/express.js#HTTPSServer#164;C:/wamp64/www/node_modules/express/lib/express.js#HTTPServer#201;C:/wamp64/www/node_modules/express/lib/express.js#Route#236;C:/wamp64/www/node_modules/express/lib/express.js#connect#131;C:/wamp64/www/node_modules/express/lib/express.js#request.js#1240;C:/wamp64/www/node_modules/express/lib/express.js#response.js#1184;C:/wamp64/www/node_modules/express/lib/express.js#view.js#1131;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/lib/winston/transports/file.js#File#715;C:/wamp64/www/node_modules/winston/lib/winston/transports/file.js#Stream#431;C:/wamp64/www/node_modules/winston/lib/winston/transports/file.js#Transport#335;C:/wamp64/www/node_modules/winston/lib/winston/transports/file.js#async#230;C:/wamp64/www/node_modules/winston/lib/winston/transports/file.js#common#288;C:/wamp64/www/node_modules/winston/lib/winston/transports/file.js#events#118;C:/wamp64/www/node_modules/winston/lib/winston/transports/file.js#fs#150;C:/wamp64/www/node_modules/winston/lib/winston/transports/file.js#isWritable#386;C:/wamp64/www/node_modules/winston/lib/winston/transports/file.js#os#461;C:/wamp64/www/node_modules/winston/lib/winston/transports/file.js#path#174;C:/wamp64/www/node_modules/winston/lib/winston/transports/file.js#util#202;C:/wamp64/www/node_modules/winston/lib/winston/transports/file.js#zlib#260;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nconf/lib/nconf/stores/file.js#Memory#319;C:/wamp64/www/node_modules/nconf/lib/nconf/stores/file.js#Secure#236;C:/wamp64/www/node_modules/nconf/lib/nconf/stores/file.js#crypto#124;C:/wamp64/www/node_modules/nconf/lib/nconf/stores/file.js#formats#273;C:/wamp64/www/node_modules/nconf/lib/nconf/stores/file.js#fs#156;C:/wamp64/www/node_modules/nconf/lib/nconf/stores/file.js#path#180;C:/wamp64/www/node_modules/nconf/lib/nconf/stores/file.js#util#208;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/filter.js#Node#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/filter.js#_doParallel#179;C:/wamp64/www/node_modules/async/filter.js#_filter#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/filter.js#_arrayMap#114;C:/wamp64/www/node_modules/async/internal/filter.js#_baseProperty#323;C:/wamp64/www/node_modules/async/internal/filter.js#_isArrayLike#213;C:/wamp64/www/node_modules/async/internal/filter.js#_noop#438;C:/wamp64/www/node_modules/async/internal/filter.js#_wrapAsync#520;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/filterLimit.js#_doParallelLimit#179;C:/wamp64/www/node_modules/async/filterLimit.js#_filter#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/filterSeries.js#_doLimit#190;C:/wamp64/www/node_modules/async/filterSeries.js#_filterLimit#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/filters.js#CleanCSS#144;C:/wamp64/www/node_modules/jade/lib/filters.js#jstransformer#63;C:/wamp64/www/node_modules/jade/lib/filters.js#name#1361;C:/wamp64/www/node_modules/jade/lib/filters.js#transformers#19;C:/wamp64/www/node_modules/jade/lib/filters.js#uglify#109;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/findGetResult.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/forever.js#_ensureAsync#298;C:/wamp64/www/node_modules/async/forever.js#_noop#114;C:/wamp64/www/node_modules/async/forever.js#_onlyOnce#196;C:/wamp64/www/node_modules/async/forever.js#_wrapAsync#403;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nconf/lib/nconf/formats.js#ini#119;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/getIterator.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/groupBy.js#_doLimit#85;C:/wamp64/www/node_modules/async/groupBy.js#_groupByLimit#183;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/groupByLimit.js#_mapLimit#1185;C:/wamp64/www/node_modules/async/groupByLimit.js#_noop#1103;C:/wamp64/www/node_modules/async/groupByLimit.js#_wrapAsync#1278;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/groupBySeries.js#_doLimit#85;C:/wamp64/www/node_modules/async/groupBySeries.js#_groupByLimit#183;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/smtp-connection/http-proxy-client.js#net#61;C:/wamp64/www/node_modules/nodemailer/lib/smtp-connection/http-proxy-client.js#tls#89;C:/wamp64/www/node_modules/nodemailer/lib/smtp-connection/http-proxy-client.js#urllib#117;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/http.js#Router#232;C:/wamp64/www/node_modules/express/lib/http.js#connect#166;C:/wamp64/www/node_modules/express/lib/http.js#qs#143;C:/wamp64/www/node_modules/express/lib/http.js#router#199;C:/wamp64/www/node_modules/express/lib/http.js#toArray#304;C:/wamp64/www/node_modules/express/lib/http.js#url#385;C:/wamp64/www/node_modules/express/lib/http.js#view#265;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/lib/winston/transports/http.js#Http#449;C:/wamp64/www/node_modules/winston/lib/winston/transports/http.js#Stream#139;C:/wamp64/www/node_modules/winston/lib/winston/transports/http.js#Transport#181;C:/wamp64/www/node_modules/winston/lib/winston/transports/http.js#http#72;C:/wamp64/www/node_modules/winston/lib/winston/transports/http.js#https#100;C:/wamp64/www/node_modules/winston/lib/winston/transports/http.js#util#4;C:/wamp64/www/node_modules/winston/lib/winston/transports/http.js#winston#32;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/https.js#HTTPServer#178;C:/wamp64/www/node_modules/express/lib/https.js#connect#145;C:/wamp64/www/node_modules/express/lib/https.js#https#213;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/lodash/identity.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/qp/index.js#Transform#33;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/dkim/index.js#MessageParser#122;C:/wamp64/www/node_modules/nodemailer/lib/dkim/index.js#PassThrough#266;C:/wamp64/www/node_modules/nodemailer/lib/dkim/index.js#RelaxedBody#173;C:/wamp64/www/node_modules/nodemailer/lib/dkim/index.js#crypto#359;C:/wamp64/www/node_modules/nodemailer/lib/dkim/index.js#fs#303;C:/wamp64/www/node_modules/nodemailer/lib/dkim/index.js#path#329;C:/wamp64/www/node_modules/nodemailer/lib/dkim/index.js#sign#220;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/fetch/index.js#Cookies#195;C:/wamp64/www/node_modules/nodemailer/lib/fetch/index.js#PassThrough#158;C:/wamp64/www/node_modules/nodemailer/lib/fetch/index.js#http#21;C:/wamp64/www/node_modules/nodemailer/lib/fetch/index.js#https#51;C:/wamp64/www/node_modules/nodemailer/lib/fetch/index.js#packageData#233;C:/wamp64/www/node_modules/nodemailer/lib/fetch/index.js#urllib#83;C:/wamp64/www/node_modules/nodemailer/lib/fetch/index.js#zlib#114;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/base64/index.js#Transform#33;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/void-elements/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/mailer/index.js#DKIM#203;C:/wamp64/www/node_modules/nodemailer/lib/mailer/index.js#EventEmitter#21;C:/wamp64/www/node_modules/nodemailer/lib/mailer/index.js#MailComposer#153;C:/wamp64/www/node_modules/nodemailer/lib/mailer/index.js#MailMessage#421;C:/wamp64/www/node_modules/nodemailer/lib/mailer/index.js#crypto#524;C:/wamp64/www/node_modules/nodemailer/lib/mailer/index.js#dns#496;C:/wamp64/www/node_modules/nodemailer/lib/mailer/index.js#httpProxyClient#236;C:/wamp64/www/node_modules/nodemailer/lib/mailer/index.js#mimeTypes#98;C:/wamp64/www/node_modules/nodemailer/lib/mailer/index.js#net#468;C:/wamp64/www/node_modules/nodemailer/lib/mailer/index.js#packageData#370;C:/wamp64/www/node_modules/nodemailer/lib/mailer/index.js#shared#61;C:/wamp64/www/node_modules/nodemailer/lib/mailer/index.js#urllib#339;C:/wamp64/www/node_modules/nodemailer/lib/mailer/index.js#util#309;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/shared/index.js#assign#6819;C:/wamp64/www/node_modules/nodemailer/lib/shared/index.js#fetch#108;C:/wamp64/www/node_modules/nodemailer/lib/shared/index.js#fs#82;C:/wamp64/www/node_modules/nodemailer/lib/shared/index.js#urllib#21;C:/wamp64/www/node_modules/nodemailer/lib/shared/index.js#util#52;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/xoauth2/index.js#Stream#30;C:/wamp64/www/node_modules/nodemailer/lib/xoauth2/index.js#crypto#97;C:/wamp64/www/node_modules/nodemailer/lib/xoauth2/index.js#fetch#62;C:/wamp64/www/node_modules/nodemailer/lib/xoauth2/index.js#shared#131;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/index.js#block-comment.js#477;C:/wamp64/www/node_modules/jade/lib/nodes/index.js#block.js#233;C:/wamp64/www/node_modules/jade/lib/nodes/index.js#case.js#164;C:/wamp64/www/node_modules/jade/lib/nodes/index.js#code.js#96;C:/wamp64/www/node_modules/jade/lib/nodes/index.js#comment.js#392;C:/wamp64/www/node_modules/jade/lib/nodes/index.js#doctype.js#523;C:/wamp64/www/node_modules/jade/lib/nodes/index.js#each.js#130;C:/wamp64/www/node_modules/jade/lib/nodes/index.js#filter.js#353;C:/wamp64/www/node_modules/jade/lib/nodes/index.js#literal.js#432;C:/wamp64/www/node_modules/jade/lib/nodes/index.js#mixin-block.js#274;C:/wamp64/www/node_modules/jade/lib/nodes/index.js#mixin.js#316;C:/wamp64/www/node_modules/jade/lib/nodes/index.js#node.js#30;C:/wamp64/www/node_modules/jade/lib/nodes/index.js#tag.js#63;C:/wamp64/www/node_modules/jade/lib/nodes/index.js#text.js#198;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/mime-node/index.js#LastNewline#423;C:/wamp64/www/node_modules/nodemailer/lib/mime-node/index.js#PassThrough#189;C:/wamp64/www/node_modules/nodemailer/lib/mime-node/index.js#addressparser#337;C:/wamp64/www/node_modules/nodemailer/lib/mime-node/index.js#base64#300;C:/wamp64/www/node_modules/nodemailer/lib/mime-node/index.js#crypto#51;C:/wamp64/www/node_modules/nodemailer/lib/mime-node/index.js#fetch#388;C:/wamp64/www/node_modules/nodemailer/lib/mime-node/index.js#fs#111;C:/wamp64/www/node_modules/nodemailer/lib/mime-node/index.js#mimeFuncs#227;C:/wamp64/www/node_modules/nodemailer/lib/mime-node/index.js#os#85;C:/wamp64/www/node_modules/nodemailer/lib/mime-node/index.js#punycode#137;C:/wamp64/www/node_modules/nodemailer/lib/mime-node/index.js#qp#271;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/smtp-pool/index.js#EventEmitter#21;C:/wamp64/www/node_modules/nodemailer/lib/smtp-pool/index.js#PoolResource#61;C:/wamp64/www/node_modules/nodemailer/lib/smtp-pool/index.js#SMTPConnection#110;C:/wamp64/www/node_modules/nodemailer/lib/smtp-pool/index.js#packageData#245;C:/wamp64/www/node_modules/nodemailer/lib/smtp-pool/index.js#shared#208;C:/wamp64/www/node_modules/nodemailer/lib/smtp-pool/index.js#wellKnown#164;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/mime-funcs/index.js#base64#54;C:/wamp64/www/node_modules/nodemailer/lib/mime-funcs/index.js#mimeTypes#120;C:/wamp64/www/node_modules/nodemailer/lib/mime-funcs/index.js#qp#91;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/constantinople/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/well-known/index.js#services#21;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/addressparser/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/mail-composer/index.js#MimeNode#51;C:/wamp64/www/node_modules/nodemailer/lib/mail-composer/index.js#mimeFuncs#93;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/ses-transport/index.js#EventEmitter#21;C:/wamp64/www/node_modules/nodemailer/lib/ses-transport/index.js#LeWindows#149;C:/wamp64/www/node_modules/nodemailer/lib/ses-transport/index.js#packageData#61;C:/wamp64/www/node_modules/nodemailer/lib/ses-transport/index.js#shared#112;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/node_modules/mkdirp/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/json-transport/index.js#packageData#21;C:/wamp64/www/node_modules/nodemailer/lib/json-transport/index.js#shared#72;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/smtp-transport/index.js#EventEmitter#21;C:/wamp64/www/node_modules/nodemailer/lib/smtp-transport/index.js#SMTPConnection#61;C:/wamp64/www/node_modules/nodemailer/lib/smtp-transport/index.js#XOAuth2#196;C:/wamp64/www/node_modules/nodemailer/lib/smtp-transport/index.js#packageData#235;C:/wamp64/www/node_modules/nodemailer/lib/smtp-transport/index.js#shared#159;C:/wamp64/www/node_modules/nodemailer/lib/smtp-transport/index.js#wellKnown#115;</node>
+            <node x="" y="">parseMax;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/smtp-connection/index.js#DataStream#241;C:/wamp64/www/node_modules/nodemailer/lib/smtp-connection/index.js#EventEmitter#87;C:/wamp64/www/node_modules/nodemailer/lib/smtp-connection/index.js#PassThrough#300;C:/wamp64/www/node_modules/nodemailer/lib/smtp-connection/index.js#crypto#207;C:/wamp64/www/node_modules/nodemailer/lib/smtp-connection/index.js#net#125;C:/wamp64/www/node_modules/nodemailer/lib/smtp-connection/index.js#os#181;C:/wamp64/www/node_modules/nodemailer/lib/smtp-connection/index.js#packageInfo#21;C:/wamp64/www/node_modules/nodemailer/lib/smtp-connection/index.js#shared#337;C:/wamp64/www/node_modules/nodemailer/lib/smtp-connection/index.js#tls#153;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/stream-transport/index.js#LeUnix#172;C:/wamp64/www/node_modules/nodemailer/lib/stream-transport/index.js#LeWindows#109;C:/wamp64/www/node_modules/nodemailer/lib/stream-transport/index.js#packageData#21;C:/wamp64/www/node_modules/nodemailer/lib/stream-transport/index.js#shared#72;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/sendmail-transport/index.js#LeUnix#161;C:/wamp64/www/node_modules/nodemailer/lib/sendmail-transport/index.js#LeWindows#118;C:/wamp64/www/node_modules/nodemailer/lib/sendmail-transport/index.js#packageData#67;C:/wamp64/www/node_modules/nodemailer/lib/sendmail-transport/index.js#shared#198;C:/wamp64/www/node_modules/nodemailer/lib/sendmail-transport/index.js#spawn#29;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/with/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/index.js#express.js#18;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/router/index.js#Collection#171;C:/wamp64/www/node_modules/express/lib/router/index.js#Route#140;C:/wamp64/www/node_modules/express/lib/router/index.js#methods#417;C:/wamp64/www/node_modules/express/lib/router/index.js#parse#252;C:/wamp64/www/node_modules/express/lib/router/index.js#utils#212;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/testing/index.js#connect#94;C:/wamp64/www/node_modules/express/testing/index.js#express#38;C:/wamp64/www/node_modules/express/testing/index.js#http#67;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/testing/foo/routes/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/index.js#_apply#2231;C:/wamp64/www/node_modules/async/index.js#_applyEach#2013;C:/wamp64/www/node_modules/async/index.js#_applyEachSeries#2110;C:/wamp64/www/node_modules/async/index.js#_asyncify#2312;C:/wamp64/www/node_modules/async/index.js#_auto#2405;C:/wamp64/www/node_modules/async/index.js#_autoInject#2482;C:/wamp64/www/node_modules/async/index.js#_cargo#2583;C:/wamp64/www/node_modules/async/index.js#_compose#2664;C:/wamp64/www/node_modules/async/index.js#_concat#2753;C:/wamp64/www/node_modules/async/index.js#_concatLimit#2838;C:/wamp64/www/node_modules/async/index.js#_concatSeries#2943;C:/wamp64/www/node_modules/async/index.js#_constant#3052;C:/wamp64/www/node_modules/async/index.js#_detect#3145;C:/wamp64/www/node_modules/async/index.js#_detectLimit#3230;C:/wamp64/www/node_modules/async/index.js#_detectSeries#3335;C:/wamp64/www/node_modules/async/index.js#_dir#3444;C:/wamp64/www/node_modules/async/index.js#_doDuring#3517;C:/wamp64/www/node_modules/async/index.js#_doUntil#3610;C:/wamp64/www/node_modules/async/index.js#_doWhilst#3699;C:/wamp64/www/node_modules/async/index.js#_during#3792;C:/wamp64/www/node_modules/async/index.js#_each#3877;C:/wamp64/www/node_modules/async/index.js#_eachLimit#3954;C:/wamp64/www/node_modules/async/index.js#_eachOf#4051;C:/wamp64/www/node_modules/async/index.js#_eachOfLimit#4136;C:/wamp64/www/node_modules/async/index.js#_eachOfSeries#4241;C:/wamp64/www/node_modules/async/index.js#_eachSeries#4350;C:/wamp64/www/node_modules/async/index.js#_ensureAsync#4451;C:/wamp64/www/node_modules/async/index.js#_every#4556;C:/wamp64/www/node_modules/async/index.js#_everyLimit#4637;C:/wamp64/www/node_modules/async/index.js#_everySeries#4738;C:/wamp64/www/node_modules/async/index.js#_filter#4843;C:/wamp64/www/node_modules/async/index.js#_filterLimit#4928;C:/wamp64/www/node_modules/async/index.js#_filterSeries#5033;C:/wamp64/www/node_modules/async/index.js#_forever#5142;C:/wamp64/www/node_modules/async/index.js#_groupBy#5231;C:/wamp64/www/node_modules/async/index.js#_groupByLimit#5320;C:/wamp64/www/node_modules/async/index.js#_groupBySeries#5429;C:/wamp64/www/node_modules/async/index.js#_log#5542;C:/wamp64/www/node_modules/async/index.js#_map#5615;C:/wamp64/www/node_modules/async/index.js#_mapLimit#5688;C:/wamp64/www/node_modules/async/index.js#_mapSeries#5781;C:/wamp64/www/node_modules/async/index.js#_mapValues#5878;C:/wamp64/www/node_modules/async/index.js#_mapValuesLimit#5975;C:/wamp64/www/node_modules/async/index.js#_mapValuesSeries#6092;C:/wamp64/www/node_modules/async/index.js#_memoize#6213;C:/wamp64/www/node_modules/async/index.js#_nextTick#6302;C:/wamp64/www/node_modules/async/index.js#_parallel#6395;C:/wamp64/www/node_modules/async/index.js#_parallelLimit#6488;C:/wamp64/www/node_modules/async/index.js#_priorityQueue#6601;C:/wamp64/www/node_modules/async/index.js#_queue#6714;C:/wamp64/www/node_modules/async/index.js#_race#6795;C:/wamp64/www/node_modules/async/index.js#_reduce#6872;C:/wamp64/www/node_modules/async/index.js#_reduceRight#6957;C:/wamp64/www/node_modules/async/index.js#_reflect#7062;C:/wamp64/www/node_modules/async/index.js#_reflectAll#7236;C:/wamp64/www/node_modules/async/index.js#_reject#7151;C:/wamp64/www/node_modules/async/index.js#_rejectLimit#7337;C:/wamp64/www/node_modules/async/index.js#_rejectSeries#7442;C:/wamp64/www/node_modules/async/index.js#_retry#7551;C:/wamp64/www/node_modules/async/index.js#_retryable#7632;C:/wamp64/www/node_modules/async/index.js#_seq#7729;C:/wamp64/www/node_modules/async/index.js#_series#7802;C:/wamp64/www/node_modules/async/index.js#_setImmediate#7887;C:/wamp64/www/node_modules/async/index.js#_some#7996;C:/wamp64/www/node_modules/async/index.js#_someLimit#8073;C:/wamp64/www/node_modules/async/index.js#_someSeries#8170;C:/wamp64/www/node_modules/async/index.js#_sortBy#8271;C:/wamp64/www/node_modules/async/index.js#_timeout#8356;C:/wamp64/www/node_modules/async/index.js#_times#8445;C:/wamp64/www/node_modules/async/index.js#_timesLimit#8526;C:/wamp64/www/node_modules/async/index.js#_timesSeries#8627;C:/wamp64/www/node_modules/async/index.js#_transform#8732;C:/wamp64/www/node_modules/async/index.js#_tryEach#8829;C:/wamp64/www/node_modules/async/index.js#_unmemoize#8918;C:/wamp64/www/node_modules/async/index.js#_until#9015;C:/wamp64/www/node_modules/async/index.js#_waterfall#9096;C:/wamp64/www/node_modules/async/index.js#_whilst#9193;</node>
+            <node x="" y="">argv;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/clean-css/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/config/index.js#config#62;C:/wamp64/www/config/index.js#nconf#4;C:/wamp64/www/config/index.js#path#34;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/index.js#Connection.js#3578;C:/wamp64/www/node_modules/mysql/index.js#ConnectionConfig.js#3663;C:/wamp64/www/node_modules/mysql/index.js#Pool.js#3742;C:/wamp64/www/node_modules/mysql/index.js#PoolCluster.js#3816;C:/wamp64/www/node_modules/mysql/index.js#PoolConfig.js#3896;C:/wamp64/www/node_modules/mysql/index.js#SqlString.js#3974;C:/wamp64/www/node_modules/mysql/index.js#types.js#4056;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/commander/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/yargs/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/routes/index.js#request#4;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/packets/index.js#ClientAuthenticationPacket.js#37;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#ComChangeUserPacket.js#108;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#ComPingPacket.js#166;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#ComQueryPacket.js#219;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#ComQuitPacket.js#272;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#ComStatisticsPacket.js#330;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#EmptyPacket.js#386;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#EofPacket.js#432;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#ErrorPacket.js#478;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#Field.js#520;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#FieldPacket.js#562;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#HandshakeInitializationPacket.js#628;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#LocalDataFilePacket.js#702;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#OkPacket.js#755;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#OldPasswordPacket.js#806;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#ResultSetHeaderPacket.js#870;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#RowDataPacket.js#930;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#SSLRequestPacket.js#985;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#StatisticsPacket.js#1043;C:/wamp64/www/node_modules/mysql/lib/protocol/packets/index.js#UseOldPasswordPacket.js#1105;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/sequences/index.js#ChangeUser.js#21;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/index.js#Handshake.js#66;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/index.js#Ping.js#105;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/index.js#Query.js#140;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/index.js#Quit.js#175;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/index.js#Sequence.js#213;C:/wamp64/www/node_modules/mysql/lib/protocol/sequences/index.js#Statistics.js#257;</node>
+            <node x="" y="">StringDecoder;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/qs/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/secure-keys/index.js</node>
+            <node x="" y="">utils;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/acorn-globals/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/index.js#Compiler#206;C:/wamp64/www/node_modules/jade/lib/index.js#Lexer#175;C:/wamp64/www/node_modules/jade/lib/index.js#Parser#142;C:/wamp64/www/node_modules/jade/lib/index.js#addWith#278;C:/wamp64/www/node_modules/jade/lib/index.js#doctypes.js#602;C:/wamp64/www/node_modules/jade/lib/index.js#filters.js#670;C:/wamp64/www/node_modules/jade/lib/index.js#fs#308;C:/wamp64/www/node_modules/jade/lib/index.js#index.js#515;C:/wamp64/www/node_modules/jade/lib/index.js#runtime#243;C:/wamp64/www/node_modules/jade/lib/index.js#utils#331;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jstransformer/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/ini/ini.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/initialParams.js#_slice#304;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/inline-tags.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/lodash/isArray.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/lodash/isArrayLike.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/lodash/isObject.js</node>
+            <node x="" y="">isWritable;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/iterator.js#_getIterator#225;C:/wamp64/www/node_modules/async/internal/iterator.js#_isArrayLike#115;C:/wamp64/www/node_modules/async/internal/iterator.js#_keys#330;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/jade.js#Attrs#66015;C:/wamp64/www/node_modules/jade/jade.js#Block#66047;C:/wamp64/www/node_modules/jade/jade.js#Compiler#1072;C:/wamp64/www/node_modules/jade/jade.js#Lexer#1041;C:/wamp64/www/node_modules/jade/jade.js#Node#57725;C:/wamp64/www/node_modules/jade/jade.js#Parser#1008;C:/wamp64/www/node_modules/jade/jade.js#_process#101411;C:/wamp64/www/node_modules/jade/jade.js#acorn#261104;C:/wamp64/www/node_modules/jade/jade.js#addWith#1144;C:/wamp64/www/node_modules/jade/jade.js#block#63626;C:/wamp64/www/node_modules/jade/jade.js#block-comment#63870;C:/wamp64/www/node_modules/jade/jade.js#case#63557;C:/wamp64/www/node_modules/jade/jade.js#characterParser#32766;C:/wamp64/www/node_modules/jade/jade.js#code#63489;C:/wamp64/www/node_modules/jade/jade.js#comment#63785;C:/wamp64/www/node_modules/jade/jade.js#constantinople#11541;C:/wamp64/www/node_modules/jade/jade.js#detect#261065;C:/wamp64/www/node_modules/jade/jade.js#doctype#63916;C:/wamp64/www/node_modules/jade/jade.js#doctypes#11329;C:/wamp64/www/node_modules/jade/jade.js#each#63523;C:/wamp64/www/node_modules/jade/jade.js#filter#63746;C:/wamp64/www/node_modules/jade/jade.js#filters#68533;C:/wamp64/www/node_modules/jade/jade.js#fs#1174;C:/wamp64/www/node_modules/jade/jade.js#index.js#1381;C:/wamp64/www/node_modules/jade/jade.js#inlineTags#66079;C:/wamp64/www/node_modules/jade/jade.js#literal#63825;C:/wamp64/www/node_modules/jade/jade.js#mixin#63709;C:/wamp64/www/node_modules/jade/jade.js#mixin-block#63667;C:/wamp64/www/node_modules/jade/jade.js#node#63423;C:/wamp64/www/node_modules/jade/jade.js#nodes#68469;C:/wamp64/www/node_modules/jade/jade.js#p#78722;C:/wamp64/www/node_modules/jade/jade.js#parseJSExpression#11499;C:/wamp64/www/node_modules/jade/jade.js#path#68569;C:/wamp64/www/node_modules/jade/jade.js#readFileSync#93254;C:/wamp64/www/node_modules/jade/jade.js#runtime#1109;C:/wamp64/www/node_modules/jade/jade.js#selfClosing#11435;C:/wamp64/www/node_modules/jade/jade.js#tag#63456;C:/wamp64/www/node_modules/jade/jade.js#text#63591;C:/wamp64/www/node_modules/jade/jade.js#utils#32734;C:/wamp64/www/node_modules/jade/jade.js#walk#261134;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/bin/jade.js#fs#58;C:/wamp64/www/node_modules/jade/bin/jade.js#jade#309;C:/wamp64/www/node_modules/jade/bin/jade.js#mkdirp#278;C:/wamp64/www/node_modules/jade/bin/jade.js#path#116;C:/wamp64/www/node_modules/jade/bin/jade.js#program#81;C:/wamp64/www/node_modules/jade/bin/jade.js#version#400;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/lodash/keys.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/mime-node/last-newline.js#Transform#33;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/sendmail-transport/le-unix.js#stream#21;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/sendmail-transport/le-windows.js#stream#21;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/lexer.js#characterParser#51;C:/wamp64/www/node_modules/jade/lib/lexer.js#utils#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/literal.js#Node#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nconf/lib/nconf/stores/literal.js#Memory#160;C:/wamp64/www/node_modules/nconf/lib/nconf/stores/literal.js#util#123;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/log.js#_consoleFunc#85;</node>
+            <node x="" y="">$PROJECT_DIR$/libs/log.js#winston#4;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/lib/winston/logger.js#Logger#611;C:/wamp64/www/node_modules/winston/lib/winston/logger.js#Stream#318;C:/wamp64/www/node_modules/winston/lib/winston/logger.js#async#171;C:/wamp64/www/node_modules/winston/lib/winston/logger.js#common#235;C:/wamp64/www/node_modules/winston/lib/winston/logger.js#config#201;C:/wamp64/www/node_modules/winston/lib/winston/logger.js#events#111;C:/wamp64/www/node_modules/winston/lib/winston/logger.js#exception#269;C:/wamp64/www/node_modules/winston/lib/winston/logger.js#util#143;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/mailer/mail-message.js#MimeNode#58;C:/wamp64/www/node_modules/nodemailer/lib/mailer/mail-message.js#shared#21;</node>
+            <node x="" y="">$PROJECT_DIR$/libs/mailer.js#nodemailer#4;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/map.js#_doParallel#85;C:/wamp64/www/node_modules/async/map.js#_map#195;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/map.js#_noop#116;C:/wamp64/www/node_modules/async/internal/map.js#_wrapAsync#198;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/mapLimit.js#_doParallelLimit#85;C:/wamp64/www/node_modules/async/mapLimit.js#_map#215;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/mapSeries.js#_doLimit#178;C:/wamp64/www/node_modules/async/mapSeries.js#_mapLimit#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/mapValues.js#_doLimit#202;C:/wamp64/www/node_modules/async/mapValues.js#_mapValuesLimit#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/mapValuesLimit.js#_eachOfLimit#121;C:/wamp64/www/node_modules/async/mapValuesLimit.js#_noop#226;C:/wamp64/www/node_modules/async/mapValuesLimit.js#_once#308;C:/wamp64/www/node_modules/async/mapValuesLimit.js#_wrapAsync#394;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/mapValuesSeries.js#_doLimit#202;C:/wamp64/www/node_modules/async/mapValuesSeries.js#_mapValuesLimit#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/memoize.js#_identity#114;C:/wamp64/www/node_modules/async/memoize.js#_initialParams#420;C:/wamp64/www/node_modules/async/memoize.js#_setImmediate#302;C:/wamp64/www/node_modules/async/memoize.js#_slice#212;C:/wamp64/www/node_modules/async/memoize.js#_wrapAsync#542;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/lib/winston/transports/memory.js#Memory#394;C:/wamp64/www/node_modules/winston/lib/winston/transports/memory.js#Transport#111;C:/wamp64/www/node_modules/winston/lib/winston/transports/memory.js#common#64;C:/wamp64/www/node_modules/winston/lib/winston/transports/memory.js#events#4;C:/wamp64/www/node_modules/winston/lib/winston/transports/memory.js#util#36;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nconf/lib/nconf/stores/memory.js#Memory#460;C:/wamp64/www/node_modules/nconf/lib/nconf/stores/memory.js#common#139;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/dkim/message-parser.js#Transform#33;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/router/methods.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/mime-funcs/mime-types.js#path#50;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mime/mime.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/mixin-block.js#Node#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/mixin.js#Attrs#19;</node>
+            <node x="" y="">$PROJECT_DIR$/libs/mysqlLogRequests.js#crypto#87;C:/wamp64/www/libs/mysqlLogRequests.js#fs#155;C:/wamp64/www/libs/mysqlLogRequests.js#mail#120;C:/wamp64/www/libs/mysqlLogRequests.js#mysql#55;</node>
+            <node x="" y="">$PROJECT_DIR$/libs/mysqlProfileRequests.js#fs#36;C:/wamp64/www/libs/mysqlProfileRequests.js#mysql#4;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nconf/lib/nconf.js#Provider#226;C:/wamp64/www/node_modules/nconf/lib/nconf.js#async#145;C:/wamp64/www/node_modules/nconf/lib/nconf.js#common#175;C:/wamp64/www/node_modules/nconf/lib/nconf.js#formats.js#1021;C:/wamp64/www/node_modules/nconf/lib/nconf.js#fs#121;C:/wamp64/www/node_modules/nconf/lib/nconf.js#store#734;C:/wamp64/www/node_modules/nconf/lib/nconf.js#version#441;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/nextTick.js#_setImmediate#87;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/node.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/uglify-js/tools/node.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/nodemailer.js#JSONTransport#299;C:/wamp64/www/node_modules/nodemailer/lib/nodemailer.js#Mailer#21;C:/wamp64/www/node_modules/nodemailer/lib/nodemailer.js#SESTransport#350;C:/wamp64/www/node_modules/nodemailer/lib/nodemailer.js#SMTPPool#93;C:/wamp64/www/node_modules/nodemailer/lib/nodemailer.js#SMTPTransport#134;C:/wamp64/www/node_modules/nodemailer/lib/nodemailer.js#SendmailTransport#185;C:/wamp64/www/node_modules/nodemailer/lib/nodemailer.js#StreamTransport#244;C:/wamp64/www/node_modules/nodemailer/lib/nodemailer.js#shared#57;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/lodash/noop.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/notId.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/lib/winston/config/npm-config.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/once.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/onlyOnce.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/package.json#version#1795;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nconf/package.json#version#1735;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/package.json</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/package.json#version#4069;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/parallel.js#_eachOf#118;C:/wamp64/www/node_modules/async/parallel.js#_parallel#203;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/parallel.js#_isArrayLike#198;C:/wamp64/www/node_modules/async/internal/parallel.js#_noop#116;C:/wamp64/www/node_modules/async/internal/parallel.js#_slice#308;C:/wamp64/www/node_modules/async/internal/parallel.js#_wrapAsync#389;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/parallelLimit.js#_eachOfLimit#118;C:/wamp64/www/node_modules/async/parallelLimit.js#_parallel#232;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/parser.js#Lexer#19;C:/wamp64/www/node_modules/jade/lib/parser.js#constantinople#179;C:/wamp64/www/node_modules/jade/lib/parser.js#filters#115;C:/wamp64/www/node_modules/jade/lib/parser.js#fs#10960;C:/wamp64/www/node_modules/jade/lib/parser.js#nodes#51;C:/wamp64/www/node_modules/jade/lib/parser.js#p#10304;C:/wamp64/www/node_modules/jade/lib/parser.js#parseJSExpression#247;C:/wamp64/www/node_modules/jade/lib/parser.js#path#151;C:/wamp64/www/node_modules/jade/lib/parser.js#utils#83;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/view/partial.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/smtp-pool/pool-resource.js#EventEmitter#158;C:/wamp64/www/node_modules/nodemailer/lib/smtp-pool/pool-resource.js#SMTPConnection#21;C:/wamp64/www/node_modules/nodemailer/lib/smtp-pool/pool-resource.js#XOAuth2#119;C:/wamp64/www/node_modules/nodemailer/lib/smtp-pool/pool-resource.js#assign#84;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/priorityQueue.js#_isArray#1514;C:/wamp64/www/node_modules/async/priorityQueue.js#_noop#1608;C:/wamp64/www/node_modules/async/priorityQueue.js#_queue#1799;C:/wamp64/www/node_modules/async/priorityQueue.js#_setImmediate#1690;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nconf/lib/nconf/provider.js#Provider#447;C:/wamp64/www/node_modules/nconf/lib/nconf/provider.js#async#158;C:/wamp64/www/node_modules/nconf/lib/nconf/provider.js#common#188;C:/wamp64/www/node_modules/nconf/lib/nconf/provider.js#nconf.js#3567;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/queue.js#_queue#292;C:/wamp64/www/node_modules/async/queue.js#_wrapAsync#382;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/queue.js#_DoublyLinkedList#601;C:/wamp64/www/node_modules/async/internal/queue.js#_baseIndexOf#112;C:/wamp64/www/node_modules/async/internal/queue.js#_isArray#223;C:/wamp64/www/node_modules/async/internal/queue.js#_noop#317;C:/wamp64/www/node_modules/async/internal/queue.js#_onlyOnce#399;C:/wamp64/www/node_modules/async/internal/queue.js#_setImmediate#492;C:/wamp64/www/node_modules/async/internal/queue.js#_wrapAsync#726;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/race.js#_isArray#111;C:/wamp64/www/node_modules/async/race.js#_noop#205;C:/wamp64/www/node_modules/async/race.js#_once#287;C:/wamp64/www/node_modules/async/race.js#_wrapAsync#373;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/readable-stream/readable.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/reduce.js#_eachOfSeries#113;C:/wamp64/www/node_modules/async/reduce.js#_noop#222;C:/wamp64/www/node_modules/async/reduce.js#_once#304;C:/wamp64/www/node_modules/async/reduce.js#_wrapAsync#390;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/reduceRight.js#_reduce#116;C:/wamp64/www/node_modules/async/reduceRight.js#_slice#201;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/reflect.js#_initialParams#114;C:/wamp64/www/node_modules/async/reflect.js#_slice#236;C:/wamp64/www/node_modules/async/reflect.js#_wrapAsync#326;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/reflectAll.js#_arrayMap2#300;C:/wamp64/www/node_modules/async/reflectAll.js#_baseForOwn#401;C:/wamp64/www/node_modules/async/reflectAll.js#_isArray#206;C:/wamp64/www/node_modules/async/reflectAll.js#_reflect#117;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/reject.js#_doParallel#179;C:/wamp64/www/node_modules/async/reject.js#_reject#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/reject.js#_filter#113;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/rejectLimit.js#_doParallelLimit#179;C:/wamp64/www/node_modules/async/rejectLimit.js#_reject#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/rejectSeries.js#_doLimit#190;C:/wamp64/www/node_modules/async/rejectSeries.js#_rejectLimit#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/dkim/relaxed-body.js#Transform#101;C:/wamp64/www/node_modules/nodemailer/lib/dkim/relaxed-body.js#crypto#136;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/release.js#compiledWebsite#452;C:/wamp64/www/node_modules/jade/release.js#fs#19;C:/wamp64/www/node_modules/jade/release.js#pr#43;C:/wamp64/www/node_modules/jade/release.js#readdirp#88;C:/wamp64/www/node_modules/jade/release.js#version#413;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/request.js#http#141;C:/wamp64/www/node_modules/express/lib/request.js#mime#273;C:/wamp64/www/node_modules/express/lib/request.js#parse#248;C:/wamp64/www/node_modules/express/lib/request.js#utils#209;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/response.js#connect#219;C:/wamp64/www/node_modules/express/lib/response.js#fs#142;C:/wamp64/www/node_modules/express/lib/response.js#http#165;C:/wamp64/www/node_modules/express/lib/response.js#mime#396;C:/wamp64/www/node_modules/express/lib/response.js#parseRange#291;C:/wamp64/www/node_modules/express/lib/response.js#path#192;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/retry.js#_constant#194;C:/wamp64/www/node_modules/async/retry.js#_noop#112;C:/wamp64/www/node_modules/async/retry.js#_wrapAsync#292;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/retryable.js#_initialParams#600;C:/wamp64/www/node_modules/async/retryable.js#_retry#519;C:/wamp64/www/node_modules/async/retryable.js#_wrapAsync#722;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/router/route.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/runtime.js#readFileSync#5773;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/runtime.js#readFileSync#4928;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/colors/safe.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/seq.js#_arrayMap#473;C:/wamp64/www/node_modules/async/seq.js#_noop#110;C:/wamp64/www/node_modules/async/seq.js#_reduce#282;C:/wamp64/www/node_modules/async/seq.js#_slice#192;C:/wamp64/www/node_modules/async/seq.js#_wrapAsync#367;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/series.js#_eachOfSeries#213;C:/wamp64/www/node_modules/async/series.js#_parallel#111;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/constants/server_status.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/well-known/services.json</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/setImmediate.js#_setImmediate#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/setImmediate.js#_slice#196;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemailer/lib/dkim/sign.js#crypto#103;C:/wamp64/www/node_modules/nodemailer/lib/dkim/sign.js#mimeFuncs#59;C:/wamp64/www/node_modules/nodemailer/lib/dkim/sign.js#punycode#21;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/slice.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/some.js#_createTester#85;C:/wamp64/www/node_modules/async/some.js#_doParallel#203;C:/wamp64/www/node_modules/async/some.js#_identity#313;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/someLimit.js#_createTester#85;C:/wamp64/www/node_modules/async/someLimit.js#_doParallelLimit#203;C:/wamp64/www/node_modules/async/someLimit.js#_identity#333;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/someSeries.js#_doLimit#182;C:/wamp64/www/node_modules/async/someSeries.js#_someLimit#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/sortBy.js#_arrayMap#113;C:/wamp64/www/node_modules/async/sortBy.js#_baseProperty#212;C:/wamp64/www/node_modules/async/sortBy.js#_map#327;C:/wamp64/www/node_modules/async/sortBy.js#_wrapAsync#400;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/constants/ssl_profiles.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/stack-trace/lib/stack-trace.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/lib/winston/config/syslog-config.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/tag.js#Attrs#19;C:/wamp64/www/node_modules/jade/lib/nodes/tag.js#Block#51;C:/wamp64/www/node_modules/jade/lib/nodes/tag.js#inlineTags#83;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/nodes/text.js#Node#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/timeout.js#_initialParams#114;C:/wamp64/www/node_modules/async/timeout.js#_wrapAsync#236;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/times.js#_doLimit#186;C:/wamp64/www/node_modules/async/times.js#_timesLimit#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/timesLimit.js#_baseRange#207;C:/wamp64/www/node_modules/async/timesLimit.js#_mapLimit#114;C:/wamp64/www/node_modules/async/timesLimit.js#_wrapAsync#310;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/timesSeries.js#_doLimit#186;C:/wamp64/www/node_modules/async/timesSeries.js#_timesLimit#85;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/transform.js#_eachOf#292;C:/wamp64/www/node_modules/async/transform.js#_isArray#116;C:/wamp64/www/node_modules/async/transform.js#_noop#210;C:/wamp64/www/node_modules/async/transform.js#_once#377;C:/wamp64/www/node_modules/async/transform.js#_wrapAsync#463;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/transformers/lib/transformers.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/lib/winston/transports/transport.js#Transport#406;C:/wamp64/www/node_modules/winston/lib/winston/transports/transport.js#events#128;C:/wamp64/www/node_modules/winston/lib/winston/transports/transport.js#util#160;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/lib/winston/transports.js#Console#235;C:/wamp64/www/node_modules/winston/lib/winston/transports.js#File#399;C:/wamp64/www/node_modules/winston/lib/winston/transports.js#Http#557;C:/wamp64/www/node_modules/winston/lib/winston/transports.js#Memory#717;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/lodash/trim.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/tryEach.js#_eachSeries#196;C:/wamp64/www/node_modules/async/tryEach.js#_noop#114;C:/wamp64/www/node_modules/async/tryEach.js#_slice#403;C:/wamp64/www/node_modules/async/tryEach.js#_wrapAsync#297;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mysql/lib/protocol/constants/types.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/unmemoize.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/until.js#_whilst#112;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nconf/usage.js#fs#4;C:/wamp64/www/node_modules/nconf/usage.js#nconf#60;C:/wamp64/www/node_modules/nconf/usage.js#path#31;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/utils.js#parseRange#2149;C:/wamp64/www/node_modules/express/lib/utils.js#toArray#2848;C:/wamp64/www/node_modules/express/lib/utils.js#union#507;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/lib/utils.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/view.js#View#285;C:/wamp64/www/node_modules/express/lib/view.js#http#420;C:/wamp64/www/node_modules/express/lib/view.js#partial#319;C:/wamp64/www/node_modules/express/lib/view.js#path#138;C:/wamp64/www/node_modules/express/lib/view.js#union#367;C:/wamp64/www/node_modules/express/lib/view.js#utils#256;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/view/view.js#fs#280;C:/wamp64/www/node_modules/express/lib/view/view.js#path#138;C:/wamp64/www/node_modules/express/lib/view/view.js#this.engine#2656;C:/wamp64/www/node_modules/express/lib/view/view.js#utils#165;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/acorn/dist/walk.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/waterfall.js#_isArray#810;C:/wamp64/www/node_modules/async/waterfall.js#_noop#904;C:/wamp64/www/node_modules/async/waterfall.js#_once#986;C:/wamp64/www/node_modules/async/waterfall.js#_onlyOnce#1162;C:/wamp64/www/node_modules/async/waterfall.js#_slice#1072;C:/wamp64/www/node_modules/async/waterfall.js#_wrapAsync#1264;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/whilst.js#_noop#113;C:/wamp64/www/node_modules/async/whilst.js#_onlyOnce#285;C:/wamp64/www/node_modules/async/whilst.js#_slice#195;C:/wamp64/www/node_modules/async/whilst.js#_wrapAsync#387;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/winston/lib/winston.js#Container#794;C:/wamp64/www/node_modules/winston/lib/winston.js#Logger#861;C:/wamp64/www/node_modules/winston/lib/winston.js#Transport#922;C:/wamp64/www/node_modules/winston/lib/winston.js#common#382;C:/wamp64/www/node_modules/winston/lib/winston.js#config.js#639;C:/wamp64/www/node_modules/winston/lib/winston.js#exception.js#582;C:/wamp64/www/node_modules/winston/lib/winston.js#transports.js#312;C:/wamp64/www/node_modules/winston/lib/winston.js#version#197;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/withoutIndex.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/async/internal/wrapAsync.js#_asyncify#116;</node>
+            <node x="" y="">_process</node>
+            <node x="" y="">async</node>
+            <node x="" y="">attrs</node>
+            <node x="" y="">block</node>
+            <node x="" y="">block-comment</node>
+            <node x="" y="">Buffer;</node>
+            <node x="" y="">case</node>
+            <node x="" y="">$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js#exec#11525;spawn;</node>
+            <node x="" y="">code</node>
+            <node x="" y="">comment</node>
+            <node x="" y="">compiler</node>
+            <node x="" y="">crypto</node>
+            <node x="" y="">dns</node>
+            <node x="" y="">doctype</node>
+            <node x="" y="">doctypes</node>
+            <node x="" y="">each</node>
+            <node x="" y="">EventEmitter;</node>
+            <node x="" y="">filter</node>
+            <node x="" y="">filters</node>
+            <node x="" y="">readFileSync;</node>
+            <node x="" y="">http</node>
+            <node x="" y="">https</node>
+            <node x="" y="">inline-tags</node>
+            <node x="" y="">lexer</node>
+            <node x="" y="">literal</node>
+            <node x="" y="">sync;</node>
+            <node x="" y="">mixin</node>
+            <node x="" y="">mixin-block</node>
+            <node x="" y="">mkdirp</node>
+            <node x="" y="">name</node>
+            <node x="" y="">net</node>
+            <node x="" y="">node</node>
+            <node x="" y="">nodes</node>
+            <node x="" y="">os</node>
+            <node x="" y="">parser</node>
+            <node x="" y="">path</node>
+            <node x="" y="">pull-request</node>
+            <node x="" y="">punycode</node>
+            <node x="" y="">sqlstring</node>
+            <node x="" y="">stop.js</node>
+            <node x="" y="">store</node>
+            <node x="" y="">PassThrough;Stream;Transform;</node>
+            <node x="" y="">tag</node>
+            <node x="" y="">text</node>
+            <node x="" y="">this.engine</node>
+            <node x="" y="">timers</node>
+            <node x="" y="">tls</node>
+            <node x="" y="">parse;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/jade/jade.js#_extend#138831;inherits;</node>
+            <node x="" y="">utils</node>
+            <node x="" y="">zlib</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.9" x="4420.0" y="5890.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/access-layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/reset-layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="59" lean-forward="false" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index-layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login-layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/profile-layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/log.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/database.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="125" column="50" lean-forward="true" selection-start-line="125" selection-start-column="50" selection-end-line="125" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/profile.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="868" column="23" lean-forward="false" selection-start-line="868" selection-start-column="23" selection-end-line="868" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="55" column="44" lean-forward="false" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/profile.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="169" column="95" lean-forward="false" selection-start-line="169" selection-start-column="95" selection-end-line="169" selection-end-column="95" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#ul#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#li#0;n#ul#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#li#1;n#ul#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#li#2;n#ul#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#ul#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#7;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/mysqlLogRequests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="171" column="16" lean-forward="false" selection-start-line="171" selection-start-column="16" selection-end-line="171" selection-end-column="16" />
+          <folding>
+            <element signature="e#2265#5300#0" expanded="false" />
+            <element signature="e#8427#14039#0" expanded="false" />
+            <element signature="e#8649#12776#0" expanded="false" />
+            <element signature="e#12821#14037#0" expanded="false" />
+            <marker date="1501603780021" expanded="true" signature="2676:2746" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="2803:2880" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="3179:3194" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="3349:3378" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="3391:3397" ph=" " />
+            <marker date="1501603780021" expanded="true" signature="3656:3671" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="3826:3855" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="3868:3874" ph=" " />
+            <marker date="1501603780021" expanded="true" signature="3974:3997" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="4202:4293" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="4346:4400" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="4457:4483" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="4632:4701" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="4754:4781" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="4885:4910" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="4923:4940" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="9716:9786" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="9851:9928" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="10295:10310" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="10517:10546" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="10559:10565" ph=" " />
+            <marker date="1501603780021" expanded="true" signature="10884:10899" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="11106:11135" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="11148:11154" ph=" " />
+            <marker date="1501603780021" expanded="true" signature="11290:11313" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="11562:11653" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="11718:11772" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="11845:11871" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="12036:12105" ph="..." />
+            <marker date="1501603780021" expanded="true" signature="12174:12188" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3800">
+          <caret line="171" column="5" lean-forward="false" selection-start-line="171" selection-start-column="5" selection-end-line="171" selection-end-column="5" />
+          <folding>
+            <element signature="e#155#355#0" expanded="false" />
+            <element signature="e#382#534#0" expanded="false" />
+            <element signature="n#!!block;n#animationLoadingStart#0;n#MainProfile#0" expanded="false" />
+            <element signature="n#!!block;n#animationLoadingEnd#0;n#MainProfile#0" expanded="false" />
+            <element signature="n#!!block;n#addHandler#0;n#MainProfile#0" expanded="false" />
+            <element signature="n#Chat#0" expanded="false" />
+            <element signature="e#3107#4491#0" expanded="false" />
+            <element signature="n#MessagesPage#0" expanded="false" />
+            <element signature="n#SearchPage#0" expanded="false" />
+            <element signature="n#BlacklistPage#0" expanded="false" />
+            <element signature="n#AnotherUserPage#0" expanded="false" />
+            <element signature="e#9064#10482#0" expanded="false" />
+            <element signature="e#10761#10983#0" expanded="false" />
+            <element signature="e#11031#11248#0" expanded="false" />
+            <element signature="e#11296#11822#0" expanded="false" />
+            <element signature="e#11874#12261#0" expanded="false" />
+            <element signature="e#12310#12739#0" expanded="false" />
+            <element signature="e#12787#13215#0" expanded="false" />
+            <element signature="e#13260#13397#0" expanded="false" />
+            <element signature="e#13442#14064#0" expanded="false" />
+            <element signature="e#14232#15914#0" expanded="false" />
+            <element signature="e#15961#16539#0" expanded="false" />
+            <element signature="e#16712#16934#0" expanded="false" />
+            <element signature="e#16985#17208#0" expanded="false" />
+            <element signature="e#17257#17914#0" expanded="false" />
+            <element signature="e#17961#18462#0" expanded="false" />
+            <element signature="e#18513#19204#0" expanded="false" />
+            <element signature="e#19252#19686#0" expanded="false" />
+            <element signature="e#19736#20265#0" expanded="false" />
+            <element signature="e#20315#20746#0" expanded="false" />
+            <element signature="e#20915#21149#0" expanded="false" />
+            <element signature="e#21195#22273#0" expanded="false" />
+            <element signature="e#26107#27991#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/mysqlProfileRequests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
+          <folding>
+            <element signature="e#522#946#0" expanded="false" />
+            <element signature="e#3321#4679#0" expanded="false" />
+            <element signature="e#4993#5692#0" expanded="false" />
+            <element signature="e#8939#9081#0" expanded="false" />
+            <element signature="e#11132#11274#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

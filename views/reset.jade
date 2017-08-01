@@ -1,0 +1,20 @@
+.wrap
+    .container
+        .label
+            a(href='#') MATCHA
+        .input_form_wrap
+            form.input_form.input_form_log(method='post', onsubmit='return false;')
+                .email_created Введите вашу почту для получения ключа.
+                input(type='email', name='email_reset', placeholder='email', required='')
+                input.if_submit.check_pass.btn(type='submit', name='submit', value='submit')
+                a.if_back(href='/login') back
+        .input_form_wrap
+            form.input_form.input_form_reg(method='post', onsubmit='return false;')
+                .email_created
+                    span.email_instructions Введите ключ отосланный вам на почту, затем введите новый пароль.
+                    span.email_created_success Пароль успешно изменен.
+                input(type='text', name='user_key', placeholder='key', required='')
+                input(type='password', min='5', max='20', name='pass_reset', placeholder='password', required='')
+                input(type='password', min='5', max='20', name='pass_reset_re', placeholder='password_re', required='')
+                .if_back.if_back_to_email back
+                input.if_submit.change_pass_btn.btn(type='submit', name='submit', value='submit')
