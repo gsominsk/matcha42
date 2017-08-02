@@ -751,9 +751,15 @@ class VueUpload {
                     console.log(ajaxReq);
                     ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
                         data == true ? _global.loadedObjects.profile = false : 0;
-                        __this.photoSrc = '';
-                        __this.photoName = '';
-                        __this.submitBtn.removeAttribute('style');
+                        if (data.status == true) {
+                            __this.photoSrc = '';
+                            __this.photoName = '';
+                            __this.submitBtn.removeAttribute('style');
+                        } else {
+                            errMsg.innerText = data.status;
+                            errMsg.setAttribute('style', 'font-size: 1em;');
+                        }
+
                         console.log('data', data);
                     });
                 }
@@ -770,23 +776,23 @@ class VueUpload {
             methods: {
                 addNewImg: function () {
                     var uploadPhoto     = document.querySelector('input[name=upload-user-photos]');
-                    var errMsg          = document.getElementsByClassName('upload-new-photo-err')[0];
+                    this.errMsg          = document.getElementsByClassName('upload-new-photo-err')[0];
                     this.submitBtn       = document.getElementsByClassName('add-photos-btn')[0];
                     var file    = uploadPhoto.files[0]; //sames as here
                     var reader  = new FileReader();
                     var __this = this;
 
                     if (this.photoCounter > 3) {
-                        errMsg.innerText = "You can`t download more than 4 pictures.";
-                        errMsg.setAttribute('style', 'font-size: 1em;');
+                        this.errMsg.innerText = "You can`t download more than 4 pictures.";
+                        this.errMsg.setAttribute('style', 'font-size: 1em;');
                     }
                     else if (!file.type.match(/.(jpg|jpeg|png|gif|bmp)$/i)) {
-                        errMsg.innerText = "It`s not an image!!\nI`m watching you -_-";
-                        errMsg.setAttribute('style', 'font-size: 1em;');
+                        this.errMsg.innerText = "It`s not an image!!\nI`m watching you -_-";
+                        this.errMsg.setAttribute('style', 'font-size: 1em;');
                     }
                     else if (file) {
                         reader.onloadend = function () {
-                            errMsg.removeAttribute('style');
+                            __this.errMsg.removeAttribute('style');
                             __this.photoSrcArr.push(reader.result);
                             __this.photoData[__this.photoCounter] = {};
                             __this.photoData[__this.photoCounter].src = reader.result;
@@ -797,17 +803,16 @@ class VueUpload {
                         }
                         reader.readAsDataURL(file); //reads the data as a URL
                     } else {
-                        errMsg.innerText = "Some error, try another file";
-                        errMsg.setAttribute('style', 'font-size: 1em;');
+                        this.rrMsg.innerText = "Some error, try another file";
+                        this.errMsg.setAttribute('style', 'font-size: 1em;');
                     }
                 },
                 deletePhoto: function () {
                     var __this = this;
                     var elem = event.target.tagName != 'IMG' ? event.target.childNodes[0] : event.target;
 
-                    for (var i = 0; i < this.photoSrcArr.length; i++) {
+                    for (var i = 0; i < this.photoSrcArr.length; i++)
                         if (elem.src == this.photoSrcArr[i]) break;
-                    }
                     elem = event.target.tagName == 'IMG' ? event.target.parentElement : event.target;
                     elem.setAttribute('style', 'width: 0;');
                     setTimeout(function () {
@@ -817,7 +822,10 @@ class VueUpload {
                         __this.photoSrcArr.splice(i, 1);
                         __this.photoData.splice(i, 1);
                         __this.photoCounter--;
-                        __this.photoSrcArr.length == 0 ? __this.submitBtn.removeAttribute('style') : 0;
+                        if (__this.photoSrcArr.length == 0) {
+                            __this.submitBtn.removeAttribute('style');
+                            __this.errMsg.removeAttribute('style');
+                        }
                     }, 100)
                 },
                 savePhotos: function () {
@@ -831,11 +839,16 @@ class VueUpload {
                         }
                     };
                     ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
-                        data == true ? _global.loadedObjects.profile = false : 0;
-                        __this.deleteAll();
+                        if (data.status == true) {
+                            _global.loadedObjects.profile = false;
+                            __this.errMsg.removeAttribute('style');
+                            __this.deleteAll();
+                        } else {
+                            __this.errMsg.innerText = data.status;
+                            __this.errMsg.setAttribute('style', 'font-size: 1em;');
+                        }
                         console.log('data', data);
                     });
-                    console.log(this.photoData);
                 },
                 deleteAll: function () {
                     this.photoSrcArr  = [];

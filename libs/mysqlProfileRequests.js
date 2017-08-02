@@ -182,31 +182,26 @@ module.exports.uploadUserPhotos = function (req, res, callback) {
     var dirPath     = 'public/images/userPhotos/' + req.session.user_key + '/';
 
     // check if some files already exists and sum of files < 5
-    // console.log(req.body.photos);
-
-    // checkUserFiles(req, function (result) {
-    //     if (result == 'true') {
-    //             console.log('bla bla bla');
-    //             // console.log(req.body.photos);
-    //             this.values      = [];
-    //             for (var i = 0; i < req.body.photos.length; i++) {
-    //                 var buff = new Buffer(req.body.photos[i].src
-    //                     .replace(/^data:image\/(png|gif|jpeg);base64,/,''), 'base64');
-    //                 this.values[i] = [
-    //                     req.session.user_key,
-    //                     req.body.photos[i].fileName
-    //                 ];
-    //                 fs.writeFile(dirPath + req.body.photos[i].fileName, buff, function (err) {
-    //                     if (err) throw err;
-    //                 });
-    //             }
-    //             insertUserPhotos(req, this.values, callback);
-    //     } else {
-    //         callback(false);
-    //     }
-    // });
+    checkUserFiles(req, function (result) {
+        if (result == true) {
+                this.values      = [];
+                for (var i = 0; i < req.body.photos.length; i++) {
+                    var buff = new Buffer(req.body.photos[i].src
+                        .replace(/^data:image\/(png|gif|jpeg);base64,/,''), 'base64');
+                    this.values[i] = [
+                        req.session.user_key,
+                        req.body.photos[i].fileName
+                    ];
+                    fs.writeFile(dirPath + req.body.photos[i].fileName, buff, function (err) {
+                        if (err) throw err;
+                    });
+                }
+                insertUserPhotos(req, this.values, callback);
+        } else {
+            callback(result);
+        }
+    });
 }
-
 
 function checkUserFiles (req, callback) {
     var dirPath     = 'public/images/userPhotos/' + req.session.user_key + '/';
@@ -214,34 +209,27 @@ function checkUserFiles (req, callback) {
     var count = 0;
     var allFilesName = [];
 
-    console.log('1 : ', req.body.photos.length);
-
     async.series([
             function (callback) {
-                fs.readdir(dirPath, function (err, files) {
-                    files.forEach(function (file) {
-                        allFilesName.push(file);
-                        count++;
-                    });
+                fs.readdirSync(dirPath).forEach(function (file) {
+                    allFilesName.push(file);
+                    count++;
                 });
-                console.log('1.5');
                 callback({filesNames: allFilesName});
             },
         ], function(result) {
-            // return (req.body.photos.length + count > 5 ? 'too many files' : true);
-            for (j = 0; j < result.filesNames.length; j++) {
-                console.log('[j] : ', j);
-                for (var i = 0; i < req.body.photos.length; i++) {
-                    console.log('[i] : ', i);
-                    if (req.body.photos[i].fileName == file) {
-                        req.body.photos.splice(i, 1);
-                        console.log('spliced');
-                        console.log('2 : ', req.body.photos.length);
+            if (req.body.photos.length + count > 5) {
+                console.log('too many files');
+                callback({status:'You already have 5 photos. Delete some photos to upload new.'});
+            } else {
+                for (j = 0; j < result.filesNames.length; j++) {
+                    for (var i = 0; i < req.body.photos.length; i++) {
+                        if (req.body.photos[i].fileName == result.filesNames[j])
+                            req.body.photos.splice(i, 1);
                     }
                 }
+                callback(req.body.photos.length == 0 ? {status:'This photos already uploaded.'} : true);
             }
-            console.log('3 : ', req.body.photos.length);
-            callback(true);
         });
 
 }
@@ -260,7 +248,6 @@ function insertUserPhotos (req, values, callback) {
         if (err) throw err;
         var _result;
         var sql = "INSERT INTO `photos` (`user_key`, `photo_name`) VALUES ?"
-        console.log('VALUES', values);
 
         con.query(sql, [values], function (err, result, fields) {
             if (err) throw err;
@@ -273,12 +260,11 @@ function insertUserPhotos (req, values, callback) {
                     req.session.avatar_activated = values[0][1];
                     con.query(sql, [values[0][0]], function (err, result, fields) {
                         if (err) throw err;
-                        console.log('sending back');
-                        callback(true);
+                        callback({status:true});
                     });
                 });
             } else {
-                callback(true);
+                callback({status:true});
             }
         });
     });
