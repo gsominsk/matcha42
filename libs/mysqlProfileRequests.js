@@ -231,7 +231,6 @@ function checkUserFiles (req, callback) {
                 callback(req.body.photos.length == 0 ? {status:'This photos already uploaded.'} : true);
             }
         });
-
 }
 
 function insertUserPhotos (req, values, callback) {
@@ -286,38 +285,75 @@ module.exports.uploadUserAvatar = function (req, res, callback) {
 
     console.log(req.body.photo);
 
-    var buff = new Buffer(req.body.photo.src
-        .replace(/^data:image\/(png|gif|jpeg);base64,/,''), 'base64');
-    fs.writeFile(dirPath + req.body.photo.name, buff, function (err) {
-        if (err) throw err;
+    checkUserFiles(req, function (result) {
+        if (result == true) {
+            var buff = new Buffer(req.body.photo.src
+                .replace(/^data:image\/(png|gif|jpeg);base64,/,''), 'base64');
+            fs.writeFile(dirPath + req.body.photo.name, buff, function (err) {
+                if (err) throw err;
+            });
+            insertUserAvatar();
+        } else {
+            callback(result);
+        }
     });
 
-    var con = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "",
-        database: "matcha",
-        charset	: "utf8_general_ci"
-    });
-    con.connect(function(err) {
-        if (err) throw err;
-        var _result;
-        var sql = "INSERT INTO `photos` (`user_key`, `photo_name`) VALUES (?, ?)";
+    function checkUserFiles (req, callback) {
+        var dirPath     = 'public/images/userPhotos/' + req.session.user_key + '/';
+        var fs = require('fs');
+        var count = 0;
+        var allFilesName = [];
 
-        con.query(sql, [req.session.user_key, req.body.photo.name], function (err, result, fields) {
-            if (err) throw err;
-            _result = result;
-            if (result.affectedRows > 0) {
-                sql = "UPDATE `registered_users` SET `photo_activated` = ? WHERE `user_key` = ?";
-                con.query(sql, [req.body.photo.name, req.session.user_key], function (err, result, fields) {
-                    if (err) throw err;
-                    sql = "INSERT INTO `active_users` SET `user_key` = ?, `activated` = 1";
-                    con.query(sql, [req.session.user_key], function (err, result, fields) {
-                        if (err) throw err;
-                        callback(true);
-                    });
+        async.series([
+            function (callback) {
+                fs.readdirSync(dirPath).forEach(function (file) {
+                    allFilesName.push(file);
+                    count++;
                 });
+                callback({filesNames: allFilesName});
+            },
+        ], function(result) {
+            if (1 + count > 5) {
+                console.log('too many files');
+                callback({status:'You already have 5 photos. Delete some photos to upload new.'});
+            } else {
+                for (j = 0; j < result.filesNames.length; j++) {
+                    if (req.body.photo.name == result.filesNames[j])
+                        req.body.photos.splice(i, 1);
+                }
+                callback(req.body.photos.length == 0 ? {status:'This photos already uploaded.'} : true);
             }
         });
-    });
+    }
+
+    function insertUserAvatar (req, callback) {
+        var con = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "",
+            database: "matcha",
+            charset	: "utf8_general_ci"
+        });
+        con.connect(function(err) {
+            if (err) throw err;
+            var _result;
+            var sql = "INSERT INTO `photos` (`user_key`, `photo_name`) VALUES (?, ?)";
+
+            con.query(sql, [req.session.user_key, req.body.photo.name], function (err, result, fields) {
+                if (err) throw err;
+                _result = result;
+                if (result.affectedRows > 0) {
+                    sql = "UPDATE `registered_users` SET `photo_activated` = ? WHERE `user_key` = ?";
+                    con.query(sql, [req.body.photo.name, req.session.user_key], function (err, result, fields) {
+                        if (err) throw err;
+                        sql = "INSERT INTO `active_users` SET `user_key` = ?, `activated` = 1";
+                        con.query(sql, [req.session.user_key], function (err, result, fields) {
+                            if (err) throw err;
+                            callback(true);
+                        });
+                    });
+                }
+            });
+        });
+    }
 }

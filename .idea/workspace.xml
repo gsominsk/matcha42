@@ -79,27 +79,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mysqlProfileRequests.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mysqlProfileRequests.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libs/mysqlProfileRequests.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="302" column="17" lean-forward="true" selection-start-line="302" selection-start-column="17" selection-end-line="302" selection-end-column="17" />
+            <state relative-caret-position="333">
+              <caret line="315" column="25" lean-forward="false" selection-start-line="315" selection-start-column="25" selection-end-line="315" selection-end-column="25" />
               <folding>
                 <element signature="e#522#946#0" expanded="false" />
                 <element signature="e#3321#4679#0" expanded="false" />
                 <element signature="e#4993#5692#0" expanded="false" />
-                <element signature="e#8559#8701#0" expanded="false" />
-                <element signature="e#10678#10820#0" expanded="false" />
+                <element signature="n#!!block;n#checkUserFiles#0" expanded="false" />
+                <element signature="n#!!block;n#insertUserPhotos#0" expanded="false" />
+                <element signature="e#8558#8700#0" expanded="false" />
+                <element signature="e#11974#13235#0" expanded="false" />
+                <element signature="e#12017#12183#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="profile.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/profile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="586">
-              <caret line="828" column="5" lean-forward="false" selection-start-line="828" selection-start-column="5" selection-end-line="828" selection-end-column="5" />
+            <state relative-caret-position="408">
+              <caret line="735" column="24" lean-forward="false" selection-start-line="735" selection-start-column="24" selection-end-line="735" selection-end-column="24" />
               <folding>
                 <element signature="e#155#355#0" expanded="false" />
                 <element signature="e#382#534#0" expanded="false" />
@@ -225,8 +228,8 @@
         <option value="$PROJECT_DIR$/views/profile.jade" />
         <option value="$PROJECT_DIR$/public/css/profile.css" />
         <option value="$PROJECT_DIR$/libs/mysqlLogRequests.js" />
-        <option value="$PROJECT_DIR$/public/js/profile.js" />
         <option value="$PROJECT_DIR$/libs/mysqlProfileRequests.js" />
+        <option value="$PROJECT_DIR$/public/js/profile.js" />
       </list>
     </option>
   </component>
@@ -539,12 +542,12 @@
       <workItem from="1501506796235" duration="13320000" />
       <workItem from="1501522279972" duration="7829000" />
       <workItem from="1501571561402" duration="33528000" />
-      <workItem from="1501654925951" duration="4355000" />
+      <workItem from="1501654925951" duration="6614000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263488000" />
+    <option name="totallyTimeSpent" value="265747000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -609,7 +612,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="43" />
+      <option name="time" value="44" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1524,10 +1527,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/libs/mysqlProfileRequests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="315" column="25" lean-forward="false" selection-start-line="315" selection-start-column="25" selection-end-line="315" selection-end-column="25" />
+          <folding>
+            <element signature="e#522#946#0" expanded="false" />
+            <element signature="e#3321#4679#0" expanded="false" />
+            <element signature="e#4993#5692#0" expanded="false" />
+            <element signature="n#!!block;n#checkUserFiles#0" expanded="false" />
+            <element signature="n#!!block;n#insertUserPhotos#0" expanded="false" />
+            <element signature="e#8558#8700#0" expanded="false" />
+            <element signature="e#11974#13235#0" expanded="false" />
+            <element signature="e#12017#12183#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/profile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="828" column="5" lean-forward="false" selection-start-line="828" selection-start-column="5" selection-end-line="828" selection-end-column="5" />
+        <state relative-caret-position="408">
+          <caret line="735" column="24" lean-forward="false" selection-start-line="735" selection-start-column="24" selection-end-line="735" selection-end-column="24" />
           <folding>
             <element signature="e#155#355#0" expanded="false" />
             <element signature="e#382#534#0" expanded="false" />
@@ -1561,20 +1581,6 @@
             <element signature="e#20315#20746#0" expanded="false" />
             <element signature="e#20915#21149#0" expanded="false" />
             <element signature="e#21195#22273#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/mysqlProfileRequests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="302" column="17" lean-forward="true" selection-start-line="302" selection-start-column="17" selection-end-line="302" selection-end-column="17" />
-          <folding>
-            <element signature="e#522#946#0" expanded="false" />
-            <element signature="e#3321#4679#0" expanded="false" />
-            <element signature="e#4993#5692#0" expanded="false" />
-            <element signature="e#8559#8701#0" expanded="false" />
-            <element signature="e#10678#10820#0" expanded="false" />
           </folding>
         </state>
       </provider>

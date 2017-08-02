@@ -693,7 +693,7 @@ class VueUpload {
             methods: {
                 addNewImg: function () {
                     var uploadAvatar    = document.querySelector('input[name=upload-user-avatar]');
-                    var errMsg          = document.getElementsByClassName('upload-new-avatar-err')[0];
+                    this.errMsg          = document.getElementsByClassName('upload-new-avatar-err')[0];
                     this.submitBtn      = document.getElementsByClassName('add-avatar-btn')[0];
                     var imgWrap         = document.getElementsByClassName('upload-avatar-img-wrap')[0];
                     var file            = uploadAvatar.files[0]; //sames as here
@@ -701,12 +701,12 @@ class VueUpload {
                     var __this          = this;
 
                     if (!file.type.match(/.(jpg|jpeg|png|gif|bmp)$/i)) {
-                        errMsg.innerText = "It`s not an image!!\nI`m watching you -_-";
-                        errMsg.setAttribute('style', 'font-size: 1em;');
+                        __this.errMsg.innerText = "It`s not an image!!\nI`m watching you -_-";
+                        __this.errMsg.setAttribute('style', 'font-size: 1em;');
                     }
                     else if (file) {
                         reader.onloadend = function () {
-                            errMsg.removeAttribute('style');
+                            __this.errMsg.removeAttribute('style');
                             imgWrap.setAttribute('style', 'width: 100%;');
                             __this.photoSrc = reader.result;
                             __this.photoName = file.name;
@@ -715,8 +715,8 @@ class VueUpload {
                         }
                         reader.readAsDataURL(file); //reads the data as a URL
                     } else {
-                        errMsg.innerText = "Some error, try another file";
-                        errMsg.setAttribute('style', 'font-size: 1em;');
+                        __this.errMsg.innerText = "Some error, try another file";
+                        __this.errMsg.setAttribute('style', 'font-size: 1em;');
                     }
                 },
                 deletePhoto: function () {
@@ -732,6 +732,7 @@ class VueUpload {
                     setTimeout(function () {
                         __this.photoSrc = '';
                         __this.photoName = '';
+                        __this.errMsg.removeAttribute('style');
                         __this.submitBtn.removeAttribute('style');
                     }, 100)
                 },
@@ -754,10 +755,11 @@ class VueUpload {
                         if (data.status == true) {
                             __this.photoSrc = '';
                             __this.photoName = '';
+                            __this.errMsg.removeAttribute('style');
                             __this.submitBtn.removeAttribute('style');
                         } else {
-                            errMsg.innerText = data.status;
-                            errMsg.setAttribute('style', 'font-size: 1em;');
+                            __this.errMsg.innerText = data.status;
+                            __this.errMsg.setAttribute('style', 'font-size: 1em;');
                         }
 
                         console.log('data', data);
