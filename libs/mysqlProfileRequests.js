@@ -10,6 +10,13 @@ var connData = {
     database: "matcha",
     charset	: "utf8_general_ci"
 }
+
+module.exports.logout = function (req, res, callback) {
+    delete req.session.avatar_activated;
+    delete req.session.user_key;
+    callback(true);
+}
+
 /*
 *   [function addUserToStream]
 *   Во время входа пользователя на сайт мы записываем его в глобадбный
@@ -174,8 +181,21 @@ module.exports.setUserHobbie = function (req, res, callback) {
 
 /*
  *  [function uploadUserPhotos]
- *  Обновляет фотографии пользователя. Если количество новых фото + количество
- *  старых больше 4 старые оно заменит на новые фото.
+ *  Загружает фотографии пользователя.
+ *
+ *  Прежде чем загрузить делает проверку на кол-во уже загруженных фотографий +
+ *  кол-во загружаемых и если сумма больше 5 прекращает работу с сообщением
+ *  "фотографий слишком много, удалите старые прежде чем загрузить новые".
+ *
+ *  Так же делает проверку на типы данных, если нам пришшло не изображение (jpeg,
+ *  jpg, png, ...) прекращает роботу и выдает сообщение об ошибке.
+ *
+ *  Фотография загружается в таблицу 'photos', после чего идет проверка.
+ *
+ *  Если фотографии загружаются в первый раз, первая фотография из списка
+ *  загружается как АВАТАР пользователя, в 'registered_users' в ячейку
+ *  'photo_activated' записывается аватар пользователя а так же данный пользователь
+ *  вносится в таблицу активных пльзователей 'active_users'.
  *
  *  req.body.photo          - Массив с данными о фото.
  *  req.body.photo.src      - Фотография в 64.
@@ -225,7 +245,6 @@ module.exports.uploadUserPhotos = function (req, res, callback) {
             },
         ], function(result) {
             if (req.body.photos.length + count > 5) {
-                console.log('too many files');
                 callback({status:'You already have 5 photos. Delete some photos to upload new.'});
             } else {
                 for (j = 0; j < result.filesNames.length; j++) {
@@ -372,14 +391,61 @@ module.exports.uploadUserAvatar = function (req, res, callback) {
  *  Функция удаляет фотографии пользователя. Удаляет из папки, таблицы photos,
  *  photo_likes, comments и registered_users если эта фотография была аватаром
  *  пользователя, вместо нее ставится фотография unknown.jpg. Если пользователь
- *  удалит все свои фотографии он не удаляется из таблицы активных пользоватеелей
+ *  удалит все свои фотографии он не удаляется из таблицы активных пользоватеелей.
  *
  *  res                     - Не используем.
  *  callback                - Возвращает true фото удалено, false в случае ошибки.
  */
 
 module.exports.deleteUserPhotos = function (req, res, callback) {
+    console.log('[SERVER] -> deleteUserPhotos'); //delete
+    console.log(req.body.photos); //delete
 
+    var con = mysql.createConnection(connData);
+    con.connect(function(err) {
+        if (err) throw err;
+        console.log(req.body);
+        var values = [];
+        var sql = "DELETE FROM photos WHERE";
+        var sql2 = '';
+        for (var i = 0, j = 0; i < req.body.photos.length; i++, j+=2) {
+            sql2            += " (photo_name = ? AND user_key = ?) " + (i + 1 < req.body.photos.length ? ' OR ' : '');
+            values[j]       = req.body.photos[i];
+            values[j + 1]   = req.session.user_key;
+            if (req.body.photos[i] == req.session.avatar_activated)
+                deleteAvatar(req, i);
+            deleteFile(req, i);
+        }
+        con.query(sql + sql2, values, function (err, result, fields) {
+            if (err) throw err;
+            sql = "DELETE FROM photo_likes WHERE";
+            con.query(sql + sql2, values, function (err, result, fields) {
+                if (err) throw err;
+                sql = "DELETE FROM comments WHERE";
+                con.query(sql + sql2, values, function (err, result, fields) {
+                    if (err) throw err;
+                    callback(true);
+                });
+            });
+        });
+    });
+
+    function deleteFile (req, i) {
+        console.log('[i] : ', i);
+        fs.stat('public/images/userPhotos/'+req.session.user_key+'/'+req.body.photos[i], function (err, stats) {
+            if (err) return console.error(err);
+            fs.unlink('public/images/userPhotos/'+req.session.user_key+'/'+req.body.photos[i],function(err){
+                if(err) return console.log(err);
+            });
+        });
+    }
+
+    function deleteAvatar (req, i) {
+        var sql = "UPDATE `registered_users` SET `photo_activated` = 0 WHERE `user_key` = ?"
+        con.query(sql, [req.session.user_key], function (err, result, fields) {
+            if (err) throw err;
+        });
+    }
 }
 
 /*
@@ -411,7 +477,7 @@ module.exports.setNewComment = function (req, res, callback) {
         con.query(sql, values, function (err, result, fields) {
             if (err) throw err;
             console.log(result);
-            callback(result.affectedRows > 0 ? true : false);
+            callback(result.affectedRows > 0 ? values : false);
         });
     });
 }
@@ -483,4 +549,84 @@ module.exports.getPhotoData = function (req, res, callback) {
             } else callback(null);
         });
     });
+}
+
+/*
+ *  [function like]
+ *  Функция получает имя фотографии и ключ владельца фотографии, после чего
+ *  проверяет стоит ли лайк у этой фотографии от пользователя чей ключ в данный
+ *  момент записаный в сессии.
+ *
+ *  Если стоит мы удаляем лайк из 'photo_likes' и минусуем кол-во лайков у данной
+ *  фотографии в 'photos' и возвращаем 'delete'.
+ *
+ *  Если лайк не стоит  мы добавляем его в таблицу 'photo_likes', и плюсуем кол-во
+ *  лайков у данной фотографии в 'photos' и возвращаем 'add'.
+ *
+ *  req.like.img            -   Название фотграфии которой поставлен лайк.
+ *  req.like.imgOwner       -   Ключ пользователя фотографии.
+ *  res                     -   Не используем.
+ *  callback                -   Возвращает 'add' или 'delete' в зависимости от того
+ *                              стоял лайк или нет.
+ */
+
+module.exports.like = function (req, res, callback) {
+    var con = mysql.createConnection(connData);
+    con.connect(function(err) {
+        if (err) throw err;
+        var values = [
+            req.session.user_key,
+            req.body.like.imgOwner,
+            req.body.like.img
+        ];
+        var sql = "SELECT photos.likes, photo_likes.id FROM photos "+
+                "LEFT JOIN photo_likes "+
+                "ON (photos.user_key = photo_likes.user_key "+
+                "AND photos.photo_name = photo_likes.photo_name " +
+                "AND photo_likes.liker_key = ?) "+
+                "WHERE photos.user_key = ? "+
+                "AND photos.photo_name = ? ";
+
+        con.query(sql, values, function (err, result, fields) {
+            if (err) throw err;
+            console.log(result);
+            if (result[0].id != null) {
+                deleteLike(req, values, result[0].likes, callback);
+            } else {
+                addLike(req, values, result[0].likes, callback);
+            }
+
+        });
+    });
+
+    function deleteLike (req, values, likes, callback) {
+        console.log('DELETE LIKE\n');
+        console.log(values);
+        var sql = "DELETE FROM photo_likes WHERE " +
+            "liker_key = ? AND user_key = ? AND photo_name = ?";
+        con.query(sql, values, function (err, result, fields) {
+            if (err) throw err;
+            sql = "UPDATE photos SET likes = ? WHERE " +
+                "user_key = ? AND photo_name = ?";
+            con.query(sql, [likes-1, values[1], values[2]], function (err, result, fields) {
+                if (err) throw err;
+                callback({like: 'delete'});
+            });
+        });
+    }
+
+    function addLike (req, values, likes, callback) {
+        console.log('ADD LIKE\n');
+        console.log(values);
+        var sql = "INSERT INTO photo_likes (liker_key, user_key, photo_name) VALUES (?, ?, ?)";
+        con.query(sql, values, function (err, result, fields) {
+            if (err) throw err;
+            sql = "UPDATE photos SET likes = ? WHERE " +
+                "user_key = ? AND photo_name = ?";
+            con.query(sql, [likes+1, values[1], values[2]], function (err, result, fields) {
+                if (err) throw err;
+                callback({like: 'add'});
+            });
+        });
+    }
 }

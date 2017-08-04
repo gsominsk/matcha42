@@ -2,9 +2,10 @@ var _global = {};
 
 _global.user = {};
 _global.user.fullName = '';
+_global.user.avatar = '';
 
 _global.anotherUserPage = {}
-_global.anotherUserPage.userKey = 'empty';
+_global.anotherUserPage.userKey = null;
 
 _global.vue = {};
 _global.vue.modal = {};
@@ -90,6 +91,7 @@ class Chat extends MainProfile {
 class ProfilePage extends MainProfile {
 	constructor () {
 		super();
+        _global.anotherUserPage.userKey = null;
 		if (_global.loadedObjects.profile == false) {
             // запускаем longрull запрос для странички профиля
             //      если данные пришли перерендериваем не статические элементы
@@ -114,6 +116,8 @@ class ProfilePage extends MainProfile {
         ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
             __this.vueRenderStaticInfo(data);
             _global.user.fullName = data.name + ' ' + data.surname;
+            _global.user.key = data.user_key;
+            _global.user.avatar = 'images/userPhotos/'+data.user_key+'/'+data.photo_activated;
             console.log('data', data);
         });
     }
@@ -427,6 +431,28 @@ class VueUpload {
                 avatarSrc   : 'images/unknown.jpg',
                 fullName    : 'empty',
                 likes       : 0
+            },
+            methods: {
+                like: function () {
+                    var __this = this;
+
+                    var ajax = new Ajax();
+                    var ajaxReq = {
+                        type    : 'POST',
+                        body    : {
+                            action  : 'like',
+                            like    : {
+                                img     : _global.vue.modal.photoSrc.split('/')[3],
+                                imgOwner: _global.vue.modal.photoOwner
+                            }
+                        }
+                    }
+                    ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
+                        console.log(data.like);
+                        data.like == 'delete' ? __this.likes-- : __this.likes++;
+                    })
+
+                }
             }
         });
 
@@ -454,7 +480,7 @@ class VueUpload {
                                 action  : 'setNewComment',
                                 comment : {
                                     text                : text,
-                                    to                  : _global.anotherUserPage.userKey,
+                                    to                  : _global.user.key ? _global.user.key : _global.user.key,
                                     photo               : _global.vue.modal.photoSrc.split('/')[3],
                                     comentatorFullName  : _global.user.fullName
                                 }
@@ -463,6 +489,16 @@ class VueUpload {
                         ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
                             // data == true ? _global.loadedObjects.profile = false : 0;
                             document.querySelectorAll('.modal-comments-footer .textarea-wrap')[0].innerText = '';
+                            if (data != false) {
+                                _global.vue.modalPhotoComments.comments.push({
+                                    comment             : data.comment,
+                                    comentatorKey       : data.comentator_key,
+                                    comentatorFullName  : data.comentator_full_name,
+                                    commentDate         : data.comment_date,
+                                    comentatorAvatar    : _global.user.avatar
+                                });
+                                console.log(_global.vue.modalPhotoComments.comments);
+                            }
                             console.log('data', data);
                         });
                     }
@@ -470,7 +506,6 @@ class VueUpload {
                 }
             }
         });
-
 
         /* ========================= */
         /*         PROFILE           */
@@ -553,14 +588,6 @@ class VueUpload {
             methods: {
                 getPhotoData: function () {
                     _global.vue.auGalleryPhotos.getPhotoData();
-                    // if (event.target.tagName == 'LI') {
-                    //     _global.vue.modal.photoSrc = event.target.childNodes[0].childNodes[0].getAttribute('src');
-                    // } else if (event.target.classList.contains('gpl-img-wrap')) {
-                    //     _global.vue.modal.photoSrc = event.target.childNodes[0].getAttribute('src');
-                    // } else {
-                    //     _global.vue.modal.photoSrc = event.target.getAttribute('src');
-                    // }
-                    // _global.vue.modal.photoOwner = _global.vue.modal.photoSrc.split('/')[2];
                 },
                 setUserPhotos: function (data) {
                     this.photos = data.photos.length != 0 ? data.photos : null
@@ -602,6 +629,7 @@ class VueUpload {
             },
             methods: {
                 addNewFriends: function (friendsList) {
+                    if (!friendsList) return;
                     for (var i = 0; i < friendsList.length; i++) {
                         console.log(friendsList[i].photo_activated);
                         this.friends.push(friendsList[i]);
@@ -695,12 +723,13 @@ class VueUpload {
                         }
                     };
                     ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
-                        if (data.comments[0].comment) {
+                        if (data.comments && data.comments[0].comment) {
                             _global.vue.modalPhotoComments.comments = data.comments;
                         } else {
                             _global.vue.modalPhotoComments.comments = [];
                         }
-                        _global.vue.modalPhotoData.avatarSrc    = 'images/userPhotos/'+_global.vue.modal.photoOwner+'/' + data.photo.avatar;
+                        if (data.photo_activated)
+                            _global.vue.modalPhotoData.avatarSrc    = 'images/userPhotos/'+_global.vue.modal.photoOwner+'/' + data.photo.avatar;
                         _global.vue.modalPhotoData.fullName     = data.photo.owner;
                         _global.vue.modalPhotoData.likes        = data.photo.likes;
                     });
@@ -1007,6 +1036,8 @@ class VueUpload {
                         }
                     };
                     ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
+                        if (data.photo_activated != 0)
+                            data.photos.push('images/userPhotos/'+data.user_key+'/'+data.photo_activated)
                         __this.photos = data.photos;
                         console.log('data', data);
                     });
@@ -1016,7 +1047,7 @@ class VueUpload {
                     var photosToDelete = [];
 
                     if (elem.tagName == 'IMG' && !elem.style.opacity) {
-                        elem.setAttribute('style', 'opacity: 0.3;')
+                        elem.setAttribute('style', 'opacity: 0.3;');
                         this.photosToDelete.push(elem.getAttribute('src').split('/')[3]);
                     } else if (elem.style.opacity) {
                         elem.removeAttribute('style');
@@ -1031,6 +1062,27 @@ class VueUpload {
                 },
                 deletePhotos: function () {
                     console.log('this function will delete user photos from archive and database');
+                    var ajax    = new Ajax;
+                    var __this  = this;
+                    var ajaxReq = {
+                        type: 'POST',
+                        body: {
+                            action: 'deleteUserPhotos',
+                            photos: this.photosToDelete
+                        }
+                    };
+                    ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
+                        for (var i = 0; i < __this.photos.length; i++)
+                            for (var j = 0; j < __this.photosToDelete.length; j++) {
+                                if (__this.photosToDelete[j] == __this.photos[i].split('/')[3])
+                                    document.querySelectorAll('img[src="'+__this.photos[i]+'"]')[0].removeAttribute('style');
+                                if (__this.photosToDelete[j] == __this.photos[i].split('/')[3]) {
+                                    __this.photos.splice(i, 1);
+                                    break ;
+                                }
+                            }
+                        _global.loadedObjects.profile = false;
+                    });
                 }
             }
         });
@@ -1045,9 +1097,9 @@ class VueUpload {
 
 window.onload = function () {
 	// var mainProfile = new MainProfile(loadedObjects);
-    var eventClass = new ProfilePage;
-    var vueUpload  = new VueUpload;
-
+    var eventClass  = new ProfilePage;
+    var vueUpload   = new VueUpload;
+    var logout      = document.getElementsByClassName('header-logout')[0];
 
     $('#profileMainContentCarousel').on('slid.bs.carousel', function () {
         var targetPage = this.getElementsByClassName('active')[0].getAttribute('data-page');
@@ -1079,4 +1131,17 @@ window.onload = function () {
                 break ;
         }
     });
+
+    logout.onclick = function () {
+        var ajax = new Ajax;
+        var ajaxReq = {
+            type: 'POST',
+            body: {
+                action  : 'logout'
+            }
+        };
+        ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
+            data == true ? window.location.href = 'login' : alert('ERROR, please refresh page.');
+        });
+    }
 }

@@ -165,16 +165,15 @@ module.exports.login = function (req, callback)  {
             pass    : '' + crypto.createHmac('sha256', body.userPass).update('pass').digest('hex'),
             email   : '' + body.userEmail
         };
-        var sql = "SELECT `user_key`, `photo_activated` FROM `registered_users` WHERE pass = ? AND email = ?";
+        var sql = "SELECT `user_key`, `photo_activated`, `activated` FROM `registered_users` WHERE pass = ? AND email = ?";
         con.query(sql, [values.pass, values.email], function (err, result, fields) {
             if (err) throw err;
-            if (result[0]) {
+            if (result[0] && result[0].activated == 1) {
                 req.session.user_key = result[0].user_key;
                 req.session.avatar_activated = result[0].photo_activated;
-
             }
 
-            callback(result[0] ? result[0] : null);
+            callback(result[0] && result[0].activated == 1 ? result[0] : null);
         });
     });
 }
