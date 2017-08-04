@@ -7,6 +7,7 @@ module.exports = function (app) {
         res.render('index', { title: 'Matcha', layout: 'index-layout' })
     });
     app.get('/profile', function (req, res) {
+        if (!req.session.user_key) return res.redirect('/login');
         res.render('profile', { title: 'Matcha', layout: 'profile-layout' })
     });
     app.get('/login', function (req, res) {

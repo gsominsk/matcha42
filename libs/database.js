@@ -136,8 +136,10 @@ sqlTables[4]  =		"CREATE TABLE `comments` ("+
 						"`id` INT AUTO_INCREMENT,"+
 						"`photo_name` VARCHAR(256) NOT NULL,"+
 						"`comment` VARCHAR(1000) NOT NULL,"+
-						"`comentator` VARCHAR(256) NOT NULL,"+
-						"`comment_date` DATETIME NOT NULL,"+
+						"`comentator_key` VARCHAR(256) NOT NULL,"+
+						"`comentator_full_name` VARCHAR(256) NOT NULL,"+
+						"`comment_date` DATETIME DEFAULT CURRENT_TIMESTAMP,"+
+    					"`user_key` VARCHAR(256),"+
 						"PRIMARY KEY (`id`)"+
 						");";
 sqlTables[5]  =		"CREATE TABLE `user_chats` ("+
@@ -178,13 +180,15 @@ sqlTables[10] =		"CREATE TABLE `unwanted_users` ("+
 						"`unwanted_user_key` VARCHAR(256),"+
 						"PRIMARY KEY (`id`)"+
 					");";
+
 sqlTables[11] =		"ALTER TABLE `active_users` ADD CONSTRAINT `active_users_fk0` FOREIGN KEY (`user_key`) REFERENCES `registered_user`(`user_key`);";
 sqlTables[12] =		"ALTER TABLE `photos` ADD CONSTRAINT `photos_fk0` FOREIGN KEY (`user_key`) REFERENCES `active_users`(`user_key`);";
 sqlTables[13] =		"ALTER TABLE `photo_likes` ADD CONSTRAINT `photo_likes_fk0` FOREIGN KEY (`photo_name`) REFERENCES `photos`(`photo_name`);";
 sqlTables[14] =		"ALTER TABLE `comments` ADD CONSTRAINT `comments_fk0` FOREIGN KEY (`photo_name`) REFERENCES `photos`(`photo_name`);";
-sqlTables[15] =		"ALTER TABLE `user_chats` ADD CONSTRAINT `user_chats_fk0` FOREIGN KEY (`user_key`) REFERENCES `active_users`(`user_key`);";
-sqlTables[16] =		"ALTER TABLE `chat_messages` ADD CONSTRAINT `chat_messages_fk0` FOREIGN KEY (`chat`) REFERENCES `user_chats`(`chat`);";
-sqlTables[17] =		"ALTER TABLE `user_hobbies` ADD CONSTRAINT `user_hobbies_fk0` FOREIGN KEY (`user_key`) REFERENCES `active_users`(`user_key`);";
-sqlTables[18] =		"ALTER TABLE `user_friends` ADD CONSTRAINT `user_friends_fk0` FOREIGN KEY (`user_key`) REFERENCES `active_users`(`user_key`);";
-sqlTables[19] =		"ALTER TABLE `user_blacklist` ADD CONSTRAINT `user_blacklist_fk0` FOREIGN KEY (`user_key`) REFERENCES `active_users`(`user_key`);";
-sqlTables[20] =		"ALTER TABLE `unwanted_users` ADD CONSTRAINT `unwanted_users_fk0` FOREIGN KEY (`unwanted_user_key`) REFERENCES `user_blacklist`(`unwanted_user_key`);";
+sqlTables[15] =		"ALTER TABLE `comments` ADD CONSTRAINT `comments_fk1` FOREIGN KEY (`user_key`) REFERENCES `photos`(`user_key`);";
+sqlTables[16] =		"ALTER TABLE `user_chats` ADD CONSTRAINT `user_chats_fk0` FOREIGN KEY (`user_key`) REFERENCES `active_users`(`user_key`);";
+sqlTables[17] =		"ALTER TABLE `chat_messages` ADD CONSTRAINT `chat_messages_fk0` FOREIGN KEY (`chat`) REFERENCES `user_chats`(`chat`);";
+sqlTables[18] =		"ALTER TABLE `user_hobbies` ADD CONSTRAINT `user_hobbies_fk0` FOREIGN KEY (`user_key`) REFERENCES `active_users`(`user_key`);";
+sqlTables[19] =		"ALTER TABLE `user_friends` ADD CONSTRAINT `user_friends_fk0` FOREIGN KEY (`user_key`) REFERENCES `active_users`(`user_key`);";
+sqlTables[20] =		"ALTER TABLE `user_blacklist` ADD CONSTRAINT `user_blacklist_fk0` FOREIGN KEY (`user_key`) REFERENCES `active_users`(`user_key`);";
+sqlTables[21] =		"ALTER TABLE `unwanted_users` ADD CONSTRAINT `unwanted_users_fk0` FOREIGN KEY (`unwanted_user_key`) REFERENCES `user_blacklist`(`unwanted_user_key`);";

@@ -1,5 +1,8 @@
 var _global = {};
 
+_global.user = {};
+_global.user.fullName = '';
+
 _global.anotherUserPage = {}
 _global.anotherUserPage.userKey = 'empty';
 
@@ -110,6 +113,7 @@ class ProfilePage extends MainProfile {
         };
         ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
             __this.vueRenderStaticInfo(data);
+            _global.user.fullName = data.name + ' ' + data.surname;
             console.log('data', data);
         });
     }
@@ -240,7 +244,6 @@ class FriendsPage extends MainProfile {
                 var el = event.target.getAttribute('alt').toString();
                 el == "friendsImg" ? _global.anotherUserPage.userKey = event.target.parentElement.parentElement.getAttribute('user') : 0;
             }
-            console.log(_global.anotherUserPage.userKey)
         });
     }
 
@@ -275,6 +278,8 @@ class OptionsPage extends MainProfile {
         this.uploadPhoto.onchange = function () {
 		    _global.vue.addUserPhoto.addNewImg();
         }
+
+        _global.vue.optionsRenderPhotos.renderUserPhotos();
 
     }
 }
@@ -386,6 +391,88 @@ class AnotherUserPage extends MainProfile {
 class VueUpload {
     constructor () {
         /* ========================= */
+        /*          MODAL            */
+        /* ========================= */
+
+        // comments component
+
+        Vue.component('comment', {
+            props: ['item'],
+            template: '<li class="cl-item">' +
+                        '<div class="comment-head">' +
+                            '<div class="comment-owner-wrap">'+
+                                '<img v-if="item.comentatorAvatar != 0" v-bind:src="item.comentatorAvatar" alt="comentator">'+
+                                '<img v-else src="images/unknown.jpg" alt="comentator">'+
+                            '</div>'+
+                            '<div class="comment-owner-name">' +
+                                '{{item.comentatorFullName}}'+
+                                '<div class="comment-text">' +
+                                    '{{item.comment}}'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</li>'
+        });
+
+        _global.vue.modalPhoto = new Vue({
+            el  : '.modal-photo-wrap',
+            data: {
+                photoSrc: _global.vue.modal.photoSrc
+            }
+        });
+
+        _global.vue.modalPhotoData = new Vue({
+            el  : '.modal-comments-head',
+            data: {
+                avatarSrc   : 'images/unknown.jpg',
+                fullName    : 'empty',
+                likes       : 0
+            }
+        });
+
+        _global.vue.modalPhotoComments = new Vue({
+            el  : '.modal-comments-body',
+            data: {
+                comments: []
+            }
+        });
+
+        _global.vue.modalSendNewComment = new Vue ({
+            el: '.modal-comments-footer',
+            data: {
+
+            },
+            methods: {
+                sendComment: function () {
+                    var text = document.querySelectorAll('.modal-comments-footer .textarea-wrap')[0].innerText.trim();
+
+                    if (text) {
+                        var ajax = new Ajax;
+                        var ajaxReq = {
+                            type: 'POST',
+                            body: {
+                                action  : 'setNewComment',
+                                comment : {
+                                    text                : text,
+                                    to                  : _global.anotherUserPage.userKey,
+                                    photo               : _global.vue.modal.photoSrc.split('/')[3],
+                                    comentatorFullName  : _global.user.fullName
+                                }
+                            }
+                        };
+                        ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
+                            // data == true ? _global.loadedObjects.profile = false : 0;
+                            document.querySelectorAll('.modal-comments-footer .textarea-wrap')[0].innerText = '';
+                            console.log('data', data);
+                        });
+                    }
+
+                }
+            }
+        });
+
+
+        /* ========================= */
         /*         PROFILE           */
         /* ========================= */
 
@@ -458,13 +545,6 @@ class VueUpload {
             }
         });
 
-        _global.vue.modalPhoto = new Vue({
-            el  : '.modal-photo-wrap',
-            data: {
-                photoSrc: _global.vue.modal.photoSrc
-            }
-        });
-
         _global.vue.userPhotos = new Vue({
             el  : '.gallery-photos-wrap',
             data: {
@@ -472,10 +552,15 @@ class VueUpload {
             },
             methods: {
                 getPhotoData: function () {
-                    _global.vue.modal.photoSrc = event.target.getAttribute('src');
-                    _global.vue.modal.photoOwner = _global.vue.modal.photoSrc.split('/')[2];
-
-                    _global.vue.modalPhoto.photoSrc = _global.vue.modal.photoSrc;
+                    _global.vue.auGalleryPhotos.getPhotoData();
+                    // if (event.target.tagName == 'LI') {
+                    //     _global.vue.modal.photoSrc = event.target.childNodes[0].childNodes[0].getAttribute('src');
+                    // } else if (event.target.classList.contains('gpl-img-wrap')) {
+                    //     _global.vue.modal.photoSrc = event.target.childNodes[0].getAttribute('src');
+                    // } else {
+                    //     _global.vue.modal.photoSrc = event.target.getAttribute('src');
+                    // }
+                    // _global.vue.modal.photoOwner = _global.vue.modal.photoSrc.split('/')[2];
                 },
                 setUserPhotos: function (data) {
                     this.photos = data.photos.length != 0 ? data.photos : null
@@ -573,6 +658,9 @@ class VueUpload {
                 setAuAvatarImg: function (data) {
                     this.photoSrc = data.photo_activated == '0' ? 'images/unknown.jpg' : 'images/userPhotos/'+data.user_key+'/'+data.photo_activated;
                 },
+                getPhotoData: function () {
+                    _global.vue.auGalleryPhotos.getPhotoData();
+                },
                 deleteAll: function () {
                     this.photoSrc = 'images/unknown.jpg'
                 }
@@ -586,12 +674,40 @@ class VueUpload {
             },
             methods: {
                 getPhotoData: function () {
-                    _global.vue.modal.photoSrc = event.target.getAttribute('src');
+                    if (event.target.tagName == 'LI') {
+                        _global.vue.modal.photoSrc = event.target.childNodes[0].childNodes[0].getAttribute('src');
+                    } else if (event.target.classList.contains('au-gpl-img-wrap') || event.target.classList.contains('gpl-img-wrap')) {
+                        _global.vue.modal.photoSrc = event.target.childNodes[0].getAttribute('src');
+                    } else {
+                        _global.vue.modal.photoSrc = event.target.getAttribute('src');
+                    }
                     _global.vue.modal.photoOwner = _global.vue.modal.photoSrc.split('/')[2];
 
+                    var ajax = new Ajax;
+                    var ajaxReq = {
+                        type: 'POST',
+                        body: {
+                            action  : 'getPhotoData',
+                            photo   : {
+                                name : _global.vue.modal.photoSrc.split('/')[3],
+                                owner: _global.vue.modal.photoOwner
+                            }
+                        }
+                    };
+                    ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
+                        if (data.comments[0].comment) {
+                            _global.vue.modalPhotoComments.comments = data.comments;
+                        } else {
+                            _global.vue.modalPhotoComments.comments = [];
+                        }
+                        _global.vue.modalPhotoData.avatarSrc    = 'images/userPhotos/'+_global.vue.modal.photoOwner+'/' + data.photo.avatar;
+                        _global.vue.modalPhotoData.fullName     = data.photo.owner;
+                        _global.vue.modalPhotoData.likes        = data.photo.likes;
+                    });
                     _global.vue.modalPhoto.photoSrc = _global.vue.modal.photoSrc;
                 },
                 setGalleryPhotos: function (data) {
+                    console.log(data);
                     this.photos = data.photos;
                 },
                 deleteAll: function () {
@@ -683,6 +799,8 @@ class VueUpload {
                 }
             }
         });
+
+        // photo uploading
 
         _global.vue.addUserAvatar = new Vue ({
             el : '.add-avatar',
@@ -778,11 +896,11 @@ class VueUpload {
             methods: {
                 addNewImg: function () {
                     var uploadPhoto     = document.querySelector('input[name=upload-user-photos]');
-                    this.errMsg          = document.getElementsByClassName('upload-new-photo-err')[0];
-                    this.submitBtn       = document.getElementsByClassName('add-photos-btn')[0];
-                    var file    = uploadPhoto.files[0]; //sames as here
-                    var reader  = new FileReader();
-                    var __this = this;
+                    this.errMsg         = document.getElementsByClassName('upload-new-photo-err')[0];
+                    this.submitBtn      = document.getElementsByClassName('add-photos-btn')[0];
+                    var file            = uploadPhoto.files[0]; //sames as here
+                    var reader          = new FileReader();
+                    var __this          = this;
 
                     if (this.photoCounter > 3) {
                         this.errMsg.innerText = "You can`t download more than 4 pictures.";
@@ -861,6 +979,66 @@ class VueUpload {
             }
         });
 
+        // photo deleting
+
+        Vue.component('options-photo', {
+            props: ['item'],
+            template:   '<li class="options-photo">'+
+                            '<div class="options-img-wrap">'+
+                                '<img v-bind:src="item" alt="new photo">'+
+                            '</div>'+
+                        '</li>'
+        });
+
+        _global.vue.optionsRenderPhotos = new Vue ({
+            el : '.delete-photos',
+            data: {
+                photos: [],
+                photosToDelete: []
+            },
+            methods: {
+                renderUserPhotos: function () {
+                    var ajax    = new Ajax;
+                    var __this  = this;
+                    var ajaxReq = {
+                        type: 'POST',
+                        body: {
+                            action: 'getProfileData'
+                        }
+                    };
+                    ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
+                        __this.photos = data.photos;
+                        console.log('data', data);
+                    });
+                },
+                markPhoto: function () {
+                    var elem = event.target.tagName != 'IMG' ? event.target.childNodes[0] : event.target;
+                    var photosToDelete = [];
+
+                    if (elem.tagName == 'IMG' && !elem.style.opacity) {
+                        elem.setAttribute('style', 'opacity: 0.3;')
+                        this.photosToDelete.push(elem.getAttribute('src').split('/')[3]);
+                    } else if (elem.style.opacity) {
+                        elem.removeAttribute('style');
+                        var name = elem.getAttribute('src').split('/')[3];
+                        for (var i = 0; i < this.photosToDelete.length; i++) {
+                            if (this.photosToDelete[i] == name) {
+                                this.photosToDelete.splice(i, 1);
+                                break ;
+                            }
+                        }
+                    }
+                },
+                deletePhotos: function () {
+                    console.log('this function will delete user photos from archive and database');
+                }
+            }
+        });
+
+        // _global.vue.deleteUserPhotos = new Vue ({
+        //     el : ,
+        //     data:
+        // });
 
     }
 }

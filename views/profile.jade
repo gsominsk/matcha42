@@ -185,6 +185,16 @@
 											new-uploaded-photo(v-for="photo in photoSrcArr" v-bind:item="photo" v-bind:key="photo.photoCounter" v-on:click.native="deletePhoto")
 											div.add-photos-btn(v-on:click="savePhotos")
 												span add photos
+
+									ul.options-list.delete-photos
+										li.ol-first-item
+											| DELETE PHOTOS
+										li.ol-item.options-photos(v-if="photos.length != 0")
+											options-photo(v-for="photo in photos" v-bind:item="photo" v-on:click.native="markPhoto")
+											div.delete-photos-btn(v-on:click="deletePhotos")
+												span delete photos
+										li.ol-item(v-else)
+											span no photos yet
 									//
 										<ul class="options-list">
 										<li class="ol-first-item ol-item">
@@ -306,8 +316,8 @@
 													a.dropdown-item(href='#') Fake account
 							.carousel-item.scrollbar(data-page='anotherUser')
 								.au-avatar-wrap
-									.au-avatar-img
-										img(v-bind:src="photoSrc", alt='another user img')
+									.au-avatar-img(v-on:click="getPhotoData")
+										img(v-bind:src="photoSrc" alt='another user img' data-toggle="modal" data-target="#galleryPhotosModal")
 									.au-profile-name.clearfix
 										span {{name}} {{surname}}
 										span {{status}}
@@ -340,23 +350,16 @@
 					.col-xs-12.col-sm-4.col-md-4.modal-comments-wrap
 						.modal-comments-head
 							.photo-owner-wrap
-								img(src='../../images/userPhotos/test-user/1.jpg', alt='')
+								img(v-bind:src='avatarSrc', alt='')
 							.photo-owner-name
-								| Heorhi Sominskii
+								| {{fullName}}
 							.photo-likes
-								| 10
+								| {{likes}}
 								i.fa.fa-heart(aria-hidden='true')
 						.modal-comments-body.scrollbar
 							ul.comments-list
-								li.cl-item
-									.comment-head
-										.comment-owner-wrap
-											img(src='../../images/userPhotos/test-user/1.jpg', alt='')
-										.comment-owner-name
-											| Heorhi Sominskii
-											.comment-text
-												| some text
+								comment(v-for="comment in comments" v-bind:item="comment")
 						.modal-comments-footer
-							.textarea-wrap.scrollbar(contenteditable='true')
-							.send-msg-btn
+							.textarea-wrap.scrollbar(contenteditable='true' v-on:keyup.enter="sendComment")
+							.send-msg-btn(v-on:click="sendComment")
 								i.fa.fa-paper-plane(aria-hidden='true')

@@ -171,6 +171,7 @@ module.exports.login = function (req, callback)  {
             if (result[0]) {
                 req.session.user_key = result[0].user_key;
                 req.session.avatar_activated = result[0].photo_activated;
+
             }
 
             callback(result[0] ? result[0] : null);

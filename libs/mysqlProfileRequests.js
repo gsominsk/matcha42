@@ -3,6 +3,13 @@ var fs      = require('fs');
 var async   = require('async');
 var _users  = {};
 
+var connData = {
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "matcha",
+    charset	: "utf8_general_ci"
+}
 /*
 *   [function addUserToStream]
 *   Во время входа пользователя на сайт мы записываем его в глобадбный
@@ -76,7 +83,8 @@ module.exports.getProfileData = function (req, res, callback) {
                 //add user photos
                 fs.readdir(dirPath, function (err, files) {
                     files.forEach(function (file) {
-                        result[0].photos.push('images/userPhotos/'+values.user_key+'/'+file);
+                        if (file != result[0].photo_activated)
+                            result[0].photos.push('images/userPhotos/'+values.user_key+'/'+file);
                     });
                     callback(result[0]);
                 });
@@ -131,9 +139,8 @@ module.exports.getFriendsList = function (req, res, callback) {
 }
 
 /*
- *   [function setUserHobbie]
- *   Фунцкция записывает данные в таблицу.
- *
+ *  [function setUserHobbie]
+ *  Фунцкция записывает новые увелечения пользователя в тблицу user_hobbies.
  *
  *  req.body.hash   - Увлечение пользователя.
  *  res             - не используется.
@@ -166,9 +173,9 @@ module.exports.setUserHobbie = function (req, res, callback) {
 }
 
 /*
- *   [function uploadUserPhotos]
- *   Обновляет фотографии пользователя. Если количество новых фото + количество
- *   старых больше 4 старые оно заменит на новые фото.
+ *  [function uploadUserPhotos]
+ *  Обновляет фотографии пользователя. Если количество новых фото + количество
+ *  старых больше 4 старые оно заменит на новые фото.
  *
  *  req.body.photo          - Массив с данными о фото.
  *  req.body.photo.src      - Фотография в 64.
@@ -201,15 +208,14 @@ module.exports.uploadUserPhotos = function (req, res, callback) {
             callback(result);
         }
     });
-}
 
-function checkUserFiles (req, callback) {
-    var dirPath     = 'public/images/userPhotos/' + req.session.user_key + '/';
-    var fs = require('fs');
-    var count = 0;
-    var allFilesName = [];
+    function checkUserFiles (req, callback) {
+        var dirPath     = 'public/images/userPhotos/' + req.session.user_key + '/';
+        var fs = require('fs');
+        var count = 0;
+        var allFilesName = [];
 
-    async.series([
+        async.series([
             function (callback) {
                 fs.readdirSync(dirPath).forEach(function (file) {
                     allFilesName.push(file);
@@ -231,47 +237,49 @@ function checkUserFiles (req, callback) {
                 callback(req.body.photos.length == 0 ? {status:'This photos already uploaded.'} : true);
             }
         });
-}
+    }
 
-function insertUserPhotos (req, values, callback) {
-    console.log('[uploadUserPhotos] -> [countUserFiles] -> [insertUserPhotos]');
-    var con = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "",
-        database: "matcha",
-        charset	: "utf8_general_ci"
-    });
-
-    con.connect(function(err) {
-        if (err) throw err;
-        var _result;
-        var sql = "INSERT INTO `photos` (`user_key`, `photo_name`) VALUES ?"
-
-        con.query(sql, [values], function (err, result, fields) {
-            if (err) throw err;
-            _result = result;
-            if (req.session.avatar_activated == 0 && result.affectedRows > 0) {
-                sql = "UPDATE `registered_users` SET `photo_activated` = ? WHERE `user_key` = ?";
-                con.query(sql, [values[0][1], values[0][0]], function (err, result, fields) {
-                    if (err) throw err;
-                    sql = "INSERT INTO `active_users` SET `user_key` = ?, `activated` = 1";
-                    req.session.avatar_activated = values[0][1];
-                    con.query(sql, [values[0][0]], function (err, result, fields) {
-                        if (err) throw err;
-                        callback({status:true});
-                    });
-                });
-            } else {
-                callback({status:true});
-            }
+    function insertUserPhotos (req, values, callback) {
+        console.log('[uploadUserPhotos] -> [countUserFiles] -> [insertUserPhotos]');
+        var con = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "",
+            database: "matcha",
+            charset	: "utf8_general_ci"
         });
-    });
+
+        con.connect(function(err) {
+            if (err) throw err;
+            var _result;
+            var sql = "INSERT INTO `photos` (`user_key`, `photo_name`) VALUES ?"
+
+            con.query(sql, [values], function (err, result, fields) {
+                if (err) throw err;
+                _result = result;
+                if (req.session.avatar_activated == 0 && result.affectedRows > 0) {
+                    sql = "UPDATE `registered_users` SET `photo_activated` = ? WHERE `user_key` = ?";
+                    con.query(sql, [values[0][1], values[0][0]], function (err, result, fields) {
+                        if (err) throw err;
+                        sql = "INSERT INTO `active_users` SET `user_key` = ?, `activated` = 1";
+                        req.session.avatar_activated = values[0][1];
+                        con.query(sql, [values[0][0]], function (err, result, fields) {
+                            if (err) throw err;
+                            callback({status:true});
+                        });
+                    });
+                } else {
+                    callback({status:true});
+                }
+            });
+        });
+    }
 }
+
 /*
- *   [function uploadUserAvatar]
- *   Обновляет фотографии пользователя. Если количество новых фото + количество
- *   старых больше 4 старые оно заменит на новые фото.
+ *  [function uploadUserAvatar]
+ *  Обновляет фотографии пользователя. Если количество новых фото + количество
+ *  старых больше 4 старые оно заменит на новые фото.
  *
  *  req.body.photo          - Фото для аватара.
  *  req.body.photo.src      - Фотография в 64.
@@ -346,6 +354,7 @@ module.exports.uploadUserAvatar = function (req, res, callback) {
                     sql = "UPDATE `registered_users` SET `photo_activated` = ? WHERE `user_key` = ?";
                     con.query(sql, [req.body.photo.name, req.session.user_key], function (err, result, fields) {
                         if (err) throw err;
+                        req.session.avatar_activated = req.body.photo.name;
                         sql = "INSERT INTO `active_users` SET `user_key` = ?, `activated` = 1";
                         con.query(sql, [req.session.user_key], function (err, result, fields) {
                             if (err) throw err;
@@ -356,4 +365,122 @@ module.exports.uploadUserAvatar = function (req, res, callback) {
             });
         });
     }
+}
+
+/*
+ *  [function deleteUserPhotos]
+ *  Функция удаляет фотографии пользователя. Удаляет из папки, таблицы photos,
+ *  photo_likes, comments и registered_users если эта фотография была аватаром
+ *  пользователя, вместо нее ставится фотография unknown.jpg. Если пользователь
+ *  удалит все свои фотографии он не удаляется из таблицы активных пользоватеелей
+ *
+ *  res                     - Не используем.
+ *  callback                - Возвращает true фото удалено, false в случае ошибки.
+ */
+
+module.exports.deleteUserPhotos = function (req, res, callback) {
+
+}
+
+/*
+ *  [function setNewComment]
+ *  Функция загружает новый коментарий к фотографии.
+ *
+ *  req.comment             - Обьект со всеми данными кроме отправителя коментария.
+ *  req.comment.text        - Текст коментария.
+ *  req.comment.to          - Какому пользователю адресуется коментарий.
+ *  req.coment.photo        - К какой фотографии пользователя присвоить комментарий.
+ *  res                     - Не используем.
+ *  callback                - Возвращает true фото удалено, false в случае ошибки.
+ */
+
+module.exports.setNewComment = function (req, res, callback) {
+    console.log('[SERVER] -> setNewComment')
+    var con = mysql.createConnection(connData);
+    con.connect(function(err) {
+        if (err) throw err;
+        console.log(req.body);
+        var values = {
+            photo_name          : req.body.comment.photo,
+            comment             : req.body.comment.text,
+            comentator_key      : req.session.user_key,
+            comentator_full_name: req.body.comment.comentatorFullName,
+            user_key            : req.body.comment.to
+        };
+        var sql = "INSERT INTO comments SET ?";
+        con.query(sql, values, function (err, result, fields) {
+            if (err) throw err;
+            console.log(result);
+            callback(result.affectedRows > 0 ? true : false);
+        });
+    });
+}
+
+/*
+ *  [function getPhotoData]
+ *  Функция подгружает все данные о фото, имя владельца, кол-во лайков и список
+ *  коментариев у данной фотографии.
+ *
+ *  req.photo.name          - Имя фотографии.
+ *  req.photo.owner         - Имя Владельца фотографии.
+ *  res                     - Не используем.
+ *  callback                - Возвращает true фото удалено, false в случае ошибки.
+ */
+
+module.exports.getPhotoData = function (req, res, callback) {
+    console.log('[SERVER] -> getPhotoData')
+    var con = mysql.createConnection(connData);
+    con.connect(function(err) {
+        if (err) throw err;
+        console.log(req.body.photo);
+        var values = [
+            req.body.photo.name,
+            req.body.photo.name,
+            req.body.photo.owner
+        ];
+        var sql = "SELECT registered_users.name, registered_users.surname, registered_users.photo_activated, comments.comment, comments.comentator_key, comments.comentator_full_name, comments.comment_date, photos.likes  FROM registered_users "+
+            "LEFT JOIN comments "+
+            "ON (registered_users.user_key = comments.user_key AND comments.photo_name = ?) "+
+            "LEFT JOIN photos "+
+            "ON (photos.user_key = registered_users.user_key AND photos.photo_name = ?) "+
+            "WHERE "+
+            "registered_users.user_key = ? ";
+        con.query(sql, values, function (err, result, fields) {
+            if (err) throw err;
+
+            console.log(result[0]);
+            if (result[0]) {
+                var e  = {
+                    photo: {
+                        avatar  : result[0].photo_activated,
+                        owner   : result[0].name + ' ' + result[0].surname,
+                        likes   : result[0].likes
+                    },
+                    comments: []
+                };
+                sql = "SELECT user_key, photo_activated FROM registered_users WHERE "
+                var s2 = '';
+                for (var i = 0; i < result.length; i++) {
+                    e.comments[i] = {
+                        comment             : result[i].comment,
+                        comentatorKey       : result[i].comentator_key,
+                        comentatorFullName  : result[i].comentator_full_name,
+                        commentDate         : result[i].comment_date
+                    };
+                    s2+="user_key = '" + result[i].comentator_key + "'";
+                    i + 1 < result.length ? s2 += ' OR ' : 0;
+                }
+                con.query(sql + s2, function (err, result, fields) {
+                    for (var i = 0; i < e.comments.length; i++)
+                        for (var j = 0; j < result.length; j++) {
+                            if (result[j].user_key == e.comments[i].comentatorKey) {
+                                e.comments[i].comentatorAvatar = 'images/userPhotos/'+result[j].user_key+'/'+result[j].photo_activated;
+                                break ;
+                            }
+                        }
+                    callback(e);
+                });
+            } else callback(null);
+        });
+    });
 }

@@ -342,7 +342,7 @@ html, body, .content-main {
 .modal-comments-head .photo-likes {
     position: absolute;
     right: 10px;
-    top: 5px;
+    top: 7px;
     cursor: pointer;
 }
 .modal-comments-head .photo-likes:hover {
@@ -398,6 +398,7 @@ html, body, .content-main {
 }
 .modal-comments-footer .textarea-wrap {
     height: 100%;
+    padding: 2px 4px;
     font-size: 0.9em;
     border: 1px solid lightgrey;
     outline: none;
@@ -972,6 +973,54 @@ html, body, .content-main {
     border-radius: 10px;
 }
 
+.delete-photos .ol-first-item {
+    margin-bottom: 5px;
+}
+.delete-photos .ol-item {
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2em;
+    color: lightgray;
+}
+.delete-photos .options-photo {
+    display: inline-flex;
+    width: 20%;
+    height: 120px;
+    padding-left: 5px;
+    cursor: pointer;
+}
+.delete-photos .options-photos {
+    padding:0;
+    margin-left: -5px;
+}
+.delete-photos .options-photos .options-img-wrap {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+}
+.delete-photos .options-photos .options-img-wrap img {
+    max-height: 100%;
+}
+.delete-photos .delete-photos-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+.delete-photos .delete-photos-btn span {
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1em;
+    color: #000;
+}
+.delete-photos .delete-photos-btn span:hover {
+    background: lightgrey;
+    border-radius: 10px;
+}
+
 /*
 ** =============================
 ** >>>>>>>  SEARCH
@@ -1216,7 +1265,8 @@ html, body, .content-main {
     height: 100%;
 }
 .au-avatar-wrap .au-profile-name {
-    width: 100%;
+    width: calc(100% - 100px);
+    display: inline-block;
     padding: 10px 0 10px 0;
     line-height: 1.3em;
 }
