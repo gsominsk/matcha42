@@ -1002,6 +1002,7 @@ html, body, .content-main {
     height: 120px;
     padding-left: 5px;
     cursor: pointer;
+    transition: 0.3s;
 }
 .delete-photos .options-photos {
     padding:0;
@@ -1033,6 +1034,31 @@ html, body, .content-main {
 .delete-photos .delete-photos-btn span:hover {
     background: lightgrey;
     border-radius: 10px;
+}
+
+.update-user-info .ol-item {
+    padding: 0;
+    text-align: left;
+    font-size: 1em;
+    color: #000;
+}
+.update-user-info .ol-first-item:last-child {
+    padding: 5px;
+    font-size: 1em;
+    text-align: center;
+    background: lightgrey;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+.update-user-info .ol-first-item:last-child:hover {
+    background: darkgrey;
+}
+
+.update-user-info .ol-first-item i {
+    float: right;
+    line-height: 1.1em;
+    font-size: 1.3em;
 }
 
 /*

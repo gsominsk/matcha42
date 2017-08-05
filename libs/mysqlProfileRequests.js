@@ -156,13 +156,7 @@ module.exports.getFriendsList = function (req, res, callback) {
 
 module.exports.setUserHobbie = function (req, res, callback) {
     console.log('[SERVER] -> setUserHobbies')
-    var con = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "",
-        database: "matcha",
-        charset	: "utf8_general_ci"
-    });
+    var con = mysql.createConnection(connData);
     con.connect(function(err) {
         if (err) throw err;
         console.log(req.body);
@@ -319,7 +313,7 @@ module.exports.uploadUserAvatar = function (req, res, callback) {
             fs.writeFile(dirPath + req.body.photo.name, buff, function (err) {
                 if (err) throw err;
             });
-            insertUserAvatar();
+            insertUserAvatar(req, callback);
         } else {
             callback(result);
         }
@@ -345,10 +339,12 @@ module.exports.uploadUserAvatar = function (req, res, callback) {
                 callback({status:'You already have 5 photos. Delete some photos to upload new.'});
             } else {
                 for (j = 0; j < result.filesNames.length; j++) {
-                    if (req.body.photo.name == result.filesNames[j])
-                        req.body.photos.splice(i, 1);
+                    if (req.body.photo.name == result.filesNames[j]) {
+                        callback({status: 'This photo already uploaded'});
+                        return ;
+                    }
                 }
-                callback(req.body.photos.length == 0 ? {status:'This photos already uploaded.'} : true);
+                callback(req.body.photos && req.body.photos.length == 0 ? {status:'This photos already uploaded.'} : true);
             }
         });
     }
@@ -377,7 +373,7 @@ module.exports.uploadUserAvatar = function (req, res, callback) {
                         sql = "INSERT INTO `active_users` SET `user_key` = ?, `activated` = 1";
                         con.query(sql, [req.session.user_key], function (err, result, fields) {
                             if (err) throw err;
-                            callback(true);
+                            callback({status:true});
                         });
                     });
                 }
@@ -444,6 +440,7 @@ module.exports.deleteUserPhotos = function (req, res, callback) {
         var sql = "UPDATE `registered_users` SET `photo_activated` = 0 WHERE `user_key` = ?"
         con.query(sql, [req.session.user_key], function (err, result, fields) {
             if (err) throw err;
+            req.session.avatar_activated = 0;
         });
     }
 }

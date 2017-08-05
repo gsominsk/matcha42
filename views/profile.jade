@@ -20,9 +20,9 @@
 					li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='3')
 						| Настройки
 				ul.profile-menu-list
-					li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='4')
-						| Поиск
 					li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='5')
+						| Поиск
+					li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='6')
 						| Черный список
 		.row.header-row
 			.col
@@ -44,9 +44,9 @@
 						li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='3')
 							| Настройки
 					ul.profile-menu-list
-						li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='4')
-							| Поиск
 						li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='5')
+							| Поиск
+						li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='6')
 							| Черный список
 			// MAIN CONTENT
 			.col-xs-12.col-sm-6.col-md-6.col-lg-5.all-content-wrap
@@ -178,7 +178,7 @@
 											div.click-to-upload-photo
 												| click to upload
 												i(class="fa fa-cloud-upload" aria-hidden="true")
-											input(type="file" name="upload-user-photos")
+											input(type="file" name="upload-user-photos" multiple="true")
 											div.upload-new-photo-err
 												| SOME ERROR
 											new-uploaded-photo(v-for="photo in photoSrcArr" v-bind:item="photo" v-bind:key="photo.photoCounter" v-on:click.native="deletePhoto")
@@ -194,15 +194,51 @@
 												span delete photos
 										li.ol-item(v-else)
 											span no photos yet
-									//
-										<ul class="options-list">
-										<li class="ol-first-item ol-item">
-										PRIVATE INFORMATION
-										</li>
-										<li class="ol-item">
-										<span class="show-email">show email</span>
-										</li>
-										</ul>
+
+									ul.options-list.update-user-info
+										li.ol-first-item
+											| UPDATE YOUR INFORMATION
+										li.ol-first-item(data-target="#profileMainContentCarousel" data-slide-to="4")
+											| click to update your info
+											<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+							.carousel-item.scrollbar(data-page='changeUserData')
+								input(type='text', name='name_reg', placeholder='name', required='')
+								input(type='text', name='surname_reg', placeholder='surname', required='')
+								input(type='text', name='country', placeholder='country', required='')
+								input(type='text', name='city', placeholder='city', required='')
+								input(type='email', name='email', placeholder='email', required='')
+								input(type='password', min='5', max='20', name='pass_new', placeholder='password', required='')
+								input(type='password', min='5', max='20', name='pass_new_re', placeholder='repeat password', required='')
+								.reg-item-head
+									| YOUR AGE
+								.dropdown.age-dropdown
+									button#dropdownYearBtn.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true' aria-expanded='false')
+										| age
+									.dropdown-menu(aria-labelledby='dropdownYearBtn')
+										ul.dropdown-age-list
+											li.list-item(v-for='obj in ageList', v-on:click='getAge', :data='obj') {{obj}}
+								.reg-item-head
+									| SEX ORIENTATION
+								.reg-checkbox-wrap
+									label(for='male') GETERO
+									input#getero(type='radio', value='getero', name='sex-orientation')
+								.reg-checkbox-wrap
+									label(for='female') BISEXUAL
+									input#bisexual(type='radio', value='bisexual', name='sex-orientation', checked='')
+								.reg-checkbox-wrap
+									label(for='any') LESBIAN
+									input#lesbian(type='radio', value='lesbian', name='sex-orientation')
+								.reg-checkbox-wrap
+									label(for='any') GAY
+									input#gay(type='radio', value='gay', name='sex-orientation')
+								.reg-item-head
+									| SEX
+								.reg-checkbox-wrap
+									label(for='male') MALE
+									input#male(type='radio', value='male', name='gender', checked='')
+								.reg-checkbox-wrap
+									label(for='female') FEMALE
+									input#female(type='radio', value='female', name='gender')
 							.carousel-item.scrollbar(data-page='search')
 								.search-users-wrap
 									.search-input-wrap

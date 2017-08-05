@@ -601,7 +601,7 @@ class VueUpload {
 
         Vue.component('friends-list-item', {
             props   : ['item'],
-            template:   '<li data-target="#profileMainContentCarousel" class="fl-item clearfix" data-slide-to="6" v-bind:user="item.user_key">'+
+            template:   '<li data-target="#profileMainContentCarousel" class="fl-item clearfix" data-slide-to="7" v-bind:user="item.user_key">'+
                             '<div class="friend-img-wrap">' +
                                 '<img v-if="item.photo_activated != \'0\'" v-bind:src="item.photo_activated" alt="friendsImg"/>' +
                                 '<img v-else src="images/unknown.jpg" alt="friendsImg"/>' +
@@ -842,7 +842,7 @@ class VueUpload {
                     var uploadAvatar    = document.querySelector('input[name=upload-user-avatar]');
                     this.errMsg          = document.getElementsByClassName('upload-new-avatar-err')[0];
                     this.submitBtn      = document.getElementsByClassName('add-avatar-btn')[0];
-                    var imgWrap         = document.getElementsByClassName('upload-avatar-img-wrap')[0];
+                    this.imgWrap         = document.getElementsByClassName('upload-avatar-img-wrap')[0];
                     var file            = uploadAvatar.files[0]; //sames as here
                     var reader          = new FileReader();
                     var __this          = this;
@@ -854,7 +854,7 @@ class VueUpload {
                     else if (file) {
                         reader.onloadend = function () {
                             __this.errMsg.removeAttribute('style');
-                            imgWrap.setAttribute('style', 'width: 100%;');
+                            __this.imgWrap.setAttribute('style', 'width: 100%;');
                             __this.photoSrc = reader.result;
                             __this.photoName = file.name;
 
@@ -898,11 +898,13 @@ class VueUpload {
                     };
                     console.log(ajaxReq);
                     ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
-                        data == true ? _global.loadedObjects.profile = false : 0;
+                        data.status == true ? _global.loadedObjects.profile = false : 0;
                         if (data.status == true) {
+                            _global.vue.optionsRenderPhotos.photos.unshift('images/userPhotos/'+_global.user.key+'/'+ajaxReq.body.photo.name);
                             __this.photoSrc = '';
                             __this.photoName = '';
                             __this.errMsg.removeAttribute('style');
+                            __this.imgWrap.removeAttribute('style');
                             __this.submitBtn.removeAttribute('style');
                         } else {
                             __this.errMsg.innerText = data.status;
@@ -978,6 +980,7 @@ class VueUpload {
                     }, 100)
                 },
                 savePhotos: function () {
+                    if (this.photoData.lengt == 0) return ;
                     var ajax = new Ajax;
                     var __this = this;
                     var ajaxReq = {
@@ -989,6 +992,10 @@ class VueUpload {
                     };
                     ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
                         if (data.status == true) {
+                            console.log(__this.photoData);
+                            for (var i = 0; i < __this.photoData.length; i++) {
+                                _global.vue.optionsRenderPhotos.photos.unshift('images/userPhotos/'+_global.user.key+'/'+__this.photoData[i].fileName);
+                            }
                             _global.loadedObjects.profile = false;
                             __this.errMsg.removeAttribute('style');
                             __this.deleteAll();
@@ -1061,6 +1068,7 @@ class VueUpload {
                     }
                 },
                 deletePhotos: function () {
+                    if (this.photosToDelete.length == 0) return ;
                     console.log('this function will delete user photos from archive and database');
                     var ajax    = new Ajax;
                     var __this  = this;
@@ -1072,13 +1080,14 @@ class VueUpload {
                         }
                     };
                     ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
-                        for (var i = 0; i < __this.photos.length; i++)
+                        for (var j = 0; j < __this.photosToDelete.length; j++)
+                                document.querySelectorAll('img[src="'+'images/userPhotos/'+_global.user.key+'/'+__this.photosToDelete[j]+'"]')[0].removeAttribute('style');
+                        first : for (var i = 0; i < __this.photos.length; i++)
                             for (var j = 0; j < __this.photosToDelete.length; j++) {
-                                if (__this.photosToDelete[j] == __this.photos[i].split('/')[3])
-                                    document.querySelectorAll('img[src="'+__this.photos[i]+'"]')[0].removeAttribute('style');
                                 if (__this.photosToDelete[j] == __this.photos[i].split('/')[3]) {
                                     __this.photos.splice(i, 1);
-                                    break ;
+                                    __this.photosToDelete.splice(j, 1);
+                                   if (__this.photos.length == 0) break first;
                                 }
                             }
                         _global.loadedObjects.profile = false;
