@@ -202,43 +202,49 @@
 											| click to update your info
 											<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 							.carousel-item.scrollbar(data-page='changeUserData')
-								input(type='text', name='name_reg', placeholder='name', required='')
-								input(type='text', name='surname_reg', placeholder='surname', required='')
-								input(type='text', name='country', placeholder='country', required='')
-								input(type='text', name='city', placeholder='city', required='')
-								input(type='email', name='email', placeholder='email', required='')
-								input(type='password', min='5', max='20', name='pass_new', placeholder='password', required='')
-								input(type='password', min='5', max='20', name='pass_new_re', placeholder='repeat password', required='')
-								.reg-item-head
-									| YOUR AGE
-								.dropdown.age-dropdown
-									button#dropdownYearBtn.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true' aria-expanded='false')
-										| age
-									.dropdown-menu(aria-labelledby='dropdownYearBtn')
-										ul.dropdown-age-list
-											li.list-item(v-for='obj in ageList', v-on:click='getAge', :data='obj') {{obj}}
-								.reg-item-head
-									| SEX ORIENTATION
-								.reg-checkbox-wrap
-									label(for='male') GETERO
-									input#getero(type='radio', value='getero', name='sex-orientation')
-								.reg-checkbox-wrap
-									label(for='female') BISEXUAL
-									input#bisexual(type='radio', value='bisexual', name='sex-orientation', checked='')
-								.reg-checkbox-wrap
-									label(for='any') LESBIAN
-									input#lesbian(type='radio', value='lesbian', name='sex-orientation')
-								.reg-checkbox-wrap
-									label(for='any') GAY
-									input#gay(type='radio', value='gay', name='sex-orientation')
-								.reg-item-head
-									| SEX
-								.reg-checkbox-wrap
-									label(for='male') MALE
-									input#male(type='radio', value='male', name='gender', checked='')
-								.reg-checkbox-wrap
-									label(for='female') FEMALE
-									input#female(type='radio', value='female', name='gender')
+								div.back-to-options(data-target="#profileMainContentCarousel" data-slide-to="3")
+									<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+									| back
+								form.change-user-info(name="changeUserInfo")
+									.reg-item-head
+										| CHANGE YOUR PROFILE INFORMATION
+									input(type='text', name='changeUserName', v-bind:placeholder='user.name')
+									input(type='text', name='changeUserSurname', v-bind:placeholder='user.surname')
+									input(type='text', name='changeUserCountry', v-bind:placeholder='user.country')
+									input(type='text', name='changeUserCity', v-bind:placeholder='user.city')
+									input(type='email', name='changeUserEmail', v-bind:placeholder='user.email')
+									.reg-item-head
+										| CHANGE YOUR AGE
+									.dropdown.age-dropdown
+										button#dropdownYearBtn.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true' aria-expanded='false')
+											| age
+										.dropdown-menu(aria-labelledby='dropdownYearBtn')
+											ul.dropdown-age-list
+												li.list-item(v-for='obj in ageList', v-on:click='getAge', :data='obj') {{obj}}
+									.reg-item-head
+										| CHANGE SEX ORIENTATION
+									.reg-checkbox-wrap
+										label(for='male') GETERO
+										input#getero(type='radio', value='getero', name='sex-orientation')
+									.reg-checkbox-wrap
+										label(for='female') BISEXUAL
+										input#bisexual(type='radio', value='bisexual', name='sex-orientation')
+									.reg-checkbox-wrap
+										label(for='any') LESBIAN
+										input#lesbian(type='radio', value='lesbian', name='sex-orientation')
+									.reg-checkbox-wrap
+										label(for='any') GAY
+										input#gay(type='radio', value='gay', name='sex-orientation')
+									.reg-item-head
+										| SEX
+									.reg-checkbox-wrap
+										label(for='male') MALE
+										input#male(type='radio', value='male', name='gender')
+									.reg-checkbox-wrap
+										label(for='female') FEMALE
+										input#female(type='radio', value='female', name='gender')
+									.btn(name='submit', value='submit' v-on:click="getData")
+										| submit
 							.carousel-item.scrollbar(data-page='search')
 								.search-users-wrap
 									.search-input-wrap

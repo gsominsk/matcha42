@@ -1044,6 +1044,7 @@ html, body, .content-main {
 }
 .update-user-info .ol-first-item:last-child {
     padding: 5px;
+    margin-top: 5px;
     font-size: 1em;
     text-align: center;
     background: lightgrey;
@@ -1060,6 +1061,112 @@ html, body, .content-main {
     line-height: 1.1em;
     font-size: 1.3em;
 }
+
+/*
+** =============================
+** >>>>>>> CHANGE USER INFO
+** =============================
+*/
+
+.back-to-options {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 1em;
+    font-family: 'Roboto Black', arial;
+    text-align: left;
+    background: lightgrey;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+.back-to-options:hover {
+    background: darkgrey;
+}
+.back-to-options i {
+    float: left;
+    margin-right: 5px;
+    line-height: 1.1em;
+    font-size: 1.3em;
+}
+
+.change-user-info input
+{
+    width: 100%;
+    font-family: 'Roboto Black', arial;
+    margin-top: 15px;
+    margin-bottom: 0;
+    outline: none;
+}
+.change-user-info input[name=changeUserName] {  margin-top: 0;  }
+.change-user-info div
+{
+    font-family: 'Roboto Black', arial;
+}
+
+.reg-item-head {
+    padding: 10px 0px 5px 0px;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    border-bottom: 1px solid lightgrey;
+}
+.age-dropdown {
+    display: inline-flex;
+    width:33.3%;
+}
+.age-dropdown .btn {
+    width:100%;
+    font-family: 'Roboto Black', arial;
+}
+.age-dropdown .dropdown-menu {
+    min-width: inherit;
+    font-family: 'Roboto Black', arial;
+    height:150px;
+    overflow: auto;
+}
+.age-dropdown .dropdown-menu .dropdown-age-list {
+    padding:0;
+    text-align: center;
+}
+.dropdown-age-list .list-item {
+    padding:5px 20px;
+    width:100%;
+    list-style: none;
+}
+.dropdown-age-list .list-item:hover {
+    background: #5950ff;
+    cursor: pointer;
+}
+
+.reg-checkbox-wrap {
+    position: relative;
+    font-size: 0.9em;
+}
+.reg-checkbox-wrap label {
+    margin: 0;
+}
+.reg-checkbox-wrap input {
+    position: absolute;
+    display: inline-block;
+    width: 15px !important;
+    height: 15px !important;
+    top: 3px;
+    right: 0;
+    /* height: 100%; */
+    margin: 0 !important;
+    cursor: pointer;
+}
+
+.change-user-info .btn {
+    width:100%;
+    background: lightgrey;
+    border-radius: 0;
+    cursor: pointer;
+}
+.change-user-info .btn:hover {
+    background: darkgrey;
+}
+
 
 /*
 ** =============================

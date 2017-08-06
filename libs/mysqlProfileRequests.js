@@ -56,13 +56,7 @@ module.exports.addUserToStream = function (req, res) {
 
 module.exports.getProfileData = function (req, res, callback) {
     var body = req.body;
-    var con = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "",
-        database: "matcha",
-        charset	: "utf8_general_ci"
-    });
+    var con = mysql.createConnection(connData);
     con.connect(function(err) {
         if (err) throw err;
         var values = {
@@ -112,13 +106,7 @@ module.exports.getProfileData = function (req, res, callback) {
 
 module.exports.getFriendsList = function (req, res, callback) {
     console.log('SERVER getFriendsList')
-    var con = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "",
-        database: "matcha",
-        charset	: "utf8_general_ci"
-    });
+    var con = mysql.createConnection(connData);
     con.connect(function(err) {
         if (err) throw err;
         var values = {
@@ -626,4 +614,40 @@ module.exports.like = function (req, res, callback) {
             });
         });
     }
+}
+
+
+/*
+ *  [function updateUserInfo]
+ *
+ *  Функция получает данные о пользователе которые надо изменить. Получив данные
+ *  функция составляет запрос, так как надо изменить НЕКОТОРЫЕ данные а не все, хотя
+ *  полльзователь при желании может изменить и все данные, после чего обновлет данные.
+ *
+ *  Данные в обьекте req.data могут иметь такие значение как:
+ *
+ *
+ *
+ *  req.data                -   Обьект с данными о пользователе которые нажо изменить.
+ *  res                     -   Не используем.
+ *  callback                -   Возвращает 'add' или 'delete' в зависимости от того
+ *                              стоял лайк или нет.
+ */
+
+module.exports.updateUserInfo = function (req, res, callback) {
+    var con = mysql.createConnection(connData);
+    con.connect(function(err) {
+        if (err) throw err;
+        var values = [
+            req.body.data,
+            req.session.user_key
+        ];
+        var sql = "UPDATE registered_users SET ? WHERE user_key = ?";
+
+        con.query(sql, values, function (err, result, fields) {
+            console.log(result);
+            con.end();
+            callback(req.body.data);
+        });
+    });
 }
