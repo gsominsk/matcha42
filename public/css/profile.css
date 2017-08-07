@@ -305,8 +305,16 @@ html, body, .content-main {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     padding: 0;
     background: #000;
+}
+.close-modal {
+    position: absolute;
+    background: #fff;
+    padding: 5px;
+    top: 5px;
+    right: 5px;
 }
 .modal-photo-wrap img {
     max-width: 100%;
@@ -465,7 +473,8 @@ html, body, .content-main {
     border-bottom: 1px solid lightgrey;
     cursor: default;
 }
-.hobbies-wrap .hobbies-list .hl-item {
+.hl-item {
+    position: relative;
     display: inline-block;
     padding-left: 3px;
     font-size: 0.8em;
@@ -475,6 +484,19 @@ html, body, .content-main {
 .hobbies-wrap .hobbies-list .hl-item:hover {
     text-decoration: underline;
 }
+.hobbies-wrap .hobbies-list .hl-item:hover i {
+    display: block;
+}
+.hobbies-wrap .hobbies-list .hl-item i {
+    display: none;
+    position: absolute;
+    top: -2px;
+    right: -9px;
+    padding: 0 5px;
+    color: darkred;
+    z-index: 2;
+}
+
 
 .profile-data-wrap {
     margin-bottom: 20px;
@@ -1322,7 +1344,7 @@ html, body, .content-main {
     list-style: none;
 }
 .blacklist-wrap .blacklist .blacklist-is-empty {
-    display: none;
+    /*display: none;*/
     color: darkgrey;
     text-align: center;
 }
@@ -1409,6 +1431,15 @@ html, body, .content-main {
     overflow: hidden;
     cursor: pointer;
 }
+.au-avatar-wrap .au-avatar {
+    display: inline-flex;
+    justify-content: center;
+    float: left;
+    height: 100%;
+    width: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
 .au-avatar-wrap .au-avatar-img img {
     height: 100%;
 }
@@ -1463,6 +1494,13 @@ html, body, .content-main {
 }
 .au-gallery-photos-list .au-gpl-item img {
     height: 100%;
+}
+
+.au-hobbies-list .hl-item:hover {
+    text-decoration: underline;
+}
+.au-hobbies-list .hl-item i {
+    display: none;
 }
 
 .au-profile-info-wrap {

@@ -313,7 +313,38 @@ class BlacklistPage extends MainProfile {
 	constructor () {
 		super();
 		console.log('class BlacklistPage created!');
+
+	    this.getBlackList();
 	}
+
+	getBlackList () {
+        var ajax = new Ajax;
+
+        var __this = this;
+
+        var ajaxReq = {
+            type: 'POST',
+            body: {
+                action: 'getBlackList'
+            }
+        };
+        ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
+            _global.vue.blackList.deleteAll();
+            _global.vue.blackList.addNew(data);
+            console.log(data);
+        });
+
+        this.addHandler(document, 'click', function () {
+            if (event.target.hasAttribute('user')) {
+                _global.anotherUserPage.userKey = event.target.getAttribute('user');
+            } else if (event.target.classList.contains('bl-user-full-name')) {
+                _global.anotherUserPage.userKey = event.target.parentElement.getAttribute('user');
+            } else if (event.target.hasAttribute('alt')) {
+                var el = event.target.getAttribute('alt').toString();
+                el == "friendsImg" ? _global.anotherUserPage.userKey = event.target.parentElement.parentElement.getAttribute('user') : 0;
+            }
+        });
+    }
 }
 
 class AnotherUserPage extends MainProfile {
@@ -408,6 +439,47 @@ class AnotherUserPage extends MainProfile {
 
 class VueUpload {
     constructor () {
+        /* ========================= */
+        /*        BLACKLIST          */
+        /* ========================= */
+
+        Vue.component('bl-item', {
+            props:['item'],
+            template:   '<li class="bl-item clearfix" data-target="#profileMainContentCarousel" data-slide-to="7" v-bind:user="item.user_key">'+
+                            '<div v-if="item.photo_activated != 0" class="bl-user-img-wrap"><img src="item.photo_activated" alt=""/></div>'+
+                            '<div v-else class="bl-user-img-wrap"><img src="images/unknown.jpg" alt=""/></div>'+
+                            '<div class="bl-user-full-name">{{item.name}} {{item.surname}}</div>'+
+                            '<div class="bl-dropdown dropdown">'+
+                                '<button id="blacklistUserDropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-secondary dropdown-toggle">' +
+                                    '<i aria-hidden="true" class="fa fa-ellipsis-h"></i>' +
+                                '</button>'+
+                                '<div aria-labelledby="blacklistUserDropdown" class="dropdown-menu">' +
+                                    '<a href="#" class="dropdown-item">Remove from blacklist</a>' +
+                                    '<a href="#" class="dropdown-item">Complain user</a>' +
+                                    '<a href="#" class="dropdown-item">Fake account</a>' +
+                                '</div>'+
+                            '</div>'+
+                        '</li>'
+        });
+
+        _global.vue.blackList = new Vue ({
+            el: '.blacklist',
+            data: {
+                users: []
+            },
+            methods: {
+                deleteAll: function () {
+                    this.users = [];
+                },
+                addNew: function (users) {
+                    if (!users) return;
+                    for (var i = 0; i < users.length; i++) {
+                        this.users.push(users[i]);
+                    }
+                }
+            }
+        });
+
         /* ========================= */
         /*          MODAL            */
         /* ========================= */
@@ -535,6 +607,14 @@ class VueUpload {
             template: '<li class="gpl-item" data-toggle="modal" data-target="#galleryPhotosModal"><div class="gpl-img-wrap"><img v-bind:src="item" alt="user photo"></div></li>'
         });
 
+        Vue.component('hl-item', {
+            props: ['item'],
+            template:   '<li class="hl-item">' +
+                            '{{item}}'+
+                            '<i class="fa fa-times" aria-hidden="true"></i>'+
+                        '</li>'
+        });
+
         _global.vue.profileStatic = new Vue({
             el: '.profile-data-list',
             data: {
@@ -576,6 +656,30 @@ class VueUpload {
             methods : {
                 setUserHobbies: function (data) {
                     this.hobbies = data.hobbies.length == 0 ? ['#no_hashtags_yet'] : data.hobbies;
+                },
+                deleteHobbie: function () {
+                    if (event.target.classList.contains('fa-times')) {
+                        var nodes       = Array.prototype.slice.call( document.getElementsByClassName('hobbies-list')[0].children );
+                        var hobbie      = event.target.parentElement.innerText;
+                        var hobbieNum   = nodes.indexOf(event.target.parentElement)
+                        var __this      = this;
+
+                        console.log(hobbie);
+
+                        var ajax = new Ajax;
+                        var ajaxReq = {
+                            type: 'POST',
+                            body: {
+                                action: 'deleteHobbie',
+                                hobbie: {
+                                    name: hobbie
+                                }
+                            }
+                        }
+                        ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
+                            data.status == true ? __this.hobbies.splice(hobbieNum, 1) : 0;
+                        });
+                    }
                 },
                 deleteAll: function () {
                     this.hobbies = [];
@@ -671,6 +775,13 @@ class VueUpload {
             template: '<li class="au-gpl-item" data-toggle="modal" data-target="#galleryPhotosModal"><div class="au-gpl-img-wrap"><img v-bind:src="item" alt="user photo"></div></li>'
         });
 
+        Vue.component('au-hl-item', {
+            props: ['item'],
+            template:   '<li class="hl-item">' +
+                        '{{item}}'+
+                        '</li>'
+        });
+
         _global.vue.auProfileName = new Vue ({
             el  : '.au-profile-name',
             data: {
@@ -693,7 +804,7 @@ class VueUpload {
         });
 
         _global.vue.auAvatarImg = new Vue ({
-            el  : '.au-avatar-img',
+            el  : '.au-avatar',
             data: {
                 photoSrc: 'images/unknown.jpg'
             },
@@ -739,14 +850,18 @@ class VueUpload {
                     };
                     ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
                         if (data.comments && data.comments[0].comment) {
+                            console.log('!', data.comments);
                             _global.vue.modalPhotoComments.comments = data.comments;
                         } else {
                             _global.vue.modalPhotoComments.comments = [];
                         }
-                        if (data.photo_activated)
-                            _global.vue.modalPhotoData.avatarSrc    = 'images/userPhotos/'+_global.vue.modal.photoOwner+'/' + data.photo.avatar;
+                        console.log('modal photo')
+                        console.log(data);
+                        if (data.photo.avatar != 0)
+                            _global.vue.modalPhotoData.avatarSrc= 'images/userPhotos/'+_global.vue.modal.photoOwner+'/' + data.photo.avatar;
                         _global.vue.modalPhotoData.fullName     = data.photo.owner;
                         _global.vue.modalPhotoData.likes        = data.photo.likes;
+                        console.log('modalPhotoData', _global.vue.modalPhotoData);
                     });
                     _global.vue.modalPhoto.photoSrc = _global.vue.modal.photoSrc;
                 },
@@ -1096,15 +1211,17 @@ class VueUpload {
                     };
                     ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
                         for (var j = 0; j < __this.photosToDelete.length; j++)
-                                document.querySelectorAll('img[src="'+'images/userPhotos/'+_global.user.key+'/'+__this.photosToDelete[j]+'"]')[0].removeAttribute('style');
+                            document.querySelectorAll('img[src="'+'images/userPhotos/'+_global.user.key+'/'+__this.photosToDelete[j]+'"]')[0].removeAttribute('style');
                         first : for (var i = 0; i < __this.photos.length; i++)
-                            for (var j = 0; j < __this.photosToDelete.length; j++) {
+                            for (var j = 0; j < __this.photosToDelete.length; j++)
                                 if (__this.photosToDelete[j] == __this.photos[i].split('/')[3]) {
+                                    __this.photosToDelete[j] == _global.user.avatar.split('/')[3] ? _global.user.avatar = 'images/unknown.jpg' : 0;
                                     __this.photos.splice(i, 1);
                                     __this.photosToDelete.splice(j, 1);
-                                   if (__this.photos.length == 0) break first;
+                                    i = -1;
+                                    break ;
+                                    if (__this.photos.length == 0) break first;
                                 }
-                            }
                         _global.loadedObjects.profile = false;
                     });
                 }

@@ -58,7 +58,7 @@
 							.carousel-item.scrollbar.active(data-page='profile')
 								.gallery-photos-wrap
 									ul.gallery-photos-list(v-if="photos")
-										gallery-user-photo(v-for="photo in photos" v-bind:item="photo" v-on:click.native="getPhotoData")
+										gallery-user-photo(v-for="(photo, key, index) in photos" v-bind:item="photo" v-bind:key='key' v-on:click.native="getPhotoData")
 									ul.gallery-photos-list(v-else)
 										li.gpm-item.no-photos-msg()
 												| no photos yet
@@ -68,7 +68,7 @@
 										span online
 									.hobbies-wrap
 										ul.hobbies-list
-											li.hl-item(v-for='hobbie in hobbies') {{hobbie}}
+											hl-item(v-for='(hobbie, key, index) in hobbies' v-bind:item="hobbie" v-bind:key='key' v-on:click.native="deleteHobbie")
 									.profile-data-wrap
 										.profile-data-header
 											| PERSONAL INFORMATION
@@ -189,7 +189,7 @@
 										li.ol-first-item
 											| DELETE PHOTOS
 										li.ol-item.options-photos(v-if="photos.length != 0")
-											options-photo(v-for="photo in photos" v-bind:item="photo" v-on:click.native="markPhoto")
+											options-photo(v-for="(photo, key, index) in photos" v-bind:key='key' v-bind:item="photo" v-on:click.native="markPhoto")
 											div.delete-photos-btn(v-on:click="deletePhotos")
 												span delete photos
 										li.ol-item(v-else)
@@ -340,38 +340,45 @@
 												| Some Name
 							.carousel-item.scrollbar(data-page='blacklist')
 								.blacklist-wrap
-									ul.blacklist
-										.blacklist-is-empty
+									ul.blacklist()
+										.blacklist-is-empty(v-if="users.length == 0")
 											| BLACK LIST IS EMPTY
-										li.bl-item.clearfix
-											.bl-user-img-wrap
-												img(src='../../images/userPhotos/test-user/2.jpg', alt='')
-											.bl-user-full-name
-												| Some Name
-											.bl-dropdown.dropdown
-												button#blacklistUserDropdown.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-													i.fa.fa-ellipsis-h(aria-hidden='true')
-												.dropdown-menu(aria-labelledby='blacklistUserDropdown')
-													a.dropdown-item(href='#') Remove from blacklist
-													a.dropdown-item(href='#') Complain user
-													a.dropdown-item(href='#') Fake account
+										bl-item(v-else v-for="user in users" v-bind:item="user")
+
+									//ul.blacklist(v-else)
+									//	bl-item(v-for="user in users" v-bind:item="user")
+									//	li.bl-item.clearfix
+									//		.bl-user-img-wrap
+									//			img(src='../../images/userPhotos/test-user/2.jpg', alt='')
+									//		.bl-user-full-name
+									//			| Some Name
+									//		.bl-dropdown.dropdown
+									//			button#blacklistUserDropdown.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+									//				i.fa.fa-ellipsis-h(aria-hidden='true')
+									//			.dropdown-menu(aria-labelledby='blacklistUserDropdown')
+									//				a.dropdown-item(href='#') Remove from blacklist
+									//				a.dropdown-item(href='#') Complain user
+									//				a.dropdown-item(href='#') Fake account
 							.carousel-item.scrollbar(data-page='anotherUser')
 								.au-avatar-wrap
-									.au-avatar-img(v-on:click="getPhotoData")
-										img(v-bind:src="photoSrc" alt='another user img' data-toggle="modal" data-target="#galleryPhotosModal")
+									.au-avatar
+										.au-avatar-img(v-if="photoSrc != 'images/unknown.jpg'" v-on:click="getPhotoData")
+											img(v-bind:src="photoSrc" alt='another user img' data-toggle="modal" data-target="#galleryPhotosModal")
+										.au-avatar-img(v-else style="cursor: default;")
+											img(v-bind:src="photoSrc" alt='another user img')
 									.au-profile-name.clearfix
 										span {{name}} {{surname}}
 										span {{status}}
 								.au-gallery-photos-wrap
 									ul.au-gallery-photos-list(v-if="photos.length != 0")
-										au-gallery-user-photo(v-for="photo in photos" v-bind:item="photo" v-on:click.native="getPhotoData")
+										au-gallery-user-photo(v-for="(photo, key, index) in photos" v-bind:item="photo" v-bind:key='key' v-on:click.native="getPhotoData")
 									ul.au-gallery-photos-list(v-else)
 										li.au-gpm-item.no-photos-msg()
 											| no photos yet
 								.au-profile-info-wrap
 									.au-hobbies-wrap
 										ul.au-hobbies-list
-											li.au-hl-item(v-for="hobbie in hobbies") {{hobbie}}
+											au-hl-item(v-for='(hobbie, key, index) in hobbies' v-bind:key='key' v-bind:item="hobbie")
 									.au-profile-data-wrap
 										.au-profile-data-header
 											| PERSONAL INFORMATION
@@ -387,6 +394,8 @@
 			.modal-content.modal-content-gallery
 				dov.row
 					.col-xs-12.col-sm-8.col-md-8.modal-photo-wrap
+						.close-modal(class="close" data-dismiss="modal" aria-label="Close")
+							i(class="fa fa-times" aria-hidden="true")
 						img(:src="photoSrc", alt='')
 					.col-xs-12.col-sm-4.col-md-4.modal-comments-wrap
 						.modal-comments-head
@@ -399,7 +408,7 @@
 								i.fa.fa-heart(aria-hidden='true')
 						.modal-comments-body.scrollbar
 							ul.comments-list(v-if="comments.length > 0")
-								comment(v-for="comment in comments" v-bind:item="comment")
+								comment(v-for="(comment, key, index) in comments" v-bind:key='key' v-bind:item="comment")
 							ul.comments-list(v-else)
 								li.no-comments-yet
 									| no comments yet

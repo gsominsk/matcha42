@@ -3,13 +3,13 @@ var fs      = require('fs');
 var async   = require('async');
 var _users  = {};
 
-var connData = {
+var pool  = mysql.createPool({
     host: "localhost",
     user: "root",
     password: "",
     database: "matcha",
     charset	: "utf8_general_ci"
-}
+});
 
 module.exports.logout = function (req, res, callback) {
     delete req.session.avatar_activated;
@@ -56,8 +56,7 @@ module.exports.addUserToStream = function (req, res) {
 
 module.exports.getProfileData = function (req, res, callback) {
     var body = req.body;
-    var con = mysql.createConnection(connData);
-    con.connect(function(err) {
+    pool.getConnection(function(err, con) {
         if (err) throw err;
         var values = {
             user_key: req.body.user_key ? req.body.user_key : req.session.user_key
@@ -87,10 +86,13 @@ module.exports.getProfileData = function (req, res, callback) {
                         if (file != result[0].photo_activated)
                             result[0].photos.push('images/userPhotos/'+values.user_key+'/'+file);
                     });
+                    con.release();
                     callback(result[0]);
                 });
-            } else
+            } else {
+                con.release();
                 callback(null);
+            }
         });
     });
 }
@@ -106,8 +108,7 @@ module.exports.getProfileData = function (req, res, callback) {
 
 module.exports.getFriendsList = function (req, res, callback) {
     console.log('SERVER getFriendsList')
-    var con = mysql.createConnection(connData);
-    con.connect(function(err) {
+    pool.getConnection(function(err, con) {
         if (err) throw err;
         var values = {
             user_key: req.session.user_key
@@ -125,10 +126,13 @@ module.exports.getFriendsList = function (req, res, callback) {
                         if (result[i].photo_activated != 0)
                             result[i].photo_activated = 'images/userPhotos/'+result[i].user_key+'/'+result[i].photo_activated;
                     }
+                    con.release();
                     callback(result)
                 });
-            } else
+            } else {
+                con.release();
                 callback(null);
+            }
         });
     });
 }
@@ -144,8 +148,7 @@ module.exports.getFriendsList = function (req, res, callback) {
 
 module.exports.setUserHobbie = function (req, res, callback) {
     console.log('[SERVER] -> setUserHobbies')
-    var con = mysql.createConnection(connData);
-    con.connect(function(err) {
+    pool.getConnection(function(err, con) {
         if (err) throw err;
         console.log(req.body);
         var values = {
@@ -156,6 +159,7 @@ module.exports.setUserHobbie = function (req, res, callback) {
         con.query(sql, values, function (err, result, fields) {
             if (err) throw err;
             console.log(result);
+            con.release();
             callback(result.affectedRows > 0 ? true : false);
         });
     });
@@ -242,15 +246,8 @@ module.exports.uploadUserPhotos = function (req, res, callback) {
 
     function insertUserPhotos (req, values, callback) {
         console.log('[uploadUserPhotos] -> [countUserFiles] -> [insertUserPhotos]');
-        var con = mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "",
-            database: "matcha",
-            charset	: "utf8_general_ci"
-        });
 
-        con.connect(function(err) {
+        pool.getConnection(function(err, con) {
             if (err) throw err;
             var _result;
             var sql = "INSERT INTO `photos` (`user_key`, `photo_name`) VALUES ?"
@@ -266,10 +263,12 @@ module.exports.uploadUserPhotos = function (req, res, callback) {
                         req.session.avatar_activated = values[0][1];
                         con.query(sql, [values[0][0]], function (err, result, fields) {
                             if (err) throw err;
+                            con.release();
                             callback({status:true});
                         });
                     });
                 } else {
+                    con.release();
                     callback({status:true});
                 }
             });
@@ -338,14 +337,7 @@ module.exports.uploadUserAvatar = function (req, res, callback) {
     }
 
     function insertUserAvatar (req, callback) {
-        var con = mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "",
-            database: "matcha",
-            charset	: "utf8_general_ci"
-        });
-        con.connect(function(err) {
+        pool.getConnection(function(err, con) {
             if (err) throw err;
             var _result;
             var sql = "INSERT INTO `photos` (`user_key`, `photo_name`) VALUES (?, ?)";
@@ -361,6 +353,7 @@ module.exports.uploadUserAvatar = function (req, res, callback) {
                         sql = "INSERT INTO `active_users` SET `user_key` = ?, `activated` = 1";
                         con.query(sql, [req.session.user_key], function (err, result, fields) {
                             if (err) throw err;
+                            con.release();
                             callback({status:true});
                         });
                     });
@@ -385,8 +378,7 @@ module.exports.deleteUserPhotos = function (req, res, callback) {
     console.log('[SERVER] -> deleteUserPhotos'); //delete
     console.log(req.body.photos); //delete
 
-    var con = mysql.createConnection(connData);
-    con.connect(function(err) {
+    pool.getConnection(function(err, con) {
         if (err) throw err;
         console.log(req.body);
         var values = [];
@@ -397,7 +389,7 @@ module.exports.deleteUserPhotos = function (req, res, callback) {
             values[j]       = req.body.photos[i];
             values[j + 1]   = req.session.user_key;
             if (req.body.photos[i] == req.session.avatar_activated)
-                deleteAvatar(req, i);
+                deleteAvatar(req, i, con);
             deleteFile(req, i);
         }
         con.query(sql + sql2, values, function (err, result, fields) {
@@ -408,6 +400,7 @@ module.exports.deleteUserPhotos = function (req, res, callback) {
                 sql = "DELETE FROM comments WHERE";
                 con.query(sql + sql2, values, function (err, result, fields) {
                     if (err) throw err;
+                    con.release();
                     callback(true);
                 });
             });
@@ -424,7 +417,7 @@ module.exports.deleteUserPhotos = function (req, res, callback) {
         });
     }
 
-    function deleteAvatar (req, i) {
+    function deleteAvatar (req, i, con) {
         var sql = "UPDATE `registered_users` SET `photo_activated` = 0 WHERE `user_key` = ?"
         con.query(sql, [req.session.user_key], function (err, result, fields) {
             if (err) throw err;
@@ -447,8 +440,7 @@ module.exports.deleteUserPhotos = function (req, res, callback) {
 
 module.exports.setNewComment = function (req, res, callback) {
     console.log('[SERVER] -> setNewComment')
-    var con = mysql.createConnection(connData);
-    con.connect(function(err) {
+    pool.getConnection(function(err, con) {
         if (err) throw err;
         console.log(req.body);
         var values = {
@@ -461,7 +453,7 @@ module.exports.setNewComment = function (req, res, callback) {
         var sql = "INSERT INTO comments SET ?";
         con.query(sql, values, function (err, result, fields) {
             if (err) throw err;
-            console.log(result);
+            con.release();
             callback(result.affectedRows > 0 ? values : false);
         });
     });
@@ -480,8 +472,7 @@ module.exports.setNewComment = function (req, res, callback) {
 
 module.exports.getPhotoData = function (req, res, callback) {
     console.log('[SERVER] -> getPhotoData')
-    var con = mysql.createConnection(connData);
-    con.connect(function(err) {
+    pool.getConnection(function(err, con) {
         if (err) throw err;
         console.log(req.body.photo);
         var values = [
@@ -525,13 +516,20 @@ module.exports.getPhotoData = function (req, res, callback) {
                     for (var i = 0; i < e.comments.length; i++)
                         for (var j = 0; j < result.length; j++) {
                             if (result[j].user_key == e.comments[i].comentatorKey) {
-                                e.comments[i].comentatorAvatar = 'images/userPhotos/'+result[j].user_key+'/'+result[j].photo_activated;
+                                if (result[j].photo_activated != 0)
+                                    e.comments[i].comentatorAvatar = 'images/userPhotos/'+result[j].user_key+'/'+result[j].photo_activated;
+                                else
+                                    e.comments[i].comentatorAvatar = 0;
                                 break ;
                             }
                         }
+                    con.release();
                     callback(e);
                 });
-            } else callback(null);
+            } else {
+                con.release();
+                callback(null);
+            }
         });
     });
 }
@@ -556,8 +554,7 @@ module.exports.getPhotoData = function (req, res, callback) {
  */
 
 module.exports.like = function (req, res, callback) {
-    var con = mysql.createConnection(connData);
-    con.connect(function(err) {
+    pool.getConnection(function(err, con) {
         if (err) throw err;
         var values = [
             req.session.user_key,
@@ -576,15 +573,15 @@ module.exports.like = function (req, res, callback) {
             if (err) throw err;
             console.log(result);
             if (result[0].id != null) {
-                deleteLike(req, values, result[0].likes, callback);
+                deleteLike(req, values, result[0].likes, con, callback);
             } else {
-                addLike(req, values, result[0].likes, callback);
+                addLike(req, values, result[0].likes, con, callback);
             }
 
         });
     });
 
-    function deleteLike (req, values, likes, callback) {
+    function deleteLike (req, values, likes, con, callback) {
         console.log('DELETE LIKE\n');
         console.log(values);
         var sql = "DELETE FROM photo_likes WHERE " +
@@ -595,12 +592,13 @@ module.exports.like = function (req, res, callback) {
                 "user_key = ? AND photo_name = ?";
             con.query(sql, [likes-1, values[1], values[2]], function (err, result, fields) {
                 if (err) throw err;
+                con.release();
                 callback({like: 'delete'});
             });
         });
     }
 
-    function addLike (req, values, likes, callback) {
+    function addLike (req, values, likes, con, callback) {
         console.log('ADD LIKE\n');
         console.log(values);
         var sql = "INSERT INTO photo_likes (liker_key, user_key, photo_name) VALUES (?, ?, ?)";
@@ -610,12 +608,12 @@ module.exports.like = function (req, res, callback) {
                 "user_key = ? AND photo_name = ?";
             con.query(sql, [likes+1, values[1], values[2]], function (err, result, fields) {
                 if (err) throw err;
+                con.release();
                 callback({like: 'add'});
             });
         });
     }
 }
-
 
 /*
  *  [function updateUserInfo]
@@ -624,19 +622,13 @@ module.exports.like = function (req, res, callback) {
  *  функция составляет запрос, так как надо изменить НЕКОТОРЫЕ данные а не все, хотя
  *  полльзователь при желании может изменить и все данные, после чего обновлет данные.
  *
- *  Данные в обьекте req.data могут иметь такие значение как:
- *
- *
- *
- *  req.data                -   Обьект с данными о пользователе которые нажо изменить.
+ *  req.data                -   Обьект с данными о пользователе которые надо изменить.
  *  res                     -   Не используем.
- *  callback                -   Возвращает 'add' или 'delete' в зависимости от того
- *                              стоял лайк или нет.
+ *  callback                -   Возвращает все измененные поля в таблице.
  */
 
 module.exports.updateUserInfo = function (req, res, callback) {
-    var con = mysql.createConnection(connData);
-    con.connect(function(err) {
+    pool.getConnection(function(err, con) {
         if (err) throw err;
         var values = [
             req.body.data,
@@ -646,8 +638,85 @@ module.exports.updateUserInfo = function (req, res, callback) {
 
         con.query(sql, values, function (err, result, fields) {
             console.log(result);
-            con.end();
+            con.release();
             callback(req.body.data);
         });
+    });
+}
+
+/*
+ *  [function deleteHobbie]
+ *
+ *  Функция удаляет хобби (хештеги) пользователя, за раз может прийти не больше одного
+ *  хештега. Если у пользователя есть несколько одинаковых хобби удалит первое в таблице,
+ *  роли вообще не играет.
+ *
+ *  req.hobbie.name         -   Обьект с данными о пользователе которые надо изменить.
+ *  res                     -   Не используем.
+ *  callback                -   Возвращает 'status:true' если хештег удалился,
+ *                              'status:false' если произошл ошибка.
+ */
+
+module.exports.deleteHobbie = function (req, res, callback) {
+    console.log('[SERVER] -> deletePhoto');
+    console.log(req.body);
+    pool.getConnection(function(err, con) {
+        if (err) throw err;
+        var values = [
+                req.body.hobbie.name,
+                req.session.user_key
+        ];
+        var sql = "DELETE FROM user_hobbies WHERE hobbie = ? AND user_key = ?";
+        con.query(sql, values, function (err, result, fields) {
+            console.log(result);
+            con.release();
+            callback({status:true});
+        });
+
+    });
+}
+
+/*
+ *  [function getBlackList]
+ *
+ *  Функция вытаскивает всех пользователей в черном списке у пользователя ключ которого
+ *  записанный в сессии, если черный лист пользователя пустой, возвращает пустой массив.
+ *
+ *  req                     -   Не используем.
+ *  res                     -   Не используем.
+ *  callback                -   Возвращает пустой/заполненый массив с пользователями.
+ */
+
+module.exports.getBlackList = function (req, res, callback) {
+    console.log('[SERVER] -> getBlackList');
+    pool.getConnection(function(err, con) {
+        if (err) throw err;
+        var values = {
+            user_key: req.session.user_key
+        };
+        var sql = "SELECT unwanted_user_key FROM user_blacklist WHERE ?";
+        con.query(sql, values, function (err, result, fields) {
+            console.log(result);
+
+            if (result[0]) {
+                for (var i = 0, keys = 'SELECT user_key, name, surname, photo_activated FROM registered_users WHERE '; i < result.length; i++) {
+                    keys += ("user_key = '" + result[i].unwanted_user_key + "'" + (i + 1 < result.length ? " OR " : " "));
+                }
+                con.query(keys, function (err, result, fields) {
+                    if (err) throw err;
+                    for (var i = 0; i < result.length; i++) {
+                        if (result[i].photo_activated != 0)
+                            result[i].photo_activated = 'images/userPhotos/'+result[i].user_key+'/'+result[i].photo_activated;
+                    }
+                    con.release();
+                    callback(result)
+                });
+
+            } else {
+                con.release();
+                callback(null);
+            }
+        });
+
     });
 }
