@@ -1,5 +1,11 @@
 .content-main
 	.container.scrollbar
+		.notification-menu-wrap
+			.notification#sound
+
+			ul.notification-list
+				notification(v-for="(notification, key) in notifications" v-bind:item="notification" v-bind:key="key" v-on:click.native="deleteItem")
+
 		// FLOAT MENU
 		.float_menu_wrap
 			.float_menu_header
@@ -8,13 +14,17 @@
 				.menu_icon_out
 				.menu_icon_in
 			.profile-menu
-				.profile-avatar-wrap
-					img.mobile-avatar-img(src='../../images/userPhotos/test-user/1.jpg', alt='')
+				.profile-avatar-wrap(v-if="avatar != 'images/unknown.jpg'" data-toggle="modal" data-target="#galleryPhotosModal" v-on:click="getPhotoData")
+					img(v-bind:src='avatar', alt='avatar')
+				.profile-avatar-wrap(v-else style="cursor: default;")
+					img(v-bind:src='avatar', alt='avatar')
 				ul.profile-menu-list
 					li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='0')
 						| Мой профиль
 					li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='1')
 						| Мои сообщения
+						span(v-if="mCounter != 0")
+							|({{mCounter}})
 					li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='2')
 						| Мои друзья
 					li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='3')
@@ -32,13 +42,18 @@
 			// LEFT MENU
 			.col-xs-12.col-sm-4.col-md-4.col-lg-3.profile-menu-wrap
 				.profile-menu
-					.profile-avatar-wrap
-						img(src='../../images/userPhotos/test-user/1.jpg', alt='')
+					.profile-avatar-wrap(v-if="avatar != 'images/unknown.jpg'" data-toggle="modal" data-target="#galleryPhotosModal" v-on:click="getPhotoData")
+						img(v-bind:src='avatar', alt='avatar')
+					.profile-avatar-wrap(v-else style="cursor: default;")
+						img(v-bind:src='avatar', alt='avatar')
+
 					ul.profile-menu-list
 						li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='0')
 							| Мой профиль
 						li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='1')
 							| Мои сообщения
+							span(v-if="mCounter != 0")
+								| ({{mCounter}})
 						li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='2')
 							| Мои друзья
 						li.pml-item(data-target='#profileMainContentCarousel', data-slide-to='3')
@@ -132,7 +147,7 @@
 							.carousel-item.scrollbar(data-page='friends')
 								.friends-list-wrap
 									ul.friends-list(v-if="friends.length != 0")
-										friends-list-item(v-for='friend in friends' v-bind:item='friend' v-bind:key='friend.user_key')
+										friends-list-item(v-for='friend in friends' v-bind:item='friend' v-bind:key='friend.user_key' v-on:click.native="getAction")
 									ul.friends-list(v-else)
 										.no-friends-yet
 											| NO FRIENDS YET
@@ -248,7 +263,7 @@
 							.carousel-item.scrollbar(data-page='search')
 								.search-users-wrap
 									.search-input-wrap
-										input(type='text', name='user-search-input')
+										input(type='text', name='user-search-input' v-on:keyup.enter="findProfile")
 										.dropdown.search-filter-dropdown
 											button#applyUserFilters.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
 												i.fa.fa-cogs(aria-hidden='true')
@@ -258,17 +273,35 @@
 														.sfl-item-head
 															| FAMOUS
 														.sfl-item-body
-															| famous range slider
+															| MAX
+															.range-slider
+																input.range-slider__range(type='range', value='10000', min='0', max='10000', v-model="setMaxFamous")
+																span.range-slider__value()
+																| 0
+															| MIN
+															.range-slider
+																input.range-slider__range(type='range', value='0', min='0', max='10000')
+																span.range-slider__value 0
 													li.sfl-item
 														.sfl-item-head
 															| AGE
 														.sfl-item-body
-															| age range slider
+															| MAX
+															.range-slider
+																input.range-slider__range(type='range', value='18', min='19', max='500')
+																span.range-slider__value 0
+															| MIN
+															.range-slider
+																input.range-slider__range(type='range', value='18', min='18', max='500')
+																span.range-slider__value 0
+
 													li.sfl-item
 														.sfl-item-head
 															| RADIUS
 														.sfl-item-body
-															| radius range slider
+															.range-slider
+																input.range-slider__range(type='range', value='100', min='0', max='2000')
+																span.range-slider__value 0
 													li.sfl-item
 														.sfl-item-head
 															| COUNTRY
@@ -314,8 +347,8 @@
 													li.sfl-item
 														.sfl-item-head
 														.sfl-item-body
-															button.btn.btn-primary(type='button') APPLY
-															button.btn.btn-danger(type='button') CLOSE
+															button.btn.btn-primary(v-on:click="applyFilters") APPLY
+															button.btn.btn-danger() CLOSE
 								.founded-users-list-wrap
 									ul.founded-users-list
 										li.ful-item.clearfix
@@ -343,22 +376,7 @@
 									ul.blacklist()
 										.blacklist-is-empty(v-if="users.length == 0")
 											| BLACK LIST IS EMPTY
-										bl-item(v-else v-for="user in users" v-bind:item="user")
-
-									//ul.blacklist(v-else)
-									//	bl-item(v-for="user in users" v-bind:item="user")
-									//	li.bl-item.clearfix
-									//		.bl-user-img-wrap
-									//			img(src='../../images/userPhotos/test-user/2.jpg', alt='')
-									//		.bl-user-full-name
-									//			| Some Name
-									//		.bl-dropdown.dropdown
-									//			button#blacklistUserDropdown.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-									//				i.fa.fa-ellipsis-h(aria-hidden='true')
-									//			.dropdown-menu(aria-labelledby='blacklistUserDropdown')
-									//				a.dropdown-item(href='#') Remove from blacklist
-									//				a.dropdown-item(href='#') Complain user
-									//				a.dropdown-item(href='#') Fake account
+										bl-item(v-else v-on:click.native="getAction" v-for="(user, index) in users" v-bind:key="index" v-bind:item="user")
 							.carousel-item.scrollbar(data-page='anotherUser')
 								.au-avatar-wrap
 									.au-avatar
@@ -369,6 +387,11 @@
 									.au-profile-name.clearfix
 										span {{name}} {{surname}}
 										span {{status}}
+									.au-connection.clearfix
+										div.add-to-friends(v-bind:class="{innactive: friends}" v-on:click="addUserToFriends")
+											i(class="fa fa-user-plus" aria-hidden="true")
+										div.send-message(v-bind:class="{innactive: liked}")
+											i(class="fa fa-comments-o" aria-hidden="true")
 								.au-gallery-photos-wrap
 									ul.au-gallery-photos-list(v-if="photos.length != 0")
 										au-gallery-user-photo(v-for="(photo, key, index) in photos" v-bind:item="photo" v-bind:key='key' v-on:click.native="getPhotoData")
@@ -388,6 +411,7 @@
 										.au-about-yourself-header
 											| ABOUT YOURSELF
 										textarea.textareaAutoresize(name='au-about-yourself', disabled='') Describe you and your hobbies
+
 	// test
 	#galleryPhotosModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
 		.modal-dialog.modal-dialog-gallery(role='document')

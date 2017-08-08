@@ -16,6 +16,9 @@ _global.functions = {
         var text = document.createTextNode(str);
         div.appendChild(text);
         return div.innerHTML;
+    },
+    playSound: function(filename) {
+        document.getElementById("sound").innerHTML='<audio autoplay="autoplay"><source src="' + filename + '.mp3" type="audio/mpeg" /><source src="' + filename + '.ogg" type="audio/ogg" /><embed hidden="true" autostart="true" loop="false" src="' + filename +'.mp3" /></audio>';
     }
 };
 
@@ -28,6 +31,8 @@ _global.loadedObjects = {
     blacklist	:false,
     anotherUser	:false
 };
+
+_global.socket;
 
 class MainProfile {
     constructor () {
@@ -127,7 +132,18 @@ class ProfilePage extends MainProfile {
             _global.user.sex            = data.sex;
             _global.user.sexOrientation = data.sex_orientation;
 
+            _global.socket.emit('addToStream', {
+                key     :data.user_key
+            });
 
+            if (data.photo_activated != 0) {
+                _global.vue.profileMenu.avatar  = 'images/userPhotos/'+data.user_key+'/'+data.photo_activated;
+                _global.vue.mobileProfileMenu.avatar  = 'images/userPhotos/'+data.user_key+'/'+data.photo_activated;
+            }
+            else {
+                _global.vue.profileMenu.avatar = 'images/unknown.jpg';
+                _global.vue.mobileProfileMenu.avatar = 'images/unknown.jpg';
+            }
             _global.vue.changeUserData.user = data;
             document.querySelectorAll('input[value="'+data.sex_orientation+'"]')[0].checked = true;
             document.querySelectorAll('input[value="'+data.sex+'"]')[0].checked = true;
@@ -199,15 +215,15 @@ class MessagesPage extends MainProfile {
         console.log('class MaeesagesPage created!');
 
         super();
-		this.chat = document.getElementsByClassName('chat-wrap')[0];
-		this.closeChatBtn = document.getElementsByClassName('close-chat-btn')[0];
+		this.chat           = document.getElementsByClassName('chat-wrap')[0];
+		this.closeChatBtn   = document.getElementsByClassName('close-chat-btn')[0];
 
-		var __this = this;
+		var __this          = this;
 
+		// open/close
 		this.closeChatBtn.onclick = function () {
 			__this.closeChat();
 		}
-
 		this.addHandler(document, 'click', function () {
 			var className = event.target.className ? event.target.className : 'false';
 
@@ -216,6 +232,9 @@ class MessagesPage extends MainProfile {
 				__this.openChat();
 			}
 		});
+
+		this.renderChats();
+
 	}
 
 	closeChat() {
@@ -225,6 +244,19 @@ class MessagesPage extends MainProfile {
 	openChat () {
 		this.chat.setAttribute('style', 'left:0;');
 	}
+
+	renderChats() {
+        // var ajax = new Ajax;
+        // var ajaxReq = {
+        //     type: 'POST',
+        //     body: {
+        //         action: 'getChats'
+        //     }
+        // }
+        // ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
+        //     console.log(data);
+        // });
+    }
 }
 
 class FriendsPage extends MainProfile {
@@ -305,8 +337,30 @@ class OptionsPage extends MainProfile {
 class SearchPage extends MainProfile {
 	constructor () {
 		super();
-		console.log('class SearchPage created!');
+        this.rangeSlider();
+
+        _global.vue.filters.options.country = _global.user.country;
+        _global.vue.filters.options.city    = _global.user.city;
+        console.log('class SearchPage created!');
 	}
+
+    rangeSlider () {
+        var slider = $('.range-slider'),
+            range = $('.range-slider__range'),
+            value = $('.range-slider__value');
+
+        slider.each(function(){
+
+            value.each(function(){
+                var value = $(this).prev().attr('value');
+                $(this).html(value);
+            });
+
+            range.on('input', function(){
+                $(this).next(value).html(this.value);
+            });
+        });
+    };
 }
 
 class BlacklistPage extends MainProfile {
@@ -351,14 +405,18 @@ class AnotherUserPage extends MainProfile {
 	constructor () {
 		super();
 
+		this.addToFriends   = document.getElementsByClassName('add-to-friends')[0];
+        this.sendMessage    = document.getElementsByClassName('send-message')[0];
+
 		this.renderAnotherUserPage();
+
+        _global.socket.emit('visit', {
+            to      :_global.anotherUserPage.userKey,
+            from    :_global.user.key
+        });
 
 		console.log('class AnotherUserPage created!');
 	}
-
-	getUserData (callback) {
-
-    }
 
     renderAnotherUserPage () {
         var ajax = new Ajax;
@@ -373,7 +431,10 @@ class AnotherUserPage extends MainProfile {
             }
         };
         ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
-            console.log('data', data);
+            _global.anotherUserPage.liked   = data.liked;
+            _global.anotherUserPage.friends = data.friends;
+            _global.vue.auBtns.liked = !data.liked;
+            _global.vue.auBtns.friends = data.friends;
             __this.vueRenderAuProfileData(data);
         });
     }
@@ -440,23 +501,104 @@ class AnotherUserPage extends MainProfile {
 class VueUpload {
     constructor () {
         /* ========================= */
+        /*       PROFILEMENU         */
+        /* ========================= */
+
+        _global.vue.mobileProfileMenu = new Vue ({
+            el  : document.querySelectorAll('.profile-menu')[0],
+            data: {
+                avatar: 'images/unknown.jpg',
+                mCounter: 0
+            },
+            methods: {
+                getPhotoData: function () {
+                    _global.vue.auGalleryPhotos.getPhotoData();
+                }
+            }
+        });
+
+        _global.vue.profileMenu = new Vue ({
+            el  : document.querySelectorAll('.profile-menu')[1],
+            data: {
+                avatar: 'images/unknown.jpg',
+                mCounter: 0
+            },
+            methods: {
+                getPhotoData: function () {
+                    _global.vue.auGalleryPhotos.getPhotoData();
+                }
+            }
+        });
+
+        /* ========================= */
+        /*      NOTIFICATIONS        */
+        /* ========================= */
+
+        Vue.component('notification', {
+            props:['item'],
+            template:   '<li class="nl-item-wrap">' +
+                            '<div class="nl-item-container clearfix" data-target="#profileMainContentCarousel" data-slide-to="7" v-bind:user="item.user_key">' +
+                                '<div class="nl-avatar-wrap">' +
+                                    '<img v-bind:src="item.photo_activated"/>'+
+                                '</div>' +
+                                '<div class="nl-avatar-name">{{item.name}} {{item.surname}}</div>'+
+                                '<div class="nl-item-message">{{item.msg}}</div>'+
+                            '</div>'+
+                            '<i class="fa fa-times" aria-hidden="true"></i>'+
+                        '</li>'
+        });
+
+        _global.vue.notificationsList = new Vue ({
+            el: '.notification-list',
+            data: {
+                notifications: []
+            },
+            methods: {
+                deleteItem: function () {
+                        var notif       = Array.prototype.slice.call( document.getElementsByClassName('notification-list')[0].children );
+                        var parent;
+                        var __this = this;
+
+                        if (event.target.parentElement.classList.contains('nl-item-wrap')) {
+                            parent = event.target.parentElement;
+                        } else if (event.target.parentElement.parentElement.classList.contains('nl-item-wrap')) {
+                            parent = event.target.parentElement.parentElement;
+                        } else if (event.target.parentElement.parentElement.parentElement.classList.contains('nl-item-wrap')) {
+                            parent = event.target.parentElement.parentElement.parentElement;
+                        }
+                        var notifNum    = notif.indexOf(event.target.parentElement)
+                        _global.anotherUserPage.userKey = parent.childNodes[0].getAttribute('user');
+                        console.log(parent.childNodes[0].getAttribute('user'));
+
+                        parent.setAttribute('style', 'height:0;');
+                        setTimeout(function () {
+                            parent.removeAttribute('style');
+                            __this.notifications.splice(notifNum, 1);
+                        }, 300);
+                }
+            }
+        });
+
+        /* ========================= */
         /*        BLACKLIST          */
         /* ========================= */
 
         Vue.component('bl-item', {
             props:['item'],
-            template:   '<li class="bl-item clearfix" data-target="#profileMainContentCarousel" data-slide-to="7" v-bind:user="item.user_key">'+
-                            '<div v-if="item.photo_activated != 0" class="bl-user-img-wrap"><img src="item.photo_activated" alt=""/></div>'+
-                            '<div v-else class="bl-user-img-wrap"><img src="images/unknown.jpg" alt=""/></div>'+
-                            '<div class="bl-user-full-name">{{item.name}} {{item.surname}}</div>'+
+            template:   '<li class="bl-item clearfix">'+
+                            '<div class="blacklist-wrap" data-target="#profileMainContentCarousel" data-slide-to="7" v-bind:user="item.user_key">'+
+                                '<div v-if="item.photo_activated != 0" class="bl-user-img-wrap"><img v-bind:src="item.photo_activated" alt=""/></div>'+
+                                '<div v-else class="bl-user-img-wrap"><img src="images/unknown.jpg" alt=""/></div>'+
+                                '<div class="bl-user-full-name">{{item.name}} {{item.surname}}</div>'+
+                            '</div>'+
                             '<div class="bl-dropdown dropdown">'+
                                 '<button id="blacklistUserDropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-secondary dropdown-toggle">' +
                                     '<i aria-hidden="true" class="fa fa-ellipsis-h"></i>' +
                                 '</button>'+
                                 '<div aria-labelledby="blacklistUserDropdown" class="dropdown-menu">' +
-                                    '<a href="#" class="dropdown-item">Remove from blacklist</a>' +
-                                    '<a href="#" class="dropdown-item">Complain user</a>' +
-                                    '<a href="#" class="dropdown-item">Fake account</a>' +
+                                    '<a href="#" action="removeFromBlackList" class="dropdown-item">Remove from blacklist</a>' +
+                                    // '<a href="#" class="dropdown-item">Complain user</a>' +
+                                    // '<a href="#" class="dropdown-item">Fake account</a>' +
                                 '</div>'+
                             '</div>'+
                         '</li>'
@@ -475,6 +617,32 @@ class VueUpload {
                     if (!users) return;
                     for (var i = 0; i < users.length; i++) {
                         this.users.push(users[i]);
+                    }
+                },
+                getAction: function () {
+                    if (event.target.tagName == 'A') {
+                        this.action = event.target.getAttribute('action');
+                        this.friend =  event.target.parentElement.parentElement.previousSibling.getAttribute('user');
+                        var __this  = this;
+                        console.log(this.action, this.friend);
+
+                        var ajax = new Ajax;
+                        var ajaxReq = {
+                            type: 'POST',
+                            body: {
+                                action  : this.action,
+                                user    : this.friend
+                            }
+                        }
+                        ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
+                            for (var i = 0; i < __this.users.length; i++) {
+                                if (__this.users[i].user_key == __this.friend) {
+                                    __this.users.splice(i, 1);
+                                    break ;
+                                }
+                            }
+                            console.log(data);
+                        });
                     }
                 }
             }
@@ -535,6 +703,11 @@ class VueUpload {
                     }
                     ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
                         console.log(data.like);
+                        _global.socket.emit('like', {
+                            to      :_global.vue.modal.photoOwner,
+                            from    :_global.user.key,
+                            action  :data.like
+                        });
                         data.like == 'delete' ? __this.likes-- : __this.likes++;
                     })
 
@@ -720,22 +893,24 @@ class VueUpload {
 
         Vue.component('friends-list-item', {
             props   : ['item'],
-            template:   '<li data-target="#profileMainContentCarousel" class="fl-item clearfix" data-slide-to="7" v-bind:user="item.user_key">'+
-                            '<div class="friend-img-wrap">' +
-                                '<img v-if="item.photo_activated != \'0\'" v-bind:src="item.photo_activated" alt="friendsImg"/>' +
-                                '<img v-else src="images/unknown.jpg" alt="friendsImg"/>' +
+            template:   '<li class="fl-item">'+
+                            '<div class="friend-wrap" data-target="#profileMainContentCarousel" data-slide-to="7" v-bind:user="item.user_key">'+
+                                '<div class="friend-img-wrap clearfix">' +
+                                    '<img v-if="item.photo_activated != \'0\'" v-bind:src="item.photo_activated" alt="friendsImg"/>' +
+                                    '<img v-else src="images/unknown.jpg" alt="friendsImg"/>' +
+                                '</div>'+
+                                '<div class="friends-full-name">{{item.name}} {{item.surname}}</div>'+
                             '</div>'+
-                            '<div class="friends-full-name">{{item.name}} {{item.surname}}</div>'+
                             '<div class="friend-dropdown dropdown">'+
                                 '<button id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-secondary dropdown-toggle">' +
                                     '<i aria-hidden="true" class="fa fa-ellipsis-h"></i>' +
                                 '</button>'+
                                 '<div aria-labelledby="dropdownMenuButton" class="dropdown-menu">' +
-                                    '<a href="#" class="dropdown-item">Send message</a>' +
-                                    '<a href="#" class="dropdown-item">Delete friend</a>' +
-                                    '<a href="#" class="dropdown-item">Add to blacklist</a>' +
-                                    '<a href="#" class="dropdown-item">Complain user</a>' +
-                                    '<a href="#" class="dropdown-item">Fake account</a>' +
+                                    '<a href="#" action="sendMessage" class="dropdown-item">Send message</a>' +
+                                    '<a href="#" action="deleteFriend" class="dropdown-item">Delete friend</a>' +
+                                    '<a href="#" action="addToBlackList" class="dropdown-item">Add to blacklist</a>' +
+                                    // '<a href="#" action="complainUser" class="dropdown-item">Complain user</a>' +
+                                    // '<a href="#" action="fakeAccoount" class="dropdown-item">Fake account</a>' +
                                 '</div>'+
                             '</div>'+
                         '</li>'
@@ -756,6 +931,32 @@ class VueUpload {
                 },
                 deleteAll: function () {
                     this.friends = [];
+                },
+                getAction: function () {
+                    if (event.target.tagName == 'A') {
+                        this.action = event.target.getAttribute('action');
+                        this.friend =  event.target.parentElement.parentElement.previousSibling.getAttribute('user');
+                        var __this  = this;
+                        console.log(this.action, this.friend);
+
+                        var ajax = new Ajax;
+                        var ajaxReq = {
+                            type: 'POST',
+                            body: {
+                                action  : this.action,
+                                user    : this.friend
+                            }
+                        }
+                        ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
+                            for (var i = 0; i < __this.friends.length; i++) {
+                                if (__this.friends[i].user_key == __this.friend) {
+                                    __this.friends.splice(i, 1);
+                                    break ;
+                                }
+                            }
+                            console.log(data);
+                        });
+                    }
                 }
             }
 
@@ -830,7 +1031,9 @@ class VueUpload {
                 getPhotoData: function () {
                     if (event.target.tagName == 'LI') {
                         _global.vue.modal.photoSrc = event.target.childNodes[0].childNodes[0].getAttribute('src');
-                    } else if (event.target.classList.contains('au-gpl-img-wrap') || event.target.classList.contains('gpl-img-wrap')) {
+                    } else if ( event.target.classList.contains('au-gpl-img-wrap')
+                                || event.target.classList.contains('gpl-img-wrap')
+                                || event.target.classList.contains('profile-avatar-wrap')) {
                         _global.vue.modal.photoSrc = event.target.childNodes[0].getAttribute('src');
                     } else {
                         _global.vue.modal.photoSrc = event.target.getAttribute('src');
@@ -916,6 +1119,35 @@ class VueUpload {
             methods: {
                 setAboutYourself: function (data) {
                     this.aboutYourself = data.about_yourself == null ? 'Describe yourself and your hobbies' : data.about_yourself
+                }
+            }
+        });
+
+        _global.vue.auBtns = new Vue({
+            el: '.au-connection',
+            data: {
+                liked   : _global.anotherUserPage.liked,
+                friends : _global.anotherUserPage.friends
+            },
+            methods: {
+                addUserToFriends: function () {
+                    if (!_global.anotherUserPage.friends) {
+                        console.log(_global.anotherUserPage);
+                        var ajax = new Ajax;
+                        var ajaxReq = {
+                            type: 'POST',
+                            body: {
+                                action  : 'addUserToFriends',
+                                user    : _global.anotherUserPage.userKey
+                            }
+                        }
+                        ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
+                            console.log(data);
+                        });
+                    }
+                },
+                goToChat: function () {
+                    console.log('will open chat when it will be ready');
                 }
             }
         });
@@ -1031,6 +1263,8 @@ class VueUpload {
                         data.status == true ? _global.loadedObjects.profile = false : 0;
                         if (data.status == true) {
                             _global.vue.optionsRenderPhotos.photos.unshift('images/userPhotos/'+_global.user.key+'/'+ajaxReq.body.photo.name);
+                            _global.vue.profileMenu.avatar  = 'images/userPhotos/'+_global.user.key+'/'+ajaxReq.body.photo.name;
+                            _global.vue.mobileProfileMenu.avatar  = 'images/userPhotos/'+_global.user.key+'/'+ajaxReq.body.photo.name;
                             __this.photoSrc = '';
                             __this.photoName = '';
                             __this.errMsg.removeAttribute('style');
@@ -1215,7 +1449,11 @@ class VueUpload {
                         first : for (var i = 0; i < __this.photos.length; i++)
                             for (var j = 0; j < __this.photosToDelete.length; j++)
                                 if (__this.photosToDelete[j] == __this.photos[i].split('/')[3]) {
-                                    __this.photosToDelete[j] == _global.user.avatar.split('/')[3] ? _global.user.avatar = 'images/unknown.jpg' : 0;
+                                    if (__this.photosToDelete[j] == _global.user.avatar.split('/')[3]) {
+                                        _global.user.avatar = 'images/unknown.jpg';
+                                        _global.vue.profileMenu.avatar = 'images/unknown.jpg';
+                                        _global.vue.mobileProfileMenu.avatar = 'images/unknown.jpg';
+                                    }
                                     __this.photos.splice(i, 1);
                                     __this.photosToDelete.splice(j, 1);
                                     i = -1;
@@ -1227,6 +1465,153 @@ class VueUpload {
                 }
             }
         });
+
+        /* ========================= */
+        /*           SEARCH          */
+        /* ========================= */
+
+        _global.vue.filters = new Vue ({
+            el  : document.querySelectorAll('.search-input-wrap')[0],
+            data: {
+                options: {
+                    famous: {
+                        from: 0,
+                        to  : 10000
+                    },
+                    age: {
+                        from: 18,
+                        to  : 100
+                    },
+                    radius          : 100,
+                    country         : 'any',
+                    city            : 'any',
+                    sex             : 'any',
+                    sexOrientation  : 'any',
+                    name            : document.querySelectorAll('input[name="user-search-input"]')[0].value
+                }
+            },
+            watch: {
+                setMaxFamous: function () {
+                    console.log('some');
+                }
+            },
+            methods: {
+                findProfile: function () {
+                    console.log(_global.user);
+                    console.log(this.options);
+                    // после этого мы берем наш текст в инпуте + фильтры,
+                    // которые могли быть изменены и отправляем
+                },
+                setMaxFamous: function () {
+                    console.log(1);
+                },
+                applyFilters: function () {
+
+                    // var form = {};
+                    // form.name       = _global.functions.normalize(document.querySelectorAll('input[name="changeUserName"]')[0].value.trim());
+                    // form.surname    = _global.functions.normalize(document.querySelectorAll('input[name="changeUserSurname"]')[0].value.trim());
+                    // form.country    = _global.functions.normalize(document.querySelectorAll('input[name="changeUserCountry"]')[0].value.trim());
+                    // form.city       = _global.functions.normalize(document.querySelectorAll('input[name="changeUserCity"]')[0].value.trim());
+                    // if (document.querySelectorAll('input[name="changeUserEmail"]')[0].checkValidity() == true)
+                    //     form.email  = _global.functions.normalize(document.querySelectorAll('input[name="changeUserEmail"]')[0].value.trim());
+                    // else
+                    //     form.email  = '';
+                    // form.age        = this.user.age;
+                    //
+                    // if (checkRadio() && checkFields()) {
+                    //     if (form.country || form.city) {
+                    //         getGeopositionFromForm(form, function () {
+                    //             sendUserData(form);
+                    //         });
+                    //     } else
+                    //         sendUserData(form);
+                    //
+                    //     console.log('form passed validation and there is some values : ', form);
+                    // }
+                    //
+                    // function checkFields() {
+                    //     console.log(form);
+                    //     for (var field in form) {
+                    //         form[field] == _global.user[field] ? console.log('deleted', form[field], _global.user[field]) : 0;
+                    //         !form[field] || form[field] == _global.user[field] ? delete form[field] : 0;
+                    //     }
+                    //     return (Object.keys(form).length === 0 ? false : true);
+                    //     console.log(form);
+                    // }
+                    //
+                    // function checkRadio () {
+                    //     var checked = 0;
+                    //     var radio   = {
+                    //         all             : document.querySelectorAll('.reg-checkbox-wrap input'),
+                    //         sex             : null,
+                    //         sexOrientation  : null
+                    //     }
+                    //
+                    //     for (var i = 0; i < 4; i++) {radio.all[i].checked == true ? radio.sexOrientation = radio.all[i] : 0;}
+                    //     for (var i = 4; i < radio.all.length; i++) {radio.all[i].checked == true ? radio.sex = radio.all[i] : 0;}
+                    //
+                    //     form.sex            = radio.sex.value;
+                    //     form.sex_orientation= radio.sexOrientation.value;
+                    //
+                    //     (radio.sexOrientation && radio.sex) ? 0 : checked = 1;
+                    //
+                    //     return (checked == 1 ? false : true);
+                    // }
+                    //
+                    // function getGeopositionFromForm(form, callback) {
+                    //     var geocoder;
+                    //     var __this = this;
+                    //     initialize();
+                    //     !form.country ? form.country = _global.user.country : 0;
+                    //     !form.city ? form.city = _global.user.city : 0;
+                    //     codeAddress(form.country + ", " + form.city);
+                    //
+                    //     function initialize() {
+                    //         geocoder = new google.maps.Geocoder();
+                    //     }
+                    //
+                    //     function codeAddress(address) {
+                    //         geocoder.geocode( { 'address': address}, function(results, status) {
+                    //             if (status == 'OK') {
+                    //                 form.latitude           = results[0].geometry.location.lat();
+                    //                 form.longitude          = results[0].geometry.location.lng();
+                    //                 callback();
+                    //             } else {
+                    //                 console.log('ERR, Geocode was not successful for the following reason: ' + status)
+                    //             }
+                    //         });
+                    //     }
+                    // }
+                    //
+                    // function sendUserData() {
+                    //     var ajax    = new Ajax;
+                    //     var __this  = this;
+                    //     var ajaxReq = {
+                    //         type: 'POST',
+                    //         body: {
+                    //             action: 'updateUserInfo',
+                    //             data: form
+                    //         }
+                    //     };
+                    //     ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
+                    //         data.name || data.surname ?  _global.user.fullName = data.name + ' ' + data.surname : 0;
+                    //         data.name           ?  _global.user.name           = data.name : 0;
+                    //         data.surname        ?  _global.user.surname        = data.surname : 0;
+                    //         data.country        ?  _global.user.country        = data.country : 0;
+                    //         data.city           ?  _global.user.city           = data.city : 0;
+                    //         data.email          ?  _global.user.email          = data.email : 0;
+                    //         data.age            ?  _global.user.age            = data.age : 0;
+                    //         data.sex            ?  _global.user.sex            = data.sex : 0;
+                    //         data.sex_orientation?  _global.user.sexOrientation = data.sex_orientation : 0;
+                    //         _global.loadedObjects.profile = false;
+                    //         console.log(data);
+                    //     });
+                    // }
+                }
+
+            }
+        });
+
 
         /* ========================= */
         /*      CHANGE USER DATA     */
@@ -1359,11 +1744,32 @@ class VueUpload {
     }
 }
 
+class Emit {
+    constructor () {
+        var __this = this;
+
+        _global.socket.on('like', function (data) {
+            // ВКЛЮЧИТЬ ПРИ СДАЧЕ
+            // _global.functions.playSound('audio/notif');
+            _global.vue.notificationsList.notifications.push(data);
+        });
+
+        _global.socket.on('visit', function (data) {
+            // ВКЛЮЧИТЬ ПРИ СДАЧЕ
+            // _global.functions.playSound('audio/notif');
+            _global.vue.notificationsList.notifications.push(data);
+        });
+    }
+}
+
 window.onload = function () {
 	// var mainProfile = new MainProfile(loadedObjects);
     var eventClass  = new ProfilePage;
     var vueUpload   = new VueUpload;
+    _global.socket  = io();
+    var emits       = new Emit();
     var logout      = document.getElementsByClassName('header-logout')[0];
+
 
     $('#profileMainContentCarousel').on('slid.bs.carousel', function () {
         var targetPage = this.getElementsByClassName('active')[0].getAttribute('data-page');

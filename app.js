@@ -4,11 +4,13 @@
  */
 
 var express = require('express')
-var routes = require('./routes');
-var config = require('./config');
-var log = require('./libs/log')(module);
+var routes  = require('./routes');
+var config  = require('./config');
+var log     = require('./libs/log')(module);
 
 var app = module.exports = express.createServer();
+
+var io      = require('socket.io')(app);
 
 // Configuration
 
@@ -38,11 +40,55 @@ app.configure('production', function(){
 var routes          = require('./routes')(app);
 var logRrequest     = require('./libs/mysqlLogRequests');
 var profileRequest  = require('./libs/mysqlProfileRequests')
+var socketRequest   = require('./libs/mysqlSocketsRequests')
 
-app.post('/profile', function (req, res) {
-    profileRequest[req.body.action](req, res, function (body) {
-        console.log('sending to browser');
-        res.send(body);
+
+users = {};
+
+io.sockets.on('connection', function (socket) {
+    // console.log('login', socket);
+
+    app.post('/profile', function (req, res) {
+        profileRequest[req.body.action](req, res, function (body) {
+            console.log('sending to browser');
+            res.send(body);
+        });
+    });
+
+    socket.on('addToStream', function(data){
+        console.log('User : '+data.key+' with socket id : '+socket.id+' added to stream');
+        console.log(data);
+        if (!users[data.key]) {
+            users[data.key] = {
+                key : data.key,
+                id  : socket.id
+            }
+        } else
+            users[data.key].id = socket.id;
+        console.log(users);
+    });
+
+    socket.on('like', function(like){
+        console.log(like);
+        socketRequest.getNotificationInfo({key: like.from}, function (liker) {
+            liker.msg = like.action == 'add' ? 'Liked you.' : 'Unliked you.';
+            if (users[like.to])
+                io.to(users[like.to].id).emit('like', liker);
+        });
+    });
+
+    socket.on('visit', function(visit){
+        console.log(visit);
+        socketRequest.getNotificationInfo({key: visit.from}, function (visiter) {
+            visiter.msg =  'Visited your page.';
+            if (users[visit.to])
+                io.to(users[visit.to].id).emit('visit', visiter);
+        });
+    });
+
+
+    socket.on('disconnect', function() {
+        console.log('logout', socket.id);
     });
 });
 

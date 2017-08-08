@@ -18,28 +18,27 @@ module.exports.logout = function (req, res, callback) {
 }
 
 /*
-*   [function addUserToStream]
+*   [function addUserToStream] & [function deleteUserFromStream]
 *   Во время входа пользователя на сайт мы записываем его в глобадбный
 *   массив активных пользователей, при выходе из сайта или закрытии
 *   странички пользователь удаеляется из этого списка.
 *
 *   req - нужен для получения ключа пользователя.
-*   res - нужен для удаления пользователя при закрытии/выходе странички.
+*   res - не используем.
 */
 
 module.exports.addUserToStream = function (req, res) {
     if (req.session.user_key) {
         _users[req.session.user_key] = {
             user_key    : req.session.user_key,
-            res         : res
         };
-        console.log('USER ADDED TO STREAM')
+    }
+    console.log(_users)
+}
 
-        res.on('close', function () {
-            delete _users[req.session.user_key];
-            console.log('USER DELETED FROM STREAM')
-            console.log(_users);
-        });
+module.exports.deleteUserFromStream = function (req, res) {
+    if (req.session.user_key) {
+        delete _users[req.session.user_key];
     }
     console.log(_users)
 }
@@ -55,6 +54,7 @@ module.exports.addUserToStream = function (req, res) {
 */
 
 module.exports.getProfileData = function (req, res, callback) {
+    console.log('[getProfileData]');
     var body = req.body;
     pool.getConnection(function(err, con) {
         if (err) throw err;
@@ -86,8 +86,16 @@ module.exports.getProfileData = function (req, res, callback) {
                         if (file != result[0].photo_activated)
                             result[0].photos.push('images/userPhotos/'+values.user_key+'/'+file);
                     });
-                    con.release();
-                    callback(result[0]);
+                    if (req.session.user_key != values.user_key) {
+                        updateUserFamous(req, con, result[0], function () {
+                            con.release();
+                            callback(result[0]);
+                        });
+                    } else {
+                        con.release();
+                        callback(result[0]);
+                    }
+
                 });
             } else {
                 con.release();
@@ -95,6 +103,53 @@ module.exports.getProfileData = function (req, res, callback) {
             }
         });
     });
+
+    function updateUserFamous (req, con, data, callback) {
+        var sql = "UPDATE registered_users SET ? WHERE user_key = ?";
+        con.query(sql, [{famous: data.famous + 1}, data.user_key], function (err, result, fields) {
+            if (err) throw err;
+            getAdditionalInfo(req, con, data, function () {
+                callback();
+            });
+        });
+    }
+
+    function getAdditionalInfo (req, con, data, callback) {
+        async.parallel([
+            function (callback) {
+                var sql =   "SELECT t1.user_key, t2.liker_key FROM photo_likes t1 "+
+                            "JOIN photo_likes t2 "+
+                            "ON "+
+                            "(t1.user_key = t1.user_key AND t1.liker_key = t1.liker_key) "+
+                            "AND "+
+                            "(t2.user_key = t1.liker_key AND t2.liker_key = t1.user_key) "+
+                            "WHERE "+
+                            "t1.user_key = ? "+
+                            "AND "+
+                            "t1.liker_key = ? ";
+                con.query(sql, [req.session.user_key, data.user_key], function (err, result, fields) {
+                    if (err) throw err;
+                    callback(null, result[0] ? {liked: true} : {liked: false});
+                });
+            },
+            function (callback) {
+                var sql =   "SELECT user_key FROM user_friends "+
+                            "WHERE "+
+                            "user_key = ? "+
+                            "AND "+
+                            "friend_key = ? "
+
+                con.query(sql, [req.session.user_key, data.user_key], function (err, result, fields) {
+                    if (err) throw err;
+                    callback(null, result[0] ? {friends: true} : {friends: false});
+                });
+        }
+        ], function (err, result) {
+            data.friends= result[1].friends;
+            data.liked  = result[0].liked;
+            callback(data);
+        });
+    }
 }
 
 /*
@@ -720,3 +775,169 @@ module.exports.getBlackList = function (req, res, callback) {
 
     });
 }
+
+/*
+ *  [function addUserToFriends]
+ *
+ *  Функция получает ключ пользователя которого надо добавить в друзья.
+ *
+ *  req                     -   Не используем.
+ *  res                     -   Не используем.
+ *  callback                -   Возвращает true.
+ */
+
+module.exports.addUserToFriends = function (req, res, callback) {
+    console.log('[SERVER] -> addUserToFriends');
+    pool.getConnection(function(err, con) {
+        if (err) throw err;
+        var values = {
+            user_key    : req.session.user_key,
+            friend_key  : req.body.user
+        };
+        var sql = "INSERT INTO user_friends SET ?";
+        con.query(sql, values, function (err, result, fields) {
+            console.log(result);
+            con.release();
+            callback(true);
+        });
+
+    });
+}
+
+/*
+ *  [function addUserToFriends]
+ *
+ *  Функция удаляет пользователя из списка друзей пользователя чей ключ сейчас записан
+ *  в сессии.
+ *
+ *  req.body.user           -   Пользователь которого надо удалить.
+ *  res                     -   Не используем.
+ *  callback                -   Возвращает true.
+ */
+
+module.exports.deleteFriend = function (req, res, callback) {
+    console.log('[SERVER] -> addUserToFriends');
+    pool.getConnection(function(err, con) {
+        if (err) throw err;
+        var values = {
+            user_key    : req.session.user_key,
+            friend_key  : req.body.user
+        };
+        var sql = "DELETE FROM user_friends WHERE user_key = ? AND friend_key = ?";
+        con.query(sql, [values.user_key, values.friend_key], function (err, result, fields) {
+            console.log(result);
+            con.release();
+            callback(true);
+        });
+
+    });
+}
+
+/*
+ *  [function addToBlackList]
+ *
+ *  Функция удаляет пользователя из списка друзей пользователя чей ключ сейчас записан
+ *  в сессии и записывает данного пользователя в черный список.
+ *
+ *  req.body.user           -   Пользователь которого надо удалить и закинуть в черный списко.
+ *  res                     -   Не используем.
+ *  callback                -   Возвращает true.
+ */
+
+module.exports.addToBlackList = function (req, res, callback) {
+    console.log('[SERVER] -> addUserToFriends');
+    pool.getConnection(function(err, con) {
+        if (err) throw err;
+        var values = {
+            user_key    : req.session.user_key,
+            friend_key  : req.body.user
+        };
+        async.parallel([
+            function (callback) {
+                var sql = "DELETE FROM user_friends WHERE user_key = ? AND friend_key = ?";
+                con.query(sql, [values.user_key, values.friend_key], function (err, result, fields) {
+                    if (err) throw err;
+                    callback(null, true);
+                });
+            },
+            function (callback) {
+                var sql = "INSERT INTO user_blacklist SET ?";
+                con.query(sql, {user_key:values.user_key, unwanted_user_key:values.friend_key}, function (err, result, fields) {
+                    if (err) throw err;
+                    callback(null, true);
+                });
+            }
+        ], function (err, result) {
+            if (err) throw err;
+            con.release();
+            callback(true);
+        });
+    });
+}
+
+/*
+ *  [function removeFromBlackList]
+ *
+ *  Функция удаляет пользователя из черного списка пользователя чей ключ сейчас записан в сессии.
+ *
+ *  req.body.user           -   Ключ пользователя которого надо удалить из черного списка.
+ *  res                     -   Не используем.
+ *  callback                -   Возвращает true.
+ */
+
+module.exports.removeFromBlackList = function (req, res, callback) {
+    console.log('[SERVER] -> removeFromBlackList');
+    pool.getConnection(function(err, con) {
+        if (err) throw err;
+        var values = {
+            user_key    : req.session.user_key,
+            friend_key  : req.body.user
+        };
+        var sql = "DELETE FROM user_blacklist WHERE user_key = ? AND unwanted_user_key = ?";
+        con.query(sql, [values.user_key, values.friend_key], function (err, result, fields) {
+            console.log(result);
+            con.release();
+            callback(true);
+        });
+
+    });
+}
+
+/*
+ *  [function getChats]
+ *
+ *  Функция вытаскивает все чаты по ключу пользователя в сессии.
+ *
+ *  req                     -   Не используем.
+ *  res                     -   Не используем.
+ *  callback                -   Возвращает true.
+ */
+
+// module.exports.getChats = function (req, res, callback) {
+//     console.log('[SERVER] -> var sql');
+//     pool.getConnection(function(err, con) {
+//         if (err) throw err;
+//         var values = {
+//             user_key    : req.session.user_key,
+//             friend_key  : req.body.user
+//         };
+//         var sql = "SELECT id, interlocutor_key FROM user_chats WHERE user_key = ?";
+//         con.query(sql, [req.session.user_key], function (err, result, fields) {
+//             console.log(result);
+//             if (result[0])
+//             async.parallel([
+//                 function () {
+//
+//                 },
+//                 function () {
+//
+//                 }
+//             ], function () {
+//
+//             });
+//             con.release();
+//             callback(result[0]);
+//         });
+//
+//     });
+// }
