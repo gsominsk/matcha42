@@ -1340,8 +1340,8 @@ html, body, .content-main {
 .search-filters-list .sfl-item:last-child {
     margin-bottom: 0;
 }
-.search-filters-list .sfl-item input[name=sfl-country],
-.search-filters-list .sfl-item input[name=sfl-city] {
+.search-filters-list .sfl-item input[name=sflCountry],
+.search-filters-list .sfl-item input[name=sflCity] {
     width: 100%;
     font-family: 'Roboto Black', arial;
     font-size: 0.9em;
@@ -1413,6 +1413,12 @@ html, body, .content-main {
     padding-left: 55px;
     font-family: 'Roboto Black', arial;
     /*font-size: 0.9em;*/
+}
+.founded-users-list .no-founded-users {
+    color: darkgrey;
+    font-family: 'Roboto Black', arial;
+    text-align: center;
+    font-size: 1.3em;
 }
 
 /*

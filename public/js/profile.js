@@ -337,10 +337,14 @@ class OptionsPage extends MainProfile {
 class SearchPage extends MainProfile {
 	constructor () {
 		super();
+
+		var __this = this;
+
         this.rangeSlider();
 
-        _global.vue.filters.options.country = _global.user.country;
-        _global.vue.filters.options.city    = _global.user.city;
+        _global.vue.filters.sflCountry = _global.user.country;
+        _global.vue.filters.sflCity    = _global.user.city;
+
         console.log('class SearchPage created!');
 	}
 
@@ -352,12 +356,16 @@ class SearchPage extends MainProfile {
         slider.each(function(){
 
             value.each(function(){
+                console.log('1');
                 var value = $(this).prev().attr('value');
-                $(this).html(value);
+                // $(this).html(value);
             });
 
             range.on('input', function(){
-                $(this).next(value).html(this.value);
+                _global.vue.filters[this.name] = this.value;
+                console.log(this.name);
+
+                // $(this).next(value).html(this.value);
             });
         });
     };
@@ -1470,143 +1478,78 @@ class VueUpload {
         /*           SEARCH          */
         /* ========================= */
 
+        Vue.component('founded-users', {
+            props: ['item'],
+            template:   '<li class="ful-item clearfix"  data-target="#profileMainContentCarousel" data-slide-to="7">'+
+                            '<div class="founded-user-img-wrap">' +
+                                '<img v-bind:src="item.photo_activated" alt=""/>' +
+                            '</div>'+
+                            '<div class="founded-user-name">{{item.name}} {{item.surname}}</div>'+
+                        '</li>'
+        });
+
+        _global.vue.foundedUsers = new Vue ({
+            el  : '.founded-users-list-wrap',
+            data: {
+                users: []
+            }
+        });
+
         _global.vue.filters = new Vue ({
             el  : document.querySelectorAll('.search-input-wrap')[0],
             data: {
-                options: {
-                    famous: {
-                        from: 0,
-                        to  : 10000
-                    },
-                    age: {
-                        from: 18,
-                        to  : 100
-                    },
-                    radius          : 100,
-                    country         : 'any',
-                    city            : 'any',
-                    sex             : 'any',
-                    sexOrientation  : 'any',
-                    name            : document.querySelectorAll('input[name="user-search-input"]')[0].value
-                }
-            },
-            watch: {
-                setMaxFamous: function () {
-                    console.log('some');
-                }
+                maxFamous       : 10000,
+                minFamous       : 0,
+                maxAge          : 100,
+                minAge          : 18,
+                radius          : 500,
+                sflCountry      : 'country',
+                sflCity         : 'city',
+                sex             : 'any',
+                sexOrientation  : {
+                    getero  : 1,
+                    bisexual: 0,
+                    lesbian : 0,
+                    gay     : 0
+                },
+                name            : document.querySelectorAll('input[name="user-search-input"]')[0].value
             },
             methods: {
                 findProfile: function () {
-                    console.log(_global.user);
-                    console.log(this.options);
-                    // после этого мы берем наш текст в инпуте + фильтры,
-                    // которые могли быть изменены и отправляем
-                },
-                setMaxFamous: function () {
-                    console.log(1);
-                },
-                applyFilters: function () {
+                    console.log(this);
+                    console.log(this._data);
+                    this.name = document.querySelectorAll('input[name="user-search-input"]')[0].value
 
-                    // var form = {};
-                    // form.name       = _global.functions.normalize(document.querySelectorAll('input[name="changeUserName"]')[0].value.trim());
-                    // form.surname    = _global.functions.normalize(document.querySelectorAll('input[name="changeUserSurname"]')[0].value.trim());
-                    // form.country    = _global.functions.normalize(document.querySelectorAll('input[name="changeUserCountry"]')[0].value.trim());
-                    // form.city       = _global.functions.normalize(document.querySelectorAll('input[name="changeUserCity"]')[0].value.trim());
-                    // if (document.querySelectorAll('input[name="changeUserEmail"]')[0].checkValidity() == true)
-                    //     form.email  = _global.functions.normalize(document.querySelectorAll('input[name="changeUserEmail"]')[0].value.trim());
-                    // else
-                    //     form.email  = '';
-                    // form.age        = this.user.age;
-                    //
-                    // if (checkRadio() && checkFields()) {
-                    //     if (form.country || form.city) {
-                    //         getGeopositionFromForm(form, function () {
-                    //             sendUserData(form);
-                    //         });
-                    //     } else
-                    //         sendUserData(form);
-                    //
-                    //     console.log('form passed validation and there is some values : ', form);
-                    // }
-                    //
-                    // function checkFields() {
-                    //     console.log(form);
-                    //     for (var field in form) {
-                    //         form[field] == _global.user[field] ? console.log('deleted', form[field], _global.user[field]) : 0;
-                    //         !form[field] || form[field] == _global.user[field] ? delete form[field] : 0;
-                    //     }
-                    //     return (Object.keys(form).length === 0 ? false : true);
-                    //     console.log(form);
-                    // }
-                    //
-                    // function checkRadio () {
-                    //     var checked = 0;
-                    //     var radio   = {
-                    //         all             : document.querySelectorAll('.reg-checkbox-wrap input'),
-                    //         sex             : null,
-                    //         sexOrientation  : null
-                    //     }
-                    //
-                    //     for (var i = 0; i < 4; i++) {radio.all[i].checked == true ? radio.sexOrientation = radio.all[i] : 0;}
-                    //     for (var i = 4; i < radio.all.length; i++) {radio.all[i].checked == true ? radio.sex = radio.all[i] : 0;}
-                    //
-                    //     form.sex            = radio.sex.value;
-                    //     form.sex_orientation= radio.sexOrientation.value;
-                    //
-                    //     (radio.sexOrientation && radio.sex) ? 0 : checked = 1;
-                    //
-                    //     return (checked == 1 ? false : true);
-                    // }
-                    //
-                    // function getGeopositionFromForm(form, callback) {
-                    //     var geocoder;
-                    //     var __this = this;
-                    //     initialize();
-                    //     !form.country ? form.country = _global.user.country : 0;
-                    //     !form.city ? form.city = _global.user.city : 0;
-                    //     codeAddress(form.country + ", " + form.city);
-                    //
-                    //     function initialize() {
-                    //         geocoder = new google.maps.Geocoder();
-                    //     }
-                    //
-                    //     function codeAddress(address) {
-                    //         geocoder.geocode( { 'address': address}, function(results, status) {
-                    //             if (status == 'OK') {
-                    //                 form.latitude           = results[0].geometry.location.lat();
-                    //                 form.longitude          = results[0].geometry.location.lng();
-                    //                 callback();
-                    //             } else {
-                    //                 console.log('ERR, Geocode was not successful for the following reason: ' + status)
-                    //             }
-                    //         });
-                    //     }
-                    // }
-                    //
-                    // function sendUserData() {
-                    //     var ajax    = new Ajax;
-                    //     var __this  = this;
-                    //     var ajaxReq = {
-                    //         type: 'POST',
-                    //         body: {
-                    //             action: 'updateUserInfo',
-                    //             data: form
-                    //         }
-                    //     };
-                    //     ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
-                    //         data.name || data.surname ?  _global.user.fullName = data.name + ' ' + data.surname : 0;
-                    //         data.name           ?  _global.user.name           = data.name : 0;
-                    //         data.surname        ?  _global.user.surname        = data.surname : 0;
-                    //         data.country        ?  _global.user.country        = data.country : 0;
-                    //         data.city           ?  _global.user.city           = data.city : 0;
-                    //         data.email          ?  _global.user.email          = data.email : 0;
-                    //         data.age            ?  _global.user.age            = data.age : 0;
-                    //         data.sex            ?  _global.user.sex            = data.sex : 0;
-                    //         data.sex_orientation?  _global.user.sexOrientation = data.sex_orientation : 0;
-                    //         _global.loadedObjects.profile = false;
-                    //         console.log(data);
-                    //     });
-                    // }
+                    var ajax    = new Ajax;
+                    var __this  = this;
+                    var ajaxReq = {
+                        type: 'POST',
+                        body: {
+                            action: 'findUsers',
+                            options: this._data
+                        }
+                    };
+                    ajax.sendRequest('http://localhost:3000/profile', ajaxReq , function (data) {
+                        console.log(data);
+                        for (var i = 0; i < data.length; i++) {
+                            console.log(i);
+                            if (data[i].photo_activated != 0)
+                                data[i].photo_activated = 'images/userPhotos/'+data[i].user_key+'/'+data[i].photo_activated;
+                            else
+                                data[i].photo_activated = 'images/unknown.jpg';
+                        }
+                        _global.vue.foundedUsers.users = data;
+                        console.log(data);
+                    });
+                },
+                setAction: function (value) {
+                    this[value.action] = document.querySelectorAll('input[name='+value.action+']')[0].value;
+                },
+                toggleSexOrientation: function (value) {
+                    this.sexOrientation[value] = this.sexOrientation[value] == 1 ? 0 : 1;
+                },
+                toggleSex: function (value) {
+                    this.sex = value;
                 }
 
             }

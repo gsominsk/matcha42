@@ -904,6 +904,102 @@ module.exports.removeFromBlackList = function (req, res, callback) {
 }
 
 /*
+ *  [function findUsers]
+ *
+ *  Функция в зависимости от фильтров которые нам пришли, выбирает пользователей из базы данных.
+ *
+ *  req.body.options        -   Фильтры.
+ *  res                     -   Не используем.
+ *  callback                -   Список пользователей.
+ */
+
+module.exports.findUsers = function (req, res, callback) {
+    console.log('[SERVER] -> findUser');
+    pool.getConnection(function(err, con) {
+        if (err) throw err;
+        var sql = "SELECT latitude, longitude FROM registered_users WHERE user_key = ?";
+        con.query(sql, [req.session.user_key], function (err, result, fields) {
+            getUsers(req, result[0], function (users) {
+                callback(users);
+            });
+        });
+
+        function getUsers (req, coords, callback) {
+            var sql = "SELECT user_key, name, surname, photo_activated FROM registered_users ";
+            var sql2 = '';
+
+            if (req.body.options.name.length > 0) {
+                sql2.length == 0 ? sql2 += "WHERE " : 0;
+                var names = req.body.options.name.split(' ');
+                for (var i = 0; i < names.length; i++) {
+                    if (names[i].trim().length == 0) {
+                        i + 1 >= names.length ? sql2 += ' ) ' : 0;
+                        continue ;
+                    }
+                    i == 0 ? sql2 += ' ( ' : 0;
+                    sql2 += " name = '"+names[i]+"' ";
+                    sql2 += " OR surname = '"+names[i]+"' ";
+                    i + 1 < names.length  && names[i + 1].trim().length == 0 ? sql2 +=' OR ' : 0;
+                    i + 1 >= names.length ? sql2 += ' ) ' : 0;
+                }
+            }
+            if (req.body.options.sex != 'any') {
+                sql2.length == 0 ? sql2 += "WHERE " : sql2 += " AND ";
+                sql2 += "( sex = '"+req.body.options.sex+"' ) ";
+            }
+            if (req.body.options.sflCountry.trim().length > 0) {
+                sql2.length == 0 ? sql2 += "WHERE " : sql2 += " AND ";
+                sql2 += "( country = '"+req.body.options.sflCountry.trim()+"' ) ";
+            }
+            if (req.body.options.sflCity.trim().length > 0) {
+                sql2.length == 0 ? sql2 += "WHERE " : sql2 += " AND ";
+                sql2 += "( city = '"+req.body.options.sflCity.trim()+"' ) ";
+            }
+
+            sql2.length == 0 ? sql2 += "WHERE " : sql2 += " AND ";
+            if (req.body.options.minAge > req.body.options.maxAge)
+                sql2+= "(age >= '"+req.body.options.minAge+"')";
+            else
+                sql2+= "(age >= '"+req.body.options.minAge+"' AND age <= '"+req.body.options.maxAge+"')";
+
+            sql2.length == 0 ? sql2 += "WHERE " : sql2 += " AND ";
+            if (req.body.options.minFamous > req.body.options.maxFamous)
+                sql2+= "(famous >= '"+req.body.options.minFamous+"')";
+            else
+                sql2+= "(famous >= '"+req.body.options.minFamous+"' AND famous <= '"+req.body.options.maxFamous+"')";
+
+            sql2.length == 0 ? sql2 += "WHERE " : sql2 += " AND ";
+            var l = (req.body.options.radius * 1000 * 10) / 1000000;
+            var minLng = coords.longitude - l;
+            var maxLng = coords.longitude + l;
+            var minLat = coords.latitude - l;
+            var maxLat = coords.latitude + l;
+
+            sql2+= "(longitude > '"+minLng+"' AND  longitude < '"+maxLng+"' AND latitude > '"+minLat+"' AND latitude < '"+maxLat+"')";
+
+            var check = 0;
+            sql2.length == 0 ? sql2 += "WHERE " : sql2 += " AND ";
+            sql2+= '( ';
+            for (e in req.body.options.sexOrientation) {
+                if (req.body.options.sexOrientation[e] == 1) {
+                    check == 1 ? sql2+= " OR " : 0;
+                    sql2+= " sex_orientation = '"+e+"' ";
+                    check = 1;
+                }
+            }
+            sql2+= ' )';
+
+            console.log(sql + sql2);
+            con.query(sql + sql2, [], function (err, result, fields) {
+                console.log(result);
+                callback(result ? result : []);
+            });
+        }
+    });
+}
+
+
+/*
  *  [function getChats]
  *
  *  Функция вытаскивает все чаты по ключу пользователя в сессии.

@@ -263,7 +263,7 @@
 							.carousel-item.scrollbar(data-page='search')
 								.search-users-wrap
 									.search-input-wrap
-										input(type='text', name='user-search-input' v-on:keyup.enter="findProfile")
+										input(type='text', name='user-search-input' v-on:keyup.enter="findProfile()")
 										.dropdown.search-filter-dropdown
 											button#applyUserFilters.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
 												i.fa.fa-cogs(aria-hidden='true')
@@ -275,43 +275,46 @@
 														.sfl-item-body
 															| MAX
 															.range-slider
-																input.range-slider__range(type='range', value='10000', min='0', max='10000', v-model="setMaxFamous")
-																span.range-slider__value()
-																| 0
+																input.range-slider__range(name="maxFamous" type='range', value='10000', min='0', max='10000')
+																span.range-slider__value
+																	| {{maxFamous}}
 															| MIN
 															.range-slider
-																input.range-slider__range(type='range', value='0', min='0', max='10000')
-																span.range-slider__value 0
+																input.range-slider__range(name="minFamous" type='range', value='0', min='0', max='10000')
+																span.range-slider__value
+																	| {{minFamous}}
 													li.sfl-item
 														.sfl-item-head
 															| AGE
 														.sfl-item-body
 															| MAX
 															.range-slider
-																input.range-slider__range(type='range', value='18', min='19', max='500')
-																span.range-slider__value 0
+																input.range-slider__range(name="maxAge" type='range', value='18', min='19', max='100')
+																span.range-slider__value
+																	| {{maxAge}}
 															| MIN
 															.range-slider
-																input.range-slider__range(type='range', value='18', min='18', max='500')
-																span.range-slider__value 0
-
+																input.range-slider__range(name="minAge" type='range', value='18', min='18', max='100')
+																span.range-slider__value
+																	| {{minAge}}
 													li.sfl-item
 														.sfl-item-head
 															| RADIUS
 														.sfl-item-body
 															.range-slider
-																input.range-slider__range(type='range', value='100', min='0', max='2000')
-																span.range-slider__value 0
+																input.range-slider__range(name="radius" type='range', value='100', min='0', max='2000')
+																span.range-slider__value
+																	| {{radius}}
 													li.sfl-item
 														.sfl-item-head
 															| COUNTRY
 														.sfl-item-body
-															input(type='text', name='sfl-country', value='Ukraine')
+															input(type='text', name='sflCountry', v-bind:value='sflCountry' v-on:keyup="setAction({action:'sflCountry'})")
 													li.sfl-item
 														.sfl-item-head
 															| CITY
 														.sfl-item-body
-															input(type='text', name='sfl-city', value='Kiev')
+															input(type='text', name='sflCity', v-bind:value='sflCity' v-on:keyup="setAction({action:'sflCity'})")
 													li.sfl-item
 														.sfl-item-head
 															| SEX
@@ -319,58 +322,63 @@
 															.radio.sex-check.male-radio
 																// MALE
 																label(for='male') MALE
-																input#male(type='radio', value='male', name='gender')
+																input#male(type='radio', value='male', name='gender' v-on:click="toggleSex('male')")
 															.radio.sex-check.female-checkbox
 																// FEMALE
 																label(for='female') FEMALE
-																input#female(type='radio', value='female', name='gender')
+																input#female(type='radio', value='female', name='gender' v-on:click="toggleSex('female')")
 															.radio.sex-check.any-checkbox
 																// ANY
 																label(for='any') ANY
-																input#any(type='radio', value='any', name='gender', checked='')
+																input#any(type='radio', value='any', name='gender', checked='' v-on:click="toggleSex('any')")
 													li.sfl-item
 														.sfl-item-head
 															| SEX ORIENTATION
 														.sfl-item-body
 															.checkbox.sex-check
 																label(for='male') GETERO
-																input#getero(type='checkbox', value='getero', name='sex-orientation')
+																input#getero(type='checkbox', value='getero', name='sex-orientation', checked='' v-on:click="toggleSexOrientation('getero')")
 															.checkbox.sex-check
 																label(for='female') BISEXUAL
-																input#bisexual(type='checkbox', value='bisexual', name='sex-orientation')
+																input#bisexual(type='checkbox', value='bisexual', name='sex-orientation' v-on:click="toggleSexOrientation('bisexual')")
 															.checkbox.sex-check
 																label(for='any') LESBIAN
-																input#lesbian(type='checkbox', value='lesbian', name='sex-orientation', checked='')
+																input#lesbian(type='checkbox', value='lesbian', name='sex-orientation', v-on:click="toggleSexOrientation('lesbian')")
 															.checkbox.sex-check
 																label(for='any') GAY
-																input#gay(type='checkbox', value='gay', name='sex-orientation', checked='')
+																input#gay(type='checkbox', value='gay', name='sex-orientation' v-on:click="toggleSexOrientation('gay')")
 													li.sfl-item
 														.sfl-item-head
 														.sfl-item-body
-															button.btn.btn-primary(v-on:click="applyFilters") APPLY
+															button.btn.btn-primary(v-on:click="findProfile()") APPLY
 															button.btn.btn-danger() CLOSE
 								.founded-users-list-wrap
-									ul.founded-users-list
-										li.ful-item.clearfix
-											.founded-user-img-wrap
-												img(src='../../images/userPhotos/test-user/2.jpg', alt='')
-											.founded-user-name
-												| Some Name
-										li.ful-item.clearfix
-											.founded-user-img-wrap
-												img(src='../../images/userPhotos/test-user/2.jpg', alt='')
-											.founded-user-name
-												| Some Name
-										li.ful-item.clearfix
-											.founded-user-img-wrap
-												img(src='../../images/userPhotos/test-user/2.jpg', alt='')
-											.founded-user-name
-												| Some Name
-										li.ful-item.clearfix
-											.founded-user-img-wrap
-												img(src='../../images/userPhotos/test-user/2.jpg', alt='')
-											.founded-user-name
-												| Some Name
+									ul.founded-users-list(v-if="users.length > 0")
+										founded-users(v-for="(user, index) in users" v-bind:item="user" v-bind:key="index")
+									ul.founded-users-list(v-else)
+										.no-founded-users
+											| NO MATCHES FOUND
+
+										//li.ful-item.clearfix
+										//	.founded-user-img-wrap
+										//		img(src='../../images/userPhotos/test-user/2.jpg', alt='')
+										//	.founded-user-name
+										//		| Some Name
+										//li.ful-item.clearfix
+										//	.founded-user-img-wrap
+										//		img(src='../../images/userPhotos/test-user/2.jpg', alt='')
+										//	.founded-user-name
+										//		| Some Name
+										//li.ful-item.clearfix
+										//	.founded-user-img-wrap
+										//		img(src='../../images/userPhotos/test-user/2.jpg', alt='')
+										//	.founded-user-name
+										//		| Some Name
+										//li.ful-item.clearfix
+										//	.founded-user-img-wrap
+										//		img(src='../../images/userPhotos/test-user/2.jpg', alt='')
+										//	.founded-user-name
+										//		| Some Name
 							.carousel-item.scrollbar(data-page='blacklist')
 								.blacklist-wrap
 									ul.blacklist()
