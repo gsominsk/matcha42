@@ -71,7 +71,7 @@ io.sockets.on('connection', function (socket) {
     socket.on('like', function(like){
         console.log(like);
         socketRequest.getNotificationInfo({key: like.from}, function (liker) {
-            liker.msg = like.action == 'add' ? 'Liked you.' : 'Unliked you.';
+            liker.msg = like.action;
             if (users[like.to])
                 io.to(users[like.to].id).emit('like', liker);
         });

@@ -648,23 +648,36 @@ module.exports.like = function (req, res, callback) {
             con.query(sql, [likes-1, values[1], values[2]], function (err, result, fields) {
                 if (err) throw err;
                 con.release();
-                callback({like: 'delete'});
+                callback({like: 'Unliked you.'});
             });
         });
     }
 
     function addLike (req, values, likes, con, callback) {
         console.log('ADD LIKE\n');
-        console.log(values);
-        var sql = "INSERT INTO photo_likes (liker_key, user_key, photo_name) VALUES (?, ?, ?)";
-        con.query(sql, values, function (err, result, fields) {
-            if (err) throw err;
+        var sql;
+        async.series([
+            function (callback) {
+                sql = "INSERT INTO photo_likes (liker_key, user_key, photo_name) VALUES (?, ?, ?)";
+                con.query(sql, values, function (err, result, fields) {
+                    if (err) throw err;
+                    callback(null, 1);
+                });
+            },
+            function (callback) {
+                sql = "SELECT photo_name FROM photo_likes WHERE user_key = ? AND liker_key = ?";
+                con.query(sql, [req.session.user_key, values[1]], function (err, result, fields) {
+                    if (err) throw err;
+                    callback(result[0] ? {like: 'Liked back.'} : {like: 'Liked you.'});
+                });
+            }
+        ], function (check) {
             sql = "UPDATE photos SET likes = ? WHERE " +
                 "user_key = ? AND photo_name = ?";
             con.query(sql, [likes+1, values[1], values[2]], function (err, result, fields) {
                 if (err) throw err;
                 con.release();
-                callback({like: 'add'});
+                callback(check);
             });
         });
     }

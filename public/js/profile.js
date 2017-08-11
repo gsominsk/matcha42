@@ -710,13 +710,13 @@ class VueUpload {
                         }
                     }
                     ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
-                        console.log(data.like);
+                        console.log(data);
                         _global.socket.emit('like', {
                             to      :_global.vue.modal.photoOwner,
                             from    :_global.user.key,
                             action  :data.like
                         });
-                        data.like == 'delete' ? __this.likes-- : __this.likes++;
+                        data.like == 'Unliked you.' ? __this.likes-- : __this.likes++;
                     })
 
                 }
