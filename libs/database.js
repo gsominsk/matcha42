@@ -153,8 +153,9 @@ sqlTables[5]  =		"CREATE TABLE `user_chats` ("+
 sqlTables[6]  =		"CREATE TABLE `chat_messages` ("+
 						"`id` INT AUTO_INCREMENT,"+
 						"`chat` VARCHAR(256),"+
+						"`user_key` VARCHAR(256),"+
 						"`message` VARCHAR(2000),"+
-						"`message_date` DATETIME NOT NULL,"+
+						"`message_date` DATETIME DEFAULT CURRENT_TIMESTAMP,"+
 						"`readed` BOOLEAN DEFAULT '0',"+
 						"PRIMARY KEY (`id`)"+
 					");";

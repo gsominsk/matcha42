@@ -1,16 +1,20 @@
-var _global = {};
+var _global             = {};
 
-_global.user = {};
-_global.user.fullName = '';
-_global.user.avatar = '';
+_global.user            = {};
+_global.user.fullName   = '';
+_global.user.avatar     = '';
 
-_global.anotherUserPage = {}
+_global.anotherUserPage         = {}
 _global.anotherUserPage.userKey = null;
 
-_global.vue = {};
-_global.vue.modal = {};
+_global.chat                = {};
+_global.chat.key            = '';
+_global.chat.interlocutor   = '';
 
-_global.functions = {
+_global.vue         = {};
+_global.vue.modal   = {};
+
+_global.functions   = {
     normalize: function (str) {
         var div = document.createElement('div');
         var text = document.createTextNode(str);
@@ -19,6 +23,12 @@ _global.functions = {
     },
     playSound: function(filename) {
         document.getElementById("sound").innerHTML='<audio autoplay="autoplay"><source src="' + filename + '.mp3" type="audio/mpeg" /><source src="' + filename + '.ogg" type="audio/ogg" /><embed hidden="true" autostart="true" loop="false" src="' + filename +'.mp3" /></audio>';
+    },
+    scrollToBottom: function () {
+        setTimeout(function () {
+            var block = document.getElementsByClassName("chat-body")[0];
+            block.scrollTop = block.scrollHeight;
+        }, 100);
     }
 };
 
@@ -86,10 +96,11 @@ class MainProfile {
 }
 
 class Chat extends MainProfile {
-	constructor () {
+    constructor () {
 		super();
 		var block = document.getElementsByClassName("chat-body")[0];
 		block.scrollTop = block.scrollHeight;
+
 	}
 }
 
@@ -98,10 +109,7 @@ class ProfilePage extends MainProfile {
 		super();
         _global.anotherUserPage.userKey = null;
 		if (_global.loadedObjects.profile == false) {
-            // запускаем longрull запрос для странички профиля
-            //      если данные пришли перерендериваем не статические элементы
             this.renderProfilePage();
-            //рендерим все данные на странице
             console.log('profile page loaded');
             _global.loadedObjects.profile = true;
 		}
@@ -221,41 +229,136 @@ class MessagesPage extends MainProfile {
 		var __this          = this;
 
 		// open/close
-		this.closeChatBtn.onclick = function () {
-			__this.closeChat();
-		}
-		this.addHandler(document, 'click', function () {
-			var className = event.target.className ? event.target.className : 'false';
+        this.addHandler(document, 'click', function () {
+            if (event.target.hasAttribute('user')) {
+                _global.chat.key            = event.target.getAttribute('chat');
+                _global.chat.interlocutor   = event.target.getAttribute('user');
+                __this.openChat();
+            } else if (event.target.classList.contains('time-of-last-message')
+                || event.target.classList.contains('last-message-of-chat')
+                || event.target.classList.contains('interlocutor-img-wrap')
+                || event.target.classList.contains('interlocutor-name')) {
+                _global.chat.key            = event.target.parentElement.getAttribute('chat');
+                _global.chat.interlocutor   = event.target.parentElement.getAttribute('user');
+                __this.openChat();
+            }
+        });
 
-			if ((document.querySelectorAll('.pcl-item .' + className).length != 0 || className === 'pcl-item')
-				&& className != 'interlocutor-name') {
-				__this.openChat();
-			}
-		});
+        this.addHandler(document, 'click', function () {
+            if (event.target.hasAttribute('user')) {
+                _global.anotherUserPage.userKey = event.target.getAttribute('user');
+            } else if (event.target.classList.contains('interlocutor-info-wrap')
+                || event.target.classList.contains('chat-interlocutor-name')) {
+                _global.anotherUserPage.userKey = event.target.parentElement.getAttribute('user');
+            } else if (event.target.hasAttribute('alt')) {
+                var el = event.target.getAttribute('alt').toString();
+                el == "interlocutorAvatar" ? _global.anotherUserPage.userKey = event.target.parentElement.parentElement.getAttribute('user') : 0;
+            }
+        });
+
+        this.addHandler(this.closeChatBtn, 'click', function () {
+            __this.closeChat();
+        });
 
 		this.renderChats();
 
 	}
 
 	closeChat() {
-		this.chat.removeAttribute('style');
+        _global.vue.chatsList.messages              = [];
+        _global.vue.chatsList.interlocutor.name     = '';
+        _global.vue.chatsList.interlocutor.key      = '';
+        _global.vue.chatsList.interlocutor.avatar   = '';
+        this.chat.removeAttribute('style');
 	}
 
 	openChat () {
 		this.chat.setAttribute('style', 'left:0;');
+		var __this = this;
+		var ajax = new Ajax;
+		var ajaxReq = {
+		    type: 'POST',
+            body: {
+		        action      : 'getMessages',
+                chat        : _global.chat.key,
+                interlocutor: _global.chat.interlocutor
+            }
+        };
+		ajax.sendRequest('/profile', ajaxReq, function (data) {
+            if (data[1]) {
+                _global.vue.chatsList.interlocutor.name     = data[1].name + " " + data[1].surname;
+                _global.vue.chatsList.interlocutor.key      = data[1].user_key;
+                _global.vue.chatsList.interlocutor.avatar   = data[1].photo_activated == '0' ? 'images/unknown.jpg'
+                                                            : 'images/userPhotos/'+_global.chat.interlocutor+'/'+data[1].photo_activated;
+            }
+            if (data[0]) {
+                for (var i = 0; i < data[0].length; i++)
+                    data[0][i].user_key = data[0][i].msgOwner == _global.user.key ? 'left-message' : 'right-message';
+                _global.vue.chatsList.messages = data[0];
+            }
+            _global.functions.scrollToBottom();
+        });
 	}
 
 	renderChats() {
-        // var ajax = new Ajax;
-        // var ajaxReq = {
-        //     type: 'POST',
-        //     body: {
-        //         action: 'getChats'
-        //     }
-        // }
-        // ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
-        //     console.log(data);
-        // });
+	    var __this = this;
+        var ajax = new Ajax;
+        var ajaxReq = {
+            type: 'POST',
+            body: {
+                action: 'getChats'
+            }
+        }
+        ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
+            console.log(data);
+            __this.createChats(data);
+        });
+    }
+
+    createChats (data) {
+	    var chats = [];
+	    var flag = 0;
+        for (var i = 0; i < data[2].length; i++) {
+            for (var j = 0; j < data[1].length; j++) {
+                for (var k = 0; k < data[0].length; k++) {
+                    if (data[2][i].chat == data[0][k].chat && data[2][i].interlocutor_key == data[1][j].user_key) {
+                        flag = 1;
+                        this.pushNewChat(chats, data, i, j, k);
+                        k = 0;
+                        j = 0;
+                    }
+                }
+                if (flag == 0) {
+                    data[0][data[0].length] = {
+                        chat        : data[2][i].chat,
+                        message     : 'no massages yet.',
+                        readed      : 1,
+                        message_date: new Date()
+                    };
+                    flag = 1;
+                    this.pushNewChat(chats, data, i, j, data[0].length - 1);
+                    k = 0;
+                    j = 0;
+                }
+
+            }
+        }
+        _global.vue.chatsList.chats = chats;
+    }
+
+    pushNewChat (chats, data, i, j, k) {
+	    var date = new Date(data[0][k].message_date);
+        chats[i] = {};
+        chats[i].chat           = data[0][k].chat;
+        chats[i].message        = data[0][k].message;
+        chats[i].readed         = data[0][k].readed == 1 ? null : 'not-readed';
+        chats[i].message_date   = (date.getMonth() + 1) +'/'+date.getDate()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes();
+        chats[i].user_key       = data[1][j].user_key;
+        chats[i].name           = data[1][j].name;
+        chats[i].surname        = data[1][j].surname;
+        chats[i].photo_activated= data[1][j].photo_activated != '0' ? 'images/userPhotos/'+data[1][j].user_key+'/'+data[1][j].photo_activated : '0';
+        data[0].splice(k, 1);
+        data[1].splice(j, 1);
     }
 }
 
@@ -286,9 +389,10 @@ class FriendsPage extends MainProfile {
         });
 
         this.addHandler(document, 'click', function () {
-            if (event.target.hasAttribute('user')) {
+            if (event.target.hasAttribute('user'))
                 _global.anotherUserPage.userKey = event.target.getAttribute('user');
-            } else if (event.target.classList.contains('friends-full-name')) {
+            else if (event.target.classList.contains('friends-full-name')
+                    || event.target.classList.contains('friend-img-wrap')) {
                 _global.anotherUserPage.userKey = event.target.parentElement.getAttribute('user');
             } else if (event.target.hasAttribute('alt')) {
                 var el = event.target.getAttribute('alt').toString();
@@ -344,6 +448,18 @@ class SearchPage extends MainProfile {
 
         _global.vue.filters.sflCountry = _global.user.country;
         _global.vue.filters.sflCity    = _global.user.city;
+
+        this.addHandler(document, 'click', function () {
+            if (event.target.hasAttribute('user')) {
+                _global.anotherUserPage.userKey = event.target.getAttribute('user');
+            } else if (event.target.classList.contains('founded-user-name')
+                    || event.target.classList.contains('founded-user-img-wrap') ) {
+                _global.anotherUserPage.userKey = event.target.parentElement.getAttribute('user');
+            } else if (event.target.hasAttribute('alt')) {
+                var el = event.target.getAttribute('alt').toString();
+                el == "foundedUser" ? _global.anotherUserPage.userKey = event.target.parentElement.parentElement.getAttribute('user') : 0;
+            }
+        });
 
         console.log('class SearchPage created!');
 	}
@@ -508,6 +624,127 @@ class AnotherUserPage extends MainProfile {
 
 class VueUpload {
     constructor () {
+        /* ========================= */
+        /*         PROFILE           */
+        /* ========================= */
+
+        Vue.component('profile-static-info', {
+            props: ['item'],
+            template: '<div><span v-bind:class="item.describeItemClass">{{item.describeItemText}}</span><span v-bind:class="item.valueItemClass">{{item.valueItemText}}</span></div>'
+        });
+
+        Vue.component('gallery-user-photo', {
+            props: ['item'],
+            template: '<li class="gpl-item" data-toggle="modal" data-target="#galleryPhotosModal"><div class="gpl-img-wrap"><img v-bind:src="item" alt="user photo"></div></li>'
+        });
+
+        Vue.component('hl-item', {
+            props: ['item'],
+            template:   '<li class="hl-item">' +
+            '{{item}}'+
+            '<i class="fa fa-times" aria-hidden="true"></i>'+
+            '</li>'
+        });
+
+        _global.vue.profileStatic = new Vue({
+            el: '.profile-data-list',
+            data: {
+                profileStaticInfo: []
+            },
+            methods: {
+                setUserInfo: function (data) {
+                    this.profileStaticInfo = [];
+
+                    for (var i = 0; i < data.length; i++) {
+                        this.profileStaticInfo.push(data[i]);
+                    }
+                },
+                deleteAll: function () {
+                    this.profileStaticInfo = [];
+                }
+            }
+        });
+
+        _global.vue.profileNameStatic = new Vue({
+            el: '.profile-name',
+            data: {
+                name: '',
+                surname: ''
+            },
+            methods: {
+                setUserName: function (data) {
+                    this.name   = data.name ? data.name : 'emptyName';
+                    this.surname= data.surname ? data.surname : 'emptySurname';;
+                }
+            }
+        });
+
+        _global.vue.profileHobbies = new Vue({
+            el: '.hobbies-list',
+            data: {
+                hobbies: ['#no_hashtags_yet']
+            },
+            methods : {
+                setUserHobbies: function (data) {
+                    this.hobbies = data.hobbies.length == 0 ? ['#no_hashtags_yet'] : data.hobbies;
+                },
+                deleteHobbie: function () {
+                    if (event.target.classList.contains('fa-times')) {
+                        var nodes       = Array.prototype.slice.call( document.getElementsByClassName('hobbies-list')[0].children );
+                        var hobbie      = event.target.parentElement.innerText;
+                        var hobbieNum   = nodes.indexOf(event.target.parentElement)
+                        var __this      = this;
+
+                        console.log(hobbie);
+
+                        var ajax = new Ajax;
+                        var ajaxReq = {
+                            type: 'POST',
+                            body: {
+                                action: 'deleteHobbie',
+                                hobbie: {
+                                    name: hobbie
+                                }
+                            }
+                        }
+                        ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
+                            data.status == true ? __this.hobbies.splice(hobbieNum, 1) : 0;
+                        });
+                    }
+                },
+                deleteAll: function () {
+                    this.hobbies = [];
+                }
+            }
+        });
+
+        _global.vue.aboutYourself = new Vue({
+            el: document.querySelectorAll('textarea[name="about-yourself"]')[0],
+            data: {
+                aboutUser: 'Describe yourself and your hobbies'
+            },
+            methods: {
+                setAboutYourself: function (data) {
+                    this.aboutYourself = data.about_yourself == null ? 'Describe yourself and your hobbies' : data.about_yourself
+                }
+            }
+        });
+
+        _global.vue.userPhotos = new Vue({
+            el  : '.gallery-photos-wrap',
+            data: {
+                photos: null
+            },
+            methods: {
+                getPhotoData: function () {
+                    _global.vue.auGalleryPhotos.getPhotoData();
+                },
+                setUserPhotos: function (data) {
+                    this.photos = data.photos.length != 0 ? data.photos : null
+                }
+            }
+        });
+
         /* ========================= */
         /*       PROFILEMENU         */
         /* ========================= */
@@ -740,6 +977,7 @@ class VueUpload {
                     var text = document.querySelectorAll('.modal-comments-footer .textarea-wrap')[0].innerText.trim();
 
                     if (text) {
+                        text = _global.functions.normalize(text);
                         var ajax = new Ajax;
                         var ajaxReq = {
                             type: 'POST',
@@ -775,124 +1013,79 @@ class VueUpload {
         });
 
         /* ========================= */
-        /*         PROFILE           */
+        /*         MESSAGES          */
         /* ========================= */
 
-        Vue.component('profile-static-info', {
-            props: ['item'],
-            template: '<div><span v-bind:class="item.describeItemClass">{{item.describeItemText}}</span><span v-bind:class="item.valueItemClass">{{item.valueItemText}}</span></div>'
-        });
-
-        Vue.component('gallery-user-photo', {
-            props: ['item'],
-            template: '<li class="gpl-item" data-toggle="modal" data-target="#galleryPhotosModal"><div class="gpl-img-wrap"><img v-bind:src="item" alt="user photo"></div></li>'
-        });
-
-        Vue.component('hl-item', {
-            props: ['item'],
-            template:   '<li class="hl-item">' +
-                            '{{item}}'+
-                            '<i class="fa fa-times" aria-hidden="true"></i>'+
+        Vue.component('chat', {
+            props   : ['item'],
+            template:   '<li class="pcl-item" v-bind:user="item.user_key" v-bind:chat="item.chat">'+
+                            '<div class="interlocutor-img-wrap">' +
+                                '<img v-if="item.photo_activated != 0" v-bind:src="item.photo_activated" alt="interlocutorAvatar"/>' +
+                                '<img v-else src="images/unknown.jpg" alt="interlocutorAvatar"/>' +
+                            '</div>'+
+                            '<div class="time-of-last-message">{{item.message_date}}</div>'+
+                            '<div class="interlocutor-name">{{item.name}} {{item.surname}}</div>'+
+                            '<input v-bind:value="item.message" disabled="" class="last-message-of-chat"/>'+
                         '</li>'
         });
 
-        _global.vue.profileStatic = new Vue({
-            el: '.profile-data-list',
-            data: {
-                profileStaticInfo: []
-            },
-            methods: {
-                setUserInfo: function (data) {
-                    this.profileStaticInfo = [];
-
-                    for (var i = 0; i < data.length; i++) {
-                        this.profileStaticInfo.push(data[i]);
-                    }
-                },
-                deleteAll: function () {
-                    this.profileStaticInfo = [];
-                }
-            }
+        Vue.component('message', {
+            props   : ['item'],
+            template:   '<li class="cmw-item" v-bind:class="item.user_key">'+
+                            '<div>{{item.message}}</div>'+
+                        '</li>'
         });
 
-        _global.vue.profileNameStatic = new Vue({
-            el: '.profile-name',
+        _global.vue.chatsList = new Vue ({
+            el  : '.profile-chat-wrap',
             data: {
-                name: '',
-                surname: ''
+                chats   : [],
+                messages: [],
+                interlocutor: {
+                    name    : '',
+                    key     : '',
+                    avatar  : 'images/unknown.jpg'
+                }
             },
             methods: {
-                setUserName: function (data) {
-                    this.name   = data.name ? data.name : 'emptyName';
-                    this.surname= data.surname ? data.surname : 'emptySurname';;
-                }
-            }
-        });
-
-        _global.vue.profileHobbies = new Vue({
-            el: '.hobbies-list',
-            data: {
-                hobbies: ['#no_hashtags_yet']
-            },
-            methods : {
-                setUserHobbies: function (data) {
-                    this.hobbies = data.hobbies.length == 0 ? ['#no_hashtags_yet'] : data.hobbies;
-                },
-                deleteHobbie: function () {
-                    if (event.target.classList.contains('fa-times')) {
-                        var nodes       = Array.prototype.slice.call( document.getElementsByClassName('hobbies-list')[0].children );
-                        var hobbie      = event.target.parentElement.innerText;
-                        var hobbieNum   = nodes.indexOf(event.target.parentElement)
-                        var __this      = this;
-
-                        console.log(hobbie);
-
+                sendMsg: function () {
+                    var __this = this;
+                    var textarea = document.querySelectorAll('.chat-footer .textarea-wrap')[0];
+                    var text = textarea.value.trim();
+                    if (text) {
                         var ajax = new Ajax;
                         var ajaxReq = {
                             type: 'POST',
                             body: {
-                                action: 'deleteHobbie',
-                                hobbie: {
-                                    name: hobbie
+                                action  : 'sendMsg',
+                                msg     : {
+                                    text                : text,
+                                    chat                : _global.chat.key
                                 }
                             }
-                        }
-                        ajax.sendRequest('http://localhost:3000/profile', ajaxReq, function (data) {
-                            data.status == true ? __this.hobbies.splice(hobbieNum, 1) : 0;
+                        };
+                        ajax.sendRequest('/profile', ajaxReq , function (data) {
+                            textarea.value = '';
+                            var date = new Date();
+                            var msg = {
+                                message: text,
+                                message_date: (date.getMonth() + 1) +'/'+date.getDate()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes(),
+                                msgOwner: _global.user.key,
+                                user_key: "left-message"
+                            };
+                            __this.messages.push(msg);
+                            _global.functions.scrollToBottom();
+                            _global.socket.emit('msg', {
+                                to      :_global.chat.interlocutor,
+                                from    :_global.user.key,
+                                action  :'New message.',
+                                msg     : msg
+                            });
                         });
                     }
-                },
-                deleteAll: function () {
-                    this.hobbies = [];
                 }
             }
-        });
 
-        _global.vue.aboutYourself = new Vue({
-            el: document.querySelectorAll('textarea[name="about-yourself"]')[0],
-            data: {
-                aboutUser: 'Describe yourself and your hobbies'
-            },
-            methods: {
-                setAboutYourself: function (data) {
-                    this.aboutYourself = data.about_yourself == null ? 'Describe yourself and your hobbies' : data.about_yourself
-                }
-            }
-        });
-
-        _global.vue.userPhotos = new Vue({
-            el  : '.gallery-photos-wrap',
-            data: {
-                photos: null
-            },
-            methods: {
-                getPhotoData: function () {
-                    _global.vue.auGalleryPhotos.getPhotoData();
-                },
-                setUserPhotos: function (data) {
-                    this.photos = data.photos.length != 0 ? data.photos : null
-                }
-            }
         });
 
         /* ========================= */
@@ -1155,7 +1348,13 @@ class VueUpload {
                     }
                 },
                 goToChat: function () {
-                    console.log('will open chat when it will be ready');
+                    if (_global.anotherUserPage.liked) {
+
+                        console.log('will open chat when it will be ready');
+                        // check if chat already exists if exists open chat else
+                        // create new chat 2x and push it into the list of chats
+                        // and open it.
+                    }
                 }
             }
         });
@@ -1480,9 +1679,9 @@ class VueUpload {
 
         Vue.component('founded-users', {
             props: ['item'],
-            template:   '<li class="ful-item clearfix"  data-target="#profileMainContentCarousel" data-slide-to="7">'+
+            template:   '<li class="ful-item clearfix" v-bind:user="item.user_key" data-target="#profileMainContentCarousel" data-slide-to="7">'+
                             '<div class="founded-user-img-wrap">' +
-                                '<img v-bind:src="item.photo_activated" alt=""/>' +
+                                '<img v-bind:src="item.photo_activated" alt="foundedUser"/>' +
                             '</div>'+
                             '<div class="founded-user-name">{{item.name}} {{item.surname}}</div>'+
                         '</li>'
@@ -1701,6 +1900,14 @@ class Emit {
             // ВКЛЮЧИТЬ ПРИ СДАЧЕ
             // _global.functions.playSound('audio/notif');
             _global.vue.notificationsList.notifications.push(data);
+        });
+
+        _global.socket.on('msg', function (data) {
+            // ВКЛЮЧИТЬ ПРИ СДАЧЕ
+            // _global.functions.playSound('audio/notif');
+            _global.vue.notificationsList.notifications.push(data);
+            _global.vue.chatsList.messages.push(data.messageInfo);
+            _global.functions.scrollToBottom();
         });
     }
 }

@@ -560,9 +560,9 @@ html, body, .content-main {
     font-family: 'Roboto Black', arial;
 }
 .profile-chat-list .no-messages {
-    display: none;
     color: darkgrey;
     text-align: center;
+    font-size: 1.3em;
 }
 .profile-chat-list .pcl-item {
     position: relative;
@@ -603,7 +603,7 @@ html, body, .content-main {
 }
 .pcl-item .last-message-of-chat {
     display: block;
-    width: 65%;
+    width: calc(100% - 50px);
     padding: 0 0 0 5px;
     background: #fff;
     border: none;
@@ -617,6 +617,9 @@ html, body, .content-main {
 }
 .profile-chat-list .pcl-item:hover .last-message-of-chat {
     background: #e5e5e5;
+}
+.not-readed {
+    background: #e5e5e5 !important;
 }
 
 /*
@@ -655,9 +658,15 @@ html, body, .content-main {
     font-size: 1.3em;
     color: #fff;
 }
+.chat-header .interlocutor-info-wrap {
+    height: 100%;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
 .chat-header .chat-interlocutor-name {
     display: inline-block;
-    position: absolute;
+    /*position: absolute;*/
     top: 10px;
     right: 60px;
     color: #fff;

@@ -95,54 +95,25 @@
 										textarea.textareaAutoresize(name='about-yourself', disabled='') {{aboutUser}}
 							.carousel-item.scrollbar(data-page='messages')
 								.profile-chat-wrap
-									ul.profile-chat-list
+									ul.profile-chat-list(v-if="chats.length == 0")
 										.no-messages NO MESSAGES YET
-										li.pcl-item
-											.interlocutor-img-wrap
-												img(src='../../images/userPhotos/test-user/1.jpg', alt='')
-											.time-of-last-message
-												| 11:08.07.2017
-											.interlocutor-name Some Name
-											input.last-message-of-chat(value='some text sj jasf saj jav skav akj vkja vkjas vkjav', disabled='')
-										li.pcl-item
-											.interlocutor-img-wrap
-												img(src='../../images/userPhotos/test-user/2.jpg', alt='')
-											.time-of-last-message
-												| 11:08.07.2017
-											.interlocutor-name Some Name
-											input.last-message-of-chat(value='some text sj jasf saj jav skav akj vkja vkjas vkjav', disabled='')
-										li.pcl-item
-											.interlocutor-img-wrap
-												img(src='../../images/userPhotos/test-user/3.jpg', alt='')
-											.time-of-last-message
-												| 11:08.07.2017
-											.interlocutor-name Some Name
-											input.last-message-of-chat(value='some text sj jasf saj jav skav akj vkja vkjas vkjav', disabled='')
+									ul.profile-chat-list(v-else)
+										chat(v-for="(chat, index) in chats" v-bind:key="index" v-bind:item="chat")
 									.chat-wrap
 										.chat-header
 											.close-chat-btn
 												i.fa.fa-arrow-left(aria-hidden='true')
-											.chat-interlocutor-name
-												| Some Name
-											.chat-interlocutor-avatar
-												img(src='../../images/userPhotos/test-user/1.jpg', alt='')
+											.interlocutor-info-wrap.clearfix(data-target="#profileMainContentCarousel" data-slide-to="7" v-bind:user="interlocutor.key")
+												.chat-interlocutor-name
+													| {{interlocutor.name}} {{interlocutor.surname}}
+												.chat-interlocutor-avatar
+													img(v-bind:src='interlocutor.avatar', alt='interlocutorAvatar')
 										.chat-body.scrollbar
 											ul.chat-messages-wrap
-												li.cmw-item.left-message
-													div
-														| hello
-												li.cmw-item.right-message
-													div
-														| hello
-												li.cmw-item.left-message
-													div
-														| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-												li.cmw-item.right-message
-													div
-														| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+												message(v-for="(message, index) in messages" v-bind:key="index" v-bind:item="message")
 										.chat-footer
-											.textarea-wrap.scrollbar(contenteditable='true')
-											.send-msg-btn
+											textarea.textarea-wrap.scrollbar(contenteditable='true' v-on:keyup.enter="sendMsg")
+											.send-msg-btn(v-on:click="sendMsg")
 												i.fa.fa-paper-plane(aria-hidden='true')
 							.carousel-item.scrollbar(data-page='friends')
 								.friends-list-wrap
@@ -377,7 +348,7 @@
 									.au-connection.clearfix
 										div.add-to-friends(v-bind:class="{innactive: friends}" v-on:click="addUserToFriends")
 											i(class="fa fa-user-plus" aria-hidden="true")
-										div.send-message(v-bind:class="{innactive: liked}")
+										div.send-message(v-bind:class="{innactive: liked}" v-on:click="goToChat")
 											i(class="fa fa-comments-o" aria-hidden="true")
 								.au-gallery-photos-wrap
 									ul.au-gallery-photos-list(v-if="photos.length != 0")

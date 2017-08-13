@@ -86,6 +86,16 @@ io.sockets.on('connection', function (socket) {
         });
     });
 
+    socket.on('msg', function(data){
+        console.log(data);
+        socketRequest.getNotificationInfo({key: data.from}, function (r) {
+            r.msg = data.action;
+            r.messageInfo = data.msg;
+            r.messageInfo.user_key = 'right-message';
+            if (users[data.to])
+                io.to(users[data.to].id).emit('msg', r);
+        });
+    });
 
     socket.on('disconnect', function() {
         console.log('logout', socket.id);

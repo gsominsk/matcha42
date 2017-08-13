@@ -526,7 +526,7 @@ module.exports.setNewComment = function (req, res, callback) {
  */
 
 module.exports.getPhotoData = function (req, res, callback) {
-    console.log('[SERVER] -> getPhotoData')
+    console.log('[SERVER] -> getPhotoData');
     pool.getConnection(function(err, con) {
         if (err) throw err;
         console.log(req.body.photo);
@@ -1022,31 +1022,128 @@ module.exports.findUsers = function (req, res, callback) {
  *  callback                -   Возвращает true.
  */
 
-// module.exports.getChats = function (req, res, callback) {
-//     console.log('[SERVER] -> var sql');
-//     pool.getConnection(function(err, con) {
-//         if (err) throw err;
-//         var values = {
-//             user_key    : req.session.user_key,
-//             friend_key  : req.body.user
-//         };
-//         var sql = "SELECT id, interlocutor_key FROM user_chats WHERE user_key = ?";
-//         con.query(sql, [req.session.user_key], function (err, result, fields) {
-//             console.log(result);
-//             if (result[0])
-//             async.parallel([
-//                 function () {
-//
-//                 },
-//                 function () {
-//
-//                 }
-//             ], function () {
-//
-//             });
-//             con.release();
-//             callback(result[0]);
-//         });
-//
-//     });
-// }
+module.exports.getChats = function (req, res, callback) {
+    console.log('[SERVER] -> GETCHATS');
+    pool.getConnection(function(err, con) {
+        if (err) throw err;
+        var values = {
+            user_key    : req.session.user_key,
+            friend_key  : req.body.user
+        };
+        var sql = "SELECT chat, interlocutor_key FROM user_chats WHERE user_key = ?";
+        con.query(sql, [req.session.user_key], function (err, result, fields) {
+            console.log(result);
+            var check = result;
+            if (result[0])
+                async.parallel([
+                    function (callback) {
+                        sql = "SELECT chat, message, readed, message_date FROM chat_messages WHERE message_date " +
+                            "IN (SELECT MAX(message_date) FROM chat_messages WHERE ";
+                        var sql2 = "";
+                        for (var i = 0; i < result.length; i++) {
+                            sql2 += "chat = '" + result[i].chat + "'";
+                            i + 1 < result.length ? sql2 += " OR " : 0;
+                        }
+                        sql2 += ")";
+                        console.log('1', sql + sql2);
+                        con.query(sql + sql2, function (err, result, fields) {
+                            if (err) throw err;
+                            console.log('SELECT CHATS', result);
+                            callback(null, result);
+                        });
+                    },
+                    function (callback) {
+                        sql = "SELECT user_key, name, surname, photo_activated FROM registered_users WHERE "
+                        var sql2 = "";
+                        for (var i = 0; i < result.length; i++) {
+                            sql2 += "user_key = '" + result[i].interlocutor_key + "'";
+                            i + 1 < result.length ? sql2 += " OR " : 0;
+                        }
+                        console.log('2', sql + sql2);
+                        con.query(sql + sql2, function (err, result, fields) {
+                            if (err) throw err;
+                            console.log('SELECT INTERLOCUTORS', result);
+                            callback(null, result);
+                        });
+                    }
+                ], function (err, result) {
+                    result[2] = check;
+                    con.release();
+                    callback(result);
+                });
+        });
+
+    });
+}
+
+/*
+ *  [function getMessages]
+ *
+ *  Функция вытаскивает все сообщения в чfте по ключу чата.
+ *
+ *  req.session.chat        -   Уникальный ключ чата.
+ *  res                     -   Не используем.
+ *  callback                -   Возвращает true.
+ */
+
+module.exports.getMessages = function (req, res, callback) {
+    console.log('[SERVER] -> GETMESSAGES');
+    pool.getConnection(function(err, con) {
+        if (err) throw err;
+        var sql;
+        async.parallel([
+            function (callback) {
+                var sql = "SELECT t1.message, t1.message_date, t1.user_key AS msgOwner "+
+                    "FROM chat_messages t1 "+
+                    "WHERE chat = ? ORDER BY message_date ASC ";
+                con.query(sql, [req.body.chat], function (err, result, fields) {
+                    callback(null, result[0] ? result : null);
+                });
+            },
+            function (callback) {
+                var sql = "SELECT t1.name, t1.surname, t1.user_key, t1.photo_activated "+
+                    "FROM registered_users t1 "+
+                    "WHERE t1.user_key = ?";
+                con.query(sql, [req.body.interlocutor], function (err, result, fields) {
+                    callback(null, result[0] ? result[0] : null);
+                });
+            }
+        ], function (err, result) {
+            console.log(result);
+            con.release();
+            callback(result);
+        });
+    });
+}
+
+/*
+ *  [function sendMsg]
+ *
+ *  Функция записывает новое собщение в чат.
+ *
+ *  req.body.chat           -   Уникальный ключ чата.
+ *  req.session.user_key    -   От чьего имени отправлять сообщение.
+ *  req.body.msg            -   Сообщение которое надо записать.
+ *  res                     -   Не используем.
+ *  callback                -   Возвращает true.
+ */
+
+module.exports.sendMsg = function (req, res, callback) {
+    console.log('[SERVER] -> sendMsg')
+    pool.getConnection(function(err, con) {
+        if (err) throw err;
+        console.log(req.body);
+        var values = {
+            chat    : req.body.msg.chat,
+            user_key: req.session.user_key,
+            message : req.body.msg.text,
+            readed  : 0
+        };
+        var sql = "INSERT INTO chat_messages SET ?";
+        con.query(sql, values, function (err, result, fields) {
+            if (err) throw err;
+            con.release();
+            callback(result.affectedRows > 0 ? true : false);
+        });
+    });
+}
