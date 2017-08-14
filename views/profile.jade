@@ -125,15 +125,15 @@
 							.carousel-item.scrollbar(data-page='options')
 								.options-list-wrap
 									ul.options-list
-										li.ol-first-item
-											| CHANGE LANGUAGE
-										li.ol-item
-											span.change-lan language
-											.dropdown.change-lan-dropdown
-												button#chooseLanDropdown.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-												.dropdown-menu(aria-labelledby='chooseLanDropdown')
-													a.dropdown-item(href='#') EN
-													a.dropdown-item(href='#') RU
+										//li.ol-first-item
+										//	| CHANGE LANGUAGE
+										//li.ol-item
+										//	span.change-lan language
+										//	.dropdown.change-lan-dropdown
+										//		button#chooseLanDropdown.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+										//		.dropdown-menu(aria-labelledby='chooseLanDropdown')
+										//			a.dropdown-item(href='#') EN
+										//			a.dropdown-item(href='#') RU
 									ul.options-list.new-hashtag
 										li.ol-first-item
 											| ADD HASHTAGS
@@ -288,6 +288,11 @@
 															input(type='text', name='sflCity', v-bind:value='sflCity' v-on:keyup="setAction({action:'sflCity'})")
 													li.sfl-item
 														.sfl-item-head
+															| HASHTAGS
+														.sfl-item-body
+															input(type='text', name='findOnHashtags', v-bind:value='findOnHashtags' v-on:keyup="setAction({action:'findOnHashtags'})")
+													li.sfl-item
+														.sfl-item-head
 															| SEX
 														.sfl-item-body
 															.radio.sex-check.male-radio
@@ -348,7 +353,9 @@
 									.au-connection.clearfix
 										div.add-to-friends(v-bind:class="{innactive: friends}" v-on:click="addUserToFriends")
 											i(class="fa fa-user-plus" aria-hidden="true")
-										div.send-message(v-bind:class="{innactive: liked}" v-on:click="goToChat")
+										div.send-message(v-if="liked == false" data-target="#profileMainContentCarousel" data-slide-to="1" v-on:click="goToChat")
+											i(class="fa fa-comments-o" aria-hidden="true")
+										div.send-message(v-else class="innactive")
 											i(class="fa fa-comments-o" aria-hidden="true")
 								.au-gallery-photos-wrap
 									ul.au-gallery-photos-list(v-if="photos.length != 0")

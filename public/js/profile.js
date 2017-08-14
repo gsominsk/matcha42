@@ -230,7 +230,7 @@ class MessagesPage extends MainProfile {
 
 		// open/close
         this.addHandler(document, 'click', function () {
-            if (event.target.hasAttribute('user')) {
+            if (event.target.hasAttribute('user') && event.target.classList.contains('pcl-item')) {
                 _global.chat.key            = event.target.getAttribute('chat');
                 _global.chat.interlocutor   = event.target.getAttribute('user');
                 __this.openChat();
@@ -1354,6 +1354,17 @@ class VueUpload {
                         // check if chat already exists if exists open chat else
                         // create new chat 2x and push it into the list of chats
                         // and open it.
+                        var ajax = new Ajax;
+                        var ajaxReq = {
+                            type: 'POST',
+                            body: {
+                                action  : 'checkChat',
+                                user    : _global.anotherUserPage.userKey
+                            }
+                        }
+                        ajax.sendRequest('/profile', ajaxReq, function (data) {
+                            console.log(data);
+                        });
                     }
                 }
             }
@@ -1711,7 +1722,8 @@ class VueUpload {
                     lesbian : 0,
                     gay     : 0
                 },
-                name            : document.querySelectorAll('input[name="user-search-input"]')[0].value
+                name            : document.querySelectorAll('input[name="user-search-input"]')[0].value,
+                findOnHashtags  : ''
             },
             methods: {
                 findProfile: function () {

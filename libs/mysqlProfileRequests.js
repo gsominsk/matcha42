@@ -33,7 +33,6 @@ module.exports.addUserToStream = function (req, res) {
             user_key    : req.session.user_key,
         };
     }
-    console.log(_users)
 }
 
 module.exports.deleteUserFromStream = function (req, res) {
@@ -54,7 +53,6 @@ module.exports.deleteUserFromStream = function (req, res) {
 */
 
 module.exports.getProfileData = function (req, res, callback) {
-    console.log('[getProfileData]');
     var body = req.body;
     pool.getConnection(function(err, con) {
         if (err) throw err;
@@ -162,7 +160,6 @@ module.exports.getProfileData = function (req, res, callback) {
  */
 
 module.exports.getFriendsList = function (req, res, callback) {
-    console.log('SERVER getFriendsList')
     pool.getConnection(function(err, con) {
         if (err) throw err;
         var values = {
@@ -202,10 +199,8 @@ module.exports.getFriendsList = function (req, res, callback) {
  */
 
 module.exports.setUserHobbie = function (req, res, callback) {
-    console.log('[SERVER] -> setUserHobbies')
     pool.getConnection(function(err, con) {
         if (err) throw err;
-        console.log(req.body);
         var values = {
             user_key: req.session.user_key,
             hobbie  : req.body.hash
@@ -213,7 +208,6 @@ module.exports.setUserHobbie = function (req, res, callback) {
         var sql = "INSERT INTO user_hobbies SET ?";
         con.query(sql, values, function (err, result, fields) {
             if (err) throw err;
-            console.log(result);
             con.release();
             callback(result.affectedRows > 0 ? true : false);
         });
@@ -246,7 +240,6 @@ module.exports.setUserHobbie = function (req, res, callback) {
  */
 
 module.exports.uploadUserPhotos = function (req, res, callback) {
-    console.log('[uploadUserPhotos]');
     var dirPath     = 'public/images/userPhotos/' + req.session.user_key + '/';
 
     // check if some files already exists and sum of files < 5
@@ -300,8 +293,6 @@ module.exports.uploadUserPhotos = function (req, res, callback) {
     }
 
     function insertUserPhotos (req, values, callback) {
-        console.log('[uploadUserPhotos] -> [countUserFiles] -> [insertUserPhotos]');
-
         pool.getConnection(function(err, con) {
             if (err) throw err;
             var _result;
@@ -346,8 +337,6 @@ module.exports.uploadUserPhotos = function (req, res, callback) {
 module.exports.uploadUserAvatar = function (req, res, callback) {
     var dirPath     = 'public/images/userPhotos/' + req.session.user_key + '/';
 
-    console.log(req.body.photo);
-
     checkUserFiles(req, function (result) {
         if (result == true) {
             var buff = new Buffer(req.body.photo.src
@@ -377,7 +366,6 @@ module.exports.uploadUserAvatar = function (req, res, callback) {
             },
         ], function(result) {
             if (1 + count > 5) {
-                console.log('too many files');
                 callback({status:'You already have 5 photos. Delete some photos to upload new.'});
             } else {
                 for (j = 0; j < result.filesNames.length; j++) {
@@ -430,12 +418,8 @@ module.exports.uploadUserAvatar = function (req, res, callback) {
  */
 
 module.exports.deleteUserPhotos = function (req, res, callback) {
-    console.log('[SERVER] -> deleteUserPhotos'); //delete
-    console.log(req.body.photos); //delete
-
     pool.getConnection(function(err, con) {
         if (err) throw err;
-        console.log(req.body);
         var values = [];
         var sql = "DELETE FROM photos WHERE";
         var sql2 = '';
@@ -463,7 +447,6 @@ module.exports.deleteUserPhotos = function (req, res, callback) {
     });
 
     function deleteFile (req, i) {
-        console.log('[i] : ', i);
         fs.stat('public/images/userPhotos/'+req.session.user_key+'/'+req.body.photos[i], function (err, stats) {
             if (err) return console.error(err);
             fs.unlink('public/images/userPhotos/'+req.session.user_key+'/'+req.body.photos[i],function(err){
@@ -494,10 +477,8 @@ module.exports.deleteUserPhotos = function (req, res, callback) {
  */
 
 module.exports.setNewComment = function (req, res, callback) {
-    console.log('[SERVER] -> setNewComment')
     pool.getConnection(function(err, con) {
         if (err) throw err;
-        console.log(req.body);
         var values = {
             photo_name          : req.body.comment.photo,
             comment             : req.body.comment.text,
@@ -526,10 +507,8 @@ module.exports.setNewComment = function (req, res, callback) {
  */
 
 module.exports.getPhotoData = function (req, res, callback) {
-    console.log('[SERVER] -> getPhotoData');
     pool.getConnection(function(err, con) {
         if (err) throw err;
-        console.log(req.body.photo);
         var values = [
             req.body.photo.name,
             req.body.photo.name,
@@ -545,7 +524,6 @@ module.exports.getPhotoData = function (req, res, callback) {
         con.query(sql, values, function (err, result, fields) {
             if (err) throw err;
 
-            console.log(result[0]);
             if (result[0]) {
                 var e  = {
                     photo: {
@@ -626,7 +604,6 @@ module.exports.like = function (req, res, callback) {
 
         con.query(sql, values, function (err, result, fields) {
             if (err) throw err;
-            console.log(result);
             if (result[0].id != null) {
                 deleteLike(req, values, result[0].likes, con, callback);
             } else {
@@ -637,8 +614,6 @@ module.exports.like = function (req, res, callback) {
     });
 
     function deleteLike (req, values, likes, con, callback) {
-        console.log('DELETE LIKE\n');
-        console.log(values);
         var sql = "DELETE FROM photo_likes WHERE " +
             "liker_key = ? AND user_key = ? AND photo_name = ?";
         con.query(sql, values, function (err, result, fields) {
@@ -654,7 +629,6 @@ module.exports.like = function (req, res, callback) {
     }
 
     function addLike (req, values, likes, con, callback) {
-        console.log('ADD LIKE\n');
         var sql;
         async.series([
             function (callback) {
@@ -705,7 +679,6 @@ module.exports.updateUserInfo = function (req, res, callback) {
         var sql = "UPDATE registered_users SET ? WHERE user_key = ?";
 
         con.query(sql, values, function (err, result, fields) {
-            console.log(result);
             con.release();
             callback(req.body.data);
         });
@@ -726,8 +699,6 @@ module.exports.updateUserInfo = function (req, res, callback) {
  */
 
 module.exports.deleteHobbie = function (req, res, callback) {
-    console.log('[SERVER] -> deletePhoto');
-    console.log(req.body);
     pool.getConnection(function(err, con) {
         if (err) throw err;
         var values = [
@@ -736,7 +707,6 @@ module.exports.deleteHobbie = function (req, res, callback) {
         ];
         var sql = "DELETE FROM user_hobbies WHERE hobbie = ? AND user_key = ?";
         con.query(sql, values, function (err, result, fields) {
-            console.log(result);
             con.release();
             callback({status:true});
         });
@@ -756,7 +726,6 @@ module.exports.deleteHobbie = function (req, res, callback) {
  */
 
 module.exports.getBlackList = function (req, res, callback) {
-    console.log('[SERVER] -> getBlackList');
     pool.getConnection(function(err, con) {
         if (err) throw err;
         var values = {
@@ -764,8 +733,6 @@ module.exports.getBlackList = function (req, res, callback) {
         };
         var sql = "SELECT unwanted_user_key FROM user_blacklist WHERE ?";
         con.query(sql, values, function (err, result, fields) {
-            console.log(result);
-
             if (result[0]) {
                 for (var i = 0, keys = 'SELECT user_key, name, surname, photo_activated FROM registered_users WHERE '; i < result.length; i++) {
                     keys += ("user_key = '" + result[i].unwanted_user_key + "'" + (i + 1 < result.length ? " OR " : " "));
@@ -800,7 +767,6 @@ module.exports.getBlackList = function (req, res, callback) {
  */
 
 module.exports.addUserToFriends = function (req, res, callback) {
-    console.log('[SERVER] -> addUserToFriends');
     pool.getConnection(function(err, con) {
         if (err) throw err;
         var values = {
@@ -809,7 +775,6 @@ module.exports.addUserToFriends = function (req, res, callback) {
         };
         var sql = "INSERT INTO user_friends SET ?";
         con.query(sql, values, function (err, result, fields) {
-            console.log(result);
             con.release();
             callback(true);
         });
@@ -829,7 +794,6 @@ module.exports.addUserToFriends = function (req, res, callback) {
  */
 
 module.exports.deleteFriend = function (req, res, callback) {
-    console.log('[SERVER] -> addUserToFriends');
     pool.getConnection(function(err, con) {
         if (err) throw err;
         var values = {
@@ -838,7 +802,6 @@ module.exports.deleteFriend = function (req, res, callback) {
         };
         var sql = "DELETE FROM user_friends WHERE user_key = ? AND friend_key = ?";
         con.query(sql, [values.user_key, values.friend_key], function (err, result, fields) {
-            console.log(result);
             con.release();
             callback(true);
         });
@@ -858,7 +821,6 @@ module.exports.deleteFriend = function (req, res, callback) {
  */
 
 module.exports.addToBlackList = function (req, res, callback) {
-    console.log('[SERVER] -> addUserToFriends');
     pool.getConnection(function(err, con) {
         if (err) throw err;
         var values = {
@@ -899,7 +861,6 @@ module.exports.addToBlackList = function (req, res, callback) {
  */
 
 module.exports.removeFromBlackList = function (req, res, callback) {
-    console.log('[SERVER] -> removeFromBlackList');
     pool.getConnection(function(err, con) {
         if (err) throw err;
         var values = {
@@ -908,7 +869,6 @@ module.exports.removeFromBlackList = function (req, res, callback) {
         };
         var sql = "DELETE FROM user_blacklist WHERE user_key = ? AND unwanted_user_key = ?";
         con.query(sql, [values.user_key, values.friend_key], function (err, result, fields) {
-            console.log(result);
             con.release();
             callback(true);
         });
@@ -927,17 +887,34 @@ module.exports.removeFromBlackList = function (req, res, callback) {
  */
 
 module.exports.findUsers = function (req, res, callback) {
-    console.log('[SERVER] -> findUser');
     pool.getConnection(function(err, con) {
         if (err) throw err;
-        var sql = "SELECT latitude, longitude FROM registered_users WHERE user_key = ?";
-        con.query(sql, [req.session.user_key], function (err, result, fields) {
-            getUsers(req, result[0], function (users) {
+        async.parallel([
+            function (callback) {
+                var sql = "SELECT latitude, longitude FROM registered_users WHERE user_key = ?";
+                con.query(sql, [req.session.user_key], function (err, result, fields) {
+                    callback(null, result[0]);
+                });
+            },
+            function (callback) {
+                var sql = "SELECT user_key FROM user_hobbies WHERE ";
+                var sql2 = '';
+                var hash = req.body.options.findOnHashtags.trim().split(' ');
+                for (var i = 0; i < hash.length; i++) {
+                    sql2+= "hobbie = '"+hash[i]+"'";
+                    i + 1 < hash.length ? sql2+= " OR " : 0;
+                }
+                con.query(sql + sql2, function (err, result, fields) {
+                    callback(null, result);
+                });
+            }
+        ], function (err, r) {
+            getUsers(req, r[0], r[1], function (users) {
                 callback(users);
             });
         });
 
-        function getUsers (req, coords, callback) {
+        function getUsers (req, coords, hashtags, callback) {
             var sql = "SELECT user_key, name, surname, photo_activated FROM registered_users ";
             var sql2 = '';
 
@@ -967,6 +944,15 @@ module.exports.findUsers = function (req, res, callback) {
             if (req.body.options.sflCity.trim().length > 0) {
                 sql2.length == 0 ? sql2 += "WHERE " : sql2 += " AND ";
                 sql2 += "( city = '"+req.body.options.sflCity.trim()+"' ) ";
+            }
+            if (hashtags.length > 0) {
+                sql2.length == 0 ? sql2 += "WHERE " : sql2 += " AND ";
+                hashtags.length > 0 ? sql2 += '(' : 0;
+                for (var i = 0; i < hashtags.length; i++) {
+                    sql2 += "user_key = '"+hashtags[i].user_key+"'";
+                    i+1 < hashtags.length ? sql2 += " OR " : 0;
+                }
+                hashtags.length > 0 ? sql2 += ')' : 0;
             }
 
             sql2.length == 0 ? sql2 += "WHERE " : sql2 += " AND ";
@@ -1002,9 +988,7 @@ module.exports.findUsers = function (req, res, callback) {
             }
             sql2+= ' )';
 
-            console.log(sql + sql2);
             con.query(sql + sql2, [], function (err, result, fields) {
-                console.log(result);
                 callback(result ? result : []);
             });
         }
@@ -1023,7 +1007,6 @@ module.exports.findUsers = function (req, res, callback) {
  */
 
 module.exports.getChats = function (req, res, callback) {
-    console.log('[SERVER] -> GETCHATS');
     pool.getConnection(function(err, con) {
         if (err) throw err;
         var values = {
@@ -1032,7 +1015,6 @@ module.exports.getChats = function (req, res, callback) {
         };
         var sql = "SELECT chat, interlocutor_key FROM user_chats WHERE user_key = ?";
         con.query(sql, [req.session.user_key], function (err, result, fields) {
-            console.log(result);
             var check = result;
             if (result[0])
                 async.parallel([
@@ -1045,10 +1027,8 @@ module.exports.getChats = function (req, res, callback) {
                             i + 1 < result.length ? sql2 += " OR " : 0;
                         }
                         sql2 += ")";
-                        console.log('1', sql + sql2);
                         con.query(sql + sql2, function (err, result, fields) {
                             if (err) throw err;
-                            console.log('SELECT CHATS', result);
                             callback(null, result);
                         });
                     },
@@ -1059,10 +1039,8 @@ module.exports.getChats = function (req, res, callback) {
                             sql2 += "user_key = '" + result[i].interlocutor_key + "'";
                             i + 1 < result.length ? sql2 += " OR " : 0;
                         }
-                        console.log('2', sql + sql2);
                         con.query(sql + sql2, function (err, result, fields) {
                             if (err) throw err;
-                            console.log('SELECT INTERLOCUTORS', result);
                             callback(null, result);
                         });
                     }
@@ -1087,7 +1065,6 @@ module.exports.getChats = function (req, res, callback) {
  */
 
 module.exports.getMessages = function (req, res, callback) {
-    console.log('[SERVER] -> GETMESSAGES');
     pool.getConnection(function(err, con) {
         if (err) throw err;
         var sql;
@@ -1109,7 +1086,6 @@ module.exports.getMessages = function (req, res, callback) {
                 });
             }
         ], function (err, result) {
-            console.log(result);
             con.release();
             callback(result);
         });
@@ -1129,10 +1105,8 @@ module.exports.getMessages = function (req, res, callback) {
  */
 
 module.exports.sendMsg = function (req, res, callback) {
-    console.log('[SERVER] -> sendMsg')
     pool.getConnection(function(err, con) {
         if (err) throw err;
-        console.log(req.body);
         var values = {
             chat    : req.body.msg.chat,
             user_key: req.session.user_key,
@@ -1146,4 +1120,70 @@ module.exports.sendMsg = function (req, res, callback) {
             callback(result.affectedRows > 0 ? true : false);
         });
     });
+}
+
+/*
+ *  [function checkChat]
+ *
+ *  Функция проверяет существует ли чат по ключу который нам передали и ключу
+ *  сессии, если чат существует возвращаем номер чата, если не существует создаем
+ *  чат и возвращаем его ключ.
+ *
+ *  req.body.user           -   Ключ собеседника.
+ *  req.session.user_key    -   Ключ пользователя.
+ *  res                     -   Не используем.
+ *  callback                -   Возвращает true.
+ */
+
+module.exports.checkChat = function (req, res, callback) {
+    pool.getConnection(function(err, con) {
+        if (err) throw err;
+        var values = {
+            interlocutor_key: req.body.user,
+            user_key        : req.session.user_key,
+        };
+        var sql = "SELECT chat FROM user_chats WHERE user_key = ? AND interlocutor_key = ?";
+        con.query(sql, [values.interlocutor_key, values.user_key], function (err, result, fields) {
+            if (err) throw err;
+            if (result[0]) {
+                con.release();
+                callback(result[0]);
+            } else
+                createChat(values, con, callback);
+        });
+    });
+
+    function createChat (values, con, callback) {
+        var sql;
+        async.series([
+            function (callback) {
+                sql = "SELECT MAX(id) as id FROM `user_chats`";
+                con.query(sql, function (err, result, fields) {
+                    if (err) throw err;
+                    callback(null, result[0].id ? result[0].id + 1 : 1);
+                });
+            }
+        ], function (err, r) {
+            values.chat = r[0];
+            async.parallel([
+                function (callback) {
+                    var sql = "INSERT INTO user_chats SET ?";
+                    con.query(sql, values, function (err, result, fields) {
+                        if (err) throw err;
+                        callback(null, result.affectedRows > 0 ? values : false);
+                    });
+                },
+                function (callback) {
+                    var sql = "INSERT INTO user_chats SET ?";
+                    con.query(sql, {interlocutor_key: values.user_key, user_key: values.interlocutor_key, chat: values.chat}, function (err, result, fields) {
+                        if (err) throw err;
+                        callback(null, result.affectedRows > 0 ? values : false);
+                    });
+                }
+            ], function (err, r) {
+                con.release();
+                callback(r[0]);
+            });
+        });
+    }
 }

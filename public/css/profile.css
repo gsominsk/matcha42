@@ -1677,6 +1677,9 @@ html, body, .content-main {
     font-family: 'Roboto Black', arial;
     font-size: 0.9em;
 }
+.au-profile-data-wrap .au-profile-data-list .au-pdl-item:last-child {
+    display: none;
+}
 .au-profile-data-wrap .au-profile-data-list .au-pdl-item span:first-child {
     float: left;
 }
